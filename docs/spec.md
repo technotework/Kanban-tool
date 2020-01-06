@@ -336,7 +336,7 @@ export default {
 
 #### ***SKIN***
 
-components/properties.css
+components/themes/properties.css
 
 ##### 責務
 
