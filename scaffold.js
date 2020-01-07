@@ -1,3 +1,5 @@
+//vueコンポーネント一括生成
+
 let fs = require('fs');
 
 let compoNameKebab = "";
@@ -123,10 +125,6 @@ let directories = [
     { val: page, dir: "src/components/pages/" },
 ];
 
-/*-----------------
-テンプレート
------------------*/
-
 
 /*-----------------
 ファイル作成
@@ -174,28 +172,11 @@ function scafold(dir,subDirArray) {
 		let fileName = dirName + "/index.vue";
 		compoNameKebab = subDirArray[i];
 		compoNamePascal = renamePascal(compoNameKebab);
-		let src = `<template>
-	<div class="${compoNameKebab}">
-	</div>
-</template>
 
-<script>
-export default {
-	name: '${compoNamePascal}',
-	props: {
-
-	}
-}
-</script>
-
-<style lang="scss">
-
-</style>`;
-
-
+		let temp = getTemplate();
 		console.log(compoNameKebab,compoNamePascal); 
 		createDirctory(dirName);
-		createFiles(fileName,src);
+		createFiles(fileName,temp);
 	}
 
 }
@@ -220,6 +201,29 @@ function createFiles(filePath, content) {
     });
 
 }
+
+function getTemplate(){
+	
+	return `<template>
+	<div class="${compoNameKebab}">
+	</div>
+</template>
+
+<script>
+export default {
+	name: '${compoNamePascal}',
+	props: {
+
+	}
+}
+</script>
+
+<style lang="scss">
+
+</style>`;
+	
+}
+
 
 exec();
 
