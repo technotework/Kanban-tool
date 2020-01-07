@@ -301,7 +301,7 @@ label_colors:[
 - コンポーネント名はケバブケースとする
 
 ```
-UserList.vue
+user-list.vue
 <user-list />
 components:{UserList}
 ```
@@ -315,7 +315,7 @@ components:{UserList}
 ```
 - props受渡側はケバブケースとする
 ```
-<UserListItem
+<user-list-item
   first-name="hoge"
   last-name="taro"
 />
