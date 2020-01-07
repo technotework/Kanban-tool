@@ -969,7 +969,7 @@ class Members {
 + deleteWithDrawnMember(memberID:Number):Boolean
 
 'メンバーマスターを更新する Booleanで成功失敗を返す
-+ updateLabel(memberArray:Array):Boolean
++ updateMember(memberArray:Array):Boolean
 
 }
 

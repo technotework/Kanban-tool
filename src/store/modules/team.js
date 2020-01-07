@@ -9,6 +9,15 @@ export default new Vuex.Store({
 	},
 	mutations: {
 	},
+	methods: {
+		updateTeamName(name){
+		
+			let resultString;
+		
+			return resultString;
+		},
+
+	}
 	actions: {
 	},
 	modules: {
