@@ -1,14 +1,14 @@
 <template>
-	<div class="table-header">
-	</div>
+    <div class="table-header">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TableHeader',
-	props: {
+    name: 'TableHeader',
+    props: {
 
-	}
+    }
 }
 </script>
 

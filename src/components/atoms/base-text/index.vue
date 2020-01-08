@@ -1,14 +1,14 @@
 <template>
-	<div class="base-text">
-	</div>
+    <div class="base-text">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseText',
-	props: {
+    name: 'BaseText',
+    props: {
 
-	}
+    }
 }
 </script>
 

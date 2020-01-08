@@ -1,14 +1,14 @@
 <template>
-	<div class="project-page">
-	</div>
+    <div class="project-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ProjectPage',
-	props: {
+    name: 'ProjectPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

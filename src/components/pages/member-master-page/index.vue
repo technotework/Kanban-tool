@@ -1,14 +1,14 @@
 <template>
-	<div class="member-master-page">
-	</div>
+    <div class="member-master-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'MemberMasterPage',
-	props: {
+    name: 'MemberMasterPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

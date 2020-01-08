@@ -1,14 +1,14 @@
 <template>
-	<div class="base-icon">
-	</div>
+    <div class="base-icon">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseIcon',
-	props: {
+    name: 'BaseIcon',
+    props: {
 
-	}
+    }
 }
 </script>
 

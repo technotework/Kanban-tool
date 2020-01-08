@@ -1,14 +1,14 @@
 <template>
-	<div class="flex-layout">
-	</div>
+    <div class="flex-layout">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'FlexLayout',
-	props: {
+    name: 'FlexLayout',
+    props: {
 
-	}
+    }
 }
 </script>
 

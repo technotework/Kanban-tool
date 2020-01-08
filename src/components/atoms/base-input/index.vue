@@ -1,14 +1,14 @@
 <template>
-	<div class="base-input">
-	</div>
+    <div class="base-input">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseInput',
-	props: {
+    name: 'BaseInput',
+    props: {
 
-	}
+    }
 }
 </script>
 

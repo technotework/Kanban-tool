@@ -1,14 +1,14 @@
 <template>
-	<div class="base-check-box">
-	</div>
+    <div class="base-check-box">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseCheckBox',
-	props: {
+    name: 'BaseCheckBox',
+    props: {
 
-	}
+    }
 }
 </script>
 

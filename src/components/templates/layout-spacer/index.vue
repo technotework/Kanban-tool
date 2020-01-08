@@ -1,14 +1,14 @@
 <template>
-	<div class="layout-spacer">
-	</div>
+    <div class="layout-spacer">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'LayoutSpacer',
-	props: {
+    name: 'LayoutSpacer',
+    props: {
 
-	}
+    }
 }
 </script>
 

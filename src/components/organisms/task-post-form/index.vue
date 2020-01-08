@@ -1,14 +1,14 @@
 <template>
-	<div class="task-post-form">
-	</div>
+    <div class="task-post-form">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TaskPostForm',
-	props: {
+    name: 'TaskPostForm',
+    props: {
 
-	}
+    }
 }
 </script>
 

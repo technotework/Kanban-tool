@@ -1,14 +1,14 @@
 <template>
-	<div class="archive-list">
-	</div>
+    <div class="archive-list">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ArchiveList',
-	props: {
+    name: 'ArchiveList',
+    props: {
 
-	}
+    }
 }
 </script>
 

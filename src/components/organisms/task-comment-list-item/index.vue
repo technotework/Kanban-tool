@@ -1,14 +1,14 @@
 <template>
-	<div class="task-comment-list-item">
-	</div>
+    <div class="task-comment-list-item">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TaskCommentListItem',
-	props: {
+    name: 'TaskCommentListItem',
+    props: {
 
-	}
+    }
 }
 </script>
 

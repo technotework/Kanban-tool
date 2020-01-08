@@ -1,14 +1,14 @@
 <template>
-	<div class="edit-profile-page">
-	</div>
+    <div class="edit-profile-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'EditProfilePage',
-	props: {
+    name: 'EditProfilePage',
+    props: {
 
-	}
+    }
 }
 </script>
 

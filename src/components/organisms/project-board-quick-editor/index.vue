@@ -1,14 +1,14 @@
 <template>
-	<div class="project-board-quick-editor">
-	</div>
+    <div class="project-board-quick-editor">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ProjectBoardQuickEditor',
-	props: {
+    name: 'ProjectBoardQuickEditor',
+    props: {
 
-	}
+    }
 }
 </script>
 

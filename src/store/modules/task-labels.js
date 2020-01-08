@@ -10,26 +10,26 @@ export default new Vuex.Store({
 	mutations: {
 	},
 	methods: {
-		readTaskLabelList(taskId){
-		
+		readTaskLabelList(taskId) {
+
 			let resultArray;
-		
+
 			return resultArray;
 		},
-		deleteTaskLabel(labelId,taskId){
-		
+		deleteTaskLabel(labelId, taskId) {
+
 			let resultBoolean;
-		
+
 			return resultBoolean;
 		},
-		updateTaskLabel(labelArray,taskId){
-		
+		updateTaskLabel(labelArray, taskId) {
+
 			let resultBoolean;
-		
+
 			return resultBoolean;
 		},
 
-	}
+	},
 	actions: {
 	},
 	modules: {

@@ -1,14 +1,14 @@
 <template>
-	<div class="base-color-chip">
-	</div>
+    <div class="base-color-chip">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseColorChip',
-	props: {
+    name: 'BaseColorChip',
+    props: {
 
-	}
+    }
 }
 </script>
 

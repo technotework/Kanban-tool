@@ -1,14 +1,14 @@
 <template>
-	<div class="base-link-button">
-	</div>
+    <div class="base-link-button">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseLinkButton',
-	props: {
+    name: 'BaseLinkButton',
+    props: {
 
-	}
+    }
 }
 </script>
 

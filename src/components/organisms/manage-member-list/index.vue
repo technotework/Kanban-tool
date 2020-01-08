@@ -1,14 +1,14 @@
 <template>
-	<div class="manage-member-list">
-	</div>
+    <div class="manage-member-list">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ManageMemberList',
-	props: {
+    name: 'ManageMemberList',
+    props: {
 
-	}
+    }
 }
 </script>
 

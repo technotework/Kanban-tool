@@ -1,14 +1,14 @@
 <template>
-	<div class="member-master-list-item">
-	</div>
+    <div class="member-master-list-item">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'MemberMasterListItem',
-	props: {
+    name: 'MemberMasterListItem',
+    props: {
 
-	}
+    }
 }
 </script>
 

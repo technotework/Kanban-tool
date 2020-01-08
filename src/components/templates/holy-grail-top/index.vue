@@ -1,14 +1,14 @@
 <template>
-	<div class="holy-grail-top">
-	</div>
+    <div class="holy-grail-top">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'HolyGrailTop',
-	props: {
+    name: 'HolyGrailTop',
+    props: {
 
-	}
+    }
 }
 </script>
 

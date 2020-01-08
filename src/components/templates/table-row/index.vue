@@ -1,14 +1,14 @@
 <template>
-	<div class="table-row">
-	</div>
+    <div class="table-row">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TableRow',
-	props: {
+    name: 'TableRow',
+    props: {
 
-	}
+    }
 }
 </script>
 

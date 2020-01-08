@@ -1,14 +1,14 @@
 <template>
-	<div class="login-form">
-	</div>
+    <div class="login-form">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'LoginForm',
-	props: {
+    name: 'LoginForm',
+    props: {
 
-	}
+    }
 }
 </script>
 

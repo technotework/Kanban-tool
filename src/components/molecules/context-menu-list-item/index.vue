@@ -1,14 +1,14 @@
 <template>
-	<div class="context-menu-list-item">
-	</div>
+    <div class="context-menu-list-item">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ContextMenuListItem',
-	props: {
+    name: 'ContextMenuListItem',
+    props: {
 
-	}
+    }
 }
 </script>
 

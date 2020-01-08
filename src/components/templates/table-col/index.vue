@@ -1,14 +1,14 @@
 <template>
-	<div class="table-col">
-	</div>
+    <div class="table-col">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TableCol',
-	props: {
+    name: 'TableCol',
+    props: {
 
-	}
+    }
 }
 </script>
 

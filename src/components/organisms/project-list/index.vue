@@ -1,14 +1,14 @@
 <template>
-	<div class="project-list">
-	</div>
+    <div class="project-list">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ProjectList',
-	props: {
+    name: 'ProjectList',
+    props: {
 
-	}
+    }
 }
 </script>
 

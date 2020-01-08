@@ -1,14 +1,14 @@
 <template>
-	<div class="task-member-list-item">
-	</div>
+    <div class="task-member-list-item">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TaskMemberListItem',
-	props: {
+    name: 'TaskMemberListItem',
+    props: {
 
-	}
+    }
 }
 </script>
 

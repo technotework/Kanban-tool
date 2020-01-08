@@ -1,14 +1,14 @@
 <template>
-	<div class="base-modeless-container">
-	</div>
+    <div class="base-modeless-container">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseModelessContainer',
-	props: {
+    name: 'BaseModelessContainer',
+    props: {
 
-	}
+    }
 }
 </script>
 

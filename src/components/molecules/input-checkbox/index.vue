@@ -1,14 +1,14 @@
 <template>
-	<div class="input-checkbox">
-	</div>
+    <div class="input-checkbox">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'InputCheckbox',
-	props: {
+    name: 'InputCheckbox',
+    props: {
 
-	}
+    }
 }
 </script>
 

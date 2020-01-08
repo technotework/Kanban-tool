@@ -1,14 +1,14 @@
 <template>
-	<div class="manage-plan-page">
-	</div>
+    <div class="manage-plan-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ManagePlanPage',
-	props: {
+    name: 'ManagePlanPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

@@ -1,14 +1,14 @@
 <template>
-	<div class="holy-grail-left">
-	</div>
+    <div class="holy-grail-left">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'HolyGrailLeft',
-	props: {
+    name: 'HolyGrailLeft',
+    props: {
 
-	}
+    }
 }
 </script>
 

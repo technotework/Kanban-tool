@@ -1,14 +1,14 @@
 <template>
-	<div class="base-editable-text">
-	</div>
+    <div class="base-editable-text">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseEditableText',
-	props: {
+    name: 'BaseEditableText',
+    props: {
 
-	}
+    }
 }
 </script>
 

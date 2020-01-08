@@ -1,14 +1,14 @@
 <template>
-	<div class="base-button">
-	</div>
+    <div class="base-button">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseButton',
-	props: {
+    name: 'BaseButton',
+    props: {
 
-	}
+    }
 }
 </script>
 

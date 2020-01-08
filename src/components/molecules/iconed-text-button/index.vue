@@ -1,14 +1,14 @@
 <template>
-	<div class="iconed-text-button">
-	</div>
+    <div class="iconed-text-button">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'IconedTextButton',
-	props: {
+    name: 'IconedTextButton',
+    props: {
 
-	}
+    }
 }
 </script>
 

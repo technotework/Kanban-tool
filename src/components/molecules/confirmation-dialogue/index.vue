@@ -1,14 +1,14 @@
 <template>
-	<div class="confirmation-dialogue">
-	</div>
+    <div class="confirmation-dialogue">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ConfirmationDialogue',
-	props: {
+    name: 'ConfirmationDialogue',
+    props: {
 
-	}
+    }
 }
 </script>
 

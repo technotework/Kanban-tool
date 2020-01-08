@@ -1,14 +1,14 @@
 <template>
-	<div class="login-page">
-	</div>
+    <div class="login-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'LoginPage',
-	props: {
+    name: 'LoginPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

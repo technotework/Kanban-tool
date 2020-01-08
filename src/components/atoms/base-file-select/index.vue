@@ -1,14 +1,14 @@
 <template>
-	<div class="base-file-select">
-	</div>
+    <div class="base-file-select">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseFileSelect',
-	props: {
+    name: 'BaseFileSelect',
+    props: {
 
-	}
+    }
 }
 </script>
 

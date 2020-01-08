@@ -1,14 +1,14 @@
 <template>
-	<div class="base-form-label">
-	</div>
+    <div class="base-form-label">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseFormLabel',
-	props: {
+    name: 'BaseFormLabel',
+    props: {
 
-	}
+    }
 }
 </script>
 

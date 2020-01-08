@@ -1,14 +1,14 @@
 <template>
-	<div class="password-reissue-page">
-	</div>
+    <div class="password-reissue-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'PasswordReissuePage',
-	props: {
+    name: 'PasswordReissuePage',
+    props: {
 
-	}
+    }
 }
 </script>
 

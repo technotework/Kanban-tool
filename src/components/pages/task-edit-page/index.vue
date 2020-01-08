@@ -1,14 +1,14 @@
 <template>
-	<div class="task-edit-page">
-	</div>
+    <div class="task-edit-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'TaskEditPage',
-	props: {
+    name: 'TaskEditPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

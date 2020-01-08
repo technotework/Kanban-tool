@@ -1,14 +1,14 @@
 <template>
-	<div class="both-side-right">
-	</div>
+    <div class="both-side-right">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BothSideRight',
-	props: {
+    name: 'BothSideRight',
+    props: {
 
-	}
+    }
 }
 </script>
 

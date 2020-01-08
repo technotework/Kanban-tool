@@ -1,14 +1,14 @@
 <template>
-	<div class="color-palette-picker">
-	</div>
+    <div class="color-palette-picker">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ColorPalettePicker',
-	props: {
+    name: 'ColorPalettePicker',
+    props: {
 
-	}
+    }
 }
 </script>
 

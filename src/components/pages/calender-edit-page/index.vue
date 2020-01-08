@@ -1,14 +1,14 @@
 <template>
-	<div class="calender-edit-page">
-	</div>
+    <div class="calender-edit-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'CalenderEditPage',
-	props: {
+    name: 'CalenderEditPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

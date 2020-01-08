@@ -1,14 +1,14 @@
 <template>
-	<div class="search-form">
-	</div>
+    <div class="search-form">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'SearchForm',
-	props: {
+    name: 'SearchForm',
+    props: {
 
-	}
+    }
 }
 </script>
 

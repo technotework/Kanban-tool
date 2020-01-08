@@ -1,14 +1,14 @@
 <template>
-	<div class="base-select">
-	</div>
+    <div class="base-select">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseSelect',
-	props: {
+    name: 'BaseSelect',
+    props: {
 
-	}
+    }
 }
 </script>
 

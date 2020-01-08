@@ -1,14 +1,14 @@
 <template>
-	<div class="regist-page">
-	</div>
+    <div class="regist-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'RegistPage',
-	props: {
+    name: 'RegistPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

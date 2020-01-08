@@ -1,14 +1,14 @@
 <template>
-	<div class="base-markdown-container">
-	</div>
+    <div class="base-markdown-container">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseMarkdownContainer',
-	props: {
+    name: 'BaseMarkdownContainer',
+    props: {
 
-	}
+    }
 }
 </script>
 

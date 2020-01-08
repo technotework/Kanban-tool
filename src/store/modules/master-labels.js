@@ -35,7 +35,7 @@ export default new Vuex.Store({
 			return resultBoolean;
 		},
 
-	}
+	},
 	actions: {
 	},
 	modules: {

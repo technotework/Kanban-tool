@@ -1,14 +1,14 @@
 <template>
-	<div class="label-master-post-form">
-	</div>
+    <div class="label-master-post-form">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'LabelMasterPostForm',
-	props: {
+    name: 'LabelMasterPostForm',
+    props: {
 
-	}
+    }
 }
 </script>
 

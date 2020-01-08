@@ -1,14 +1,14 @@
 <template>
-	<div class="color-label">
-	</div>
+    <div class="color-label">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'ColorLabel',
-	props: {
+    name: 'ColorLabel',
+    props: {
 
-	}
+    }
 }
 </script>
 

@@ -1,14 +1,14 @@
 <template>
-	<div class="label-master-page">
-	</div>
+    <div class="label-master-page">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'LabelMasterPage',
-	props: {
+    name: 'LabelMasterPage',
+    props: {
 
-	}
+    }
 }
 </script>
 

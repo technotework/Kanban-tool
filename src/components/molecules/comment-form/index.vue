@@ -1,14 +1,14 @@
 <template>
-	<div class="comment-form">
-	</div>
+    <div class="comment-form">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'CommentForm',
-	props: {
+    name: 'CommentForm',
+    props: {
 
-	}
+    }
 }
 </script>
 

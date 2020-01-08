@@ -1,14 +1,14 @@
 <template>
-	<div class="base-heading">
-	</div>
+    <div class="base-heading">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseHeading',
-	props: {
+    name: 'BaseHeading',
+    props: {
 
-	}
+    }
 }
 </script>
 

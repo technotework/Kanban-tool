@@ -10,38 +10,38 @@ export default new Vuex.Store({
 	mutations: {
 	},
 	methods: {
-		readProjectList(){
-		
+		readProjectList() {
+
 			let resultArray;
-		
+
 			return resultArray;
 		},
-		updateProjectName(name){
-		
+		updateProjectName(name) {
+
 			let resultString;
-		
+
 			return resultString;
 		},
-		deleteProject(projectId){
-		
+		deleteProject(projectId) {
+
 			let resultBoolean;
-		
+
 			return resultBoolean;
 		},
-		createProject(){
-		
+		createProject() {
+
 			let resultBoolean;
-		
+
 			return resultBoolean;
 		},
-		readProject(projectId){
-		
+		readProject(projectId) {
+
 			let resultBoolean;
-		
+
 			return resultBoolean;
 		},
 
-	}
+	},
 	actions: {
 	},
 	modules: {

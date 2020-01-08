@@ -17,7 +17,7 @@ export default new Vuex.Store({
 			return resultString;
 		},
 
-	}
+	},
 	actions: {
 	},
 	modules: {

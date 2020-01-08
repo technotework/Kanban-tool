@@ -157,36 +157,36 @@ function exec() {
 
         let subDirArray = directories[i]["val"];
         let dir = directories[i]["dir"];
-        
-        scafold(dir,subDirArray);
+
+        scafold(dir, subDirArray);
     }
 
 }
 
 
-function scafold(dir,subDirArray) {
+function scafold(dir, subDirArray) {
 
     for (let i = 0; i < subDirArray.length; i++) {
 
-		let dirName = dir + subDirArray[i];
-		let fileName = dirName + "/index.vue";
-		compoNameKebab = subDirArray[i];
-		compoNamePascal = renamePascal(compoNameKebab);
+        let dirName = dir + subDirArray[i];
+        let fileName = dirName + "/index.vue";
+        compoNameKebab = subDirArray[i];
+        compoNamePascal = renamePascal(compoNameKebab);
 
-		let temp = getTemplate();
-		console.log(compoNameKebab,compoNamePascal); 
-		createDirctory(dirName);
-		createFiles(fileName,temp);
-	}
+        let temp = getTemplate();
+        console.log(compoNameKebab, compoNamePascal);
+        createDirctory(dirName);
+        createFiles(fileName, temp);
+    }
 
 }
 
 //ディレクトリ生成処理
-function createDirctory(dirName){
-	
-	if(!fs.existsSync(dirName)){
-		fs.mkdirSync(dirName);	
-	}
+function createDirctory(dirName) {
+
+    if (!fs.existsSync(dirName)) {
+        fs.mkdirSync(dirName);
+    }
 }
 
 
@@ -202,26 +202,26 @@ function createFiles(filePath, content) {
 
 }
 
-function getTemplate(){
-	
-	return `<template>
-	<div class="${compoNameKebab}">
-	</div>
+function getTemplate() {
+
+    return `<template>
+    <div class="${compoNameKebab}">
+    </div>
 </template>
 
 <script>
 export default {
-	name: '${compoNamePascal}',
-	props: {
+    name: '${compoNamePascal}',
+    props: {
 
-	}
+    }
 }
 </script>
 
 <style lang="scss">
 
 </style>`;
-	
+
 }
 
 

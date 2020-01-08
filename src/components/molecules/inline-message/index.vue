@@ -1,14 +1,14 @@
 <template>
-	<div class="inline-message">
-	</div>
+    <div class="inline-message">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'InlineMessage',
-	props: {
+    name: 'InlineMessage',
+    props: {
 
-	}
+    }
 }
 </script>
 

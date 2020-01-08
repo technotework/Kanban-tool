@@ -1,14 +1,14 @@
 <template>
-	<div class="base-modal-container">
-	</div>
+    <div class="base-modal-container">
+    </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseModalContainer',
-	props: {
+    name: 'BaseModalContainer',
+    props: {
 
-	}
+    }
 }
 </script>
 
