@@ -1,5 +1,6 @@
 <template>
     <div class="base-link-button">
+    src/components/atoms/base-link-button/index.vue
     </div>
 </template>
 

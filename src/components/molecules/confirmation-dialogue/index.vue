@@ -1,5 +1,6 @@
 <template>
     <div class="confirmation-dialogue">
+    src/components/molecules/confirmation-dialogue/index.vue
     </div>
 </template>
 

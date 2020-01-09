@@ -1,5 +1,6 @@
 <template>
     <div class="base-form-label">
+    src/components/atoms/base-form-label/index.vue
     </div>
 </template>
 

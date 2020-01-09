@@ -1,5 +1,6 @@
 <template>
     <div class="comment-form">
+    src/components/molecules/comment-form/index.vue
     </div>
 </template>
 

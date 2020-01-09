@@ -1,5 +1,6 @@
 <template>
     <div class="base-icon">
+    src/components/atoms/base-icon/index.vue
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
     <div class="label-master-post-form">
+    src/components/organisms/label-master-post-form/index.vue
     </div>
 </template>
 

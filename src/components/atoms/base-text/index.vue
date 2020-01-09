@@ -1,5 +1,6 @@
 <template>
     <div class="base-text">
+    src/components/atoms/base-text/index.vue
     </div>
 </template>
 

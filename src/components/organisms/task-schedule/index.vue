@@ -1,5 +1,6 @@
 <template>
     <div class="task-schedule">
+    src/components/organisms/task-schedule/index.vue
     </div>
 </template>
 

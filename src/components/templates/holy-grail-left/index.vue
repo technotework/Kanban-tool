@@ -1,5 +1,6 @@
 <template>
     <div class="holy-grail-left">
+    src/components/templates/holy-grail-left/index.vue
     </div>
 </template>
 

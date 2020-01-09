@@ -1,5 +1,6 @@
 <template>
     <div class="base-check-box">
+    src/components/atoms/base-check-box/index.vue
     </div>
 </template>
 

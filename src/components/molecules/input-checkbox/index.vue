@@ -1,5 +1,6 @@
 <template>
     <div class="input-checkbox">
+    src/components/molecules/input-checkbox/index.vue
     </div>
 </template>
 

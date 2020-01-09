@@ -1,5 +1,6 @@
 <template>
     <div class="base-editable-text">
+    src/components/atoms/base-editable-text/index.vue
     </div>
 </template>
 

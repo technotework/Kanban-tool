@@ -1,5 +1,6 @@
 <template>
     <div class="color-label">
+    src/components/molecules/color-label/index.vue
     </div>
 </template>
 

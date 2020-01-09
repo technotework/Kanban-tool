@@ -1,5 +1,6 @@
 <template>
     <div class="table-col">
+    src/components/templates/table-col/index.vue
     </div>
 </template>
 

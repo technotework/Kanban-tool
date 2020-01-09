@@ -1,5 +1,8 @@
 <template>
     <div class="manage-plan-page">
+    src/components/pages/manage-plan-page/index.vue<br>    
+    <router-link to="/app/project_list">project-list-page</router-link><br>
+    
     </div>
 </template>
 

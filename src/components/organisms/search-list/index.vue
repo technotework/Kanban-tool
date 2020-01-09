@@ -1,5 +1,6 @@
 <template>
     <div class="search-list">
+    src/components/organisms/search-list/index.vue
     </div>
 </template>
 

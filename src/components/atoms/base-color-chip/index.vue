@@ -1,5 +1,6 @@
 <template>
     <div class="base-color-chip">
+    src/components/atoms/base-color-chip/index.vue
     </div>
 </template>
 

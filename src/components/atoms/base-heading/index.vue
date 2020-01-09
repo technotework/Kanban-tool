@@ -1,5 +1,6 @@
 <template>
     <div class="base-heading">
+    src/components/atoms/base-heading/index.vue
     </div>
 </template>
 

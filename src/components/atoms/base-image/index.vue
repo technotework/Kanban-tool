@@ -1,5 +1,6 @@
 <template>
     <div class="base-image">
+    src/components/atoms/base-image/index.vue
     </div>
 </template>
 

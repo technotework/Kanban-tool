@@ -1,5 +1,6 @@
 <template>
     <div class="table-row">
+    src/components/templates/table-row/index.vue
     </div>
 </template>
 

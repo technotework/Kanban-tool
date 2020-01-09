@@ -1,5 +1,6 @@
 <template>
     <div class="labeled-input">
+    src/components/molecules/labeled-input/index.vue
     </div>
 </template>
 

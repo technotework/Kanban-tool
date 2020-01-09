@@ -1,5 +1,6 @@
 <template>
     <div class="table-header">
+    src/components/templates/table-header/index.vue
     </div>
 </template>
 

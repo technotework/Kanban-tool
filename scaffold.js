@@ -96,7 +96,8 @@ let temp = [
 ];
 
 let page = [
-
+    //"root-page",
+    "notfound-page",
     "regist-page",
     "complete-regist-temp-page",
     "complete-regist-page",
@@ -173,13 +174,15 @@ function scafold(dir, subDirArray) {
         compoNameKebab = subDirArray[i];
         compoNamePascal = renamePascal(compoNameKebab);
 
-        let temp = getTemplate();
+        let temp = getTemplate(fileName);
         console.log(compoNameKebab, compoNamePascal);
         createDirctory(dirName);
         createFiles(fileName, temp);
     }
 
 }
+
+
 
 //ディレクトリ生成処理
 function createDirctory(dirName) {
@@ -202,10 +205,17 @@ function createFiles(filePath, content) {
 
 }
 
-function getTemplate() {
+function getTemplate(filePath) {
+
+    let placeholder = filePath;
+    if (filePath.match("pages")) {
+
+        placeholder = filePath + "<br>    <!--pagelink-->";
+    }
 
     return `<template>
     <div class="${compoNameKebab}">
+    ${placeholder}
     </div>
 </template>
 

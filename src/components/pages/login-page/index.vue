@@ -1,5 +1,12 @@
 <template>
     <div class="login-page">
+    src/components/pages/login-page/index.vue<br>    
+    <router-link to="/app/regist">regist-page</router-link><br>
+    
+    <router-link to="/app/password_reissue">password-reissue-page</router-link><br>
+    
+    <router-link to="/app/project_list">project-list-page</router-link><br>
+    
     </div>
 </template>
 

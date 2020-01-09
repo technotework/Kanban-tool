@@ -1,5 +1,6 @@
 <template>
     <div class="context-menu-list-item">
+    src/components/molecules/context-menu-list-item/index.vue
     </div>
 </template>
 

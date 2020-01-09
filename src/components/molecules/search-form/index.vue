@@ -1,5 +1,6 @@
 <template>
     <div class="search-form">
+    src/components/molecules/search-form/index.vue
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
     <div class="base-select">
+    src/components/atoms/base-select/index.vue
     </div>
 </template>
 

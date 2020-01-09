@@ -1,5 +1,6 @@
 <template>
     <div class="flex-layout">
+    src/components/templates/flex-layout/index.vue
     </div>
 </template>
 

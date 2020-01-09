@@ -1,5 +1,6 @@
 <template>
     <div class="task-label-list">
+    src/components/organisms/task-label-list/index.vue
     </div>
 </template>
 

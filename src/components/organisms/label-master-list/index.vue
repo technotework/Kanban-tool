@@ -1,5 +1,6 @@
 <template>
     <div class="label-master-list">
+    src/components/organisms/label-master-list/index.vue
     </div>
 </template>
 

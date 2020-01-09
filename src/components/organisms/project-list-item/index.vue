@@ -1,5 +1,6 @@
 <template>
     <div class="project-list-item">
+    src/components/organisms/project-list-item/index.vue
     </div>
 </template>
 

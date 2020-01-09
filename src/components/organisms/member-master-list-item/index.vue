@@ -1,5 +1,6 @@
 <template>
     <div class="member-master-list-item">
+    src/components/organisms/member-master-list-item/index.vue
     </div>
 </template>
 

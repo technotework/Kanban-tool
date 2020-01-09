@@ -70,7 +70,6 @@
 | 登録完了画面/登録失敗画面 | /app/complete_regist |
 | ログイン画面 | /app/login |
 | パスワード再発行画面 | /app/pasword_reissue |
-| パスワード再発行画面 | /app/pasword_reissue |
 | パスワードリセット画面 | /app/pasword_reset |
 | プロジェクト一覧画面 | /app/project_list |
 | プロジェクト画面 | /app/project_list/[project-id] |

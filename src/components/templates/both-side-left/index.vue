@@ -1,5 +1,6 @@
 <template>
     <div class="both-side-left">
+    src/components/templates/both-side-left/index.vue
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
     <div class="iconed-text-button">
+    src/components/molecules/iconed-text-button/index.vue
     </div>
 </template>
 

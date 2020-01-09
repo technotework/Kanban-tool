@@ -1,5 +1,6 @@
 <template>
     <div class="inline-message">
+    src/components/molecules/inline-message/index.vue
     </div>
 </template>
 
