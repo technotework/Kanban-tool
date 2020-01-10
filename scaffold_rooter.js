@@ -21,7 +21,7 @@ let childPages = [
     {
         jname: "ログイン画面",
         name: "login-page",
-        to: ["regist-page", "password-reissue-page", "project-list-page"]
+        to: ["regist-page", "password-reissue-page", "project-page"]
     },
     {
         jname: "パスワード再発行画面",
@@ -35,13 +35,13 @@ let childPages = [
     },
     {
         jname: "プロジェクト一覧画面",
-        name: "project-list-page",
+        name: "project-page",
         to: ["project-page", "manage-plan-page", "manage-member-page", "edit-profile-page"]
     },
     {
         jname: "プロジェクト画面",
         name: "project-page",
-        to: ["project-list-page", "search-task-list-page", "archive-task-list-page", "task-edit-page"]
+        to: ["project-page", "search-task-list-page", "archive-task-list-page", "task-edit-page"]
     },
     {
         jname: "検索結果画面",
@@ -61,17 +61,17 @@ let childPages = [
     {
         jname: "契約管理",
         name: "manage-plan-page",
-        to: ["project-list-page"]
+        to: ["project-page"]
     },
     {
         jname: "メンバー管理",
         name: "manage-member-page",
-        to: ["project-list-page"]
+        to: ["project-page"]
     },
     {
         jname: "アカウント管理",
         name: "edit-profile-page",
-        to: ["project-list-page"]
+        to: ["project-page"]
     }
 ];
 
@@ -124,7 +124,6 @@ function appendLinkToCmponents() {
 function getURLString(name) {
 
     let result = name.replace("-page", "");
-    result = result.replace(/-/g, "_");
     return result;
 }
 

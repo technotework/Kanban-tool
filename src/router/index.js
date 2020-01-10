@@ -16,12 +16,12 @@ const routes = [
         component: () => import('../components/pages/regist-page/index.vue')
       },
       {//仮登録完了画面
-        path:  'complete_regist_temp',
+        path:  'complete-regist-temp',
         name: 'complete-regist-temp-page',
         component: () => import('../components/pages/complete-regist-temp-page/index.vue')
       },
       {//登録完了画面
-        path:  'complete_regist',
+        path:  'complete-regist',
         name: 'complete-regist-page',
         component: () => import('../components/pages/complete-regist-page/index.vue')
       },
@@ -31,52 +31,52 @@ const routes = [
         component: () => import('../components/pages/login-page/index.vue')
       },
       {//パスワード再発行画面
-        path:  'password_reissue',
+        path:  'password-reissue',
         name: 'password-reissue-page',
         component: () => import('../components/pages/password-reissue-page/index.vue')
       },
       {//パスワードリセット画面
-        path:  'password_reset',
+        path:  'password-reset',
         name: 'password-reset-page',
         component: () => import('../components/pages/password-reset-page/index.vue')
       },
       {//プロジェクト一覧画面
-        path:  'project_list',
+        path:  'project',
         name: 'project-list-page',
         component: () => import('../components/pages/project-list-page/index.vue')
       },
       {//プロジェクト画面
-        path:  'project',
+        path:  'project/:project-id',
         name: 'project-page',
         component: () => import('../components/pages/project-page/index.vue')
       },
       {//検索結果画面
-        path:  'search_task_list',
+        path:  'project/:project-id/search-task-list',
         name: 'search-task-list-page',
         component: () => import('../components/pages/search-task-list-page/index.vue')
       },
       {//アーカイブ画面
-        path:  'archive_task_list',
+        path:  'project/:project-id/archive-task-list',
         name: 'archive-task-list-page',
         component: () => import('../components/pages/archive-task-list-page/index.vue')
       },
       {//タスク編集画面
-        path:  'task_edit',
+        path:  'project/:task-id',
         name: 'task-edit-page',
         component: () => import('../components/pages/task-edit-page/index.vue')
       },
       {//契約管理
-        path:  'manage_plan',
+        path:  'manage-plan',
         name: 'manage-plan-page',
         component: () => import('../components/pages/manage-plan-page/index.vue')
       },
       {//メンバー管理
-        path:  'manage_member',
+        path:  'manage-member',
         name: 'manage-member-page',
         component: () => import('../components/pages/manage-member-page/index.vue')
       },
       {//アカウント管理
-        path:  'edit_profile',
+        path:  'edit-profile',
         name: 'edit-profile-page',
         component: () => import('../components/pages/edit-profile-page/index.vue')
       },

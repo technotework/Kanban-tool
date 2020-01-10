@@ -33,54 +33,6 @@
 
 - GoogleFirebase RealTimeDatabase
 
----
-
----
-
-## ディレクトリ構成
-
-├── dist  
-├── node_modules  
-├── package.json  
-├── src  
-│   ├── components(プレゼンテーショナル)  
-│   │   ├── atoms  
-│   │   ├── molecules  
-│   │   ├── organisms  
-│   │   ├── pages  
-│   │   └── templates  
-│   ├── containers(コンテナ)  
-│   ├── index.js  
-│   └── store  
-│	   └── modules  
-
-
----
-
----
-
-## ルーター構成
-
-| 階層 | パス |
-| ---- | ---- |
-| サイトトップ | / |
-| アプリ | /app |
-| 新規登録画面 | /app/regist |
-| 仮登録完了画面 | /app/complete_regist_temp |
-| 登録完了画面/登録失敗画面 | /app/complete_regist |
-| ログイン画面 | /app/login |
-| パスワード再発行画面 | /app/pasword_reissue |
-| パスワードリセット画面 | /app/pasword_reset |
-| プロジェクト一覧画面 | /app/project_list |
-| プロジェクト画面 | /app/project_list/[project-id] |
-| 検索結果画面 | /app/project_list/[project-id]/search |
-| アーカイブ画面 | /app/project_list/[project-id]/archive |
-| タスク編集画面 | /app/project_list/[project-id]/[task-id] |
-| マスタ一覧系 | ルーターを設定しない |
-| 契約管理 | /app/contract |
-| メンバー管理 | /app/members |
-| アカウント管理 | /app/profile |
-
 
 ---
 
@@ -292,44 +244,99 @@ label_colors:[
 
 ---
 
-## Vueコンポーネント構成
+## Vue構成
 
 ### 命名規則
 
-- ファイル名・コンポーネント登録名ともにパスカルケースとする
-- コンポーネント名はケバブケースとする
+- パスカルケース
+	- コンポーネント登録名
+
+- ケバブケース
+	- コンポーネント名、コンポーネントフォルダ名
+	- コンポーネントプロパティ(受け渡し側)、イベント名
+	- ルーターパス
 
 ```
-user-list.vue
-<user-list />
 components:{UserList}
+user-list.vue
+user-list/index.vue
+<user-list my-prop="" @click="this.$emit('click-on-button')"/>
+/app/my-project/:project-id
 ```
 
-- data名、メソッド名はキャメルケースとする
+- キャメルケース
+	- プロパティ(受け取り側data)・変数・関数名
 	- プライベート関数には$_をつける
 
-- イベント名はケバブケースとする
-```
-<button @click="this.$emit('create-button-click')"></button>
-```
-- props受渡側はケバブケースとする
-```
-<user-list-item
-  first-name="hoge"
-  last-name="taro"
-/>
-```
-- props受取側はキャメルケースとする
 ```
 export default {
   props: {
     firstName: String
     lastName: String
+  },
+  methods:{
+  	changeList:function(myName){
+  	
+  		let currentData = myName;
+  	},
+	$_changeList:function(){},
   }
 }
 ```
 
+- タブは4スペースとする
+
+
+## ディレクトリ構成
+
+├── dist  
+├── node_modules  
+├── package.json  
+├── src  
+│   ├── components(プレゼンテーショナル)  
+│   │   ├── atoms  
+│   │   ├── molecules  
+│   │   ├── organisms  
+│   │   ├── pages  
+│   │   └── templates  
+│   ├── containers(コンテナ)  
+│   ├── index.js  
+│   └── store  
+│	   └── modules  
+
+
 ---
+
+---
+
+## ルーター構成
+
+| 階層 | パス |
+| ---- | ---- |
+| サイトトップ | / |
+| アプリ | /app |
+| 新規登録画面 | /app/regist |
+| 仮登録完了画面 | /app/complete_regist_temp |
+| 登録完了画面/登録失敗画面 | /app/complete_regist |
+| ログイン画面 | /app/login |
+| パスワード再発行画面 | /app/pasword_reissue |
+| パスワードリセット画面 | /app/pasword_reset |
+| プロジェクト一覧画面 | /app/project |
+| プロジェクト画面 | /app/project/[project-id] |
+| 検索結果画面 | /app/project/[project-id]/search |
+| アーカイブ画面 | /app/project/[project-id]/archive |
+| タスク編集画面 | /app/project/[project-id]/[task-id] |
+| マスタ一覧系 | ルーターを設定しない |
+| 契約管理 | /app/contract |
+| メンバー管理 | /app/members |
+| アカウント管理 | /app/profile |
+
+
+---
+
+---
+
+## コンポーネント設計
 
 ### プレゼンテーショナル
 

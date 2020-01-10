@@ -1,7 +1,7 @@
 <template>
     <div class="edit-profile-page">
     src/components/pages/edit-profile-page/index.vue<br>    
-    <router-link to="/app/project_list">project-list-page</router-link><br>
+    <router-link to="/app/project-list">project-list-page</router-link><br>
     
     </div>
 </template>
