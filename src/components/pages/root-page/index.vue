@@ -7,6 +7,9 @@
 </template>
 
 <script>
+
+import '@/components/utils/global-styles.js'
+
 export default {
   name: "RootPage",
   props: {}
