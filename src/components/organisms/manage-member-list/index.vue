@@ -5,10 +5,14 @@
 </template>
 
 <script>
+import StyledCompo from './style.js';
 export default {
     name: 'ManageMemberList',
     props: {
 
+    },
+    components:{
+        
     }
 }
 </script>

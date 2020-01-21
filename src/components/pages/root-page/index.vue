@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import StyledCompo from './style.js';
 
 import "./style.js"
 

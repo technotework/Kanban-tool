@@ -220,6 +220,8 @@ function getTemplate(filePath) {
 </template>
 
 <script>
+import StyledCompo from './style.js'
+
 export default {
     name: '${compoNamePascal}',
     props: {
@@ -227,10 +229,7 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>`;
+`;
 
 }
 

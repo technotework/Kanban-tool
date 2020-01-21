@@ -7,10 +7,14 @@
 </template>
 
 <script>
+import StyledCompo from './style.js';
 export default {
     name: 'PasswordReissuePage',
     props: {
 
+    },
+    components:{
+        
     }
 }
 </script>
