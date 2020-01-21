@@ -6,4 +6,4 @@ storiesOf('ColorPalettePicker', module)
     .add('default', () => ({
         components: { ColorPalettePicker },
         template: `<ColorPalettePicker  />`
-    }))
+    }));

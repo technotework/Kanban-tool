@@ -6,4 +6,4 @@ storiesOf('InlineMessage', module)
     .add('default', () => ({
         components: { InlineMessage },
         template: `<InlineMessage  />`
-    }))
+    }));

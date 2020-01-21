@@ -6,4 +6,4 @@ storiesOf('TaskMemberList', module)
     .add('default', () => ({
         components: { TaskMemberList },
         template: `<TaskMemberList  />`
-    }))
+    }));

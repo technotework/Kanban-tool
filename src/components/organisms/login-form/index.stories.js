@@ -6,4 +6,4 @@ storiesOf('LoginForm', module)
     .add('default', () => ({
         components: { LoginForm },
         template: `<LoginForm  />`
-    }))
+    }));

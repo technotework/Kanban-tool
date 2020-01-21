@@ -6,4 +6,4 @@ storiesOf('TableHeader', module)
     .add('default', () => ({
         components: { TableHeader },
         template: `<TableHeader  />`
-    }))
+    }));

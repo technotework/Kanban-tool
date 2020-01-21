@@ -6,4 +6,4 @@ storiesOf('ManageMemberPage', module)
     .add('default', () => ({
         components: { ManageMemberPage },
         template: `<ManageMemberPage  />`
-    }))
+    }));

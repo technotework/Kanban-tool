@@ -6,4 +6,4 @@ storiesOf('ConfirmationDialogue', module)
     .add('default', () => ({
         components: { ConfirmationDialogue },
         template: `<ConfirmationDialogue  />`
-    }))
+    }));

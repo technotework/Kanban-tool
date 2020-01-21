@@ -6,4 +6,4 @@ storiesOf('BaseCheckBox', module)
     .add('default', () => ({
         components: { BaseCheckBox },
         template: `<BaseCheckBox  />`
-    }))
+    }));

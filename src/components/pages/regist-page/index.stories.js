@@ -6,4 +6,4 @@ storiesOf('RegistPage', module)
     .add('default', () => ({
         components: { RegistPage },
         template: `<RegistPage  />`
-    }))
+    }));

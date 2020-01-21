@@ -6,4 +6,4 @@ storiesOf('FloatMessage', module)
     .add('default', () => ({
         components: { FloatMessage },
         template: `<FloatMessage  />`
-    }))
+    }));

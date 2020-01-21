@@ -6,4 +6,4 @@ storiesOf('LabeledInput', module)
     .add('default', () => ({
         components: { LabeledInput },
         template: `<LabeledInput  />`
-    }))
+    }));

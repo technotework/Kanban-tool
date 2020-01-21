@@ -6,4 +6,4 @@ storiesOf('RegistForm', module)
     .add('default', () => ({
         components: { RegistForm },
         template: `<RegistForm  />`
-    }))
+    }));

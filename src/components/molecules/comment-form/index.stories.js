@@ -6,4 +6,4 @@ storiesOf('CommentForm', module)
     .add('default', () => ({
         components: { CommentForm },
         template: `<CommentForm  />`
-    }))
+    }));

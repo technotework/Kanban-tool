@@ -6,4 +6,4 @@ storiesOf('BaseHeading', module)
     .add('default', () => ({
         components: { BaseHeading },
         template: `<BaseHeading  />`
-    }))
+    }));

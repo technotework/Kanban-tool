@@ -6,4 +6,4 @@ storiesOf('LabelMasterListItem', module)
     .add('default', () => ({
         components: { LabelMasterListItem },
         template: `<LabelMasterListItem  />`
-    }))
+    }));

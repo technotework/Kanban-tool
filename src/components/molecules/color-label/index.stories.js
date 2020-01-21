@@ -6,4 +6,4 @@ storiesOf('ColorLabel', module)
     .add('default', () => ({
         components: { ColorLabel },
         template: `<ColorLabel  />`
-    }))
+    }));

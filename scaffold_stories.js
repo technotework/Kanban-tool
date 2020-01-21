@@ -218,7 +218,7 @@ storiesOf('${compoNamePascal}', module)
         components: { ${compoNamePascal} },
         template: ` + "`" + `<${compoNamePascal}  />` + "`" + 
 `
-    }))`;
+    }));`;
 }
 
 

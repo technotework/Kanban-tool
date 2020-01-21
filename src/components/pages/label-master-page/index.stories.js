@@ -6,4 +6,4 @@ storiesOf('LabelMasterPage', module)
     .add('default', () => ({
         components: { LabelMasterPage },
         template: `<LabelMasterPage  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('BaseIcon', module)
     .add('default', () => ({
         components: { BaseIcon },
         template: `<BaseIcon  />`
-    }))
+    }));

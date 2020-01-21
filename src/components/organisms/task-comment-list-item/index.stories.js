@@ -6,4 +6,4 @@ storiesOf('TaskCommentListItem', module)
     .add('default', () => ({
         components: { TaskCommentListItem },
         template: `<TaskCommentListItem  />`
-    }))
+    }));

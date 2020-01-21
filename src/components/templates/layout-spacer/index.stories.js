@@ -6,4 +6,4 @@ storiesOf('LayoutSpacer', module)
     .add('default', () => ({
         components: { LayoutSpacer },
         template: `<LayoutSpacer  />`
-    }))
+    }));

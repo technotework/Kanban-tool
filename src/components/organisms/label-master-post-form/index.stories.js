@@ -6,4 +6,4 @@ storiesOf('LabelMasterPostForm', module)
     .add('default', () => ({
         components: { LabelMasterPostForm },
         template: `<LabelMasterPostForm  />`
-    }))
+    }));

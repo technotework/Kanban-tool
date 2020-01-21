@@ -6,4 +6,4 @@ storiesOf('ManagePlanPage', module)
     .add('default', () => ({
         components: { ManagePlanPage },
         template: `<ManagePlanPage  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('EditProfilePage', module)
     .add('default', () => ({
         components: { EditProfilePage },
         template: `<EditProfilePage  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('TaskInfo', module)
     .add('default', () => ({
         components: { TaskInfo },
         template: `<TaskInfo  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('BaseInput', module)
     .add('default', () => ({
         components: { BaseInput },
         template: `<BaseInput  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('InputCheckbox', module)
     .add('default', () => ({
         components: { InputCheckbox },
         template: `<InputCheckbox  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('CompleteRegistPage', module)
     .add('default', () => ({
         components: { CompleteRegistPage },
         template: `<CompleteRegistPage  />`
-    }))
+    }));

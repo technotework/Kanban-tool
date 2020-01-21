@@ -6,4 +6,4 @@ storiesOf('BaseImage', module)
     .add('default', () => ({
         components: { BaseImage },
         template: `<BaseImage  />`
-    }))
+    }));

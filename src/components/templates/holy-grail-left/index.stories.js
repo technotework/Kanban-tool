@@ -6,4 +6,4 @@ storiesOf('HolyGrailLeft', module)
     .add('default', () => ({
         components: { HolyGrailLeft },
         template: `<HolyGrailLeft  />`
-    }))
+    }));

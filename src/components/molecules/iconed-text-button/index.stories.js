@@ -6,4 +6,4 @@ storiesOf('IconedTextButton', module)
     .add('default', () => ({
         components: { IconedTextButton },
         template: `<IconedTextButton  />`
-    }))
+    }));

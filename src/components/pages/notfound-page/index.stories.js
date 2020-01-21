@@ -6,4 +6,4 @@ storiesOf('NotfoundPage', module)
     .add('default', () => ({
         components: { NotfoundPage },
         template: `<NotfoundPage  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('CalenderEditPage', module)
     .add('default', () => ({
         components: { CalenderEditPage },
         template: `<CalenderEditPage  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('FlexLayout', module)
     .add('default', () => ({
         components: { FlexLayout },
         template: `<FlexLayout  />`
-    }))
+    }));

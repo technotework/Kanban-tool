@@ -6,4 +6,4 @@ storiesOf('ArchiveList', module)
     .add('default', () => ({
         components: { ArchiveList },
         template: `<ArchiveList  />`
-    }))
+    }));

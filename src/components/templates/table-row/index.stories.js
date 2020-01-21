@@ -6,4 +6,4 @@ storiesOf('TableRow', module)
     .add('default', () => ({
         components: { TableRow },
         template: `<TableRow  />`
-    }))
+    }));

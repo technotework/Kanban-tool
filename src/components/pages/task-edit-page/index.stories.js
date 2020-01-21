@@ -6,4 +6,4 @@ storiesOf('TaskEditPage', module)
     .add('default', () => ({
         components: { TaskEditPage },
         template: `<TaskEditPage  />`
-    }))
+    }));

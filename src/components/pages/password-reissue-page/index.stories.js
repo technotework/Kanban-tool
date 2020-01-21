@@ -6,4 +6,4 @@ storiesOf('PasswordReissuePage', module)
     .add('default', () => ({
         components: { PasswordReissuePage },
         template: `<PasswordReissuePage  />`
-    }))
+    }));

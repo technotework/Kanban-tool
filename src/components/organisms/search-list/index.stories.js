@@ -6,4 +6,4 @@ storiesOf('SearchList', module)
     .add('default', () => ({
         components: { SearchList },
         template: `<SearchList  />`
-    }))
+    }));

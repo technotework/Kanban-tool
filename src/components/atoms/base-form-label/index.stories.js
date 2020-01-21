@@ -6,4 +6,4 @@ storiesOf('BaseFormLabel', module)
     .add('default', () => ({
         components: { BaseFormLabel },
         template: `<BaseFormLabel  />`
-    }))
+    }));

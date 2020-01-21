@@ -6,4 +6,4 @@ storiesOf('ContextMenuListItem', module)
     .add('default', () => ({
         components: { ContextMenuListItem },
         template: `<ContextMenuListItem  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('BaseEditableText', module)
     .add('default', () => ({
         components: { BaseEditableText },
         template: `<BaseEditableText  />`
-    }))
+    }));

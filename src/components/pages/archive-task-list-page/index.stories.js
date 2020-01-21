@@ -6,4 +6,4 @@ storiesOf('ArchiveTaskListPage', module)
     .add('default', () => ({
         components: { ArchiveTaskListPage },
         template: `<ArchiveTaskListPage  />`
-    }))
+    }));

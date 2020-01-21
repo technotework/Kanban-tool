@@ -6,4 +6,4 @@ storiesOf('BaseText', module)
     .add('default', () => ({
         components: { BaseText },
         template: `<BaseText  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('LoginPage', module)
     .add('default', () => ({
         components: { LoginPage },
         template: `<LoginPage  />`
-    }))
+    }));

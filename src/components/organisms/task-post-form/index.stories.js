@@ -6,4 +6,4 @@ storiesOf('TaskPostForm', module)
     .add('default', () => ({
         components: { TaskPostForm },
         template: `<TaskPostForm  />`
-    }))
+    }));

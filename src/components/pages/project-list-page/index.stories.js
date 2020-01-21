@@ -6,4 +6,4 @@ storiesOf('ProjectListPage', module)
     .add('default', () => ({
         components: { ProjectListPage },
         template: `<ProjectListPage  />`
-    }))
+    }));

@@ -6,4 +6,4 @@ storiesOf('BaseColorChip', module)
     .add('default', () => ({
         components: { BaseColorChip },
         template: `<BaseColorChip  />`
-    }))
+    }));

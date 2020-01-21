@@ -6,4 +6,4 @@ storiesOf('ProjectBoardList', module)
     .add('default', () => ({
         components: { ProjectBoardList },
         template: `<ProjectBoardList  />`
-    }))
+    }));

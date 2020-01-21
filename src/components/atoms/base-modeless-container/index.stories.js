@@ -6,4 +6,4 @@ storiesOf('BaseModelessContainer', module)
     .add('default', () => ({
         components: { BaseModelessContainer },
         template: `<BaseModelessContainer  />`
-    }))
+    }));

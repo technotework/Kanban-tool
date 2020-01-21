@@ -6,4 +6,4 @@ storiesOf('ProjectBoardQuickEditor', module)
     .add('default', () => ({
         components: { ProjectBoardQuickEditor },
         template: `<ProjectBoardQuickEditor  />`
-    }))
+    }));

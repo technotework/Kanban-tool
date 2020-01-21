@@ -6,4 +6,4 @@ storiesOf('BaseFileSelect', module)
     .add('default', () => ({
         components: { BaseFileSelect },
         template: `<BaseFileSelect  />`
-    }))
+    }));

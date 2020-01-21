@@ -6,5 +6,4 @@ storiesOf('BaseModalContainer', module)
     .add('default', () => ({
         components: { BaseModalContainer },
         template: `<BaseModalContainer  />`
-    }))
-    
+    }));

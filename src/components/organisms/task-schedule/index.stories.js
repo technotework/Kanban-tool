@@ -6,4 +6,4 @@ storiesOf('TaskSchedule', module)
     .add('default', () => ({
         components: { TaskSchedule },
         template: `<TaskSchedule  />`
-    }))
+    }));

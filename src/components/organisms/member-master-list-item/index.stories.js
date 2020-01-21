@@ -6,4 +6,4 @@ storiesOf('MemberMasterListItem', module)
     .add('default', () => ({
         components: { MemberMasterListItem },
         template: `<MemberMasterListItem  />`
-    }))
+    }));

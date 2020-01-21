@@ -6,4 +6,4 @@ storiesOf('BothSideRight', module)
     .add('default', () => ({
         components: { BothSideRight },
         template: `<BothSideRight  />`
-    }))
+    }));

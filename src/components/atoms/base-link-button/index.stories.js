@@ -6,4 +6,4 @@ storiesOf('BaseLinkButton', module)
     .add('default', () => ({
         components: { BaseLinkButton },
         template: `<BaseLinkButton  />`
-    }))
+    }));
