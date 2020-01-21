@@ -1,3 +1,4 @@
+
 import { injectGlobal } from 'vue-styled-components';
 
 injectGlobal`
@@ -25,6 +26,7 @@ time, mark, audio, video {
 
 body {
     line-height:1;
+    background-color:#ddd;
 }
 
 article,aside,details,figcaption,figure,

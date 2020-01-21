@@ -8,13 +8,10 @@
 
 <script>
 
-import '@/components/utils/global-styles.js'
+import "./style.js"
 
 export default {
   name: "RootPage",
   props: {}
 };
 </script>
-
-<style lang="scss">
-</style>
