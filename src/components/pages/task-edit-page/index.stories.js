@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TaskEditPage from './index.vue'
+import TaskEditPage from "./index.vue";
 
-storiesOf('TaskEditPage', module)
-    .add('default', () => ({
-        components: { TaskEditPage },
-        template: `<TaskEditPage  />`
-    }));
+export default {
+    title:"pages/TaskEditPage",
+    component: {TaskEditPage}
+};
+
+export const Basic = () => ({
+    components:{TaskEditPage},
+    template: "<TaskEditPage />"
+});

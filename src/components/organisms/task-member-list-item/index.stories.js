@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TaskMemberListItem from './index.vue'
+import TaskMemberListItem from "./index.vue";
 
-storiesOf('TaskMemberListItem', module)
-    .add('default', () => ({
-        components: { TaskMemberListItem },
-        template: `<TaskMemberListItem  />`
-    }));
+export default {
+    title:"organisms/TaskMemberListItem",
+    component: {TaskMemberListItem}
+};
+
+export const Basic = () => ({
+    components:{TaskMemberListItem},
+    template: "<TaskMemberListItem />"
+});

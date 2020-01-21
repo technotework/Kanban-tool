@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import HolyGrailLayout from './index.vue'
+import HolyGrailLayout from "./index.vue";
 
-storiesOf('HolyGrailLayout', module)
-    .add('default', () => ({
-        components: { HolyGrailLayout },
-        template: `<HolyGrailLayout  />`
-    }));
+export default {
+    title:"templates/HolyGrailLayout",
+    component: {HolyGrailLayout}
+};
+
+export const Basic = () => ({
+    components:{HolyGrailLayout},
+    template: "<HolyGrailLayout />"
+});

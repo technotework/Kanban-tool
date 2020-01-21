@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TaskInfo from './index.vue'
+import TaskInfo from "./index.vue";
 
-storiesOf('TaskInfo', module)
-    .add('default', () => ({
-        components: { TaskInfo },
-        template: `<TaskInfo  />`
-    }));
+export default {
+    title:"organisms/TaskInfo",
+    component: {TaskInfo}
+};
+
+export const Basic = () => ({
+    components:{TaskInfo},
+    template: "<TaskInfo />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import FlexLayout from './index.vue'
+import FlexLayout from "./index.vue";
 
-storiesOf('FlexLayout', module)
-    .add('default', () => ({
-        components: { FlexLayout },
-        template: `<FlexLayout  />`
-    }));
+export default {
+    title:"templates/FlexLayout",
+    component: {FlexLayout}
+};
+
+export const Basic = () => ({
+    components:{FlexLayout},
+    template: "<FlexLayout />"
+});

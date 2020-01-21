@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseInput from './index.vue'
+import BaseInput from "./index.vue";
 
-storiesOf('BaseInput', module)
-    .add('default', () => ({
-        components: { BaseInput },
-        template: `<BaseInput  />`
-    }));
+export default {
+    title:"atoms/BaseInput",
+    component: {BaseInput}
+};
+
+export const Basic = () => ({
+    components:{BaseInput},
+    template: "<BaseInput />"
+});

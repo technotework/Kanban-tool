@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import HolyGrailMain from './index.vue'
+import HolyGrailMain from "./index.vue";
 
-storiesOf('HolyGrailMain', module)
-    .add('default', () => ({
-        components: { HolyGrailMain },
-        template: `<HolyGrailMain  />`
-    }));
+export default {
+    title:"templates/HolyGrailMain",
+    component: {HolyGrailMain}
+};
+
+export const Basic = () => ({
+    components:{HolyGrailMain},
+    template: "<HolyGrailMain />"
+});

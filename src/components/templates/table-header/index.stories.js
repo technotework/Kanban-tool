@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TableHeader from './index.vue'
+import TableHeader from "./index.vue";
 
-storiesOf('TableHeader', module)
-    .add('default', () => ({
-        components: { TableHeader },
-        template: `<TableHeader  />`
-    }));
+export default {
+    title:"templates/TableHeader",
+    component: {TableHeader}
+};
+
+export const Basic = () => ({
+    components:{TableHeader},
+    template: "<TableHeader />"
+});

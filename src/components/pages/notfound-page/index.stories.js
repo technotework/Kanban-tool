@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import NotfoundPage from './index.vue'
+import NotfoundPage from "./index.vue";
 
-storiesOf('NotfoundPage', module)
-    .add('default', () => ({
-        components: { NotfoundPage },
-        template: `<NotfoundPage  />`
-    }));
+export default {
+    title:"pages/NotfoundPage",
+    component: {NotfoundPage}
+};
+
+export const Basic = () => ({
+    components:{NotfoundPage},
+    template: "<NotfoundPage />"
+});

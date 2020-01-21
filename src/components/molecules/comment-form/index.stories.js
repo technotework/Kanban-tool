@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import CommentForm from './index.vue'
+import CommentForm from "./index.vue";
 
-storiesOf('CommentForm', module)
-    .add('default', () => ({
-        components: { CommentForm },
-        template: `<CommentForm  />`
-    }));
+export default {
+    title:"molecules/CommentForm",
+    component: {CommentForm}
+};
+
+export const Basic = () => ({
+    components:{CommentForm},
+    template: "<CommentForm />"
+});

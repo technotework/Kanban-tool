@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TableCol from './index.vue'
+import TableCol from "./index.vue";
 
-storiesOf('TableCol', module)
-    .add('default', () => ({
-        components: { TableCol },
-        template: `<TableCol  />`
-    }));
+export default {
+    title:"templates/TableCol",
+    component: {TableCol}
+};
+
+export const Basic = () => ({
+    components:{TableCol},
+    template: "<TableCol />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import LabelMasterListItem from './index.vue'
+import LabelMasterListItem from "./index.vue";
 
-storiesOf('LabelMasterListItem', module)
-    .add('default', () => ({
-        components: { LabelMasterListItem },
-        template: `<LabelMasterListItem  />`
-    }));
+export default {
+    title:"organisms/LabelMasterListItem",
+    component: {LabelMasterListItem}
+};
+
+export const Basic = () => ({
+    components:{LabelMasterListItem},
+    template: "<LabelMasterListItem />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseSelect from './index.vue'
+import BaseSelect from "./index.vue";
 
-storiesOf('BaseSelect', module)
-    .add('default', () => ({
-        components: { BaseSelect },
-        template: `<BaseSelect  />`
-    }));
+export default {
+    title:"atoms/BaseSelect",
+    component: {BaseSelect}
+};
+
+export const Basic = () => ({
+    components:{BaseSelect},
+    template: "<BaseSelect />"
+});

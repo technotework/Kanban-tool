@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ContextMenuList from './index.vue'
+import ContextMenuList from "./index.vue";
 
-storiesOf('ContextMenuList', module)
-    .add('default', () => ({
-        components: { ContextMenuList },
-        template: `<ContextMenuList  />`
-    }));
+export default {
+    title:"molecules/ContextMenuList",
+    component: {ContextMenuList}
+};
+
+export const Basic = () => ({
+    components:{ContextMenuList},
+    template: "<ContextMenuList />"
+});

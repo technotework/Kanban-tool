@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import LayoutSpacer from './index.vue'
+import LayoutSpacer from "./index.vue";
 
-storiesOf('LayoutSpacer', module)
-    .add('default', () => ({
-        components: { LayoutSpacer },
-        template: `<LayoutSpacer  />`
-    }));
+export default {
+    title:"templates/LayoutSpacer",
+    component: {LayoutSpacer}
+};
+
+export const Basic = () => ({
+    components:{LayoutSpacer},
+    template: "<LayoutSpacer />"
+});

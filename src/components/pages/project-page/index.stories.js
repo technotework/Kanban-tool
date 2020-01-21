@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ProjectPage from './index.vue'
+import ProjectPage from "./index.vue";
 
-storiesOf('ProjectPage', module)
-    .add('default', () => ({
-        components: { ProjectPage },
-        template: `<ProjectPage  />`
-    }));
+export default {
+    title:"pages/ProjectPage",
+    component: {ProjectPage}
+};
+
+export const Basic = () => ({
+    components:{ProjectPage},
+    template: "<ProjectPage />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BothSideRight from './index.vue'
+import BothSideRight from "./index.vue";
 
-storiesOf('BothSideRight', module)
-    .add('default', () => ({
-        components: { BothSideRight },
-        template: `<BothSideRight  />`
-    }));
+export default {
+    title:"templates/BothSideRight",
+    component: {BothSideRight}
+};
+
+export const Basic = () => ({
+    components:{BothSideRight},
+    template: "<BothSideRight />"
+});

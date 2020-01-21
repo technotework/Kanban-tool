@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import SearchList from './index.vue'
+import SearchList from "./index.vue";
 
-storiesOf('SearchList', module)
-    .add('default', () => ({
-        components: { SearchList },
-        template: `<SearchList  />`
-    }));
+export default {
+    title:"organisms/SearchList",
+    component: {SearchList}
+};
+
+export const Basic = () => ({
+    components:{SearchList},
+    template: "<SearchList />"
+});

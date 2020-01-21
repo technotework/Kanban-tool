@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import IconedText from './index.vue'
+import IconedText from "./index.vue";
 
-storiesOf('IconedText', module)
-    .add('default', () => ({
-        components: { IconedText },
-        template: `<IconedText  />`
-    }));
+export default {
+    title:"molecules/IconedText",
+    component: {IconedText}
+};
+
+export const Basic = () => ({
+    components:{IconedText},
+    template: "<IconedText />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TaskSchedule from './index.vue'
+import TaskSchedule from "./index.vue";
 
-storiesOf('TaskSchedule', module)
-    .add('default', () => ({
-        components: { TaskSchedule },
-        template: `<TaskSchedule  />`
-    }));
+export default {
+    title:"organisms/TaskSchedule",
+    component: {TaskSchedule}
+};
+
+export const Basic = () => ({
+    components:{TaskSchedule},
+    template: "<TaskSchedule />"
+});

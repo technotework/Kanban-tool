@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import SearchTaskListPage from './index.vue'
+import SearchTaskListPage from "./index.vue";
 
-storiesOf('SearchTaskListPage', module)
-    .add('default', () => ({
-        components: { SearchTaskListPage },
-        template: `<SearchTaskListPage  />`
-    }));
+export default {
+    title:"pages/SearchTaskListPage",
+    component: {SearchTaskListPage}
+};
+
+export const Basic = () => ({
+    components:{SearchTaskListPage},
+    template: "<SearchTaskListPage />"
+});

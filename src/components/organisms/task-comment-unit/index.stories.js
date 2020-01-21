@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import TaskCommentUnit from './index.vue'
+import TaskCommentUnit from "./index.vue";
 
-storiesOf('TaskCommentUnit', module)
-    .add('default', () => ({
-        components: { TaskCommentUnit },
-        template: `<TaskCommentUnit  />`
-    }));
+export default {
+    title:"organisms/TaskCommentUnit",
+    component: {TaskCommentUnit}
+};
+
+export const Basic = () => ({
+    components:{TaskCommentUnit},
+    template: "<TaskCommentUnit />"
+});

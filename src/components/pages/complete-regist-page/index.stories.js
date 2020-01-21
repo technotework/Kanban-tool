@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import CompleteRegistPage from './index.vue'
+import CompleteRegistPage from "./index.vue";
 
-storiesOf('CompleteRegistPage', module)
-    .add('default', () => ({
-        components: { CompleteRegistPage },
-        template: `<CompleteRegistPage  />`
-    }));
+export default {
+    title:"pages/CompleteRegistPage",
+    component: {CompleteRegistPage}
+};
+
+export const Basic = () => ({
+    components:{CompleteRegistPage},
+    template: "<CompleteRegistPage />"
+});

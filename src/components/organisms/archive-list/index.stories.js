@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ArchiveList from './index.vue'
+import ArchiveList from "./index.vue";
 
-storiesOf('ArchiveList', module)
-    .add('default', () => ({
-        components: { ArchiveList },
-        template: `<ArchiveList  />`
-    }));
+export default {
+    title:"organisms/ArchiveList",
+    component: {ArchiveList}
+};
+
+export const Basic = () => ({
+    components:{ArchiveList},
+    template: "<ArchiveList />"
+});

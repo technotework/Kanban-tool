@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import LabelMasterPostForm from './index.vue'
+import LabelMasterPostForm from "./index.vue";
 
-storiesOf('LabelMasterPostForm', module)
-    .add('default', () => ({
-        components: { LabelMasterPostForm },
-        template: `<LabelMasterPostForm  />`
-    }));
+export default {
+    title:"organisms/LabelMasterPostForm",
+    component: {LabelMasterPostForm}
+};
+
+export const Basic = () => ({
+    components:{LabelMasterPostForm},
+    template: "<LabelMasterPostForm />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import MemberMasterList from './index.vue'
+import MemberMasterList from "./index.vue";
 
-storiesOf('MemberMasterList', module)
-    .add('default', () => ({
-        components: { MemberMasterList },
-        template: `<MemberMasterList  />`
-    }));
+export default {
+    title:"organisms/MemberMasterList",
+    component: {MemberMasterList}
+};
+
+export const Basic = () => ({
+    components:{MemberMasterList},
+    template: "<MemberMasterList />"
+});

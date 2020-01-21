@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ManageMemberList from './index.vue'
+import ManageMemberList from "./index.vue";
 
-storiesOf('ManageMemberList', module)
-    .add('default', () => ({
-        components: { ManageMemberList },
-        template: `<ManageMemberList  />`
-    }));
+export default {
+    title:"organisms/ManageMemberList",
+    component: {ManageMemberList}
+};
+
+export const Basic = () => ({
+    components:{ManageMemberList},
+    template: "<ManageMemberList />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import HolyGrailBottom from './index.vue'
+import HolyGrailBottom from "./index.vue";
 
-storiesOf('HolyGrailBottom', module)
-    .add('default', () => ({
-        components: { HolyGrailBottom },
-        template: `<HolyGrailBottom  />`
-    }));
+export default {
+    title:"templates/HolyGrailBottom",
+    component: {HolyGrailBottom}
+};
+
+export const Basic = () => ({
+    components:{HolyGrailBottom},
+    template: "<HolyGrailBottom />"
+});

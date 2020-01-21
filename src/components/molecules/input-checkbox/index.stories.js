@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import InputCheckbox from './index.vue'
+import InputCheckbox from "./index.vue";
 
-storiesOf('InputCheckbox', module)
-    .add('default', () => ({
-        components: { InputCheckbox },
-        template: `<InputCheckbox  />`
-    }));
+export default {
+    title:"molecules/InputCheckbox",
+    component: {InputCheckbox}
+};
+
+export const Basic = () => ({
+    components:{InputCheckbox},
+    template: "<InputCheckbox />"
+});

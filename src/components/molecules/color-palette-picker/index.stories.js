@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ColorPalettePicker from './index.vue'
+import ColorPalettePicker from "./index.vue";
 
-storiesOf('ColorPalettePicker', module)
-    .add('default', () => ({
-        components: { ColorPalettePicker },
-        template: `<ColorPalettePicker  />`
-    }));
+export default {
+    title:"molecules/ColorPalettePicker",
+    component: {ColorPalettePicker}
+};
+
+export const Basic = () => ({
+    components:{ColorPalettePicker},
+    template: "<ColorPalettePicker />"
+});

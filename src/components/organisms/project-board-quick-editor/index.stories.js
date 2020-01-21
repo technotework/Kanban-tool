@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ProjectBoardQuickEditor from './index.vue'
+import ProjectBoardQuickEditor from "./index.vue";
 
-storiesOf('ProjectBoardQuickEditor', module)
-    .add('default', () => ({
-        components: { ProjectBoardQuickEditor },
-        template: `<ProjectBoardQuickEditor  />`
-    }));
+export default {
+    title:"organisms/ProjectBoardQuickEditor",
+    component: {ProjectBoardQuickEditor}
+};
+
+export const Basic = () => ({
+    components:{ProjectBoardQuickEditor},
+    template: "<ProjectBoardQuickEditor />"
+});

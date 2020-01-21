@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseImage from './index.vue'
+import BaseImage from "./index.vue";
 
-storiesOf('BaseImage', module)
-    .add('default', () => ({
-        components: { BaseImage },
-        template: `<BaseImage  />`
-    }));
+export default {
+    title:"atoms/BaseImage",
+    component: {BaseImage}
+};
+
+export const Basic = () => ({
+    components:{BaseImage},
+    template: "<BaseImage />"
+});

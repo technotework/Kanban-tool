@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import RegistForm from './index.vue'
+import RegistForm from "./index.vue";
 
-storiesOf('RegistForm', module)
-    .add('default', () => ({
-        components: { RegistForm },
-        template: `<RegistForm  />`
-    }));
+export default {
+    title:"organisms/RegistForm",
+    component: {RegistForm}
+};
+
+export const Basic = () => ({
+    components:{RegistForm},
+    template: "<RegistForm />"
+});

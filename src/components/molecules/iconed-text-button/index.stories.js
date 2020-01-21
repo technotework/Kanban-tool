@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import IconedTextButton from './index.vue'
+import IconedTextButton from "./index.vue";
 
-storiesOf('IconedTextButton', module)
-    .add('default', () => ({
-        components: { IconedTextButton },
-        template: `<IconedTextButton  />`
-    }));
+export default {
+    title:"molecules/IconedTextButton",
+    component: {IconedTextButton}
+};
+
+export const Basic = () => ({
+    components:{IconedTextButton},
+    template: "<IconedTextButton />"
+});

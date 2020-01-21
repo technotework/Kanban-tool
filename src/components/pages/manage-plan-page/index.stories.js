@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ManagePlanPage from './index.vue'
+import ManagePlanPage from "./index.vue";
 
-storiesOf('ManagePlanPage', module)
-    .add('default', () => ({
-        components: { ManagePlanPage },
-        template: `<ManagePlanPage  />`
-    }));
+export default {
+    title:"pages/ManagePlanPage",
+    component: {ManagePlanPage}
+};
+
+export const Basic = () => ({
+    components:{ManagePlanPage},
+    template: "<ManagePlanPage />"
+});

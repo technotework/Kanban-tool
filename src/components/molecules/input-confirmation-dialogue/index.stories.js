@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import InputConfirmationDialogue from './index.vue'
+import InputConfirmationDialogue from "./index.vue";
 
-storiesOf('InputConfirmationDialogue', module)
-    .add('default', () => ({
-        components: { InputConfirmationDialogue },
-        template: `<InputConfirmationDialogue  />`
-    }));
+export default {
+    title:"molecules/InputConfirmationDialogue",
+    component: {InputConfirmationDialogue}
+};
+
+export const Basic = () => ({
+    components:{InputConfirmationDialogue},
+    template: "<InputConfirmationDialogue />"
+});

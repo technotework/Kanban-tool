@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseText from './index.vue'
+import BaseText from "./index.vue";
 
-storiesOf('BaseText', module)
-    .add('default', () => ({
-        components: { BaseText },
-        template: `<BaseText  />`
-    }));
+export default {
+    title:"atoms/BaseText",
+    component: {BaseText}
+};
+
+export const Basic = () => ({
+    components:{BaseText},
+    template: "<BaseText />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import EditProfilePage from './index.vue'
+import EditProfilePage from "./index.vue";
 
-storiesOf('EditProfilePage', module)
-    .add('default', () => ({
-        components: { EditProfilePage },
-        template: `<EditProfilePage  />`
-    }));
+export default {
+    title:"pages/EditProfilePage",
+    component: {EditProfilePage}
+};
+
+export const Basic = () => ({
+    components:{EditProfilePage},
+    template: "<EditProfilePage />"
+});

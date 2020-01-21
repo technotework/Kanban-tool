@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ProjectBoardList from './index.vue'
+import ProjectBoardList from "./index.vue";
 
-storiesOf('ProjectBoardList', module)
-    .add('default', () => ({
-        components: { ProjectBoardList },
-        template: `<ProjectBoardList  />`
-    }));
+export default {
+    title:"organisms/ProjectBoardList",
+    component: {ProjectBoardList}
+};
+
+export const Basic = () => ({
+    components:{ProjectBoardList},
+    template: "<ProjectBoardList />"
+});

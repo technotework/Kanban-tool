@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseColorChip from './index.vue'
+import BaseColorChip from "./index.vue";
 
-storiesOf('BaseColorChip', module)
-    .add('default', () => ({
-        components: { BaseColorChip },
-        template: `<BaseColorChip  />`
-    }));
+export default {
+    title:"atoms/BaseColorChip",
+    component: {BaseColorChip}
+};
+
+export const Basic = () => ({
+    components:{BaseColorChip},
+    template: "<BaseColorChip />"
+});

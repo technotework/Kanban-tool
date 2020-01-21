@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseButton from './index.vue'
+import BaseButton from "./index.vue";
 
-storiesOf('BaseButton', module)
-    .add('default', () => ({
-        components: { BaseButton },
-        template: `<BaseButton  />`
-    }));
+export default {
+    title:"atoms/BaseButton",
+    component: {BaseButton}
+};
+
+export const Basic = () => ({
+    components:{BaseButton},
+    template: "<BaseButton />"
+});

@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import BaseMarkdownContainer from './index.vue'
+import BaseMarkdownContainer from "./index.vue";
 
-storiesOf('BaseMarkdownContainer', module)
-    .add('default', () => ({
-        components: { BaseMarkdownContainer },
-        template: `<BaseMarkdownContainer  />`
-    }));
+export default {
+    title:"atoms/BaseMarkdownContainer",
+    component: {BaseMarkdownContainer}
+};
+
+export const Basic = () => ({
+    components:{BaseMarkdownContainer},
+    template: "<BaseMarkdownContainer />"
+});

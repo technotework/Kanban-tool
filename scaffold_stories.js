@@ -175,8 +175,8 @@ function scafold(dir, subDirArray) {
         compoNameKebab = subDirArray[i];
         compoNamePascal = renamePascal(compoNameKebab);
 
-        let temp = getTemplate(fileName);
-        console.log(compoNameKebab, compoNamePascal);
+        let temp = getTemplate(fileName,dirName);
+        //console.log(compoNameKebab, compoNamePascal);
         createDirctory(dirName);
         createFiles(fileName, temp);
     }
@@ -196,7 +196,7 @@ function createDirctory(dirName) {
 
 //ファイル生成処理
 function createFiles(filePath, content) {
-    console.log(filePath);
+    //console.log(filePath);
     fs.writeFile(filePath, content, function (err) {
 
         if (err) {
@@ -206,19 +206,25 @@ function createFiles(filePath, content) {
 
 }
 
-function getTemplate(filePath) {
+function getTemplate(filePath,dirName) {
 
-   
-    return `
-import { storiesOf } from '@storybook/vue'
-import ${compoNamePascal} from './index.vue'
+    let path = dirName.replace("src/components/","")
+    .replace(/\/.+/,"");
 
-storiesOf('${compoNamePascal}', module)
-    .add('default', () => ({
-        components: { ${compoNamePascal} },
-        template: ` + "`" + `<${compoNamePascal}  />` + "`" + 
-`
-    }));`;
+   return `
+import ${compoNamePascal} from "./index.vue";
+
+export default {
+    title:"${path}/${compoNamePascal}",
+    component: {${compoNamePascal}}
+};
+
+export const Basic = () => ({
+    components:{${compoNamePascal}},
+    template: "<${compoNamePascal} />"
+});`
+
+
 }
 
 

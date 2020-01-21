@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import LabelMasterPage from './index.vue'
+import LabelMasterPage from "./index.vue";
 
-storiesOf('LabelMasterPage', module)
-    .add('default', () => ({
-        components: { LabelMasterPage },
-        template: `<LabelMasterPage  />`
-    }));
+export default {
+    title:"pages/LabelMasterPage",
+    component: {LabelMasterPage}
+};
+
+export const Basic = () => ({
+    components:{LabelMasterPage},
+    template: "<LabelMasterPage />"
+});

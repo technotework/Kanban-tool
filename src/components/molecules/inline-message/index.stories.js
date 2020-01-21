@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import InlineMessage from './index.vue'
+import InlineMessage from "./index.vue";
 
-storiesOf('InlineMessage', module)
-    .add('default', () => ({
-        components: { InlineMessage },
-        template: `<InlineMessage  />`
-    }));
+export default {
+    title:"molecules/InlineMessage",
+    component: {InlineMessage}
+};
+
+export const Basic = () => ({
+    components:{InlineMessage},
+    template: "<InlineMessage />"
+});

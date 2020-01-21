@@ -1,9 +1,12 @@
 
-import { storiesOf } from '@storybook/vue'
-import ArchiveTaskListPage from './index.vue'
+import ArchiveTaskListPage from "./index.vue";
 
-storiesOf('ArchiveTaskListPage', module)
-    .add('default', () => ({
-        components: { ArchiveTaskListPage },
-        template: `<ArchiveTaskListPage  />`
-    }));
+export default {
+    title:"pages/ArchiveTaskListPage",
+    component: {ArchiveTaskListPage}
+};
+
+export const Basic = () => ({
+    components:{ArchiveTaskListPage},
+    template: "<ArchiveTaskListPage />"
+});
