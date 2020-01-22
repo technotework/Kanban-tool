@@ -15,15 +15,21 @@ const props =
     },
     color:{
         glay: "#ccc",
-        black: "#000"
+        black: "#000",
+        red: "#f00"
     },
     space:{
-        harf: "8rem",
-        wharf: "1.6rem",
+        xxsmall: "0.4rem",
+        xsmall: "0.8rem",
+        small: "1.6rem",
         normal: "2.8rem",
         large: "3.6rem",
         xlarge: "4.4rem",
-        double: "5.6rem"
+        xxlarge: "5.6rem"
+    },
+    border:{
+        thin: "solid 1px"
+
     }
 };
 

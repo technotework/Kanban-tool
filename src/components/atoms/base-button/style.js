@@ -1,9 +1,16 @@
+import Vue from "vue"
 import styled from "vue-styled-components";
+import Theme from "../../../components/themes/theme"
 
     //コンポーネントスタイル
-    const MyCompo = styled.div``;
+
+    const Button = styled.div`
+      color: ${props => props.theme.color.red};
+      `;
     
-    //プロパティをもらってstyled-componentsを返す
-    const MyComponent = ({...props}) => <MyCompo {...props} />;
-    
-    export default MyComponent;
+    const ButtonComponent = Vue.component("button-component",{
+        components: {Theme,Button},
+        template: `<Theme><Button><slot/></Button></Theme>` 
+    });
+
+    export default ButtonComponent;
