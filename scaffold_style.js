@@ -17,7 +17,7 @@ let atoms = [
     "base-check-box",
     "base-select",
     "base-file-select",
-    "base-button",
+    //"base-button",
     "base-link-button",
     "base-time-text",
     "base-modeless-container",
@@ -174,18 +174,27 @@ function createFiles(filePath, content) {
 
 function getTemplate(filePath) {
 
-    return `import styled from "vue-styled-components";
-
+    let a = `
+import Vue from "vue"
+import styled from "vue-styled-components";
+import Theme from "@/components/themes/theme"
+    
     //コンポーネントスタイル
-    const MyCompo = styled.div`
-    +"``"+
-    `;
+
+    const StyledComponent = styled.div` + "``;";
+
+    let b = `
     
-    //プロパティをもらってstyled-componentsを返す
-    const MyComponent = ({...props}) => <MyCompo {...props} />;
-    
+    const MyComponent = Vue.component("styled-component",{
+    components: {Theme, StyledComponent},
+    template: `+"`"+`<Theme><StyledComponent><slot/></StyledComponent></Theme>`+"`";
+
+    let c = `
+    });
+
     export default MyComponent;`;
 
+    return a + b + c;
 }
 
 

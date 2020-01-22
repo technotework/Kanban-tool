@@ -1,9 +1,15 @@
-import styled from "vue-styled-components";
 
+import Vue from "vue"
+import styled from "vue-styled-components";
+import Theme from "@/components/themes/theme"
+    
     //コンポーネントスタイル
-    const MyCompo = styled.div``;
+
+    const StyledComponent = styled.div``;
     
-    //プロパティをもらってstyled-componentsを返す
-    const MyComponent = ({...props}) => <MyCompo {...props} />;
-    
+    const MyComponent = Vue.component("styled-component",{
+    components: {Theme, StyledComponent},
+    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    });
+
     export default MyComponent;
