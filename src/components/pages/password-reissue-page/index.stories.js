@@ -1,4 +1,6 @@
 
+import global from "@/components/themes/global-style"
+import { action } from '@storybook/addon-actions';
 import PasswordReissuePage from "./index.vue";
 
 export default {
@@ -8,5 +10,5 @@ export default {
 
 export const Basic = () => ({
     components:{PasswordReissuePage},
-    template: "<PasswordReissuePage />"
+    template: `<PasswordReissuePage />`
 });

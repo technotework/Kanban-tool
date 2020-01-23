@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const BaseLinkButton = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const BaseLinkButtonComponent = Vue.component("base-link-button-component",{
+    components: {Theme, BaseLinkButton},
+    template: `<Theme><BaseLinkButton><slot/></BaseLinkButton></Theme>`
     });
 
-    export default MyComponent;
+    export default BaseLinkButtonComponent;

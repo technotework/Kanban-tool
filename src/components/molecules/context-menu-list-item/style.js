@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const ContextMenuListItem = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const ContextMenuListItemComponent = Vue.component("context-menu-list-item-component",{
+    components: {Theme, ContextMenuListItem},
+    template: `<Theme><ContextMenuListItem><slot/></ContextMenuListItem></Theme>`
     });
 
-    export default MyComponent;
+    export default ContextMenuListItemComponent;

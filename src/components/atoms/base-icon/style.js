@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const BaseIcon = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const BaseIconComponent = Vue.component("base-icon-component",{
+    components: {Theme, BaseIcon},
+    template: `<Theme><BaseIcon><slot/></BaseIcon></Theme>`
     });
 
-    export default MyComponent;
+    export default BaseIconComponent;

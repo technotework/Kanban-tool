@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const BaseTimeText = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const BaseTimeTextComponent = Vue.component("base-time-text-component",{
+    components: {Theme, BaseTimeText},
+    template: `<Theme><BaseTimeText><slot/></BaseTimeText></Theme>`
     });
 
-    export default MyComponent;
+    export default BaseTimeTextComponent;

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const InputCheckbox = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const InputCheckboxComponent = Vue.component("input-checkbox-component",{
+    components: {Theme, InputCheckbox},
+    template: `<Theme><InputCheckbox><slot/></InputCheckbox></Theme>`
     });
 
-    export default MyComponent;
+    export default InputCheckboxComponent;

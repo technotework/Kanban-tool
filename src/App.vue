@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-    <BaseButton value="hoge" @click="handler" />
+  <CP color="#000" />
      <router-view />
 
   </div>
 </template>
 
 <script>
-import BaseButton from "@/components/atoms/base-button"
+import CP from "@/components/atoms/base-color-chip"
 
 export default {
   name: "App",
   props: {},
-  components:{BaseButton},
-  methods:{handler:function(e){
-
-    console.log("e");
-  }}
+  components:{CP}
 };
 </script>

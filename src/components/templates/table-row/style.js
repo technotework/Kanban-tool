@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const TableRow = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const TableRowComponent = Vue.component("table-row-component",{
+    components: {Theme, TableRow},
+    template: `<Theme><TableRow><slot/></TableRow></Theme>`
     });
 
-    export default MyComponent;
+    export default TableRowComponent;

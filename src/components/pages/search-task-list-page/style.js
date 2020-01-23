@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const SearchTaskListPage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const SearchTaskListPageComponent = Vue.component("search-task-list-page-component",{
+    components: {Theme, SearchTaskListPage},
+    template: `<Theme><SearchTaskListPage><slot/></SearchTaskListPage></Theme>`
     });
 
-    export default MyComponent;
+    export default SearchTaskListPageComponent;

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const BaseFileSelect = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const BaseFileSelectComponent = Vue.component("base-file-select-component",{
+    components: {Theme, BaseFileSelect},
+    template: `<Theme><BaseFileSelect><slot/></BaseFileSelect></Theme>`
     });
 
-    export default MyComponent;
+    export default BaseFileSelectComponent;

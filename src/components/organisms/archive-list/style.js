@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const ArchiveList = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const ArchiveListComponent = Vue.component("archive-list-component",{
+    components: {Theme, ArchiveList},
+    template: `<Theme><ArchiveList><slot/></ArchiveList></Theme>`
     });
 
-    export default MyComponent;
+    export default ArchiveListComponent;

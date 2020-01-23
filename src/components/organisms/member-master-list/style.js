@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const MemberMasterList = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const MemberMasterListComponent = Vue.component("member-master-list-component",{
+    components: {Theme, MemberMasterList},
+    template: `<Theme><MemberMasterList><slot/></MemberMasterList></Theme>`
     });
 
-    export default MyComponent;
+    export default MemberMasterListComponent;

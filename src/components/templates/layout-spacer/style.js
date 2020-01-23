@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const LayoutSpacer = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const LayoutSpacerComponent = Vue.component("layout-spacer-component",{
+    components: {Theme, LayoutSpacer},
+    template: `<Theme><LayoutSpacer><slot/></LayoutSpacer></Theme>`
     });
 
-    export default MyComponent;
+    export default LayoutSpacerComponent;

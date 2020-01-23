@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const SearchList = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const SearchListComponent = Vue.component("search-list-component",{
+    components: {Theme, SearchList},
+    template: `<Theme><SearchList><slot/></SearchList></Theme>`
     });
 
-    export default MyComponent;
+    export default SearchListComponent;

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const ProjectList = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const ProjectListComponent = Vue.component("project-list-component",{
+    components: {Theme, ProjectList},
+    template: `<Theme><ProjectList><slot/></ProjectList></Theme>`
     });
 
-    export default MyComponent;
+    export default ProjectListComponent;

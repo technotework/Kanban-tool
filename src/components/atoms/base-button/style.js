@@ -15,7 +15,7 @@ import Theme from "@/components/themes/theme"
               type:String,
               default:"Button"
               },
-          name: {name:String},
+          name: {type:String},
         },
         methods:{
           onClick(e){

@@ -14,7 +14,7 @@ let atoms = [
     "base-editable-text",
     "base-form-label",
     "base-input",
-    "base-check-box",
+    //"base-check-box",
     "base-select",
     "base-file-select",
     //"base-button",
@@ -22,7 +22,7 @@ let atoms = [
     "base-time-text",
     "base-modeless-container",
     "base-modal-container",
-    "base-color-chip",
+    //"base-color-chip",
     "base-markdown-container"
 ];
 
@@ -130,7 +130,25 @@ let directories = [
 /*-----------------
 ファイル作成
 -----------------*/
+//パスカルケースに変換
+function renamePascal(str) {
 
+    let array = str.split("-");
+    for (let i = 0; i < array.length; i++) {
+
+        let targetText = array[i];
+        //一文字目を大文字にする
+        let firstLetter = targetText.charAt(0).toUpperCase();
+        let resultText = targetText.replace(/^./, firstLetter);
+        //再格納
+        array[i] = resultText;
+    }
+
+    let result = array.join("");
+
+
+    return result;
+}
 
 //実行処理
 function exec() {
@@ -152,7 +170,8 @@ function scafold(dir, subDirArray) {
 
         let dirName = dir + subDirArray[i];
         let fileName = dirName + "/style.js";
-
+        compoNameKebab = subDirArray[i];
+        compoNamePascal = renamePascal(compoNameKebab);
         let temp = getTemplate(fileName);
         createFiles(fileName, temp);
     }
@@ -181,18 +200,18 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div` + "``;";
+    const ${compoNamePascal} = styled.div` + "``;";
 
     let b = `
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `+"`"+`<Theme><StyledComponent><slot/></StyledComponent></Theme>`+"`";
+    const ${compoNamePascal}Component = Vue.component("${compoNameKebab}-component",{
+    components: {Theme, ${compoNamePascal}},
+    template: `+"`"+`<Theme><${compoNamePascal}><slot/></${compoNamePascal}></Theme>`+"`";
 
     let c = `
     });
 
-    export default MyComponent;`;
+    export default ${compoNamePascal}Component;`;
 
     return a + b + c;
 }

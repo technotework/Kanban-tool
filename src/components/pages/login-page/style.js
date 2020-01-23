@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const LoginPage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const LoginPageComponent = Vue.component("login-page-component",{
+    components: {Theme, LoginPage},
+    template: `<Theme><LoginPage><slot/></LoginPage></Theme>`
     });
 
-    export default MyComponent;
+    export default LoginPageComponent;

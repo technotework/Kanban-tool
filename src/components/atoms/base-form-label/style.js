@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const BaseFormLabel = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const BaseFormLabelComponent = Vue.component("base-form-label-component",{
+    components: {Theme, BaseFormLabel},
+    template: `<Theme><BaseFormLabel><slot/></BaseFormLabel></Theme>`
     });
 
-    export default MyComponent;
+    export default BaseFormLabelComponent;

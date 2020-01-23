@@ -15,15 +15,15 @@ let atoms = [
     "base-editable-text",
     "base-form-label",
     "base-input",
-    "base-check-box",
+    //"base-check-box",
     "base-select",
     "base-file-select",
-    "base-button",
+    //"base-button",
     "base-link-button",
     "base-time-text",
     "base-modeless-container",
     "base-modal-container",
-    "base-color-chip",
+    //"base-color-chip",
     "base-markdown-container"
 ];
 
@@ -211,7 +211,9 @@ function getTemplate(filePath,dirName) {
     let path = dirName.replace("src/components/","")
     .replace(/\/.+/,"");
 
-   return `
+   let a =  `
+import global from "@/components/themes/global-style"
+import { action } from '@storybook/addon-actions';
 import ${compoNamePascal} from "./index.vue";
 
 export default {
@@ -221,9 +223,13 @@ export default {
 
 export const Basic = () => ({
     components:{${compoNamePascal}},
-    template: "<${compoNamePascal} />"
+    template: ` + "`";
+    
+   let b = `<${compoNamePascal} />` + "`";
+   let c = `
 });`
 
+return a+b+c;
 
 }
 

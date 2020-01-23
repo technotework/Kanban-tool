@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const HolyGrailBottom = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const HolyGrailBottomComponent = Vue.component("holy-grail-bottom-component",{
+    components: {Theme, HolyGrailBottom},
+    template: `<Theme><HolyGrailBottom><slot/></HolyGrailBottom></Theme>`
     });
 
-    export default MyComponent;
+    export default HolyGrailBottomComponent;

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const FlexLayout = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const FlexLayoutComponent = Vue.component("flex-layout-component",{
+    components: {Theme, FlexLayout},
+    template: `<Theme><FlexLayout><slot/></FlexLayout></Theme>`
     });
 
-    export default MyComponent;
+    export default FlexLayoutComponent;

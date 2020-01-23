@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const TaskInfo = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const TaskInfoComponent = Vue.component("task-info-component",{
+    components: {Theme, TaskInfo},
+    template: `<Theme><TaskInfo><slot/></TaskInfo></Theme>`
     });
 
-    export default MyComponent;
+    export default TaskInfoComponent;

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const LabeledInput = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const LabeledInputComponent = Vue.component("labeled-input-component",{
+    components: {Theme, LabeledInput},
+    template: `<Theme><LabeledInput><slot/></LabeledInput></Theme>`
     });
 
-    export default MyComponent;
+    export default LabeledInputComponent;

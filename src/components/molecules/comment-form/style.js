@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const CommentForm = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const CommentFormComponent = Vue.component("comment-form-component",{
+    components: {Theme, CommentForm},
+    template: `<Theme><CommentForm><slot/></CommentForm></Theme>`
     });
 
-    export default MyComponent;
+    export default CommentFormComponent;

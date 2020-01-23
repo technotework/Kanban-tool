@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const ConfirmationDialogue = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const ConfirmationDialogueComponent = Vue.component("confirmation-dialogue-component",{
+    components: {Theme, ConfirmationDialogue},
+    template: `<Theme><ConfirmationDialogue><slot/></ConfirmationDialogue></Theme>`
     });
 
-    export default MyComponent;
+    export default ConfirmationDialogueComponent;

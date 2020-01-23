@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const LabelMasterPostForm = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const LabelMasterPostFormComponent = Vue.component("label-master-post-form-component",{
+    components: {Theme, LabelMasterPostForm},
+    template: `<Theme><LabelMasterPostForm><slot/></LabelMasterPostForm></Theme>`
     });
 
-    export default MyComponent;
+    export default LabelMasterPostFormComponent;

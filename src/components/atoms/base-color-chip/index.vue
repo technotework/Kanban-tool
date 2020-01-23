@@ -1,22 +1,18 @@
 <template>
     <div class="base-color-chip">
-    src/components/atoms/base-color-chip/index.vue
+        <ColorChip :color="color" />
     </div>
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import ColorChip from './style.js';
 export default {
     name: 'BaseColorChip',
     props: {
-
+        color:{type:String}
     },
     components:{
-        
+        ColorChip
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

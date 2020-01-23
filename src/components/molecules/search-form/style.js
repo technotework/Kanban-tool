@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const SearchForm = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const SearchFormComponent = Vue.component("search-form-component",{
+    components: {Theme, SearchForm},
+    template: `<Theme><SearchForm><slot/></SearchForm></Theme>`
     });
 
-    export default MyComponent;
+    export default SearchFormComponent;

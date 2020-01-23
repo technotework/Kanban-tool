@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const ManageMemberPage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const ManageMemberPageComponent = Vue.component("manage-member-page-component",{
+    components: {Theme, ManageMemberPage},
+    template: `<Theme><ManageMemberPage><slot/></ManageMemberPage></Theme>`
     });
 
-    export default MyComponent;
+    export default ManageMemberPageComponent;

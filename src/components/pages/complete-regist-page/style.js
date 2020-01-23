@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const CompleteRegistPage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const CompleteRegistPageComponent = Vue.component("complete-regist-page-component",{
+    components: {Theme, CompleteRegistPage},
+    template: `<Theme><CompleteRegistPage><slot/></CompleteRegistPage></Theme>`
     });
 
-    export default MyComponent;
+    export default CompleteRegistPageComponent;

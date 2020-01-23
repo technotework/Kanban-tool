@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const ColorLabel = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const ColorLabelComponent = Vue.component("color-label-component",{
+    components: {Theme, ColorLabel},
+    template: `<Theme><ColorLabel><slot/></ColorLabel></Theme>`
     });
 
-    export default MyComponent;
+    export default ColorLabelComponent;

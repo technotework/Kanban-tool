@@ -1,18 +1,26 @@
 <template>
     <div class="base-check-box">
-    src/components/atoms/base-check-box/index.vue
+        <CheckBox :id="id" :name="name" :value="value" @change="onInput"><slot /></CheckBox>
     </div>
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import CheckBox from './style.js';
 export default {
     name: 'BaseCheckBox',
     props: {
-
+        id: {type:String},
+        name: {type:String},
+        value:{type:String}
+    },
+    methods:{
+        onInput(arg){
+            
+            this.$emit("change",arg);
+        }
     },
     components:{
-        
+        CheckBox
     }
 }
 </script>

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const BothSideRight = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const BothSideRightComponent = Vue.component("both-side-right-component",{
+    components: {Theme, BothSideRight},
+    template: `<Theme><BothSideRight><slot/></BothSideRight></Theme>`
     });
 
-    export default MyComponent;
+    export default BothSideRightComponent;

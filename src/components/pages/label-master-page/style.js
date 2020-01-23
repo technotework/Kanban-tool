@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const LabelMasterPage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const LabelMasterPageComponent = Vue.component("label-master-page-component",{
+    components: {Theme, LabelMasterPage},
+    template: `<Theme><LabelMasterPage><slot/></LabelMasterPage></Theme>`
     });
 
-    export default MyComponent;
+    export default LabelMasterPageComponent;

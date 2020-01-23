@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const FloatMessage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const FloatMessageComponent = Vue.component("float-message-component",{
+    components: {Theme, FloatMessage},
+    template: `<Theme><FloatMessage><slot/></FloatMessage></Theme>`
     });
 
-    export default MyComponent;
+    export default FloatMessageComponent;

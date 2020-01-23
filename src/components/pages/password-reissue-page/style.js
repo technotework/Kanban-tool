@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
 
-    const StyledComponent = styled.div``;
+    const PasswordReissuePage = styled.div``;
     
-    const MyComponent = Vue.component("styled-component",{
-    components: {Theme, StyledComponent},
-    template: `<Theme><StyledComponent><slot/></StyledComponent></Theme>`
+    const PasswordReissuePageComponent = Vue.component("password-reissue-page-component",{
+    components: {Theme, PasswordReissuePage},
+    template: `<Theme><PasswordReissuePage><slot/></PasswordReissuePage></Theme>`
     });
 
-    export default MyComponent;
+    export default PasswordReissuePageComponent;
