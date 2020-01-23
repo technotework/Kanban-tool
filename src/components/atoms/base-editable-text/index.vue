@@ -1,18 +1,19 @@
 <template>
     <div class="base-editable-text">
-    src/components/atoms/base-editable-text/index.vue
+        <StyledBaseEditableText :width="width" :height="height" />
     </div>
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import StyledBaseEditableText from './style.js';
 export default {
     name: 'BaseEditableText',
     props: {
-
+        width:{type:String},
+        height:{type:String}
     },
     components:{
-        
+        StyledBaseEditableText
     }
 }
 </script>

@@ -1,5 +1,4 @@
 import global from "@/components/themes/global-style"
-
 import BaseColorChip from "./index.vue";
 
 export default {

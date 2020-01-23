@@ -10,5 +10,5 @@ export default {
 
 export const Basic = () => ({
     components:{BaseEditableText},
-    template: `<BaseEditableText />`
+    template: `<BaseEditableText width="100vw" height="30vh" />`
 });

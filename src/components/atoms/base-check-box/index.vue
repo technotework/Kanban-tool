@@ -1,11 +1,11 @@
 <template>
     <div class="base-check-box">
-        <CheckBox :id="id" :name="name" :value="value" @change="onInput"><slot /></CheckBox>
+        <StyledBaseCheckBox :id="id" :name="name" :value="value" @change="onInput"><slot /></StyledBaseCheckBox>
     </div>
 </template>
 
 <script>
-import CheckBox from './style.js';
+import StyledBaseCheckBox from './style.js';
 export default {
     name: 'BaseCheckBox',
     props: {
@@ -20,7 +20,7 @@ export default {
         }
     },
     components:{
-        CheckBox
+        StyledBaseCheckBox
     }
 }
 </script>

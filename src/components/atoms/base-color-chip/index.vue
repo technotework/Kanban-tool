@@ -1,18 +1,18 @@
 <template>
     <div class="base-color-chip">
-        <ColorChip :color="color" />
+        <StyledBaseColorChip :color="color" />
     </div>
 </template>
 
 <script>
-import ColorChip from './style.js';
+import StyledBaseColorChip from './style.js';
 export default {
     name: 'BaseColorChip',
     props: {
         color:{type:String}
     },
     components:{
-        ColorChip
+        StyledBaseColorChip
     }
 }
 </script>

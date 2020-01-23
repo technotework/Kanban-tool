@@ -1,12 +1,11 @@
 <template>
     <div class="base-button">
-        <Button :value="value" :name="name" @click="onClick" />
-    src/components/atoms/base-button/index.vue
+        <StyledBaseButton :value="value" :name="name" @click="onClick" />
     </div>
 </template>
 
 <script>
-import Button from './style.js';
+import StyledBaseButton from './style.js';
 export default {
     name: 'BaseButton',
     props: {
@@ -21,7 +20,7 @@ export default {
             this.$emit("click");
         }
     },
-    components:{Button}
+    components:{StyledBaseButton}
 }
 </script>
 
