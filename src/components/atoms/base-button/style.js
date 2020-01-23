@@ -4,13 +4,26 @@ import Theme from "@/components/themes/theme"
 
     //コンポーネントスタイル
 
-    const Button = styled.div`
-      color: ${props => props.theme.color.glay};
+    const Button = styled.input`
+      color: ${props => props.theme.color.black};
       `;
     
     const ButtonComponent = Vue.component("button-component",{
         components: {Theme,Button},
-        template: `<Theme><Button><slot/></Button></Theme>` 
+        props: {
+          value: {
+              type:String,
+              default:"Button"
+              },
+          name: {name:String},
+        },
+        methods:{
+          onClick(e){
+  
+              this.$emit("click",e);
+          }
+        },
+        template: `<Theme><Button type="button" :value="value" :name="name" @click="onClick" /></Theme>` 
     });
 
     export default ButtonComponent;

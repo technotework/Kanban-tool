@@ -1,4 +1,4 @@
-
+import { action } from '@storybook/addon-actions';
 import BaseButton from "./index.vue";
 
 export default {
@@ -8,5 +8,6 @@ export default {
 
 export const Basic = () => ({
     components:{BaseButton},
-    template: "<BaseButton />"
+    template: `<BaseButton value="myButton" @click="action" />`,
+    methods: { action: action('click') },
 });
