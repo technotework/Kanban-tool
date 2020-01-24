@@ -3,17 +3,17 @@
   
      <router-view />
      <Theme>
-      <PrimaryButton value="hogehoge" name="piyo" />
+      <Btn>aaa</Btn>
     </Theme>
   </div>
 </template>
 
 <script>
-import {PrimaryButton} from "@/components/atoms/base-button/compose"
+import Btn from "@/components/atoms/base-link-button"
 import Theme from "@/components/themes/theme"
 export default {
   name: "App",
   props: {},
-  components:{PrimaryButton,Theme}
+  components:{Btn,Theme}
 };
 </script>

@@ -12,6 +12,7 @@ html{
 body{
     font-size: ${props.fontSize.medium};
     line-height: ${props.lineHeight.medium};
+    font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 `;
 

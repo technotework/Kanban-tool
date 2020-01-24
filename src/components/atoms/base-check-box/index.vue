@@ -3,9 +3,7 @@
 </template>
 
 <script>
-import styled from "vue-styled-components";
-
-const StyledBaseCheckBox = styled.input``;
+import StyledBaseCheckBox from "./style"
     
 export default {
     name: 'BaseCheckBox',

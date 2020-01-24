@@ -8,7 +8,7 @@
 <script>
 //todo:後日実装
 
-import StyledCompo from './style.js';
+import StyledCompo from './style';
 export default {
     name: 'BaseMarkdownContainer',
     props: {

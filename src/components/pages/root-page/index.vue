@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import StyledCompo from './style';
 
-import "./style.js"
+import "./style"
 
 export default {
   name: "RootPage",

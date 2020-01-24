@@ -9,5 +9,5 @@ export default {
 
 export const Basic = () => ({
     components:{BaseColorChip,Theme},
-    template: `<Theme><BaseColorChip color="#f00" /></Theme>`
+    template: `<Theme><BaseColorChip color="#ff0" /></Theme>`
 });

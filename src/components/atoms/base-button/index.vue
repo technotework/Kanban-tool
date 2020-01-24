@@ -4,11 +4,7 @@
 
 <script>
 import Vue from "vue"
-import styled from "vue-styled-components";
-
-const StyledBaseButton = styled.input`
-    color: ${props => props.theme.color.black};
-    `;
+import StyledBaseButton from "./style";
 
 export default {
     name: 'BaseButton',

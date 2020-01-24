@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import StyledCompo from './style';
 export default {
     name: 'RegistPage',
     props: {
