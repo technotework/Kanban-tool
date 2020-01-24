@@ -10,5 +10,5 @@ export default {
 
 export const Basic = () => ({
     components:{BaseInput},
-    template: `<BaseInput />`
+    template: `<BaseInput width="200px" padding="5px" placeholder="please input" required />`
 });

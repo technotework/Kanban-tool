@@ -10,5 +10,5 @@ export default {
 
 export const Basic = () => ({
     components:{BaseImage},
-    template: `<BaseImage />`
+    template: `<BaseImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg" width="200px" alt="cat" />`
 });

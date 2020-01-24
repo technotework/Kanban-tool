@@ -1,18 +1,18 @@
 <template>
     <div class="base-heading">
-    src/components/atoms/base-heading/index.vue
+        <StyledBaseHeading :heading="heading"><slot /></StyledBaseHeading>
     </div>
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import StyledBaseHeading from './style.js';
 export default {
     name: 'BaseHeading',
-    props: {
-
+    props:{
+        heading:{type:String}
     },
     components:{
-        
+        StyledBaseHeading
     }
 }
 </script>

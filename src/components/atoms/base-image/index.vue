@@ -1,18 +1,22 @@
 <template>
     <div class="base-image">
-    src/components/atoms/base-image/index.vue
+    <StyledBaseImage :src="src" :round="round" :width="width" :height="height" :alt="alt" />
     </div>
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import StyledBaseImage from './style.js';
 export default {
     name: 'BaseImage',
-    props: {
-
+    props:{
+        src:   String,
+        round: String,
+        width: String,
+        height:String,
+        alt:String
     },
     components:{
-        
+        StyledBaseImage
     }
 }
 </script>

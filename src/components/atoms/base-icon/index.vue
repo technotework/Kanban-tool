@@ -1,22 +1,21 @@
 <template>
     <div class="base-icon">
-    src/components/atoms/base-icon/index.vue
+        <StyledBaseIcon :width="width" :height="height" :src="src" :round="round"><slot/></StyledBaseIcon>   
     </div>
 </template>
 
 <script>
-import StyledCompo from './style.js';
+import StyledBaseIcon from './style.js';
 export default {
     name: 'BaseIcon',
-    props: {
-
+    props:{
+        src:   String,
+        round: String,
+        width: String,
+        height:String
     },
     components:{
-        
+        StyledBaseIcon  
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

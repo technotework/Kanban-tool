@@ -10,5 +10,11 @@ export default {
 
 export const Basic = () => ({
     components:{BaseHeading},
-    template: `<BaseHeading />`
+    template: `
+    <div>
+        <BaseHeading heading="lv1">h1</BaseHeading>
+        <BaseHeading heading="lv2">h2</BaseHeading>
+        <BaseHeading heading="lv3">h3</BaseHeading>
+        <BaseHeading heading="lv4">h4</BaseHeading>
+    </div>`
 });

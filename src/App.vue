@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-  <CP color="#000" />
+  
      <router-view />
-
+ <BaseLinkButton width="120px" height="30px" round="20px" padding="5px 0 0 0" href="https://www.google.com" mode="button" backgroundColor="#ff0" target="_blank">リンク</BaseLinkButton>
   </div>
 </template>
 
 <script>
-import CP from "@/components/atoms/base-color-chip"
+import BaseLinkButton from "@/components/atoms/base-link-button"
 
 export default {
   name: "App",
   props: {},
-  components:{CP}
+  components:{BaseLinkButton}
 };
 </script>

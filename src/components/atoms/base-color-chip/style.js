@@ -5,7 +5,6 @@ import Theme from "@/components/themes/theme"
     
     //コンポーネントスタイル
     const p = {
-        hoge: String,
         color: String
     }
 
