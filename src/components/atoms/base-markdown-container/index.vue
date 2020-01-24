@@ -1,3 +1,4 @@
+
 <template>
     <div class="base-markdown-container">
     src/components/atoms/base-markdown-container/index.vue
@@ -5,6 +6,8 @@
 </template>
 
 <script>
+//todo:後日実装
+
 import StyledCompo from './style.js';
 export default {
     name: 'BaseMarkdownContainer',

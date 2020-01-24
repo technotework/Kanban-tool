@@ -1,4 +1,4 @@
-
+/*
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
 import BaseMarkdownContainer from "./index.vue";
@@ -12,3 +12,4 @@ export const Basic = () => ({
     components:{BaseMarkdownContainer},
     template: `<BaseMarkdownContainer />`
 });
+*/
