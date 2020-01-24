@@ -1,6 +1,7 @@
 
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import BaseModelessContainer from "./index.vue";
 
 export default {
@@ -9,6 +10,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{BaseModelessContainer},
-    template: `<BaseModelessContainer />`
+    components:{BaseModelessContainer,Theme},
+    template: `<Theme><BaseModelessContainer /></Theme>`
 });

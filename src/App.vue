@@ -2,16 +2,18 @@
   <div id="app">
   
      <router-view />
- <BaseLinkButton width="120px" height="30px" round="20px" padding="5px 0 0 0" href="https://www.google.com" mode="button" backgroundColor="#ff0" target="_blank">リンク</BaseLinkButton>
+     <Theme>
+      <PrimaryButton value="hogehoge" name="piyo" />
+    </Theme>
   </div>
 </template>
 
 <script>
-import BaseLinkButton from "@/components/atoms/base-link-button"
-
+import {PrimaryButton} from "@/components/atoms/base-button/compose"
+import Theme from "@/components/themes/theme"
 export default {
   name: "App",
   props: {},
-  components:{BaseLinkButton}
+  components:{PrimaryButton,Theme}
 };
 </script>

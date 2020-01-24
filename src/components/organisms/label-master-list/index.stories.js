@@ -1,6 +1,7 @@
 
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import LabelMasterList from "./index.vue";
 
 export default {
@@ -9,6 +10,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{LabelMasterList},
-    template: `<LabelMasterList />`
+    components:{LabelMasterList,Theme},
+    template: `<Theme><LabelMasterList /></Theme>`
 });

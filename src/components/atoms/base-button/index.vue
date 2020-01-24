@@ -1,11 +1,15 @@
 <template>
-    <div class="base-button">
-        <StyledBaseButton :value="value" :name="name" @click="onClick" />
-    </div>
+   <StyledBaseButton type="button" :value="value" :name="name" @click="onClick" />
 </template>
 
 <script>
-import StyledBaseButton from './style.js';
+import Vue from "vue"
+import styled from "vue-styled-components";
+
+const StyledBaseButton = styled.input`
+    color: ${props => props.theme.color.black};
+    `;
+
 export default {
     name: 'BaseButton',
     props: {
@@ -16,14 +20,10 @@ export default {
         name: {name:String},
     },
     methods:{
-        onClick(){
-            this.$emit("click");
+        onClick(e){
+            this.$emit("click",e);
         }
     },
     components:{StyledBaseButton}
 }
 </script>
-
-<style lang="scss">
-
-</style>

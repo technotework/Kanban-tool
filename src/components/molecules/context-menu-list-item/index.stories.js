@@ -1,6 +1,7 @@
 
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import ContextMenuListItem from "./index.vue";
 
 export default {
@@ -9,6 +10,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{ContextMenuListItem},
-    template: `<ContextMenuListItem />`
+    components:{ContextMenuListItem,Theme},
+    template: `<Theme><ContextMenuListItem /></Theme>`
 });

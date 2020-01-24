@@ -1,11 +1,20 @@
 <template>
-    <div class="base-image">
     <StyledBaseImage :src="src" :round="round" :width="width" :height="height" :alt="alt" />
-    </div>
 </template>
 
 <script>
-import StyledBaseImage from './style.js';
+import styled from "vue-styled-components";
+const p = {
+    round: String,
+    width: String,
+    height:String
+}
+const StyledBaseImage = styled("img",p)`
+        width: ${props => props.width ? props.width : "auto"};
+        height: ${props => props.height ? props.height : "auto"};
+        border-radius: ${props => props.round ? props.round : 0};
+`;
+
 export default {
     name: 'BaseImage',
     props:{
@@ -13,14 +22,10 @@ export default {
         round: String,
         width: String,
         height:String,
-        alt:String
+        alt:   String
     },
     components:{
         StyledBaseImage
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

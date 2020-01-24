@@ -1,6 +1,7 @@
 
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import ArchiveTaskListPage from "./index.vue";
 
 export default {
@@ -9,6 +10,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{ArchiveTaskListPage},
-    template: `<ArchiveTaskListPage />`
+    components:{ArchiveTaskListPage,Theme},
+    template: `<Theme><ArchiveTaskListPage /></Theme>`
 });

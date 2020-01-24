@@ -1,4 +1,5 @@
 import global from "@/components/themes/global-style"
+import Theme from "@/components/themes/theme"
 import BaseColorChip from "./index.vue";
 
 export default {
@@ -7,6 +8,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{BaseColorChip},
-    template: `<BaseColorChip color="#ff0" />`
+    components:{BaseColorChip,Theme},
+    template: `<Theme><BaseColorChip color="#f00" /></Theme>`
 });

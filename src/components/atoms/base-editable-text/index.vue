@@ -1,11 +1,20 @@
 <template>
-    <div class="base-editable-text">
-        <StyledBaseEditableText :width="width" :height="height" />
-    </div>
+        <StyledBaseEditableText :width="width" :height="height" contenteditable="true">
+            <slot/>
+        </StyledBaseEditableText>
 </template>
 
 <script>
-import StyledBaseEditableText from './style.js';
+import styled from "vue-styled-components";
+
+const StyledBaseEditableText = styled.div`
+
+    width: ${props => props.theme.size.vw};
+    height:${props => props.theme.size.t5l5};
+    border:${props => props.theme.border.thin} ${props => props.theme.color.black};
+    padding:${props => props.theme.space.l}
+`;
+
 export default {
     name: 'BaseEditableText',
     props: {

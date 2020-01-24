@@ -8,18 +8,18 @@ let compoNamePascal = "";
 
 
 let atoms = [
-    "base-heading",
-    "base-image",
-    "base-icon",
+    //"base-heading",
+    //"base-image",
+    //"base-icon",
     "base-text",
-    "base-editable-text",
+    //"base-editable-text",
     "base-form-label",
-    "base-input",
+    //"base-input",
     //"base-check-box",
     "base-select",
     "base-file-select",
     //"base-button",
-    "base-link-button",
+    //"base-link-button",
     "base-time-text",
     "base-modeless-container",
     "base-modal-container",
@@ -214,6 +214,7 @@ function getTemplate(filePath,dirName) {
    let a =  `
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import ${compoNamePascal} from "./index.vue";
 
 export default {
@@ -222,10 +223,10 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{${compoNamePascal}},
+    components:{${compoNamePascal},Theme},
     template: ` + "`";
     
-   let b = `<${compoNamePascal} />` + "`";
+   let b = `<Theme><${compoNamePascal} /></Theme>` + "`";
    let c = `
 });`
 

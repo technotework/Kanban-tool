@@ -1,6 +1,7 @@
 
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import BaseInput from "./index.vue";
 
 export default {
@@ -9,6 +10,7 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{BaseInput},
-    template: `<BaseInput width="200px" padding="5px" placeholder="please input" required />`
+    components:{BaseInput,Theme},
+    template: `<Theme><BaseInput width="200px" padding="5px" placeholder="please input" @input="action" required /></Theme>`,
+    methods: { action: action('input') }
 });

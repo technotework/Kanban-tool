@@ -1,6 +1,7 @@
 
 import global from "@/components/themes/global-style"
 import { action } from '@storybook/addon-actions';
+import Theme from "@/components/themes/theme"
 import IconedText from "./index.vue";
 
 export default {
@@ -9,6 +10,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{IconedText},
-    template: `<IconedText />`
+    components:{IconedText,Theme},
+    template: `<Theme><IconedText /></Theme>`
 });

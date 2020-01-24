@@ -1,22 +1,23 @@
 <template>
-    <div class="base-check-box">
-        <StyledBaseCheckBox :id="id" :name="name" :value="value" @change="onInput"><slot /></StyledBaseCheckBox>
-    </div>
+    <StyledBaseCheckBox type="checkbox" :id="id" :name="name" :value="value" @change="onInput" />
 </template>
 
 <script>
-import StyledBaseCheckBox from './style.js';
+import styled from "vue-styled-components";
+
+const StyledBaseCheckBox = styled.input``;
+    
 export default {
     name: 'BaseCheckBox',
     props: {
         id: {type:String},
         name: {type:String},
-        value:{type:String}
+        value:{type:String},
     },
     methods:{
-        onInput(arg){
+        onInput(e){
             
-            this.$emit("change",arg);
+            this.$emit("change", e.target.value);
         }
     },
     components:{

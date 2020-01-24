@@ -1,11 +1,22 @@
 <template>
-    <div class="base-input">
     <StyledBaseInput :width="width" :height="height" :padding="padding" :value="value" :name="name" :maxlength="maxlength" :placeholder="placeholder" :required="required" @input="onInput" />
-    </div>
 </template>
 
 <script>
-import StyledBaseInput from './style.js';
+import styled from "vue-styled-components";
+
+const p = {
+        width: String,
+        height:String,
+        padding:String
+    }
+
+const StyledBaseInput = styled("input",p)`
+    padding: ${props => props.padding ? props.padding : props.theme.space.th};
+    width:   ${props => props.width ? props.width : "auto"};
+    height:  ${props => props.height ? props.height : "auto"};
+`;
+
 export default {
     name: 'BaseInput',
     props: {
@@ -21,7 +32,7 @@ export default {
     methods:{
         onInput(arg){
             
-            this.$emit("input", arg);
+            this.$emit("input",arg);
         }
     },
     components:{
@@ -29,7 +40,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>
