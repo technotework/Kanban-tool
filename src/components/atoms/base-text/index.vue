@@ -1,19 +1,15 @@
 <template>
-    <div class="base-text">
-    src/components/atoms/base-text/index.vue
-    </div>
+  <StyledBaseText>
+    <slot />
+  </StyledBaseText>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledBaseText from "./style";
 export default {
-    name: 'BaseText',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "BaseText",
+  props: {},
+  components: { StyledBaseText }
+};
 </script>
 

@@ -1,19 +1,16 @@
 <template>
-    <div class="base-time-text">
-    src/components/atoms/base-time-text/index.vue
-    </div>
+  <StyledBaseTimeText :date="date"></StyledBaseTimeText>
 </template>
 
 <script>
-import StyledCompo from './style';
-export default {
-    name: 'BaseTimeText',
-    props: {
+import StyledBaseTimeText from "./style";
 
-    },
-    components:{
-        
-    }
-}
+export default {
+  name: "BaseTimeText",
+  props: {
+    date: { type: String }
+  },
+  components: { StyledBaseTimeText }
+};
 </script>
 

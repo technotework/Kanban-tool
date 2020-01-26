@@ -4,15 +4,17 @@ import styled from "vue-styled-components";
 import BaseText from "./index.vue"
 
 /*=========================================================
-
+CaptionText
 =========================================================*/
-const StyledComponent = styled(BaseText)``
-const ExtendsButton = Vue.component("extends-component",{
-    components: {StyledComponent},
-    template: `<StyledComponent />`,
-    methods:{
+const StyledCaptionTextComponent = styled(BaseText)`
+    font-size:${props => props.theme.fontSize.xsmall};
+`;
+const CaptionText = Vue.component("caption-text", {
+    components: { StyledCaptionTextComponent },
+    template: `<StyledCaptionTextComponent><slot/></StyledCaptionTextComponent>`,
+    methods: {
         ...BaseText.methods
     }
-    });
+});
 
-export {ExtendsButton}
+export { CaptionText }

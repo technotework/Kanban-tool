@@ -1,5 +1,5 @@
 <template>
-  <StyledBaseModalCover :index="index" @click="onClick">
+  <StyledBaseModalCover :index="index" :backgroundColor="backgroundColor" @click="onClick">
     <slot />
   </StyledBaseModalCover>
 </template>
@@ -9,7 +9,8 @@ import StyledBaseModalCover from "./style";
 export default {
   name: "BaseModalCover",
   props: {
-    index: { type: Number }
+    index: { type: Number },
+    backgroundColor: { type: String }
   },
   methods: {
     onClick(e) {

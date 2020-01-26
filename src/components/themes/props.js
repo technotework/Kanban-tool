@@ -2,7 +2,9 @@ const props =
 {
     fontSize: {
         base: "62.5%",
-        small: "1rem",
+        xxsmall: "1rem",
+        xsmall: "1.2rem",
+        small: "1.4rem",
         medium: "1.6rem",
         large: "2rem",
         xlarge: "2.4rem"
