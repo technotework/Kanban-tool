@@ -1,19 +1,27 @@
 <template>
-    <div class="base-modeless-container">
-    src/components/atoms/base-modeless-container/index.vue
-    </div>
+  <StyledBaseModelessContainer
+    :width="width"
+    :height="height"
+    :top="top"
+    :left="left"
+    :index="index"
+  >
+    <slot />
+  </StyledBaseModelessContainer>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledBaseModelessContainer from "./style";
 export default {
-    name: 'BaseModelessContainer',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "BaseModelessContainer",
+  props: {
+    width: { type: String },
+    height: { type: String },
+    index: { type: Number },
+    top: { type: String },
+    left: { type: String }
+  },
+  components: { StyledBaseModelessContainer }
+};
 </script>
 

@@ -5,11 +5,11 @@ import Theme from "@/components/themes/theme"
 import BaseModelessContainer from "./index.vue";
 
 export default {
-    title:"atoms/BaseModelessContainer",
-    component: {BaseModelessContainer}
+    title: "atoms/BaseModelessContainer",
+    component: { BaseModelessContainer }
 };
 
 export const Basic = () => ({
-    components:{BaseModelessContainer,Theme},
-    template: `<Theme><BaseModelessContainer /></Theme>`
+    components: { BaseModelessContainer, Theme },
+    template: `<Theme><BaseModelessContainer top="100px" left="100px">内容</BaseModelessContainer></Theme>`
 });

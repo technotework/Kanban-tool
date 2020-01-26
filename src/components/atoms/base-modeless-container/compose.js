@@ -1,17 +1,17 @@
 
 import Vue from "vue"
 import styled from "vue-styled-components";
-import BaseModelessContainer from "./index.vue"
+import BaseModalContainer from "./index.vue"
 
 /*=========================================================
 
 =========================================================*/
-const StyledComponent = styled(BaseModelessContainer)``
+const StyledComponent = styled(BaseModalContainer)``
 const ExtendsButton = Vue.component("extends-component",{
     components: {StyledComponent},
     template: `<StyledComponent />`,
     methods:{
-        ...BaseModelessContainer.methods
+        ...BaseModalContainer.methods
     }
     });
 

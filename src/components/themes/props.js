@@ -46,12 +46,23 @@ const props =
         t4l4: `${1.6 * 4 + 1.2 * 4}rem`,
         t5l4: `${1.6 * 5 + 1.2 * 4}rem`,
         t5l5: `${1.6 * 5 + 1.2 * 5}rem`,
+        s300: `300px`,
+        s200: `200px`,
+        s150: `150px`,
         vw: `100vw`,
         vh: `100vh`
     },
     border: {
         thin: "solid 1px",
         radius: "0.8rem"
+    },
+    index: {
+        heigh: 99999,
+        subHeigh: 99998,
+        middle: 88888,
+        subMiddle: 88887,
+        low: 77777,
+        subLow: 77776
     }
 };
 

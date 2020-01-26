@@ -4,12 +4,12 @@ import Theme from "@/components/themes/theme"
 import BaseCheckBox from "./index.vue";
 
 export default {
-    title:"atoms/BaseCheckBox",
-    component: {BaseCheckBox}
+    title: "atoms/BaseCheckBox",
+    component: { BaseCheckBox }
 };
 
 export const Basic = () => ({
-    components:{BaseCheckBox,Theme},
+    components: { BaseCheckBox, Theme },
     template: `
     <div>
         <Theme>
