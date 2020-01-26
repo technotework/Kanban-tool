@@ -11,15 +11,15 @@ const StyledPrimaryButton = styled(BaseButton)`
     background-color:#ff0;
 `;
 
-const PrimaryButton = Vue.component("primary-button",{
-    components: {StyledPrimaryButton},
+const PrimaryButton = Vue.component("primary-button", {
+    components: { StyledPrimaryButton },
     template: `<StyledPrimaryButton @click="onClick" />`,
-    methods:{
+    methods: {
         ...BaseButton.methods
     }
-    });
+});
 
-export {PrimaryButton}
+export { PrimaryButton }
 
 /*=========================================================
 SecondaryButton
@@ -30,12 +30,12 @@ const StyledSecondaryButton = styled(BaseButton)`
     background-color:#ccc;
 `;
 
-const SecondaryButton = Vue.component("secondary-button",{
-    components: {StyledSecondaryButton},
+const SecondaryButton = Vue.component("secondary-button", {
+    components: { StyledSecondaryButton },
     template: `<StyledSecondaryButton @click="onClick" />`,
-    methods:{
+    methods: {
         ...BaseButton.methods
     }
-    });
+});
 
-export {SecondaryButton}
+export { SecondaryButton }

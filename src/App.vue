@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-  
-     <router-view />
-     <Theme>
-      <Btn>aaa</Btn>
+    <router-view />
+    <Theme>
+      <Btn value="aaa" />
+      <PrimaryButton value="bbb" />
     </Theme>
   </div>
 </template>
 
 <script>
-import Btn from "@/components/atoms/base-link-button"
-import Theme from "@/components/themes/theme"
+import "@/components/themes/global-style";
+import Btn from "@/components/atoms/base-button";
+import { PrimaryButton } from "@/components/atoms/base-button/compose";
+import Theme from "@/components/themes/theme";
 export default {
   name: "App",
   props: {},
-  components:{Btn,Theme}
+  components: { PrimaryButton, Btn, Theme }
 };
 </script>
