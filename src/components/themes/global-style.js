@@ -11,8 +11,12 @@ html {
 body {
   margin: 0;
   font-size: ${props.fontSize.medium};
-  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-family: ${props.fontFamily.nomal};
   line-height: ${props.lineHeight.medium};
+}
+
+h1{
+  font-family: ${props.fontFamily.nomal};
 }
 
 main {
@@ -83,8 +87,8 @@ button,
 input,
 optgroup,
 select,
-textarea {
-  font-family: inherit; 
+textarea,
+label { 
   font-size: ${props.fontSize.medium};
   line-height: ${props.lineHeight.medium};
   margin: 0; 
@@ -129,7 +133,6 @@ fieldset {
 
 legend {
   box-sizing: border-box; 
-  color: inherit; 
   display: table; 
   max-width: 100%; 
   padding: 0; 
@@ -168,7 +171,6 @@ textarea {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button; 
-  font: inherit; 
 }
 
 details {

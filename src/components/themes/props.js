@@ -15,6 +15,9 @@ const props =
         large: `${2 * 1.75}rem`,
         xlarge: `${2.4 * 1.75}rem`
     },
+    fontFamily:{
+        nomal:"'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif"
+    },
     color: {
         white: "#fff",
         glay: "#ccc",
