@@ -15,10 +15,6 @@ body {
   line-height: ${props.lineHeight.medium};
 }
 
-h1{
-  font-family: ${props.fontFamily.nomal};
-}
-
 main {
   display: block;
 }
