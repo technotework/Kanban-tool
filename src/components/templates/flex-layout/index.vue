@@ -1,19 +1,19 @@
 <template>
-    <div class="flex-layout">
-    src/components/templates/flex-layout/index.vue
-    </div>
+  <StyledFlexLayout :width="width" :height="height" :wrap="wrap">
+    <slot />
+  </StyledFlexLayout>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledFlexLayout from "./style";
 export default {
-    name: 'FlexLayout',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "FlexLayout",
+  props: {
+    wrap: String,
+    width: String,
+    height: String
+  },
+  components: { StyledFlexLayout }
+};
 </script>
 

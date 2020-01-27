@@ -1,19 +1,15 @@
 <template>
-    <div class="layout-spacer">
-    src/components/templates/layout-spacer/index.vue
-    </div>
+  <StyledLayoutSpacer :width="width" :padding="padding" :margin="margin">
+    <slot />
+  </StyledLayoutSpacer>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledLayoutSpacer from "./style";
 export default {
-    name: 'LayoutSpacer',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "LayoutSpacer",
+  props: { width: String, padding: String, margin: String },
+  components: { StyledLayoutSpacer }
+};
 </script>
 

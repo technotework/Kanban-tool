@@ -1,15 +1,17 @@
 
-import Vue from "vue"
 import styled from "vue-styled-components";
-import Theme from "@/components/themes/theme"
-    
-    //コンポーネントスタイル
 
-    const FlexLayout = styled.div``;
-    
-    const FlexLayoutComponent = Vue.component("flex-layout-component",{
-    components: {Theme, FlexLayout},
-    template: `<Theme><FlexLayout><slot/></FlexLayout></Theme>`
-    });
+const p = {
+    wrap: String,
+    width: String,
+    height: String
+}
 
-    export default FlexLayoutComponent;
+const FlexLayout = styled("div", p)`
+        display:flex;
+        width:  ${props => { props.width ? props.width : props.theme.size.s300 }};
+        height: ${props => { props.height ? props.height : "auto" }};
+        flex-wrap:   ${props => { props.wrap ? props.wrap : "wrap" }};
+    `;
+
+export default FlexLayout;

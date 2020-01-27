@@ -1,15 +1,18 @@
 
-import Vue from "vue"
-import styled from "vue-styled-components";
-import Theme from "@/components/themes/theme"
-    
-    //コンポーネントスタイル
+import styled from "vue-styled-components"
 
-    const LayoutSpacer = styled.div``;
-    
-    const LayoutSpacerComponent = Vue.component("layout-spacer-component",{
-    components: {Theme, LayoutSpacer},
-    template: `<Theme><LayoutSpacer><slot/></LayoutSpacer></Theme>`
-    });
+//コンポーネントスタイル
 
-    export default LayoutSpacerComponent;
+const p = {
+    width: String,
+    padding: String,
+    margin: String
+};
+
+const LayoutSpacer = styled("div", p)`
+    width:${props => props.width ? props.width : "0"};
+    padding:${props => props.padding ? props.padding : "0"};
+    margin:${props => props.margin ? props.margin : "0"};
+`;
+
+export default LayoutSpacer;
