@@ -1,15 +1,15 @@
+import styled from "vue-styled-components"
 
-import Vue from "vue"
-import styled from "vue-styled-components";
-import Theme from "@/components/themes/theme"
-    
-    //コンポーネントスタイル
 
-    const BothSideRight = styled.div``;
-    
-    const BothSideRightComponent = Vue.component("both-side-right-component",{
-    components: {Theme, BothSideRight},
-    template: `<Theme><BothSideRight><slot/></BothSideRight></Theme>`
-    });
+const p = {
+    width: String,
+    right: String
+}
 
-    export default BothSideRightComponent;
+const BothSideRight = styled.div`
+    position:absolute;
+    right:${prop => prop.right ? prop.right : 0};
+    width:${prop => prop.width ? prop.width : "auto"};
+`;
+
+export default BothSideRight;

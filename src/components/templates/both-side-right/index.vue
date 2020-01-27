@@ -1,19 +1,18 @@
 <template>
-    <div class="both-side-right">
-    src/components/templates/both-side-right/index.vue
-    </div>
+  <StyledBothSideRight :width="width" :right="right">
+    <slot />
+  </StyledBothSideRight>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledBothSideRight from "./style";
 export default {
-    name: 'BothSideRight',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "BothSideRight",
+  props: {
+    width: String,
+    right: String
+  },
+  components: { StyledBothSideRight }
+};
 </script>
 
