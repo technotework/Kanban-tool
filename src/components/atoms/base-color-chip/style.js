@@ -4,9 +4,9 @@ const p = {
     color: String
 }
 const StyledBaseColorChip = styled("div", p)`
-    width: ${props => props.theme.size.t2l2};
-    height: ${props => props.theme.size.t2l2};
-    background-color: ${props => props.color ? props.color : props.theme.color.red};
+    width: ${props => props.theme.base.size.t2l2};
+    height: ${props => props.theme.base.size.t2l2};
+    background-color: ${props => props.color ? props.color : props.theme.base.color.red};
 `;
 
 export default StyledBaseColorChip;

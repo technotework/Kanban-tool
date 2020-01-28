@@ -5,7 +5,7 @@ import styled from "vue-styled-components";
 
 const BaseText = styled.span`
 
-    color: ${props => props.theme.color.black};
+    color: ${props => props.theme.base.color.black};
 `;
 
 export default BaseText;

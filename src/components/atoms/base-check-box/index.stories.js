@@ -1,7 +1,8 @@
-import global from "@/components/themes/global-style"
+import global from "@/components/themes/global-style";
 import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import Theme from "@/components/themes/theme";
 import BaseCheckBox from "./index.vue";
+import BaseLabel from "@/components/atoms/base-form-label";
 
 export default {
     title: "atoms/BaseCheckBox",
@@ -9,12 +10,11 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseCheckBox, Theme },
+    components: { BaseLabel, BaseCheckBox, Theme },
     template: `
     <div>
         <Theme>
-        <BaseCheckBox id="cat" name="animal" value="ねこ" @change="action">ねこ</BaseCheckBox>
-        <BaseCheckBox id="dog" name="animal" value="いぬ" @change="action">いぬ</BaseCheckBox>
+        <BaseLabel for="cat"><BaseCheckBox id="cat" name="animal" value="ねこ" @change="action" /> ねこ</BaseLabel>
         </Theme>
     </div>
     `,

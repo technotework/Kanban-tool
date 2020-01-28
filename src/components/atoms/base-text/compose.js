@@ -7,7 +7,7 @@ import BaseText from "./index.vue"
 CaptionText
 =========================================================*/
 const StyledCaptionTextComponent = styled(BaseText)`
-    font-size:${props => props.theme.fontSize.xsmall};
+    font-size:${props => props.theme.base.fontSize.xsmall};
 `;
 const CaptionText = Vue.component("caption-text", {
     components: { StyledCaptionTextComponent },

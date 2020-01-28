@@ -2,29 +2,25 @@
   <div id="app">
     <router-view />
     <Theme>
-       <BaseHeading heading="lv1">h1</BaseHeading>
-      <Select name="hoge" :items="items"  />
+      <BaseLayout>
+        <template #header>header</template>
+        <template #main>main</template>
+        <template #footer>footer</template>
+      </BaseLayout>
     </Theme>
   </div>
 </template>
 
 <script>
 import Theme from "@/components/themes/theme";
-import BaseHeading from "@/components/atoms/base-heading"
-import Select from "@/components/atoms/base-select"
+import { BaseLayout } from "@/components/templates/holy-grail-layout/compose";
+
 export default {
   name: "App",
   props: {},
-  data:function(){
-    return {
-      selected:"",
-      items:[
-                {value:"cat", content:"ねこさん"},
-                {value:"dog", content:"いぬさん"},
-                {value:"panda", content:"ぱんださん"}
-            ]
-    }
+  data: function() {
+    return {};
   },
-  components: { Select,BaseHeading,Theme }
+  components: { BaseLayout, Theme }
 };
 </script>

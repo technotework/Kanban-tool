@@ -13,7 +13,7 @@ const BaseModalCover = styled("div", p)`
     width:100vw;
     height:100vh;
     background-color:${props => props.backgroundColor ? props.backgroundColor : "transparent"};
-    z-index:${props => props.index ? props.index : props.theme.index.subHeigh};
+    z-index:${props => props.index ? props.index : props.theme.base.index.subHeigh};
 `;
 
 

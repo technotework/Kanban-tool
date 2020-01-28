@@ -1,14 +1,14 @@
 import styled from "vue-styled-components";
 
 const StyledBaseButton = styled.input`
-    color: ${props => props.theme.color.black};
-    border-radius: ${props => props.theme.border.radius};
-    border: ${props => props.theme.border.thin} ${props => props.theme.color.glay};
-    background-color: ${props => props.theme.color.white};
-    padding-top:${props => props.theme.space.thh};
-    padding-bottom:${props => props.theme.space.thh};
-    padding-left:${props => props.theme.space.th};
-    padding-right:${props => props.theme.space.th};
+    
+    font-size: ${props => props.theme.service.button.fontSize};
+    line-height:${props => props.theme.service.button.lineHeight};
+    padding:${props => props.theme.service.button.padding};
+    margin:${props => props.theme.service.button.margin};
+    border-radius: ${props => props.theme.service.button.radius};
+    border: ${props => props.theme.service.button.border};
+    background-color: ${props => props.theme.service.color.secondary};
     cursor: pointer;
 `;
 

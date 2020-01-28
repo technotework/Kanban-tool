@@ -8,7 +8,7 @@ PrimaryButton
 =========================================================*/
 const StyledPrimaryButton = styled(BaseButton)`
 
-    background-color:#ff0;
+background-color: ${props => props.theme.service.color.primary};
 `;
 
 const PrimaryButton = Vue.component("primary-button", {
@@ -27,7 +27,7 @@ SecondaryButton
 
 const StyledSecondaryButton = styled(BaseButton)`
 
-    background-color:#ccc;
+background-color:${props => props.theme.service.color.secondary};
 `;
 
 const SecondaryButton = Vue.component("secondary-button", {
