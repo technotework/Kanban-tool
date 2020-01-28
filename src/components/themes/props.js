@@ -121,12 +121,10 @@ const service = {
         disable: base.color.lightGlay
     },
     form: {
-        labelMargin: base.space.t,
-        inputPadding: base.space.t,
-        cbBottom: base.space.th
+        labelMargin: base.space.th,
+        inputPadding: base.space.t
     },
     button: {
-
         fontSize: base.fontSize.small,
         lineHeight: base.space.z,
         padding: `${base.space.t} ${base.space.t2}`,

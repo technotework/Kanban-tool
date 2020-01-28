@@ -14,7 +14,7 @@ export const Basic = () => ({
     template: `
     <div>
         <Theme>
-        <BaseLabel for="cat"><BaseCheckBox id="cat" name="animal" value="ねこ" @change="action" /> ねこ</BaseLabel>
+        <BaseLabel for="cat"><BaseCheckBox id="cat" name="animal" value="ねこ" @change="action" />ねこ</BaseLabel>
         </Theme>
     </div>
     `,
