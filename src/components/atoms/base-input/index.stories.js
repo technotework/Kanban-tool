@@ -13,6 +13,11 @@ export default {
 
 export const Basic = () => ({
     components: { BaseInput, Theme },
-    template: `<Theme><BaseInput width="200px" padding="5px" placeholder="please input" @input="action" required /></Theme>`,
+    props: {
+        width: { default: text("width", "200px") },
+        padding: { default: text("padding", "10px") },
+        placeholder: { default: text("placeholder", "please input") },
+    },
+    template: `<Theme><BaseInput :width="width" :padding="padding" :placeholder="placeholder" @input="action" required /></Theme>`,
     methods: { action: action('input') }
 });
