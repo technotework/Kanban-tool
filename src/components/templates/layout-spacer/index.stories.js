@@ -1,13 +1,13 @@
-
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions'
-import Theme from "@/components/themes/theme"
-import styled from "vue-styled-components"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import LayoutSpacer from "./index.vue"
 
 export default {
     title: "templates/LayoutSpacer",
-    component: { LayoutSpacer }
+    component: { LayoutSpacer },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 const Box = styled.div`

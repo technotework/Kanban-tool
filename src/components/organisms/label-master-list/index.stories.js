@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import LabelMasterList from "./index.vue";
 
 export default {
-    title:"organisms/LabelMasterList",
-    component: {LabelMasterList}
+    title: "organisms/LabelMasterList",
+    component: { LabelMasterList },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{LabelMasterList,Theme},
+    components: { LabelMasterList, Theme },
     template: `<Theme><LabelMasterList /></Theme>`
 });

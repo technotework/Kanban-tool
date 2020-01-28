@@ -1,15 +1,16 @@
-
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import ContextMenuList from "./index.vue";
 
 export default {
-    title:"molecules/ContextMenuList",
-    component: {ContextMenuList}
+    title: "molecules/ContextMenuList",
+    component: { ContextMenuList },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{ContextMenuList,Theme},
+    components: { ContextMenuList, Theme },
     template: `<Theme><ContextMenuList /></Theme>`
 });

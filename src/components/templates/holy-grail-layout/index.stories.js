@@ -1,12 +1,14 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import { BaseLayout } from "./compose";
 
 export default {
     title: "templates/HolyGrailLayout",
-    component: { BaseLayout }
+    component: { BaseLayout },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({

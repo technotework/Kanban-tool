@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import TaskPostForm from "./index.vue";
 
 export default {
-    title:"organisms/TaskPostForm",
-    component: {TaskPostForm}
+    title: "organisms/TaskPostForm",
+    component: { TaskPostForm },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{TaskPostForm,Theme},
+    components: { TaskPostForm, Theme },
     template: `<Theme><TaskPostForm /></Theme>`
 });

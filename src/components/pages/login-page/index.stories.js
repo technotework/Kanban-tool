@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import LoginPage from "./index.vue";
 
 export default {
-    title:"pages/LoginPage",
-    component: {LoginPage}
+    title: "pages/LoginPage",
+    component: { LoginPage },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{LoginPage,Theme},
+    components: { LoginPage, Theme },
     template: `<Theme><LoginPage /></Theme>`
 });

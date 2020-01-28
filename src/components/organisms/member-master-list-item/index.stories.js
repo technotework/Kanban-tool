@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import MemberMasterListItem from "./index.vue";
 
 export default {
-    title:"organisms/MemberMasterListItem",
-    component: {MemberMasterListItem}
+    title: "organisms/MemberMasterListItem",
+    component: { MemberMasterListItem },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{MemberMasterListItem,Theme},
+    components: { MemberMasterListItem, Theme },
     template: `<Theme><MemberMasterListItem /></Theme>`
 });

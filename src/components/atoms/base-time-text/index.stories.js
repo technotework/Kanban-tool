@@ -1,7 +1,4 @@
-
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import BaseTimeText from "./index.vue";
 import DateText from "./date-text.vue";
 import DateTimeText from "./date-time-text.vue";

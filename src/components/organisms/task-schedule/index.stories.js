@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import TaskSchedule from "./index.vue";
 
 export default {
-    title:"organisms/TaskSchedule",
-    component: {TaskSchedule}
+    title: "organisms/TaskSchedule",
+    component: { TaskSchedule },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{TaskSchedule,Theme},
+    components: { TaskSchedule, Theme },
     template: `<Theme><TaskSchedule /></Theme>`
 });

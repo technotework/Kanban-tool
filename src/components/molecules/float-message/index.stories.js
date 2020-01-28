@@ -1,15 +1,16 @@
-
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import FloatMessage from "./index.vue";
 
 export default {
-    title:"molecules/FloatMessage",
-    component: {FloatMessage}
+    title: "molecules/FloatMessage",
+    component: { FloatMessage },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{FloatMessage,Theme},
+    components: { FloatMessage, Theme },
     template: `<Theme><FloatMessage /></Theme>`
 });

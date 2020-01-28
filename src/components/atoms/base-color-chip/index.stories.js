@@ -1,13 +1,16 @@
-import global from "@/components/themes/global-style"
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import BaseColorChip from "./index.vue";
 
 export default {
-    title:"atoms/BaseColorChip",
-    component: {BaseColorChip}
+    title: "atoms/BaseColorChip",
+    component: { BaseColorChip },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{BaseColorChip,Theme},
+    components: { BaseColorChip, Theme },
     template: `<Theme><BaseColorChip color="#ff0" /></Theme>`
 });

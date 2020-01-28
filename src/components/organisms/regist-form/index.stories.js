@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import RegistForm from "./index.vue";
 
 export default {
-    title:"organisms/RegistForm",
-    component: {RegistForm}
+    title: "organisms/RegistForm",
+    component: { RegistForm },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{RegistForm,Theme},
+    components: { RegistForm, Theme },
     template: `<Theme><RegistForm /></Theme>`
 });

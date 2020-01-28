@@ -1,15 +1,16 @@
-
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import IconedTextButton from "./index.vue";
 
 export default {
-    title:"molecules/IconedTextButton",
-    component: {IconedTextButton}
+    title: "molecules/IconedTextButton",
+    component: { IconedTextButton },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{IconedTextButton,Theme},
+    components: { IconedTextButton, Theme },
     template: `<Theme><IconedTextButton /></Theme>`
 });

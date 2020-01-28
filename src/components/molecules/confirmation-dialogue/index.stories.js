@@ -1,15 +1,16 @@
-
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import ConfirmationDialogue from "./index.vue";
 
 export default {
-    title:"molecules/ConfirmationDialogue",
-    component: {ConfirmationDialogue}
+    title: "molecules/ConfirmationDialogue",
+    component: { ConfirmationDialogue },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{ConfirmationDialogue,Theme},
+    components: { ConfirmationDialogue, Theme },
     template: `<Theme><ConfirmationDialogue /></Theme>`
 });

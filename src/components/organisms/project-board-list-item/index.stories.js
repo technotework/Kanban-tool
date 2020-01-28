@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import ProjectBoardListItem from "./index.vue";
 
 export default {
-    title:"organisms/ProjectBoardListItem",
-    component: {ProjectBoardListItem}
+    title: "organisms/ProjectBoardListItem",
+    component: { ProjectBoardListItem },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{ProjectBoardListItem,Theme},
+    components: { ProjectBoardListItem, Theme },
     template: `<Theme><ProjectBoardListItem /></Theme>`
 });

@@ -1,16 +1,18 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import BaseLinkButton from "./index.vue";
 
 export default {
-    title:"atoms/BaseLinkButton",
-    component: {BaseLinkButton}
+    title: "atoms/BaseLinkButton",
+    component: { BaseLinkButton },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{BaseLinkButton,Theme},
+    components: { BaseLinkButton, Theme },
     methods: { action: action('click') },
     template: `
     <div>

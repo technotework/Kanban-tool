@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
 import TableHeader from "./index.vue";
 
 export default {
-    title:"templates/TableHeader",
-    component: {TableHeader}
+    title: "templates/TableHeader",
+    component: { TableHeader },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{TableHeader,Theme},
+    components: { TableHeader, Theme },
     template: `<Theme><TableHeader /></Theme>`
 });

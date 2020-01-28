@@ -1,15 +1,17 @@
 
-import global from "@/components/themes/global-style"
-import { action } from '@storybook/addon-actions';
-import Theme from "@/components/themes/theme"
+import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
 import ArchiveList from "./index.vue";
 
 export default {
-    title:"organisms/ArchiveList",
-    component: {ArchiveList}
+    title: "organisms/ArchiveList",
+    component: { ArchiveList },
+    decorators: [withKnobs, withInfo],
+    parameters: {
+        info: {},
+    }
 };
 
 export const Basic = () => ({
-    components:{ArchiveList,Theme},
+    components: { ArchiveList, Theme },
     template: `<Theme><ArchiveList /></Theme>`
 });
