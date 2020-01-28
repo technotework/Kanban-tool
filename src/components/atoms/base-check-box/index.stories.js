@@ -13,10 +13,15 @@ export default {
 
 export const Basic = () => ({
     components: { BaseLabel, BaseCheckBox, Theme },
+    props: {
+        id: { default: text("id", "cat") },
+        value: { default: text("value", "ねこ") },
+        name: { default: text("name", "cat") },
+    },
     template: `
     <div>
         <Theme>
-        <BaseLabel for="cat"><BaseCheckBox id="cat" name="animal" value="ねこ" @change="action" />ねこ</BaseLabel>
+        <BaseLabel :for="id"><BaseCheckBox :id="id" :name="name" :value="value" @change="action" />{{value}}</BaseLabel>
         </Theme>
     </div>
     `,

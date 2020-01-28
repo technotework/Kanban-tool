@@ -8,14 +8,24 @@ const base =
         medium: "1.6rem",
         large: "1.8rem",
         xlarge: "2rem",
-        xxlarge: "2.4rem"
+        f24: "2.4rem",
+        f36: "3.6rem",
+        f40: "4rem",
+        f44: "4.4rem",
+        f48: "4.8rem",
+
     },
     lineHeight: {
         small: `${1 * 1.75}rem`,
         medium: `${1.6 * 1.75}rem`,
         large: `${1.8 * 1.75}rem`,
         xlarge: `${2 * 1.75}rem`,
-        xxlarge: `${2.4 * 1.75}rem`
+        l24: `${2.4 * 1.75}rem`,
+        l36: `${3.6 * 1.75}rem`,
+        l40: `${4 * 1.75}rem`,
+        l44: `${4.4 * 1.75}rem`,
+        l48: `${4.8 * 1.75}rem`,
+
     },
     fontFamily: {
         nomal: '"HiraginoSans-W3","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","游ゴシック Medium",YuGothic,YuGothicM,メイリオ,Meiryo,sans-serif;'
@@ -98,17 +108,24 @@ const service = {
         color: base.color.glay
     },
     h1: {
-        size: base.fontSize.xxlarge,
-        lh: base.fontSize.xxlarge,
+        size: base.fontSize.f48,
+        lh: base.lineHeight.l48,
         color: base.color.blue,
     },
     h2: {
-        size: base.fontSize.xlarge,
-        lh: base.fontSize.xlarge
+        size: base.fontSize.f40,
+        lh: base.lineHeight.l40,
+        color: base.color.black
     },
     h3: {
-        size: base.fontSize.large,
-        lh: base.fontSize.large
+        size: base.fontSize.f36,
+        lh: base.lineHeight.l36,
+        color: base.color.black
+    },
+    h4: {
+        size: base.fontSize.f24,
+        lh: base.lineHeight.l24,
+        color: base.color.black
     },
     color: {
         theme: base.color.blue,
@@ -131,6 +148,11 @@ const service = {
         margin: `${base.space.t2l2} 0 ${base.space.t2l2} ${base.space.t}`,
         radius: base.border.radius,
         border: `${base.border.thin}  ${base.color.lightGlay}`
+    },
+    icon: {
+        mini: base.size.t2l2,
+        normal: base.size.t3l3,
+        large: base.size.t4l4
     }
 };
 

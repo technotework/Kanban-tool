@@ -1,20 +1,21 @@
 <template>
-    <StyledBaseEditableText :width="width" :height="height" contenteditable="true">
-        <slot/>
-    </StyledBaseEditableText>
+  <StyledBaseEditableText :width="width" :height="height" :padding="padding" contenteditable="true">
+    <slot />
+  </StyledBaseEditableText>
 </template>
 
 <script>
-import StyledBaseEditableText from "./style"
+import StyledBaseEditableText from "./style";
 
 export default {
-    name: 'BaseEditableText',
-    props: {
-        width:{type:String},
-        height:{type:String}
-    },
-    components:{
-        StyledBaseEditableText
-    }
-}
+  name: "BaseEditableText",
+  props: {
+    width: { type: String },
+    height: { type: String },
+    padding: { type: String }
+  },
+  components: {
+    StyledBaseEditableText
+  }
+};
 </script>

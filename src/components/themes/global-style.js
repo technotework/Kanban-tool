@@ -1,7 +1,7 @@
 import { injectGlobal } from "vue-styled-components";
 import props from "./props";
 
-injectGlobal`
+const global = injectGlobal`
 //reset
 
 html, body, div, span, object, iframe,
@@ -109,5 +109,11 @@ body {
   line-height: ${props.service.mainText.lh};
 }
 
+* {
+    box-sizing:border-box;
+}
+
 [v-cloak] { display: none }
 `;
+
+export default global;

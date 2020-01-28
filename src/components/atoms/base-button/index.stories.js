@@ -13,7 +13,9 @@ export default {
 
 export const Basic = () => ({
     components: { BaseButton, Theme },
-    props: { value: { default: text("value", "ButtonName") } },
+    props: {
+        value: { default: text("value", "ButtonName") }
+    },
     template: `<Theme><BaseButton :value="value" @click="action" /></Theme>`,
     parameters: {
         info: {},
@@ -23,12 +25,18 @@ export const Basic = () => ({
 
 export const Primary = () => ({
     components: { PrimaryButton, Theme },
+    props: {
+        value: { default: text("value", "ButtonName") }
+    },
     template: `<Theme><PrimaryButton value="myButton" @click="action" /></Theme>`,
     methods: { action: action('click') }
 });
 
 export const Secondary = () => ({
     components: { SecondaryButton, Theme },
+    props: {
+        value: { default: text("value", "ButtonName") }
+    },
     template: `<Theme><SecondaryButton value="myButton" @click="action" /></Theme>`,
     methods: { action: action('click') }
 });

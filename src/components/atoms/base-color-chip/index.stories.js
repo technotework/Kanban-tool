@@ -12,5 +12,6 @@ export default {
 
 export const Basic = () => ({
     components: { BaseColorChip, Theme },
-    template: `<Theme><BaseColorChip color="#ff0" /></Theme>`
+    props: { color: { default: color("color", "#ff0") } },
+    template: `<Theme><BaseColorChip :color="color" /></Theme>`
 });

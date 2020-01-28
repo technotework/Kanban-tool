@@ -12,5 +12,10 @@ export default {
 
 export const Basic = () => ({
     components: { BaseEditableText, Theme },
-    template: `<Theme><BaseEditableText width="100vw" height="30vh" /></Theme>`
+    props: {
+        width: { default: text("width", "100%") },
+        height: { default: text("height", "200px") },
+        padding: { default: text("padding", "10px") }
+    },
+    template: `<Theme><BaseEditableText :width="width" :height="height" :padding="padding" /></Theme>`
 });

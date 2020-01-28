@@ -6,19 +6,51 @@ export default {
     component: { BaseHeading },
     decorators: [withKnobs, withInfo],
     parameters: {
-        info: {},
+        info: `
+        h1: heading="lv1"  
+        h2: heading="lv2"  
+        h3: heading="lv3"  
+        h4: heading="lv4"        
+        `,
     }
 };
 
-export const Basic = () => ({
+export const H1 = () => ({
     components: { BaseHeading, Theme },
     template: `
     <div>
     <Theme>
-        <BaseHeading heading="lv1">h1</BaseHeading>
-        <BaseHeading heading="lv2">h2</BaseHeading>
-        <BaseHeading heading="lv3">h3</BaseHeading>
-        <BaseHeading heading="lv4">h4</BaseHeading>
+        <BaseHeading heading="lv1">H1</BaseHeading>
+    </Theme>
+    </div>`
+});
+
+export const H2 = () => ({
+    components: { BaseHeading, Theme },
+    template: `
+    <div>
+    <Theme>
+        <BaseHeading heading="lv2">H2</BaseHeading>
+    </Theme>
+    </div>`
+});
+
+export const H3 = () => ({
+    components: { BaseHeading, Theme },
+    template: `
+    <div>
+    <Theme>
+        <BaseHeading heading="lv3">H3</BaseHeading>
+    </Theme>
+    </div>`
+});
+
+export const H4 = () => ({
+    components: { BaseHeading, Theme },
+    template: `
+    <div>
+    <Theme>
+        <BaseHeading heading="lv4">H4</BaseHeading>
     </Theme>
     </div>`
 });

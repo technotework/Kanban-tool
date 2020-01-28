@@ -1,5 +1,5 @@
 <template>
-  <StyledBaseFormLabel :for="val">
+  <StyledBaseFormLabel :for="id">
     <slot />
   </StyledBaseFormLabel>
 </template>
@@ -10,7 +10,7 @@ import StyledBaseFormLabel from "./style";
 export default {
   name: "BaseFormLabel",
   props: {
-    val: { type: String }
+    id: { type: String }
   },
   components: {
     StyledBaseFormLabel
