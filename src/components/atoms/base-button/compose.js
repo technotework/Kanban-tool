@@ -13,6 +13,7 @@ background-color: ${props => props.theme.service.color.primary};
 
 const PrimaryButton = Vue.component("primary-button", {
     components: { StyledPrimaryButton },
+    props: { ...StyledPrimaryButton.props },
     template: `<StyledPrimaryButton @click="onClick" />`,
     methods: {
         ...BaseButton.methods
@@ -32,6 +33,7 @@ background-color:${props => props.theme.service.color.secondary};
 
 const SecondaryButton = Vue.component("secondary-button", {
     components: { StyledSecondaryButton },
+    props: { ...StyledPrimaryButton.props },
     template: `<StyledSecondaryButton @click="onClick" />`,
     methods: {
         ...BaseButton.methods
