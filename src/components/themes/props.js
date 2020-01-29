@@ -32,9 +32,10 @@ const base =
     },
     color: {
         white: "#fff",
-        lightGlay: "#ccc",
-        glay: "#8a8a8a",
-        darkGlay: "#3e3e3e",
+        xlightGray: "#eaeaea",
+        lightGray: "#ccc",
+        gray: "#8a8a8a",
+        darkGray: "#3e3e3e",
         black: "#000",
         blue: "#182573",
         cyan: "#09abbe",
@@ -71,10 +72,14 @@ const base =
         t4l4: `${1.6 * 4 + 1.2 * 4}rem`,
         t5l4: `${1.6 * 5 + 1.2 * 4}rem`,
         t5l5: `${1.6 * 5 + 1.2 * 5}rem`,
+        s400: `400px`,
+        s350: `350px`,
         s300: `300px`,
+        s250: `250px`,
         s200: `200px`,
         s150: `150px`,
         vw: `100vw`,
+        vw30: `30vw`,
         vh: `100vh`
     },
     border: {
@@ -93,6 +98,10 @@ const base =
 
 const service = {
 
+    common: {
+        round: base.size.th2,
+        boxShadow: "0 0 10px rgba(0,0,0,0.3);",
+    },
     baseText: {
         size: base.fontSize.base,
         fontFamily: base.fontFamily.nomal,
@@ -105,7 +114,7 @@ const service = {
     caption: {
         size: base.fontSize.small,
         lh: base.lineHeight.small,
-        color: base.color.glay
+        color: base.color.gray
     },
     h1: {
         size: base.fontSize.f48,
@@ -135,7 +144,7 @@ const service = {
         message: base.color.water,
         primary: base.color.water,
         secondary: base.color.white,
-        disable: base.color.lightGlay
+        disable: base.color.lightGray
     },
     form: {
         labelMargin: base.space.th,
@@ -147,12 +156,19 @@ const service = {
         padding: `${base.space.t} ${base.space.t2}`,
         margin: `${base.space.t2l2} 0 ${base.space.t2l2} ${base.space.t}`,
         radius: base.border.radius,
-        border: `${base.border.thin}  ${base.color.lightGlay}`
+        border: `${base.border.thin}  ${base.color.lightGray}`
     },
     icon: {
         mini: base.size.t2l2,
         normal: base.size.t3l3,
         large: base.size.t4l4
+    },
+    dialogue: {
+        bgColor: base.color.xlightGray,
+        borderColor: base.color.gray,
+        width: base.size.s350,
+        minHeight: base.size.s200,
+        padding: base.space.t
     }
 };
 

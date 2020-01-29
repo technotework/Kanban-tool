@@ -18,8 +18,7 @@ const BaseModalContainer = styled("div", p)`
     width:${props => props.width ? props.width : props.theme.base.size.s300};
     min-height:${props => props.minHeight ? props.minHeight : props.theme.base.size.s200};
     z-index:${props => props.index ? props.index : props.theme.base.index.heigh};
-    background-color: ${props => props.theme.base.color.white};
-    border:  ${props => props.theme.base.border.thin} ${props => props.theme.base.color.glay};
+    background-color: ${props => props.theme.base.color.lightGray};
 `;
 
 

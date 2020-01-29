@@ -19,7 +19,7 @@ const BaseModelessContainer = styled("div", p)`
     height:${props => props.height ? props.height : "auto"};
     z-index:${props => props.index ? props.index : props.theme.base.index.middle};
     background-color: ${props => props.theme.base.color.white};
-    border:  ${props => props.theme.base.border.thin} ${props => props.theme.base.color.glay};
+    border:  ${props => props.theme.base.border.thin} ${props => props.theme.base.color.gray};
 `;
 
 
