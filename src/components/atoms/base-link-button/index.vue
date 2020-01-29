@@ -1,37 +1,42 @@
 <template>
-    <StyledBaseLinkButton :mode="mode" :href="href" :target="target" :width="width" :height="height" :padding="padding" :backgroundColor="backgroundColor" :round="round" @click="onClick"><slot/></StyledBaseLinkButton>
+  <StyledBaseLinkButton
+    :mode="mode"
+    :href="href"
+    :width="width"
+    :target="target"
+    :color="color"
+    @click="onClick"
+  >
+    <slot />
+  </StyledBaseLinkButton>
 </template>
 
 <script>
-import StyledBaseLinkButton from "./style"
+import StyledBaseLinkButton from "./style";
 
 export default {
-    name: 'BaseLinkButton',
-    props: {
-        mode: {
-            type:String,
-            default:"button"
-        },
-        href:String,
-        target:String,
-        width: String,
-        height:String,
-        padding:String,
-        backgroundColor:String,
-        round:String
-        },
-      methods:{
-        onClick(e){
-            if(this.mode=="button"){
-
-                this.$emit("click"); 
-                e.preventDefault(); 
-            }
-        }
+  name: "BaseLinkButton",
+  props: {
+    mode: {
+      type: String,
+      default: "button"
     },
-    components:{
-        StyledBaseLinkButton
+    width: String,
+    href: String,
+    target: String,
+    color: String
+  },
+  methods: {
+    onClick(e) {
+      if (this.mode == "button") {
+        this.$emit("click");
+        return false;
+      }
     }
-}
+  },
+  components: {
+    StyledBaseLinkButton
+  }
+};
 </script>
 
