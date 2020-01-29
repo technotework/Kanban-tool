@@ -41,7 +41,8 @@ const base =
         cyan: "#09abbe",
         water: "#a7e6ed",
         yellow: "#f2e900",
-        red: "#be0909"
+        red: "#be0909",
+        pink: "#ffa5a5"
     },
     space: {
         th2: "0.4rem",
@@ -140,7 +141,8 @@ const service = {
         theme: base.color.blue,
         sub: base.color.cyan,
         warn: base.color.yellow,
-        error: base.color.red,
+        error: base.color.pink,
+        errorText: base.color.red,
         message: base.color.water,
         primary: base.color.water,
         secondary: base.color.white,
@@ -169,6 +171,10 @@ const service = {
         width: base.size.s350,
         minHeight: base.size.s200,
         padding: base.space.t
+    },
+    message: {
+        minWidth: base.size.s200,
+        padding: base.space.th2
     }
 };
 
