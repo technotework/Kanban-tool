@@ -10,15 +10,14 @@ export default {
     }
 };
 
-const Container = styled.div`
-    position:relative;
-    width:300px;
-`;
-
 export const Basic = () => ({
-    components: { Container, BothSideRight, Theme },
+    components: { BothSideRight, Theme },
+    props: {
+        right: { default: text("right", "0") },
+        width: { default: text("width", "auto") }
+    },
     template: `
-    <Theme><Container>
-    <BothSideRight width="100px">right</BothSideRight>
-    </Container></Theme>`
+    <Theme>
+    <BothSideRight :right="right" :width="width">right</BothSideRight>
+    </Theme>`
 });

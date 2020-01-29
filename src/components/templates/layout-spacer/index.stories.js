@@ -1,4 +1,5 @@
 import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
+import Vue from "vue"
 import LayoutSpacer from "./index.vue"
 
 export default {
@@ -10,24 +11,35 @@ export default {
     }
 };
 
-const Box = styled.div`
+const StyledBox = styled.div`
     width:200px;
     height:200px;
     background-color:#ccc;
+    margin-right:10px;
 `;
+
+const Box = Vue.component("Box", {
+    components: { StyledBox },
+    template: `<StyledBox><slot /></StyledBox>`
+});
 
 export const Basic = () => ({
     components: { Box, LayoutSpacer, Theme },
+    props: {
+        width: { default: text("width", "auto") },
+        margin: { default: text("margin", "0 0 20px 0") },
+        padding: { default: text("padding", "20px") },
+    },
     template: `
     <Theme>
-        <LayoutSpacer padding="20px 10px" margin="0 0 20px 0">
+        <LayoutSpacer :padding="padding" :margin="margin" :width="width">
             <Box>
-                Box外側に<br>padding 20px 10px margin 0 0 20px 0
+                Box
             </Box>
         </LayoutSpacer>
-        <LayoutSpacer padding="20px 10px" margin="20px 0 0 0">
+        <LayoutSpacer :padding="padding" :margin="margin" :width="width">
             <Box>
-                Box外側に<br>padding 20px 10px margin 20px 0 0 0
+                Box
             </Box>
         </LayoutSpacer> 
     </Theme>`

@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import StyledBaseButton from "./style";
 
 export default {

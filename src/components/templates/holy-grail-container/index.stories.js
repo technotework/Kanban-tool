@@ -13,5 +13,9 @@ export default {
 
 export const Basic = () => ({
     components: { HolyGrailContainer, Theme },
-    template: `<Theme><HolyGrailContainer width="100vw">content</HolyGrailContainer></Theme>`
+    props: {
+        width: { default: text("width", "100vw") },
+        height: { default: text("height", "auto") },
+    },
+    template: `<Theme><HolyGrailContainer :width="width" :height="height">content</HolyGrailContainer></Theme>`
 });

@@ -5,7 +5,9 @@
 </template>
 
 <script>
+import Vue from "vue";
 import StyledFlexLayout from "./style";
+
 export default {
   name: "FlexLayout",
   props: {

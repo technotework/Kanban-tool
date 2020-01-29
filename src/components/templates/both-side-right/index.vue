@@ -6,6 +6,7 @@
 
 <script>
 import StyledBothSideRight from "./style";
+
 export default {
   name: "BothSideRight",
   props: {

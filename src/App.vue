@@ -3,7 +3,9 @@
     <router-view />
     <Theme>
       <BaseLayout>
-        <template #header>header</template>
+        <template #header>
+          <BothSideRight>ほげ</BothSideRight>
+        </template>
         <template #main>main</template>
         <template #footer>footer</template>
       </BaseLayout>
@@ -14,6 +16,7 @@
 <script>
 import Theme from "@/components/themes/theme";
 import { BaseLayout } from "@/components/templates/holy-grail-layout/compose";
+import BothSideRight from "@/components/templates/both-side-right/";
 
 export default {
   name: "App",
@@ -21,6 +24,6 @@ export default {
   data: function() {
     return {};
   },
-  components: { BaseLayout, Theme }
+  components: { BothSideRight, BaseLayout, Theme }
 };
 </script>
