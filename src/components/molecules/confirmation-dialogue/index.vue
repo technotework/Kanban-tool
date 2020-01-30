@@ -1,5 +1,5 @@
 <template>
-  <div :pval="service.color.gray" :sval="sval">
+  <div :pval="pval" :sval="sval">
     <BaseModalCover>
       <Dialogue>
         <BaseText>
@@ -10,8 +10,8 @@
           :right="service.dialogue.buttonPosRight"
         >
           <FlexLayout width="100%" justify="flex-end">
-            <SecondaryButton :value="service.dialogue.sButtonName" @click="onClickSecondary" />
-            <PrimaryButton :value="service.dialogue.pButtonName" @click="onClickPrimary" />
+            <SecondaryButton :value="sval" @click="onClickSecondary" />
+            <PrimaryButton :value="pval" @click="onClickPrimary" />
           </FlexLayout>
         </LayoutPositioner>
       </Dialogue>
@@ -53,11 +53,11 @@ export default {
     LayoutPositioner
   },
   methods: {
-    onClickPrimary: function(e) {
-      console.log();
+    onClickPrimary: function() {
+      this.$emit("clickPrimary");
     },
-    onClickSecondary: function(e) {
-      console.log("secondary");
+    onClickSecondary: function() {
+      this.$emit("clickSecondary");
     }
   }
 };
