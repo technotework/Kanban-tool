@@ -17,7 +17,7 @@ const BaseText = styled("div", p)`
     width: ${props => props.width ? props.width : "auto"};
     min-width: ${props => props.minWidth ? props.minWidth : "auto"};
     padding: ${props => props.padding ? props.padding : "0px"};
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : props.theme.base.color.white};
+    background-color: ${props => props.backgroundColor ? props.backgroundColor : props.theme.base.color.transparent};
     color: ${props => props.color ? props.color : props.theme.base.color.black};
 `;
 

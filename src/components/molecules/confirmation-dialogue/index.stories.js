@@ -12,5 +12,9 @@ export default {
 
 export const Basic = () => ({
     components: { ConfirmationDialogue, Theme },
-    template: `<Theme><ConfirmationDialogue /></Theme>`
+    props: {
+    },
+    template: `<Theme><ConfirmationDialogue >
+    メッセージ
+    </ConfirmationDialogue></Theme>`,
 });

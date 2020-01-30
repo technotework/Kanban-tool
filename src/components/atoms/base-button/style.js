@@ -9,6 +9,7 @@ const StyledBaseButton = styled.input`
     border-radius: ${props => props.theme.service.button.radius};
     border: ${props => props.theme.service.button.border};
     background-color: ${props => props.theme.service.color.secondary};
+    min-width:${props => props.theme.service.button.minWidth};
     cursor: pointer;
 `;
 

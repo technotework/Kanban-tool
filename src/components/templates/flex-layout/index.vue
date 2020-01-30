@@ -1,5 +1,5 @@
 <template>
-  <StyledFlexLayout :width="width" :height="height" :wrap="wrap">
+  <StyledFlexLayout :width="width" :height="height" :wrap="wrap" :justify="justify">
     <slot />
   </StyledFlexLayout>
 </template>
@@ -11,6 +11,7 @@ import StyledFlexLayout from "./style";
 export default {
   name: "FlexLayout",
   props: {
+    justify: String,
     wrap: String,
     width: String,
     height: String

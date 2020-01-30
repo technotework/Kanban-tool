@@ -30,8 +30,9 @@ export const Basic = () => ({
         wrap: { default: text("wrap", "wrap") },
         width: { default: text("width", "auto") },
         height: { default: text("height", "auto") },
+        justify: { default: text("justify", "flex-start") },
     },
-    template: `<Theme><FlexLayout width="200px">
+    template: `<Theme><FlexLayout :width="width" :height="height" :wrap="wrap" :justify="justify">
     <Box>a</Box> <Box>b</Box> <Box>c</Box>
     </FlexLayout></Theme>`
 });

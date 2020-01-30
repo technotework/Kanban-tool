@@ -113,6 +113,10 @@ body {
     box-sizing:border-box;
 }
 
+:focus {
+    outline: none;
+}
+
 [v-cloak] { display: none }
 `;
 

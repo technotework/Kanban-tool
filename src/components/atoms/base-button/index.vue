@@ -8,11 +8,8 @@ import StyledBaseButton from "./style";
 export default {
   name: "BaseButton",
   props: {
-    value: {
-      type: String,
-      default: "Button"
-    },
-    name: { name: String }
+    value: { type: String },
+    name: { type: String }
   },
   methods: {
     onClick(e) {

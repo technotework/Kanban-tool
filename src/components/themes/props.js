@@ -31,6 +31,7 @@ const base =
         nomal: '"HiraginoSans-W3","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","游ゴシック Medium",YuGothic,YuGothicM,メイリオ,Meiryo,sans-serif;'
     },
     color: {
+        transparent: "transparent",
         white: "#fff",
         xlightGray: "#eaeaea",
         lightGray: "#ccc",
@@ -155,10 +156,11 @@ const service = {
     button: {
         fontSize: base.fontSize.small,
         lineHeight: base.space.z,
-        padding: `${base.space.t} ${base.space.t2}`,
-        margin: `${base.space.t2l2} 0 ${base.space.t2l2} ${base.space.t}`,
+        padding: `${base.space.th} ${base.space.t}`,
+        margin: `${base.space.t} 0 0 ${base.space.th2}`,
         radius: base.border.radius,
-        border: `${base.border.thin}  ${base.color.lightGray}`
+        border: `${base.border.thin}  ${base.color.lightGray}`,
+        minWidth: "94px"
     },
     icon: {
         mini: base.size.t2l2,
@@ -170,7 +172,11 @@ const service = {
         borderColor: base.color.gray,
         width: base.size.s350,
         minHeight: base.size.s200,
-        padding: base.space.t
+        padding: base.space.t,
+        buttonPosBottom: base.space.t,
+        buttonPosRight: base.space.t,
+        pButtonName: "OK",
+        sButtonName: "キャンセル",
     },
     message: {
         minWidth: base.size.s200,
@@ -181,3 +187,5 @@ const service = {
 const theme = { base: base, service: service };
 
 export default theme;
+
+

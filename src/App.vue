@@ -2,28 +2,26 @@
   <div id="app">
     <router-view />
     <Theme>
-      <BaseLayout>
-        <template #header>
-          <BothSideRight>ほげ</BothSideRight>
-        </template>
-        <template #main>main</template>
-        <template #footer>footer</template>
-      </BaseLayout>
+      <PrimaryButton :value="service.dialogue.pButtonName" />
     </Theme>
   </div>
 </template>
 
 <script>
 import Theme from "@/components/themes/theme";
-import { BaseLayout } from "@/components/templates/holy-grail-layout/compose";
-import BothSideRight from "@/components/templates/both-side-right/";
+import {
+  PrimaryButton,
+  SecondaryButton
+} from "@/components/atoms/base-button/compose";
+import props from "@/components/themes/service-props-mixin";
 
 export default {
   name: "App",
+  mixins: [props],
   props: {},
   data: function() {
     return {};
   },
-  components: { BothSideRight, BaseLayout, Theme }
+  components: { PrimaryButton, Theme }
 };
 </script>
