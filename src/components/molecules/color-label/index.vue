@@ -1,19 +1,13 @@
 <template>
-    <div class="color-label">
-    src/components/molecules/color-label/index.vue
-    </div>
+  <div class="color-label"></div>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledCompo from "./style";
 export default {
-    name: 'ColorLabel',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "ColorLabel",
+  props: {},
+  components: {}
+};
 </script>
 

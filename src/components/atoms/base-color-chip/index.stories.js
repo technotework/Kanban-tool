@@ -12,6 +12,10 @@ export default {
 
 export const Basic = () => ({
     components: { BaseColorChip, Theme },
-    props: { color: { default: color("color", "#ff0") } },
-    template: `<Theme><BaseColorChip :color="color" /></Theme>`
+    props: {
+        color: { default: color("color", "#ff0") },
+        width: { default: text("width", "100px") },
+        height: { default: text("height", "100px") },
+    },
+    template: `<Theme><BaseColorChip :width="width" :height="height" :color="color" /></Theme>`
 });
