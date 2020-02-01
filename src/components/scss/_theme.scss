@@ -63,8 +63,8 @@ $r200: 20rem;
 
 $round: $s8;
 
-//size&padding
-@mixin spr($w:"auto", $h:"auto", $p:0, $r:0) {
+//size&padding&radius
+@mixin spr($w:"auto", $h:"auto", $p:0, $r:$round) {
 
     width: $w;
     height: $h;
@@ -73,7 +73,7 @@ $round: $s8;
 }
 
 //radius
-@mixin r($r) {
+@mixin r($r:$round) {
     border-radius: $r;
 }
 
@@ -95,6 +95,7 @@ $round: $s8;
     margin: $m;
 }
 
+//size
 @mixin s($w:"auto", $h:"auto", $mw:"auto", $mh:"auto", $mxw:"auto", $mxh:"auto") {
 
     @if $w !="auto" {
@@ -126,6 +127,7 @@ $round: $s8;
 Colors Vars
 =================================*/
 
+//colors
 $white:#fff;
 $black: #000;
 $lightGray: #e8e8e8;
@@ -147,11 +149,13 @@ $lhover:#2c8fe6;
 
 $border:$lightGray;
 
+//background-color
 @mixin bg($c) {
 
     background-color: $c;
 }
 
+//background-image
 @mixin bgi($src) {
 
     background-image: $src;
@@ -161,11 +165,13 @@ $border:$lightGray;
     background-size: cover;
 }
 
+//border
 @mixin bdc($c) {
 
     border: solid 1px $c;
 }
 
+//link
 @mixin link($c, $a) {
     cursor: pointer;
     text-align: center;
@@ -182,8 +188,8 @@ $border:$lightGray;
     }
 }
 
+//box-shadow
 @mixin shadow {
-
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -191,6 +197,7 @@ $border:$lightGray;
 layout Vars
 =================================*/
 
+//indexs
 $index_xh: 90001;
 $index_h: 90000;
 $index_xm: 80001;

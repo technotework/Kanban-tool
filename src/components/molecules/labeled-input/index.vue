@@ -3,8 +3,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: "LabeledInput",
   props: {},
@@ -12,10 +10,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
 
 

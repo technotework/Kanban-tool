@@ -3,7 +3,6 @@
 </template>
 
 <script>
-
 export default {
   name: "CommentForm",
   props: {},
@@ -11,10 +10,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
 
 

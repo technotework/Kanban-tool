@@ -3,7 +3,6 @@
 </template>
 
 <script>
-
 export default {
   name: "ColorLabel",
   props: {},
@@ -11,10 +10,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
 
 
