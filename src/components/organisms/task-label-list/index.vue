@@ -1,26 +1,16 @@
 <template>
-    <div class="task-label-list">
-    src/components/organisms/task-label-list/index.vue
-    </div>
+  <div class="task-label-list">src/components/organisms/task-label-list/index.vue</div>
 </template>
 
 <script>
-import StyledCompo from './style';
+import StyledCompo from "./style";
 export default {
-    name: 'TaskLabelList',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "TaskLabelList",
+  props: {},
+  components: {}
+};
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
 
 
