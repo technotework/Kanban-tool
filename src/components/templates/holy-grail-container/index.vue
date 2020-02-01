@@ -14,4 +14,11 @@ export default {
   }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

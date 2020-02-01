@@ -24,4 +24,11 @@ export default {
   components: { StyledBaseText }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

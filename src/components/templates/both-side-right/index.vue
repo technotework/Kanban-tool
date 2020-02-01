@@ -16,4 +16,11 @@ export default {
   components: { StyledBothSideRight }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

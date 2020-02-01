@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseInput from "./index.vue";
 
 export default {
@@ -12,12 +12,12 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseInput, Theme },
+    components: { BaseInput },
     props: {
         width: { default: text("width", "200px") },
         padding: { default: text("padding", "10px") },
         placeholder: { default: text("placeholder", "please input") },
     },
-    template: `<Theme><BaseInput :width="width" :padding="padding" :placeholder="placeholder" @input="action" required /></Theme>`,
+    template: `<BaseInput :width="width" :padding="padding" :placeholder="placeholder" @input="action" required />`,
     methods: { action: action('input') }
 });

@@ -12,4 +12,11 @@ export default {
   components: { StyledLayoutSpacer }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

@@ -16,3 +16,10 @@ export default {
   props: {}
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+

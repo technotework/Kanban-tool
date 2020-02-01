@@ -20,4 +20,11 @@ export default {
   components: { StyledBaseModalCover }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

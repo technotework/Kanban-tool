@@ -19,4 +19,11 @@ export default {
   components: { StyledFlexLayout }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

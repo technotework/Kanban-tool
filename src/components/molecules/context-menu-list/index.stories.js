@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import ContextMenuList from "./index.vue";
 
 export default {
@@ -11,6 +11,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { ContextMenuList, Theme },
-    template: `<Theme><ContextMenuList /></Theme>`
+    components: { ContextMenuList },
+    template: `<ContextMenuList />`
 });

@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import TaskLabelListItem from "./index.vue";
 
 export default {
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { TaskLabelListItem, Theme },
-    template: `<Theme><TaskLabelListItem /></Theme>`
+    components: { TaskLabelListItem },
+    template: `<TaskLabelListItem />`
 });

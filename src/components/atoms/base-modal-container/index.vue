@@ -24,4 +24,11 @@ export default {
   components: { StyledBaseModalContainer }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

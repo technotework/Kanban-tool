@@ -24,4 +24,11 @@ export default {
   components: { StyledBaseModelessContainer }
 };
 </script>
+<style lang="scss" module>
+.class{
+
+  
+}
+</style>
+
 

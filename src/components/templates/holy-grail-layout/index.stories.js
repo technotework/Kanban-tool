@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import { BaseLayout } from "./compose";
 
 export default {
@@ -12,13 +12,13 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseLayout, Theme },
+    components: { BaseLayout },
     template: `
-    <Theme>
+    
         <BaseLayout>
         <template #header>header</template>
         <template #main>main</template>
         <template #footer>footer</template>
         </BaseLayout>
-    </Theme>`
+    `
 });

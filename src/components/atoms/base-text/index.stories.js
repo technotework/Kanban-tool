@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseText from "./index.vue";
 import { CaptionText, BaseMessage, ErrorMessage, WarnMessage, NormalMessage } from "./compose";
 
@@ -12,7 +12,7 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseText, Theme },
+    components: { BaseText },
     props: {
         padding: { default: text("padding", "10px") },
         backgroundColor: { default: color("backgroundColor", "transparent") },
@@ -20,34 +20,34 @@ export const Basic = () => ({
         width: { default: text("width", "auto") },
         minWidth: { default: text("minWidth", "auto") }
     },
-    template: `<Theme><BaseText :padding="padding" :backgroundColor="backgroundColor" :color="color" :width="width" :minWidth="minWidth">あいうえお</BaseText></Theme>`
+    template: `<BaseText :padding="padding" :backgroundColor="backgroundColor" :color="color" :width="width" :minWidth="minWidth">あいうえお</BaseText>`
 });
 
 export const Caption = () => ({
-    components: { CaptionText, Theme },
-    template: `<Theme><CaptionText>あいうえお</CaptionText></Theme>`
+    components: { CaptionText },
+    template: `<CaptionText>あいうえお</CaptionText>`
 });
 
 export const Message = () => ({
-    components: { BaseMessage, Theme },
+    components: { BaseMessage },
     props: {
         backgroundColor: { default: color("backgroundColor", "#ff0") },
         color: { default: color("color", "#000") },
     },
-    template: `<Theme><BaseMessage :backgroundColor="backgroundColor" :color="color">あいうえお</BaseMessage></Theme>`
+    template: `<BaseMessage :backgroundColor="backgroundColor" :color="color">あいうえお</BaseMessage>`
 });
 
 export const Error = () => ({
-    components: { ErrorMessage, Theme },
-    template: `<Theme><ErrorMessage>あいうえお</ErrorMessage></Theme>`
+    components: { ErrorMessage },
+    template: `<ErrorMessage>あいうえお</ErrorMessage>`
 });
 
 export const Warn = () => ({
-    components: { WarnMessage, Theme },
-    template: `<Theme><WarnMessage>あいうえお</WarnMessage></Theme>`
+    components: { WarnMessage },
+    template: `<WarnMessage>あいうえお</WarnMessage>`
 });
 
 export const Normal = () => ({
-    components: { NormalMessage, Theme },
-    template: `<Theme><NormalMessage>あいうえお</NormalMessage></Theme>`
+    components: { NormalMessage },
+    template: `<NormalMessage>あいうえお</NormalMessage>`
 });

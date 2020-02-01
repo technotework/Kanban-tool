@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import LayoutPositioner from "./index.vue"
 
 export default {
@@ -11,7 +11,7 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { LayoutPositioner, Theme },
+    components: { LayoutPositioner },
     props: {
         top: { default: text("top", "auto") },
         left: { default: text("left", "auto") },
@@ -20,13 +20,13 @@ export const Basic = () => ({
         width: { default: text("width", "auto") },
         position: { default: text("position", "absolute") }
     },
-    template: `<Theme><LayoutPositioner 
+    template: `<LayoutPositioner 
     :width="width"
     :top="top"
     :left="left"
     :right="right"
     :bottom="bottom"
-    :position="position">position</LayoutPositioner></Theme>`,
+    :position="position">position</LayoutPositioner>`,
     parameters: {
         info: {},
     }

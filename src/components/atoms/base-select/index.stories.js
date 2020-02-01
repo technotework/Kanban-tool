@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, array, object, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, array, object, withInfo } from "@/components/tool/story-export"
 import BaseSelect from "./index.vue";
 
 export default {
@@ -11,7 +11,7 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseSelect, Theme },
+    components: { BaseSelect },
     data: function () {
         return {
             selected: "",
@@ -32,6 +32,6 @@ export const Basic = () => ({
             ])
         }
     },
-    template: `<Theme><BaseSelect :name="name" :items="items" v-model="selected" @change="action" /></Theme>`,
+    template: `<BaseSelect :name="name" :items="items" v-model="selected" @change="action" />`,
     methods: { action: action('change') }
 });

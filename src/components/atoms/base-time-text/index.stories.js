@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseTimeText from "./index.vue";
 import DateText from "./date-text.vue";
 import DateTimeText from "./date-time-text.vue";
@@ -10,11 +10,11 @@ export default {
 
 
 export const Date = () => ({
-    components: { DateText, Theme },
-    template: `<Theme><DateText date="1560000000" /></Theme>`
+    components: { DateText },
+    template: `<DateText date="1560000000" />`
 });
 
 export const DateTime = () => ({
-    components: { DateTimeText, Theme },
-    template: `<Theme><DateTimeText date="1560000000" /></Theme>`
+    components: { DateTimeText },
+    template: `<DateTimeText date="1560000000" />`
 });

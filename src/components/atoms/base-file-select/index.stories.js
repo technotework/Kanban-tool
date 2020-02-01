@@ -1,5 +1,5 @@
 /*
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/tool/story-export"
+import  { global, action, styled, withKnobs, text, color, number, withInfo }  from "@/components/tool/story-export"
 import BaseFileSelect from "./index.vue";
 
 export default {
@@ -16,5 +16,5 @@ export const Basic = () => ({
     parameters: {
         info: {},
     }
-    template: `<Theme><BaseFileSelect /></Theme>`
+    template: `<BaseFileSelect />`
 });*/

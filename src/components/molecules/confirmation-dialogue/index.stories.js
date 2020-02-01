@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import ConfirmationDialogue from "./index.vue";
 import { ConfirmDialogue, SaveDialogue } from "./compose";
 
@@ -12,30 +12,30 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { ConfirmationDialogue, Theme },
+    components: { ConfirmationDialogue },
     props: {
         pval: { default: text("pval", "OK") },
         sval: { default: text("sval", "キャンセル") }
     },
-    template: `<Theme><ConfirmationDialogue :pval="pval" :sval="sval" @clickPrimary="p"  @clickSecondary="s">
+    template: `<ConfirmationDialogue :pval="pval" :sval="sval" @clickPrimary="p"  @clickSecondary="s">
     メッセージ
-    </ConfirmationDialogue></Theme>`,
+    </ConfirmationDialogue>`,
     methods: { p: action('clickPrimary'), s: action('clickSecondary') }
 });
 
 export const Confirm = () => ({
-    components: { ConfirmDialogue, Theme },
-    template: `<Theme><ConfirmDialogue @clickPrimary="p" @clickSecondary="s">
+    components: { ConfirmDialogue },
+    template: `<ConfirmDialogue @clickPrimary="p" @clickSecondary="s">
     メッセージ
-    </ConfirmDialogue></Theme>`,
+    </ConfirmDialogue>`,
     methods: { p: action('clickPrimary'), s: action('clickSecondary') }
 });
 
 
 export const Save = () => ({
-    components: { SaveDialogue, Theme },
-    template: `<Theme><SaveDialogue @clickPrimary="p" @clickSecondary="s">
+    components: { SaveDialogue },
+    template: `<SaveDialogue @clickPrimary="p" @clickSecondary="s">
     メッセージ
-    </SaveDialogue></Theme>`,
+    </SaveDialogue>`,
     methods: { p: action('clickPrimary'), s: action('clickSecondary') }
 });

@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseModalContainer from "./index.vue";
 import { Dialogue } from "./compose";
 
@@ -13,11 +13,11 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseModalContainer, Theme },
-    template: `<Theme><BaseModalContainer>内容</BaseModalContainer></Theme>`
+    components: { BaseModalContainer },
+    template: `<BaseModalContainer>内容</BaseModalContainer>`
 });
 
 export const ModalDialogue = () => ({
-    components: { Dialogue, Theme },
-    template: `<Theme><Dialogue>内容</Dialogue></Theme>`
+    components: { Dialogue },
+    template: `<Dialogue>内容</Dialogue>`
 });

@@ -1,10 +1,8 @@
 <template>
-  <StyledBaseCheckBox type="checkbox" :id="id" :name="name" :value="value" @change="onInput" />
+  <input type="checkbox" :class="$style.cb" :id="id" :name="name" :value="value" @change="onInput" />
 </template>
 
 <script>
-import StyledBaseCheckBox from "./style";
-
 export default {
   name: "BaseCheckBox",
   props: {
@@ -16,10 +14,11 @@ export default {
     onInput(e) {
       this.$emit("change", e.target.value);
     }
-  },
-  components: {
-    StyledBaseCheckBox
   }
 };
 </script>
-
+<style lang="scss" module>
+.cb {
+  @include m($r: $s4, $b: $s8);
+}
+</style>

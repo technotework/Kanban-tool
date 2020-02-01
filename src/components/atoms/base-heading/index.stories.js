@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseHeading from "./index.vue";
 
 export default {
@@ -16,41 +16,41 @@ export default {
 };
 
 export const H1 = () => ({
-    components: { BaseHeading, Theme },
+    components: { BaseHeading },
     template: `
     <div>
-    <Theme>
+    
         <BaseHeading heading="lv1">H1</BaseHeading>
-    </Theme>
+    
     </div>`
 });
 
 export const H2 = () => ({
-    components: { BaseHeading, Theme },
+    components: { BaseHeading },
     template: `
     <div>
-    <Theme>
+    
         <BaseHeading heading="lv2">H2</BaseHeading>
-    </Theme>
+    
     </div>`
 });
 
 export const H3 = () => ({
-    components: { BaseHeading, Theme },
+    components: { BaseHeading },
     template: `
     <div>
-    <Theme>
+    
         <BaseHeading heading="lv3">H3</BaseHeading>
-    </Theme>
+    
     </div>`
 });
 
 export const H4 = () => ({
-    components: { BaseHeading, Theme },
+    components: { BaseHeading },
     template: `
     <div>
-    <Theme>
+    
         <BaseHeading heading="lv4">H4</BaseHeading>
-    </Theme>
+    
     </div>`
 });

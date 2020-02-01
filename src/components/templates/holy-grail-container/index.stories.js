@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import HolyGrailContainer from "./index.vue";
 
 export default {
@@ -12,10 +12,10 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { HolyGrailContainer, Theme },
+    components: { HolyGrailContainer },
     props: {
         width: { default: text("width", "100vw") },
         height: { default: text("height", "auto") },
     },
-    template: `<Theme><HolyGrailContainer :width="width" :height="height">content</HolyGrailContainer></Theme>`
+    template: `<HolyGrailContainer :width="width" :height="height">content</HolyGrailContainer>`
 });

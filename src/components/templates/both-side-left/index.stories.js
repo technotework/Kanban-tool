@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BothSideLeft from "./index.vue"
 
 export default {
@@ -11,12 +11,12 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BothSideLeft, Theme },
+    components: { BothSideLeft },
     props: {
         left: { default: text("left", "0") },
         width: { default: text("width", "auto") }
     },
-    template: `<Theme><BothSideLeft :left="left" :width="width">left</BothSideLeft></Theme>`,
+    template: `<BothSideLeft :left="left" :width="width">left</BothSideLeft>`,
     parameters: {
         info: {},
     }

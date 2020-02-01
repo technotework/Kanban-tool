@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseFormLabel from "./index.vue";
 import BaseCheckBox from "@/components/atoms/base-check-box"
 
@@ -12,9 +12,9 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseFormLabel, BaseCheckBox, Theme },
+    components: { BaseFormLabel, BaseCheckBox },
     props: {
         id: { default: text("id", "cat") }
     },
-    template: `<Theme><BaseFormLabel :for="id"><BaseCheckBox :id="id" name="animal" value="cat"/>ねこ</BaseFormLabel></Theme>`
+    template: `<BaseFormLabel :for="id"><BaseCheckBox :id="id" name="animal" value="cat"/>ねこ</BaseFormLabel>`
 });

@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseModalCover from "./index.vue";
 
 export default {
@@ -12,11 +12,11 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseModalCover, Theme },
+    components: { BaseModalCover },
     props: {
         backgroundColor: { default: text("backgroundColor", "rgba(0,0,0,0.3)") },
         index: { default: text("index", "99998") }
     },
-    template: `<Theme><BaseModalCover :backgroundColor="backgroundColor" :index="index" @base-modal-cover-click-event="action">内容</BaseModalCover></Theme>`,
+    template: `<BaseModalCover :backgroundColor="backgroundColor" :index="index" @base-modal-cover-click-event="action">内容</BaseModalCover>`,
     methods: { action: action('base-modal-cover-click-event') }
 });

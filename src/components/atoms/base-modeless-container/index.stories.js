@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseModelessContainer from "./index.vue";
 
 export default {
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components: { BaseModelessContainer, Theme },
-    template: `<Theme><BaseModelessContainer top="100px" left="100px">内容</BaseModelessContainer></Theme>`
+    components: { BaseModelessContainer },
+    template: `<BaseModelessContainer top="100px" left="100px">内容</BaseModelessContainer>`
 });
