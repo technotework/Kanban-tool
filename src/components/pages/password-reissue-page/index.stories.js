@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import PasswordReissuePage from "./index.vue";
 
 export default {
-    title:"pages/PasswordReissuePage",
-    component: {PasswordReissuePage},
+    title: "pages/PasswordReissuePage",
+    component: { PasswordReissuePage },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{PasswordReissuePage,Theme},
+    components: { PasswordReissuePage, Theme },
     template: `<Theme><PasswordReissuePage /></Theme>`
 });

@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import ManagePlanPage from "./index.vue";
 
 export default {
-    title:"pages/ManagePlanPage",
-    component: {ManagePlanPage},
+    title: "pages/ManagePlanPage",
+    component: { ManagePlanPage },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{ManagePlanPage,Theme},
+    components: { ManagePlanPage, Theme },
     template: `<Theme><ManagePlanPage /></Theme>`
 });

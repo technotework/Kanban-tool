@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import ProjectListItem from "./index.vue";
 
 export default {
-    title:"organisms/ProjectListItem",
-    component: {ProjectListItem},
+    title: "organisms/ProjectListItem",
+    component: { ProjectListItem },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{ProjectListItem,Theme},
+    components: { ProjectListItem, Theme },
     template: `<Theme><ProjectListItem /></Theme>`
 });

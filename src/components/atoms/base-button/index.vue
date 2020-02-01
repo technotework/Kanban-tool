@@ -1,10 +1,8 @@
 <template>
-  <StyledBaseButton type="button" :value="value" :name="name" @click="onClick" />
+  <input :class="$style.button" type="button" :value="value" :name="name" @click="onClick" />
 </template>
 
 <script>
-import StyledBaseButton from "./style";
-
 export default {
   name: "BaseButton",
   props: {
@@ -15,7 +13,21 @@ export default {
     onClick(e) {
       this.$emit("click", e);
     }
-  },
-  components: { StyledBaseButton }
+  }
 };
 </script>
+<style lang="scss" module>
+.button {
+  @include text($f16);
+  @include p($t: $s8, $b: $s8, $l: $s16, $r: $s16);
+  @include radius($s32);
+  @include bg($primary);
+  @include s($mw: 120px);
+  border: none;
+  cursor: pointer;
+
+  &:active {
+    @include bg($phover);
+  }
+}
+</style>

@@ -66,6 +66,43 @@ $r200: 20rem;
     border-radius: $r;
 }
 
+//padding
+@mixin p($t:0, $b:0, $l:0, $r:0) {
+    padding: $t $r $b $l;
+}
+
+//margin
+@mixin m($t:0, $b:0, $l:0, $r:0) {
+    margin: $t $r $b $l;
+}
+
+@mixin s($w:"auto", $h:"auto", $mw:"auto", $mh:"auto", $mxw:"auto", $mxh:"auto") {
+
+    @if $w !="auto" {
+        width: $w;
+    }
+
+    @if $h !="auto" {
+        height: $h;
+    }
+
+    @if $mw !="auto" {
+        min-width: $mw;
+    }
+
+    @if $mh !="auto" {
+        min-height: $mh;
+    }
+
+    @if $mxw !="auto" {
+        max-width: $mxw;
+    }
+
+    @if $mxh !="auto" {
+        max-height: $mxh;
+    }
+}
+
 /*=================================
 Colors Vars
 =================================*/
@@ -90,6 +127,12 @@ $link:#193489;
 $lhover:#2c8fe6;
 
 $border:$lightGray;
+
+@mixin bg($c) {
+
+    background-color: $c;
+}
+
 
 /*=================================
 layout Vars

@@ -1,5 +1,5 @@
 
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseLinkButton from "./index.vue";
 import { PrimaryButton, SecondaryButton, PrimaryLinkButton, SecondaryLinkButton } from "./compose";
 

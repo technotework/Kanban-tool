@@ -1,6 +1,5 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseButton from "@/components/atoms/base-button/"
-import { PrimaryButton, SecondaryButton } from "@/components/atoms/base-button/compose"
 
 export default {
     title: "atoms/BaseButton",
@@ -22,7 +21,7 @@ export const Basic = () => ({
     },
     methods: { action: action('click') }
 });
-
+/*
 export const Primary = () => ({
     components: { PrimaryButton, Theme },
     props: {
@@ -40,3 +39,4 @@ export const Secondary = () => ({
     template: `<Theme><SecondaryButton value="myButton" @click="action" /></Theme>`,
     methods: { action: action('click') }
 });
+*/

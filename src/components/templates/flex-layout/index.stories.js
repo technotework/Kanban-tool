@@ -1,5 +1,5 @@
 
-import { global, action, styled, Theme, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
+import { global, action, styled, Theme, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import Vue from "vue"
 import FlexLayout from "./index.vue";
 

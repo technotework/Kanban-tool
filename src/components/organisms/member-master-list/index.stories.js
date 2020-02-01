@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import MemberMasterList from "./index.vue";
 
 export default {
-    title:"organisms/MemberMasterList",
-    component: {MemberMasterList},
+    title: "organisms/MemberMasterList",
+    component: { MemberMasterList },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{MemberMasterList,Theme},
+    components: { MemberMasterList, Theme },
     template: `<Theme><MemberMasterList /></Theme>`
 });

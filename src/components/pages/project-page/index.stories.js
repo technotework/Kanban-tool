@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import ProjectPage from "./index.vue";
 
 export default {
-    title:"pages/ProjectPage",
-    component: {ProjectPage},
+    title: "pages/ProjectPage",
+    component: { ProjectPage },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{ProjectPage,Theme},
+    components: { ProjectPage, Theme },
     template: `<Theme><ProjectPage /></Theme>`
 });

@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import CompleteRegistTempPage from "./index.vue";
 
 export default {
-    title:"pages/CompleteRegistTempPage",
-    component: {CompleteRegistTempPage},
+    title: "pages/CompleteRegistTempPage",
+    component: { CompleteRegistTempPage },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{CompleteRegistTempPage,Theme},
+    components: { CompleteRegistTempPage, Theme },
     template: `<Theme><CompleteRegistTempPage /></Theme>`
 });

@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseText from "./index.vue";
 import { CaptionText, BaseMessage, ErrorMessage, WarnMessage, NormalMessage } from "./compose";
 

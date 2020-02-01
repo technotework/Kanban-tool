@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import SearchTaskListPage from "./index.vue";
 
 export default {
-    title:"pages/SearchTaskListPage",
-    component: {SearchTaskListPage},
+    title: "pages/SearchTaskListPage",
+    component: { SearchTaskListPage },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{SearchTaskListPage,Theme},
+    components: { SearchTaskListPage, Theme },
     template: `<Theme><SearchTaskListPage /></Theme>`
 });

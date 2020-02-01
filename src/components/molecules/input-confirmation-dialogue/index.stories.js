@@ -1,4 +1,4 @@
-import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import InputConfirmationDialogue from "./index.vue";
 
 export default {

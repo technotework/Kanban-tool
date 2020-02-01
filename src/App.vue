@@ -2,17 +2,14 @@
   <div id="app">
     <router-view />
     <Theme>
-      <PrimaryButton :value="service.dialogue.pButtonName" />
+      <BaseButton value="OK" />
     </Theme>
   </div>
 </template>
 
 <script>
 import Theme from "@/components/themes/theme";
-import {
-  PrimaryButton,
-  SecondaryButton
-} from "@/components/atoms/base-button/compose";
+import BaseButton from "@/components/atoms/base-button";
 import props from "@/components/themes/service-props-mixin";
 
 export default {
@@ -22,6 +19,6 @@ export default {
   data: function() {
     return {};
   },
-  components: { PrimaryButton, Theme }
+  components: { BaseButton, Theme }
 };
 </script>

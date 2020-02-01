@@ -1,10 +1,10 @@
 
-import  { global, action, Theme, styled, withKnobs, text, color, number, withInfo }  from "@/components/themes/story-export"
+import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import RegistPage from "./index.vue";
 
 export default {
-    title:"pages/RegistPage",
-    component: {RegistPage},
+    title: "pages/RegistPage",
+    component: { RegistPage },
     decorators: [withKnobs, withInfo],
     parameters: {
         info: {},
@@ -12,6 +12,6 @@ export default {
 };
 
 export const Basic = () => ({
-    components:{RegistPage,Theme},
+    components: { RegistPage, Theme },
     template: `<Theme><RegistPage /></Theme>`
 });
