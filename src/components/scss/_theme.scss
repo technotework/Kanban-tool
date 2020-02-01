@@ -61,6 +61,8 @@ $r10: 1rem;
 $r100: 10rem;
 $r200: 20rem;
 
+$round: $s8;
+
 //size&padding
 @mixin spr($w:"auto", $h:"auto", $p:0, $r:0) {
 
@@ -164,9 +166,39 @@ $border:$lightGray;
     border: solid 1px $c;
 }
 
+@mixin link($c, $a) {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: $c;
+
+    &:active {
+        color: $a;
+    }
+
+    &:hover,
+    &:visited {
+        color: $c;
+    }
+}
+
+@mixin shadow {
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 /*=================================
 layout Vars
 =================================*/
+
+$index_xh: 90001;
+$index_h: 90000;
+$index_xm: 80001;
+$index_m: 8000;
+$index_xl: 70001;
+$index_l: 70000;
+
+
 //responsive
 @mixin res {
 
@@ -199,7 +231,7 @@ layout Vars
 }
 
 //absolute
-@mixin abs($t:"", $b:"", $l:"", $r:"") {
+@mixin abs($t:"", $b:"", $l:"", $r:"", $index:1) {
 
     position: absolute;
 
@@ -218,12 +250,13 @@ layout Vars
     @if $r !="" {
         right: $r;
     }
+
+    z-index: $index;
 }
 
 
 //fixed
-
-@mixin fix($t:"", $b:"", $l:"", $r:"") {
+@mixin fix($t:"", $b:"", $l:"", $r:"", $index:1) {
 
     position: fixed;
 
@@ -242,4 +275,14 @@ layout Vars
     @if $r !="" {
         right: $r;
     }
+
+    z-index: $index;
+}
+
+//center fix
+@mixin cfix($w:"auto", $h:"auto", $index:1) {
+    position: fixed;
+    top: calc(50% - #{$h} /2);
+    left: calc(50% - #{$w} /2);
+    z-index: $index;
 }
