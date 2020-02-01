@@ -26,7 +26,7 @@ export default {
 .button {
   @include text($f16);
   @include p($t: $s8, $b: $s8, $l: $s16, $r: $s16);
-  @include radius($s32);
+  @include r($s32);
   @include s($mw: 120px);
   border: none;
   cursor: pointer;

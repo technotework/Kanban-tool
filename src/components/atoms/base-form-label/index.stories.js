@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
 import BaseFormLabel from "./index.vue";
 import BaseCheckBox from "@/components/atoms/base-check-box"
 

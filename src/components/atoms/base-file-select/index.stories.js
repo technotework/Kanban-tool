@@ -1,5 +1,5 @@
 /*
-import  { global, action, styled, withKnobs, text, color, number, withInfo }  from "@/components/tool/story-export"
+import  { global, action, styled, withKnobs, text, color, number, withInfo }  from "@/components/utils/story-export"
 import BaseFileSelect from "./index.vue";
 
 export default {

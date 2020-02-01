@@ -61,8 +61,17 @@ $r10: 1rem;
 $r100: 10rem;
 $r200: 20rem;
 
+//size&padding
+@mixin spr($w:"auto", $h:"auto", $p:0, $r:0) {
+
+    width: $w;
+    height: $h;
+    padding: $p;
+    border-radius: $r;
+}
+
 //radius
-@mixin radius($r) {
+@mixin r($r) {
     border-radius: $r;
 }
 
@@ -71,9 +80,17 @@ $r200: 20rem;
     padding: $t $r $b $l;
 }
 
+@mixin pd($p:0) {
+    padding: $p;
+}
+
 //margin
 @mixin m($t:0, $b:0, $l:0, $r:0) {
     margin: $t $r $b $l;
+}
+
+@mixin mg($m:0) {
+    margin: $m;
 }
 
 @mixin s($w:"auto", $h:"auto", $mw:"auto", $mh:"auto", $mxw:"auto", $mxh:"auto") {
@@ -131,6 +148,15 @@ $border:$lightGray;
 @mixin bg($c) {
 
     background-color: $c;
+}
+
+@mixin bgi($src) {
+
+    background-image: $src;
+    background-position: center center;
+    background-repeat: no-repaet;
+    overflow: hidden;
+    background-size: cover;
 }
 
 @mixin bdc($c) {

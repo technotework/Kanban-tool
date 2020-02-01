@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
 import BaseHeading from "./index";
 import { H1 as H1Compo, H2 as H2Compo, H3 as H3Compo, H4 as H4Compo } from "./compose"
 

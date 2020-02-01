@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
 import BaseEditableText from "./index.vue";
 
 export default {
@@ -17,5 +17,5 @@ export const Basic = () => ({
         height: { default: text("height", "200px") },
         padding: { default: text("padding", "10px") }
     },
-    template: `<BaseEditableText :width="width" :height="height" :padding="padding" />`
+    template: `<BaseEditableText v-bind="{width,height,padding}" />`
 });

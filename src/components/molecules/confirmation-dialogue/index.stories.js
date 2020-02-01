@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
 import ConfirmationDialogue from "./index.vue";
 import { ConfirmDialogue, SaveDialogue } from "./compose";
 

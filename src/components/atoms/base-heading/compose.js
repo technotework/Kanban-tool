@@ -1,5 +1,4 @@
 import Vue from "vue"
-import styled from "vue-styled-components";
 import BaseHeading from "./index.vue"
 
 let factory = (id, tag) => {

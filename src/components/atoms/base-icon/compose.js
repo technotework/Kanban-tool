@@ -1,57 +1,17 @@
-
 import Vue from "vue"
-import styled from "vue-styled-components";
 import BaseIcon from "./index.vue"
 
-/*=========================================================
-Normal Icon
-=========================================================*/
+let factory = (id, size) => {
 
-const NormalIcon = Vue.component("extends-component", {
-    components: { BaseIcon },
-    template: `<BaseIcon :width="${props => props.theme.service.icon.normal}" :height="${props => props.theme.service.icon.normal}" round="100px" :src="src" />`,
-    props: {
-        ...BaseIcon.props
-    },
-    methods: {
-        ...BaseIcon.methods
-    }
-});
+    return Vue.component(id, {
+        components: { BaseIcon },
+        template: `<BaseIcon width="${size}" height="${size}" round="${size}" :src="src"><slot /></BaseIcon>`,
+        props: { ...BaseIcon.props }
+    });
+}
 
-export { NormalIcon }
+const IconL = factory("icon-l", "200px");
+const IconM = factory("icon-m", "150px");
+const IconS = factory("icon-s", "100px");
 
-
-/*=========================================================
-Mini Icon
-=========================================================*/
-
-const MiniIcon = Vue.component("extends-component", {
-    components: { BaseIcon },
-    template: `<BaseIcon :width="${props => props.theme.service.icon.mini}" :height="${props => props.theme.service.icon.mini}" round="50px" :src="src" />`,
-    props: {
-        ...BaseIcon.props
-    },
-    methods: {
-        ...BaseIcon.methods
-    }
-});
-
-export { MiniIcon }
-
-
-/*=========================================================
-Large Icon
-=========================================================*/
-
-const LargeIcon = Vue.component("extends-component", {
-    components: { BaseIcon },
-    template: `<BaseIcon :width="${props => props.theme.service.icon.large}" :height="${props => props.theme.service.icon.large}" round="200px" :src="src" />`,
-    props: {
-        ...BaseIcon.props
-    },
-    methods: {
-        ...BaseIcon.methods
-    }
-});
-
-export { LargeIcon }
+export { IconL, IconM, IconS }

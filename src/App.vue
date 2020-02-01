@@ -2,14 +2,19 @@
   <div id="app">
     <router-view />
     <Theme>
-      <BaseButton value="OK" compose="secondary" />
+      <Icon
+        width="100px"
+        height="100px"
+        round="100px"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg"
+      />
     </Theme>
   </div>
 </template>
 
 <script>
 import Theme from "@/components/themes/theme";
-import BaseButton from "@/components/atoms/base-button";
+import Icon from "@/components/atoms/base-icon";
 import props from "@/components/themes/service-props-mixin";
 
 export default {
@@ -19,6 +24,6 @@ export default {
   data: function() {
     return {};
   },
-  components: { BaseButton, Theme }
+  components: { Icon, Theme }
 };
 </script>

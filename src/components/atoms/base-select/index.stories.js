@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, number, array, object, withInfo } from "@/components/tool/story-export"
+import { action, styled, withKnobs, text, color, number, array, object, withInfo } from "@/components/utils/story-export"
 import BaseSelect from "./index.vue";
 
 export default {

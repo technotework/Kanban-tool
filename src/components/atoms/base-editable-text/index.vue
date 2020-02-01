@@ -28,9 +28,8 @@ export default {
   --w: auto;
   --h: auto;
   --p: $s16;
-  width: var(--w);
-  height: var(--h);
-  padding: var(--p);
+  @include s($w: var(--w), $h: var(--h));
+  @include pd(var(--p));
   @include bdc($gray);
 }
 </style>

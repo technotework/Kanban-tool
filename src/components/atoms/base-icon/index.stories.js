@@ -1,6 +1,6 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
-import BaseIcon from "./index.vue";
-import { NormalIcon, MiniIcon, LargeIcon } from "./compose";
+import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import BaseIcon from "./index.vue"
+import { IconL, IconM, IconS } from "./compose"
 
 export default {
     title: "atoms/BaseIcon",
@@ -19,31 +19,32 @@ export const Basic = () => ({
         round: { default: text("round", "100px") },
         src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
     },
-    template: `<BaseIcon :width="width" :height="height" :round="round" :src="src" />`
+    template: `<BaseIcon v-bind="{width,height,round,src}" />`
 });
 
-
-export const Large = () => ({
-    components: { LargeIcon },
+export const L = () => ({
+    components: { IconL },
     props: {
         src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
     },
-    template: `<LargeIcon :src="src" />`
+    template: `<IconL :src="src" />`
 });
 
-export const Normal = () => ({
-    components: { NormalIcon },
+export const M = () => ({
+    components: { IconM },
     props: {
         src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
     },
-    template: `<NormalIcon :src="src" />`
+    template: `<IconM :src="src" />`
 });
 
-export const Mini = () => ({
-    components: { MiniIcon },
+export const S = () => ({
+    components: { IconS },
     props: {
         src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
     },
-    template: `<MiniIcon :src="src" />`
+    template: `<IconS :src="src" />`
 });
+
+
 

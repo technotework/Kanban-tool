@@ -1,28 +1,35 @@
 <template>
-    <StyledBaseImage :src="src" :round="round" :width="width" :height="height" :alt="alt" />
+  <img v-bind="{src,alt}" :class="$style.image" :style="styles" />
 </template>
 
 <script>
-import StyledBaseImage from "./style"
-
 export default {
-    name: 'BaseImage',
-    props:{
-        src:   String,
-        round: String,
-        width: String,
-        height:String,
-        alt:   String
-    },
-    components:{
-        StyledBaseImage
+  name: "BaseImage",
+  props: {
+    src: String,
+    round: String,
+    width: String,
+    height: String,
+    alt: String
+  },
+  computed: {
+    styles() {
+      return {
+        "--w": this.width,
+        "--h": this.height,
+        "--r": this.round
+      };
     }
-}
+  }
+};
 </script>
 <style lang="scss" module>
-.class{
+.image {
+  --w: auto;
+  --h: auto;
+  --r: 0;
 
-  
+  @include spr(var(--w), var(--h), 0, var(--r));
 }
 </style>
 
