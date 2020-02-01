@@ -2,7 +2,7 @@
   <div id="app">
     <router-view />
     <Theme>
-      <BaseButton value="OK" />
+      <BaseButton value="OK" compose="secondary" />
     </Theme>
   </div>
 </template>

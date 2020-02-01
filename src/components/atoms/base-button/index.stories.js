@@ -1,5 +1,6 @@
 import { global, action, Theme, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
 import BaseButton from "@/components/atoms/base-button/"
+import { PrimaryButton, SaveButton, SecondaryButton } from "./compose"
 
 export default {
     title: "atoms/BaseButton",
@@ -10,33 +11,63 @@ export default {
     }
 };
 
+/**
+ * Basic
+ */
 export const Basic = () => ({
-    components: { BaseButton, Theme },
+    components: { BaseButton },
     props: {
-        value: { default: text("value", "ButtonName") }
+        value: { default: text("value", "ButtonName") },
+        compose: { default: text("compose", "") }
     },
-    template: `<Theme><BaseButton :value="value" @click="action" /></Theme>`,
+    template: `<BaseButton :value="value" :compose="compose" @click="action" />`,
     parameters: {
         info: {},
     },
     methods: { action: action('click') }
 });
-/*
+
+/**
+ * Primary
+ */
 export const Primary = () => ({
-    components: { PrimaryButton, Theme },
+    components: { PrimaryButton },
     props: {
-        value: { default: text("value", "ButtonName") }
+        name: { default: text("name", "button") },
     },
-    template: `<Theme><PrimaryButton value="myButton" @click="action" /></Theme>`,
+    template: `<PrimaryButton :name="name" @click="action" />`,
+    parameters: {
+        info: {},
+    },
     methods: { action: action('click') }
 });
 
-export const Secondary = () => ({
-    components: { SecondaryButton, Theme },
+/**
+ * Save
+ */
+export const Save = () => ({
+    components: { SaveButton },
     props: {
-        value: { default: text("value", "ButtonName") }
+        name: { default: text("name", "button") },
     },
-    template: `<Theme><SecondaryButton value="myButton" @click="action" /></Theme>`,
+    template: `<SaveButton :name="name" @click="action" />`,
+    parameters: {
+        info: {},
+    },
     methods: { action: action('click') }
 });
-*/
+
+/**
+ * Secondary
+ */
+export const Secondary = () => ({
+    components: { SecondaryButton },
+    props: {
+        name: { default: text("name", "button") },
+    },
+    template: `<SecondaryButton :name="name" @click="action" />`,
+    parameters: {
+        info: {},
+    },
+    methods: { action: action('click') }
+});

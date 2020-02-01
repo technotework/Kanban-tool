@@ -1,13 +1,19 @@
 <template>
-  <input :class="$style.button" type="button" :value="value" :name="name" @click="onClick" />
+  <input
+    :class="[$style.button,$compose[compose]]"
+    type="button"
+    v-bind="{value,name,compose}"
+    @click="onClick"
+  />
 </template>
 
 <script>
 export default {
   name: "BaseButton",
   props: {
-    value: { type: String },
-    name: { type: String }
+    value: String,
+    name: String,
+    compose: String
   },
   methods: {
     onClick(e) {
@@ -21,13 +27,27 @@ export default {
   @include text($f16);
   @include p($t: $s8, $b: $s8, $l: $s16, $r: $s16);
   @include radius($s32);
-  @include bg($primary);
   @include s($mw: 120px);
   border: none;
   cursor: pointer;
+  @include bg($gray);
+  &:active {
+    @include bg($lightGray);
+  }
+}
+</style>
 
+<style lang="scss" module="$compose">
+.primary {
+  @include bg($primary);
   &:active {
     @include bg($phover);
+  }
+}
+.secondary {
+  @include bg($secondary);
+  &:active {
+    @include bg($shover);
   }
 }
 </style>

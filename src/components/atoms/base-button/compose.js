@@ -1,43 +1,23 @@
 import Vue from "vue"
-import styled from "vue-styled-components";
-import BaseButton from "./index.vue"
+import BaseButton from "./index"
 
 
-/*=========================================================
-PrimaryButton
-=========================================================*/
-const StyledPrimaryButton = styled(BaseButton)`
+let factory = (id, compose, value) => {
 
-background-color: ${props => props.theme.service.color.primary};
-`;
+    return Vue.component(id, {
+        components: { BaseButton },
+        template: `<BaseButton compose="${compose}" value="${value}" :name="name" @click="onClick"/>`,
+        props: { ...BaseButton.props },
+        methods: { ...BaseButton.methods }
+    });
+}
 
-const PrimaryButton = Vue.component("primary-button", {
-    components: { StyledPrimaryButton },
-    props: { ...StyledPrimaryButton.props },
-    template: `<StyledPrimaryButton @click="onClick" :value="value" />`,
-    methods: {
-        ...BaseButton.methods
-    }
-});
-
+const PrimaryButton = factory("primary-button", "primary", "OK");
 export { PrimaryButton }
 
-/*=========================================================
-SecondaryButton
-=========================================================*/
+const SaveButton = factory("save-button", "primary", "保存");
+export { SaveButton }
 
-const StyledSecondaryButton = styled(BaseButton)`
-
-background-color:${props => props.theme.service.color.secondary};
-`;
-
-const SecondaryButton = Vue.component("secondary-button", {
-    components: { StyledSecondaryButton },
-    props: { ...StyledPrimaryButton.props },
-    template: `<StyledSecondaryButton @click="onClick" :value="value" />`,
-    methods: {
-        ...BaseButton.methods
-    }
-});
-
+const SecondaryButton = factory("secondary-button", "secondary", "キャンセル");
 export { SecondaryButton }
+
