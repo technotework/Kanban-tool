@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import StyledBaseText from "./style";
 export default {
   name: "BaseText",
   props: {
@@ -20,14 +19,11 @@ export default {
     color: String,
     width: String,
     minWidth: String
-  },
-  components: { StyledBaseText }
+  }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

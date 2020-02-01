@@ -133,6 +133,10 @@ $border:$lightGray;
     background-color: $c;
 }
 
+@mixin bdc($c) {
+
+    border: solid 1px $c;
+}
 
 /*=================================
 layout Vars

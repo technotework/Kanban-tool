@@ -1,33 +1,35 @@
 <template>
-  <div :is="heading">
+  <div :is="tag" :tag="tag" :class="[$style.heading,$compose[tag]]">
     <slot />
   </div>
 </template>
 
 <script>
-import {
-  BaseHeading1,
-  BaseHeading2,
-  BaseHeading3,
-  BaseHeading4
-} from "./style";
-
 export default {
   name: "BaseHeading",
   props: {
-    heading: { type: String }
-  },
-  components: {
-    lv1: BaseHeading1,
-    lv2: BaseHeading2,
-    lv3: BaseHeading3,
-    lv4: BaseHeading4
+    tag: String,
+    compose: String
   }
 };
 </script>
 <style lang="scss" module>
-.class{
+.heading {
+  font-weight: bold;
+}
+</style>
 
-  
+<style lang="scss" module="$compose">
+.h1 {
+  @include text($f32);
+}
+.h2 {
+  @include text($f28);
+}
+.h3 {
+  @include text($f24);
+}
+.h4 {
+  @include text($f20);
 }
 </style>

@@ -1,56 +1,44 @@
 import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/tool/story-export"
-import BaseHeading from "./index.vue";
+import BaseHeading from "./index";
+import { H1 as H1Compo, H2 as H2Compo, H3 as H3Compo, H4 as H4Compo } from "./compose"
 
 export default {
     title: "atoms/BaseHeading",
     component: { BaseHeading },
     decorators: [withKnobs, withInfo],
     parameters: {
-        info: `
-        h1: heading="lv1"  
-        h2: heading="lv2"  
-        h3: heading="lv3"  
-        h4: heading="lv4"        
-        `,
+        info: {}
     }
 };
 
 export const H1 = () => ({
-    components: { BaseHeading },
+    components: { H1Compo },
     template: `
     <div>
-    
-        <BaseHeading heading="lv1">H1</BaseHeading>
-    
+        <H1Compo>H1</H1Compo>
     </div>`
 });
 
 export const H2 = () => ({
-    components: { BaseHeading },
+    components: { H2Compo },
     template: `
     <div>
-    
-        <BaseHeading heading="lv2">H2</BaseHeading>
-    
+        <H2Compo>H2</H2Compo>
     </div>`
 });
 
 export const H3 = () => ({
-    components: { BaseHeading },
+    components: { H3Compo },
     template: `
     <div>
-    
-        <BaseHeading heading="lv3">H3</BaseHeading>
-    
+        <H3Compo>H3</H3Compo>
     </div>`
 });
 
 export const H4 = () => ({
-    components: { BaseHeading },
+    components: { H4Compo },
     template: `
     <div>
-    
-        <BaseHeading heading="lv4">H4</BaseHeading>
-    
+        <H4Compo>H4</H4Compo>
     </div>`
 });

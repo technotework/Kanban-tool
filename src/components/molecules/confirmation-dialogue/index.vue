@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import StyledCompo from "./style";
+
 import prefs from "@/components/themes/prefs-mixin";
 import service from "@/components/themes/service-props-mixin";
 

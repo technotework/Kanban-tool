@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import StyledBaseModalContainer from "./style";
 export default {
   name: "BaseModalContainer",
   props: {
@@ -20,14 +19,11 @@ export default {
     index: { type: Number },
     top: { type: String },
     left: { type: String }
-  },
-  components: { StyledBaseModalContainer }
+  }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

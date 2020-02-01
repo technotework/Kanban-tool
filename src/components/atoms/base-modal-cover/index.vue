@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import StyledBaseModalCover from "./style";
 export default {
   name: "BaseModalCover",
   props: {
@@ -16,14 +15,11 @@ export default {
     onClick(e) {
       this.$emit("base-modal-cover-click-event", e);
     }
-  },
-  components: { StyledBaseModalCover }
+  }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import StyledBaseLinkButton from "./style";
-
 export default {
   name: "BaseLinkButton",
   props: {
@@ -33,16 +31,11 @@ export default {
         return false;
       }
     }
-  },
-  components: {
-    StyledBaseLinkButton
   }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

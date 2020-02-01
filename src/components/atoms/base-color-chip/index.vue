@@ -1,10 +1,8 @@
 <template>
-  <StyledBaseColorChip :width="width" :height="height" :color="color" />
+  <div :class="$style.chip" :style="styles" />
 </template>
 
 <script>
-import StyledBaseColorChip from "./style";
-
 export default {
   name: "BaseColorChip",
   props: {
@@ -12,14 +10,23 @@ export default {
     height: { type: String },
     color: { type: String }
   },
-  components: {
-    StyledBaseColorChip
+  computed: {
+    styles() {
+      return {
+        "--w": this.width,
+        "--h": this.height,
+        "--c": this.color
+      };
+    }
   }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.chip {
+  --w: auto;
+  --h: auto;
+  width: var(--w);
+  height: var(--h);
+  background-color: var(--c);
 }
 </style>

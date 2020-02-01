@@ -5,17 +5,13 @@
 </template>
 
 <script>
-import StyledLayoutSpacer from "./style";
 export default {
   name: "LayoutSpacer",
-  props: { width: String, padding: String, margin: String },
-  components: { StyledLayoutSpacer }
+  props: { width: String, padding: String, margin: String }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

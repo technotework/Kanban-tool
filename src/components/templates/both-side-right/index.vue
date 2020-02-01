@@ -5,21 +5,16 @@
 </template>
 
 <script>
-import StyledBothSideRight from "./style";
-
 export default {
   name: "BothSideRight",
   props: {
     width: String,
     right: String
-  },
-  components: { StyledBothSideRight }
+  }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

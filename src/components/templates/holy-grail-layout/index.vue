@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import StyledHolyGrailLayout from "./style";
 import HolyGrailContainer from "@/components/templates/holy-grail-container/";
 
 export default {
@@ -38,15 +37,12 @@ export default {
     }
   },
   components: {
-    HolyGrailContainer,
-    StyledHolyGrailLayout
+    HolyGrailContainer
   }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

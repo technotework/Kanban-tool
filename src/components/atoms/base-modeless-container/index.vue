@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import StyledBaseModelessContainer from "./style";
 export default {
   name: "BaseModelessContainer",
   props: {
@@ -20,14 +19,11 @@ export default {
     index: { type: Number },
     top: { type: String },
     left: { type: String }
-  },
-  components: { StyledBaseModelessContainer }
+  }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

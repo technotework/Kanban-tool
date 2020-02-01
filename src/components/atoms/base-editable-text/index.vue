@@ -1,12 +1,10 @@
 <template>
-  <StyledBaseEditableText :width="width" :height="height" :padding="padding" contenteditable="true">
+  <div :class="$style.editableText" :style="styles" contenteditable="true">
     <slot />
-  </StyledBaseEditableText>
+  </div>
 </template>
 
 <script>
-import StyledBaseEditableText from "./style";
-
 export default {
   name: "BaseEditableText",
   props: {
@@ -14,14 +12,25 @@ export default {
     height: { type: String },
     padding: { type: String }
   },
-  components: {
-    StyledBaseEditableText
+  computed: {
+    styles() {
+      return {
+        "--w": this.width,
+        "--h": this.height,
+        "--p": this.padding
+      };
+    }
   }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.editableText {
+  --w: auto;
+  --h: auto;
+  --p: $s16;
+  width: var(--w);
+  height: var(--h);
+  padding: var(--p);
+  @include bdc($gray);
 }
 </style>

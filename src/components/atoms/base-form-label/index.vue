@@ -1,25 +1,16 @@
 <template>
-  <StyledBaseFormLabel :for="id">
+  <label :for="id">
     <slot />
-  </StyledBaseFormLabel>
+  </label>
 </template>
 
 <script>
-import StyledBaseFormLabel from "./style";
-
 export default {
   name: "BaseFormLabel",
   props: {
     id: { type: String }
-  },
-  components: {
-    StyledBaseFormLabel
   }
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
