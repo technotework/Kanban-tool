@@ -29,7 +29,11 @@ export { createDefStory }
 
 let maps = {
     w: { val: "width", type: text },
+    mw: { val: "minWidth", type: text },
+    mxw: { val: "maxWidth", type: text },
     h: { val: "height", type: text },
+    mh: { val: "minHeight", type: text },
+    mxh: { val: "maxHeight", type: text },
     c: { val: "color", type: color },
     bgc: { val: "backgroundColor", type: color },
     p: { val: "padding", type: text },
@@ -80,11 +84,11 @@ let createStory = function (compo, compoName, propsObj, actionObj = null, slot =
 
 export { createStory }
 
-function createTemplate(compo, propsObj, actionObj, slot) {
+function createTemplate(compo, propsObj, actionObj, slot, contents) {
 
     let start = `<${compo}`
     let action = (actionObj != null && Object.keys(actionObj).length != 0) ? `@${actionObj.event}="action"` : ``;
-    let close = slot ? `>{{contents}}</${compo}>` : `/>`;
+    let close = slot ? `>${contents}</${compo}>` : `/>`;
     let binds = function () {
 
         let ary = [];

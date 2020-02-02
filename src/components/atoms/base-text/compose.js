@@ -1,109 +1,32 @@
-
 import Vue from "vue"
-import styled from "vue-styled-components";
 import BaseText from "./index.vue"
-import props from "@/components/themes/props"
+import styles from "@/components/utils/styles-mixin";
 
-/*=========================================================
-CaptionText
-=========================================================*/
-const StyledCaptionTextComponent = styled(BaseText)`
-    display: inline;
-    font-size:${props => props.theme.base.fontSize.xsmall};
-`;
+function getMixin(mw, compose) {
+
+    let mixin = {
+        components: { BaseText },
+        template: `<BaseText minWidth="${mw}" compose="${compose}"><slot /></BaseText>`,
+        props: { ...BaseText.props },
+        methods: { ...BaseText.methods },
+    }
+    return mixin;
+}
+
 const CaptionText = Vue.component("caption-text", {
-    components: { StyledCaptionTextComponent },
-    props: {
-        ...BaseText.props
-    },
-    template: `<StyledCaptionTextComponent><slot/></StyledCaptionTextComponent>`,
-    methods: {
-        ...BaseText.methods
-    }
+    mixins: [styles, getMixin("300px", "caption")],
 });
 
-export { CaptionText }
 
-
-/*=========================================================
-Message
-=========================================================*/
-const StyledMessage = styled(BaseText)`
-    display: inline-block;
-`;
-const BaseMessage = Vue.component("base-message", {
-    components: { StyledMessage },
-    template: `<StyledMessage :minWidth="p.service.message.minWidth" :padding="p.service.message.padding" :backgroundColor="backgroundColor" :color="color"><slot/></StyledMessage>`,
-    props: {
-        ...BaseText.props
-    },
-    data: function () {
-        return {
-            p: props
-        }
-    },
-    methods: {
-        ...BaseText.methods
-    }
+const ErrorText = Vue.component("error-text", {
+    mixins: [styles, getMixin("300px", "error")],
 });
 
-export { BaseMessage }
-
-/*=========================================================
-ErrorMessage
-=========================================================*/
-
-const ErrorMessage = Vue.component("error-message", {
-    components: { BaseMessage },
-    template: `<BaseMessage :backgroundColor="p.service.color.error"><slot/></BaseMessage>`,
-    props: {
-        ...BaseText.props
-    },
-    data: function () {
-        return {
-            p: props
-        }
-    }
+const WarnText = Vue.component("warn-text", {
+    mixins: [styles, getMixin("300px", "warn")],
 });
 
-export { ErrorMessage }
-
-
-/*=========================================================
-WarnMessage
-=========================================================*/
-
-const WarnMessage = Vue.component("warn-message", {
-    components: { BaseMessage },
-    template: `<BaseMessage :backgroundColor="p.service.color.warn"><slot/></BaseMessage>`,
-    props: {
-        ...BaseText.props
-    },
-    data: function () {
-        return {
-            p: props
-        }
-    }
+const NormalText = Vue.component("warn-text", {
+    mixins: [styles, getMixin("300px", "normal")],
 });
-
-export { WarnMessage }
-
-
-/*=========================================================
-NormalMessage
-=========================================================*/
-
-const NormalMessage = Vue.component("normal-message", {
-    components: { BaseMessage },
-    template: `<BaseMessage :backgroundColor="p.service.color.message"><slot/></BaseMessage>`,
-    props: {
-        ...BaseText.props
-    },
-    data: function () {
-        return {
-            p: props
-        }
-    }
-});
-
-export { NormalMessage }
+export { CaptionText, ErrorText, WarnText, NormalText }

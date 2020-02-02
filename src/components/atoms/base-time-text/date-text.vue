@@ -6,10 +6,12 @@
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
 import BaseTimeText from "./index";
 import * as moment from "moment";
 
 export default {
+  mixins: [styles],
   name: "DateText",
   props: {
     ...BaseTimeText.props
@@ -28,10 +30,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
 
 

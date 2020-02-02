@@ -1,9 +1,12 @@
 <template>
-  <StyledBaseTimeText :date="date"></StyledBaseTimeText>
+  <div :date="date"></div>
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
+
 export default {
+  mixins: [styles],
   name: "BaseTimeText",
   props: {
     date: { type: String }
@@ -11,8 +14,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.class {
-}
 </style>
 
 

@@ -8,7 +8,8 @@
 export default {
   name: "BaseFormLabel",
   props: {
-    id: { type: String }
+    id: { type: String },
+    for: { type: String }
   }
 };
 </script>

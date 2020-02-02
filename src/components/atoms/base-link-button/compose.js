@@ -6,7 +6,7 @@ function getMixin(compose) {
 
     let mixin = {
         components: { BaseLinkButton },
-        template: `<BaseLinkButton :compose="compose"><slot /></BaseLinkButton>`,
+        template: `<BaseLinkButton width="150px" compose="${compose}"><slot /></BaseLinkButton>`,
         props: { ...BaseLinkButton.props },
         methods: { ...BaseLinkButton.methods },
     }

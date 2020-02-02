@@ -1,28 +1,35 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseText from "./index.vue";
-import { CaptionText, BaseMessage, ErrorMessage, WarnMessage, NormalMessage } from "./compose";
+import { CaptionText, ErrorText, WarnText, NormalText } from "./compose";
 
-export default {
-    title: "atoms/BaseText",
-    component: { BaseText },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("atoms/BaseText", BaseText);
 
-export const Basic = () => ({
-    components: { BaseText },
-    props: {
-        padding: { default: text("padding", "10px") },
-        backgroundColor: { default: color("backgroundColor", "transparent") },
-        color: { default: color("color", "#000") },
-        width: { default: text("width", "auto") },
-        minWidth: { default: text("minWidth", "auto") }
-    },
-    template: `<BaseText :padding="padding" :backgroundColor="backgroundColor" :color="color" :width="width" :minWidth="minWidth">あいうえお</BaseText>`
-});
 
+let propsObj = {
+
+    p: "10px",
+    bgc: "transparent",
+    color: "#000",
+    w: "auto",
+    mw: "auto",
+}
+
+let actionObj = {}
+
+export const Basic = () => (createStory(BaseText, "BaseText", propsObj, actionObj, true, "あいうえお"));
+
+let propsObjSub = {
+}
+
+export const Caption = () => (createStory(CaptionText, "CaptionText", propsObjSub, actionObj, true, "あいうえお"));
+
+export const Error = () => (createStory(ErrorText, "ErrorText", propsObjSub, actionObj, true, "あいうえお"));
+
+export const Warn = () => (createStory(WarnText, "WarnText", propsObjSub, actionObj, true, "あいうえお"));
+
+export const Normal = () => (createStory(NormalText, "NormalText", propsObjSub, actionObj, true, "あいうえお"));
+
+/*
 export const Caption = () => ({
     components: { CaptionText },
     template: `<CaptionText>あいうえお</CaptionText>`
@@ -50,4 +57,4 @@ export const Warn = () => ({
 export const Normal = () => ({
     components: { NormalMessage },
     template: `<NormalMessage>あいうえお</NormalMessage>`
-});
+});*/

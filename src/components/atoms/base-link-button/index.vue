@@ -1,5 +1,10 @@
 <template>
-  <a :class="[$style.button,$compose[compose]]" :style="styles" :compose="compose" @click="onClick">
+  <a
+    v-bind="{compose,href,target}"
+    :class="[$style.button,$compose[compose]]"
+    :style="styles"
+    @click="onClick"
+  >
     <slot />
   </a>
 </template>
@@ -10,7 +15,9 @@ export default {
   mixins: [styles],
   name: "BaseLinkButton",
   props: {
-    compose: String
+    compose: String,
+    href: String,
+    target: String
   }
 };
 </script>

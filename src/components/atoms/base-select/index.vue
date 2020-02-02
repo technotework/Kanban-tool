@@ -1,39 +1,29 @@
 <template>
-    <StyledBaseSelect :name="name" v-model="selected" @change="onChange">
-        <option value="" selected>選択して下さい</option>
-        <option v-for="item in items" :value="item.value" :key="item.value">{{item.content}}</option>
-    </StyledBaseSelect>
+  <select :name="name" v-model="selected" @change="onChange">
+    <option value selected>選択して下さい</option>
+    <option v-for="item in items" :value="item.value" :key="item.value">{{item.content}}</option>
+  </select>
 </template>
 
 <script>
-import StyledBaseSelect from './style';
+import styles from "@/components/utils/styles-mixin";
+
 export default {
-    name: 'BaseSelect',
-    props: {
-        name:{type:String},
-        items:{type:Array},
-        value:{type:String}
-    },
-    data:function(){
-        return {
-            selected:""
-        }
-    },
-    methods:{
-       onChange:function(e){
-           this.$emit("change", e);
-       } 
-    },
-    components:{
-        StyledBaseSelect
-    }
-}
+  mixins: [styles],
+  name: "BaseSelect",
+  props: {
+    name: { type: String },
+    items: { type: Array },
+    value: { type: String }
+  },
+  data: function() {
+    return {
+      selected: ""
+    };
+  }
+};
 </script>
 <style lang="scss" module>
-.class{
-
-  
-}
 </style>
 
 

@@ -18,6 +18,12 @@ let actionObj = {
 
 export const Basic = () => (createStory(BaseLinkButton, "BaseLinkButton", propsObj, actionObj, true, "Button"));
 
+let propsObjSub = {
+
+    href: "https://www.google.com/",
+    target: "_blank"
+}
+
 export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObj, actionObj, true, "Button"));
 
 export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObj, actionObj, true, "Button"));

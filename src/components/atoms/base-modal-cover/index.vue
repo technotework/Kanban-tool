@@ -5,11 +5,13 @@
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
 export default {
+  mixins: [styles],
   name: "BaseModalCover",
   methods: {
-    onClick(e) {
-      this.$emit("base-modal-cover-click-event", e);
+    onClick: function() {
+      this.$emit("base-modal-cover-click-event");
     }
   }
 };

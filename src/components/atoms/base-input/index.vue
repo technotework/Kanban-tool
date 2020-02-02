@@ -1,12 +1,24 @@
 <template>
-  <input type="text" :class="$style.input" :style="styles" @input="onInput" />
+  <input
+    type="text"
+    :class="$style.input"
+    :style="styles"
+    v-bind="{placeholder,required,maxlength,name}"
+    @input="onInput"
+  />
 </template>
 
 <script>
 import styles from "@/components/utils/styles-mixin";
 export default {
   mixins: [styles],
-  name: "BaseInput"
+  name: "BaseInput",
+  props: {
+    placeholder: String,
+    required: Boolean,
+    maxlength: String,
+    name: String
+  }
 };
 </script>
 <style lang="scss" module>

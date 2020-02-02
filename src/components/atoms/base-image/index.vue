@@ -7,7 +7,11 @@ import styles from "@/components/utils/styles-mixin";
 
 export default {
   mixins: [styles],
-  name: "BaseImage"
+  name: "BaseImage",
+  props: {
+    src: String,
+    alt: String
+  }
 };
 </script>
 <style lang="scss" module>

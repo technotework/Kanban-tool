@@ -14,7 +14,6 @@ let propsObj = {
 }
 
 let actionObj = {
-    event: "click"
 }
 
 export const Basic = () => (createStory(BaseImage, "BaseImage", propsObj, actionObj, false));

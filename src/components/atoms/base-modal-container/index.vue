@@ -1,31 +1,13 @@
 <template>
-  <div :class="[$style.modal,$compose[compose]]" :style="styles">
+  <div :class="[$style.modal,$compose[compose]]" :style="styles" :compose="compose">
     <slot />
   </div>
 </template>
-
 <script>
+import styles from "@/components/utils/styles-mixin";
 export default {
-  name: "BaseModalContainer",
-  props: {
-    width: { type: String },
-    minHeight: { type: String },
-    index: { type: Number },
-    top: { type: String },
-    left: { type: String },
-    compose: { type: String }
-  },
-  computed: {
-    styles() {
-      return {
-        "--w": this.width,
-        "--mh": this.minHeight,
-        "--index": this.index,
-        "--top": this.top,
-        "--left": this.left
-      };
-    }
-  }
+  mixins: [styles],
+  name: "BaseModalContainer"
 };
 </script>
 <style lang="scss" module>

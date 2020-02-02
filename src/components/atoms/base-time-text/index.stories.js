@@ -8,7 +8,6 @@ export default {
     component: { BaseTimeText }
 };
 
-
 export const Date = () => ({
     components: { DateText },
     template: `<DateText date="1560000000" />`

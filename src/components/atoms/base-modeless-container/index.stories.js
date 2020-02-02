@@ -1,26 +1,23 @@
 
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseModelessContainer from "./index.vue";
 
-export default {
-    title: "atoms/BaseModelessContainer",
-    component: { BaseModelessContainer },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("atoms/BaseModelessContainer", BaseModelessContainer);
 
-export const Basic = () => ({
-    components: { BaseModelessContainer },
-    props: {
-        width: { default: text("width", "200px") },
-        height: { default: text("height", "300px") },
-        top: { default: text("top", "0") },
-        left: { default: text("left", "0") },
-        padding: { default: text("padding", "10px") },
-        round: { default: text("round", "8px") },
-        color: { default: color("color", "#ccc") },
-    },
-    template: `<BaseModelessContainer v-bind="{width,height,top,left,color,padding,round}">内容</BaseModelessContainer>`
-});
+
+let propsObj = {
+
+    w: "200px",
+    h: "300px",
+    t: "0",
+    l: "0",
+    p: "10px",
+    r: "8px",
+    bgc: "#ccc"
+}
+
+let actionObj = {
+}
+
+export const Basic = () => (createStory(BaseModelessContainer, "BaseModelessContainer", propsObj, actionObj, true));
+
