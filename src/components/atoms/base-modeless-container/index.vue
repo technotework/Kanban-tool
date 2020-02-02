@@ -15,7 +15,7 @@ export default {
 <style lang="scss" module>
 .modeless {
   @include spr($w: var(--w), $h: var(--h), $p: var(--p), $r: var(--r));
-  @include bg(var(--bgc));
+  @include bgc(var(--bgc));
   @include abs($t: var(--t), $l: var(--l), $index: $index_xm);
 }
 </style>

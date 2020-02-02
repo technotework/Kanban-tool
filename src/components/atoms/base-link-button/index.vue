@@ -29,30 +29,30 @@ export default {
   text-decoration: none;
   text-align: center;
   @include text($f16);
-  @include p($t: $s8, $b: $s8, $l: $s16, $r: $s16);
+  @include p($s8 $s16);
   @include r($s32);
   @include s($w: var(--w), $h: var(--h));
   border: none;
   cursor: pointer;
-  @include bg($gray);
+  @include bgc($gray);
   color: $black;
   &:active {
-    @include bg($lightGray);
+    @include bgc($lightGray);
   }
 }
 </style>
 
 <style lang="scss" module="$compose">
 .primary {
-  @include bg($primary);
+  @include bgc($primary);
   &:active {
-    @include bg($phover);
+    @include bgc($phover);
   }
 }
 .secondary {
-  @include bg($secondary);
+  @include bgc($secondary);
   &:active {
-    @include bg($shover);
+    @include bgc($shover);
   }
 }
 </style>

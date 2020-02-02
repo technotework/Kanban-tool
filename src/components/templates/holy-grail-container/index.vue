@@ -1,16 +1,24 @@
 <template>
-  <StyledHolyGrailContainer :width="width" :height="height">
+  <div :class="$style.container" :style="styles">
     <slot />
-  </StyledHolyGrailContainer>
+  </div>
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
 export default {
-  name: "HolyGrailContainer",
-  props: { width: String, height: String }
+  mixins: [styles],
+  name: "HolyGrailContainer"
 };
 </script>
 <style lang="scss" module>
+.container {
+  --bgc: $transparent;
+
+  position: relative;
+  @include s(var(--w), var(--h));
+  @include bgc(var(--bgc));
+}
 </style>
 
 

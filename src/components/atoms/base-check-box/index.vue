@@ -17,6 +17,6 @@ export default {
 </script>
 <style lang="scss" module>
 .cb {
-  @include m($r: $s4, $b: $s8);
+  @include m(0 $s4 $s8 0);
 }
 </style>

@@ -1,31 +1,48 @@
 <template>
-  <StyledLayoutPositioner
-    :width="width"
-    :top="top"
-    :left="left"
-    :right="right"
-    :bottom="bottom"
-    :position="position"
-  >
+  <div :class="$compose[compose]" :style="styles">
     <slot />
-  </StyledLayoutPositioner>
+  </div>
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
 export default {
+  mixins: [styles],
   name: "LayoutPositioner",
   props: {
-    position: String,
-    width: String,
-    top: String,
-    bottom: String,
-    left: String,
-    right: String
+    position: String
   }
 };
 </script>
-<style lang="scss" module>
-.class {
+<style lang="scss" module="$compose">
+.absolute {
+  --pt: auto;
+  --pb: auto;
+  --pl: auto;
+  --pr: auto;
+
+  @include abs(
+    $t: var(--pt),
+    $b: var(--pb),
+    $l: var(--pl),
+    $r: var(--pr),
+    $index: var(--index)
+  );
+}
+
+.fixed {
+  --pt: auto;
+  --pb: auto;
+  --pl: auto;
+  --pr: auto;
+
+  @include fix(
+    $t: var(--pt),
+    $b: var(--pb),
+    $l: var(--pl),
+    $r: var(--pr),
+    $index: var(--index)
+  );
 }
 </style>
 

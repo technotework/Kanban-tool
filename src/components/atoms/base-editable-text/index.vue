@@ -23,7 +23,7 @@ export default {
   --h: auto;
   --p: $s16;
   @include s($w: var(--w), $h: var(--h));
-  @include pd(var(--p));
+  @include p(var(--p));
   @include bdc($gray);
 }
 </style>

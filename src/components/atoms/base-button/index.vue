@@ -1,6 +1,7 @@
 <template>
   <input
     :class="[$style.button,$compose[compose]]"
+    :style="styles"
     type="button"
     v-bind="{value,name,compose}"
     @click="onClick"
@@ -24,29 +25,40 @@ export default {
 <style lang="scss" module>
 .button {
   @include text($f16);
-  @include p($t: $s8, $b: $s8, $l: $s16, $r: $s16);
+  @include p($s8 $s16 $s8 $s16);
   @include r($s32);
   @include s($mw: 120px);
+  @include bgc($gray);
+
   border: none;
   cursor: pointer;
-  @include bg($gray);
+
   &:active {
-    @include bg($lightGray);
+    @include bgc($lightGray);
   }
 }
 </style>
 
 <style lang="scss" module="$compose">
 .primary {
-  @include bg($primary);
+  @include bgc($primary);
   &:active {
-    @include bg($phover);
+    @include bgc($phover);
   }
 }
 .secondary {
-  @include bg($secondary);
+  @include bgc($secondary);
   &:active {
-    @include bg($shover);
+    @include bgc($shover);
   }
+}
+.menu {
+  @include bgc($menu);
+  &:active {
+    @include bgc($mhover);
+  }
+  text-align: left;
+  @include spr($w: var(--w), $p: $s4, $r: 0);
+  @include text($f16);
 }
 </style>

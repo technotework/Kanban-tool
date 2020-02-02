@@ -28,3 +28,20 @@ const SecondaryButton = Vue.component("secondary", {
 });
 export { SecondaryButton }
 
+
+function getMixin2(compose) {
+
+    let mixin = {
+        components: { BaseButton },
+        template: `<BaseButton compose="${compose}" :style="styles" v-bind="{value,name}"  @click="onClick" />`,
+        props: { ...BaseButton.props },
+
+    }
+    return mixin;
+}
+
+const MenuButton = Vue.component("menu-button", {
+    mixins: [styles, getMixin2("menu")],
+});
+export { MenuButton }
+

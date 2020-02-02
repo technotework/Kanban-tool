@@ -1,24 +1,21 @@
 <template>
-  <StyledFlexLayout :width="width" :height="height" :wrap="wrap" :justify="justify">
+  <div :class="$style.flex" :style="styles">
     <slot />
-  </StyledFlexLayout>
+  </div>
 </template>
 
 <script>
-import Vue from "vue";
+import styles from "@/components/utils/styles-mixin";
 
 export default {
-  name: "FlexLayout",
-  props: {
-    justify: String,
-    wrap: String,
-    width: String,
-    height: String
-  }
+  mixins: [styles],
+  name: "FlexLayout"
 };
 </script>
 <style lang="scss" module>
-.class {
+.flex {
+  @include s(var(--w), var(--h));
+  @include flex;
 }
 </style>
 

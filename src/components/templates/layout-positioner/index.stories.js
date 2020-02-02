@@ -1,34 +1,23 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import LayoutPositioner from "./index.vue"
 
-export default {
-    title: "templates/LayoutPositioner",
-    component: { LayoutPositioner },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("templates/LayoutPositioner", LayoutPositioner);
 
-export const Basic = () => ({
-    components: { LayoutPositioner },
-    props: {
-        top: { default: text("top", "auto") },
-        left: { default: text("left", "auto") },
-        right: { default: text("right", "0") },
-        bottom: { default: text("bottom", "0") },
-        width: { default: text("width", "auto") },
-        position: { default: text("position", "absolute") }
-    },
-    template: `<LayoutPositioner 
-    :width="width"
-    :top="top"
-    :left="left"
-    :right="right"
-    :bottom="bottom"
-    :position="position">position</LayoutPositioner>`,
-    parameters: {
-        info: {},
-    }
-});
+
+let propsObj = {
+
+    pt: "100px",
+    pl: "100px",
+    compose: "absolute",
+    index: "9999"
+}
+
+let actionObj = {
+}
+
+let content = `<div style="background-color:#ff0; width:50px; height:50px;">box</div>`;
+
+export const Basic = () => (createStory(LayoutPositioner, "LayoutPositioner", propsObj, actionObj, true, content));
+
+
 

@@ -15,17 +15,17 @@ export default {
   @include fix($t: var(--top), $l: var(--left), $index: $index_xh);
   @include r($round);
   @include s($w: var(--w), $mh: var(--mh));
-  @include bg($lightGray);
+  @include bgc($lightGray);
 }
 </style>
 
 <style lang="scss" module="$compose">
 .none {
-  @include bg($lightGray);
+  @include bgc($lightGray);
 }
 .dialogue {
-  @include cfix(var(--w), var(--mh), $index_xh);
-  @include pd($s16);
+  @include centerfix(var(--w), var(--mh), $index_xh);
+  @include p($s16);
   @include shadow;
 }
 </style>

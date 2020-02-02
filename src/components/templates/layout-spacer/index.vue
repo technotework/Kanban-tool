@@ -1,17 +1,21 @@
 <template>
-  <StyledLayoutSpacer :width="width" :padding="padding" :margin="margin">
+  <div :class="$style.spacer" :style="styles">
     <slot />
-  </StyledLayoutSpacer>
+  </div>
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
 export default {
-  name: "LayoutSpacer",
-  props: { width: String, padding: String, margin: String }
+  mixins: [styles],
+  name: "LayoutSpacer"
 };
 </script>
 <style lang="scss" module>
-.class {
+.spacer {
+  @include p(var(--p));
+  @include m(var(--m));
+  @include s(var(--w), var(--h));
 }
 </style>
 

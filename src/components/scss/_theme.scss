@@ -64,7 +64,7 @@ $r200: 20rem;
 $round: $s8;
 
 //size&padding&radius
-@mixin spr($w:"auto", $h:"auto", $p:0, $r:$round) {
+@mixin spr($w:auto, $h:auto, $p:0, $r:$round) {
 
     width: $w;
     height: $h;
@@ -78,47 +78,39 @@ $round: $s8;
 }
 
 //padding
-@mixin p($t:0, $b:0, $l:0, $r:0) {
-    padding: $t $r $b $l;
-}
-
-@mixin pd($p:0) {
+@mixin p($p) {
     padding: $p;
 }
 
 //margin
-@mixin m($t:0, $b:0, $l:0, $r:0) {
-    margin: $t $r $b $l;
-}
-
-@mixin mg($m:0) {
+@mixin m($m) {
     margin: $m;
 }
 
 //size
-@mixin s($w:"auto", $h:"auto", $mw:"auto", $mh:"auto", $mxw:"auto", $mxh:"auto") {
+@mixin s($w:auto, $h:auto, $mw:auto, $mh:auto, $mxw:auto, $mxh:auto) {
 
-    @if $w !="auto" {
+    @if $w !=auto {
         width: $w;
     }
 
-    @if $h !="auto" {
+    @if $h !=auto {
         height: $h;
     }
 
-    @if $mw !="auto" {
+    @if $mw !=auto {
         min-width: $mw;
     }
 
-    @if $mh !="auto" {
+    @if $mh !=auto {
         min-height: $mh;
     }
 
-    @if $mxw !="auto" {
+    @if $mxw !=auto {
         max-width: $mxw;
     }
 
-    @if $mxh !="auto" {
+    @if $mxh !=auto {
         max-height: $mxh;
     }
 }
@@ -144,6 +136,11 @@ $phover:#aae7fd;
 $secondary:#ccc;
 $shover:#e8e8e8;
 
+$transparent:transparent;
+
+$menu: $transparent;
+$mhover:#62cff7;
+
 $error:#f09393;
 $warn:#fcd86b;
 $normal:#62cff7;
@@ -162,7 +159,7 @@ $coverbg:rgba(0, 0, 0, 0.25);
 }
 
 //background-color
-@mixin bg($c) {
+@mixin bgc($c) {
 
     background-color: $c;
 }
@@ -247,26 +244,27 @@ $index_l: 70000;
 @mixin flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 //absolute
-@mixin abs($t:"", $b:"", $l:"", $r:"", $index:1) {
+@mixin abs($t:auto, $b:auto, $l:auto, $r:auto, $index:100) {
 
     position: absolute;
 
-    @if $t !="" {
+    @if $t !=auto {
         top: $t;
     }
 
-    @if $b !="" {
+    @if $b !=auto {
         bottom: $b;
     }
 
-    @if $l !="" {
+    @if $l !=auto {
         left: $l;
     }
 
-    @if $r !="" {
+    @if $r !=auto {
         right: $r;
     }
 
@@ -275,23 +273,23 @@ $index_l: 70000;
 
 
 //fixed
-@mixin fix($t:"", $b:"", $l:"", $r:"", $index:1) {
+@mixin fix($t:auto, $b:auto, $l:auto, $r:auto, $index:1) {
 
     position: fixed;
 
-    @if $t !="" {
+    @if $t !=auto {
         top: $t;
     }
 
-    @if $b !="" {
+    @if $b !=auto {
         bottom: $b;
     }
 
-    @if $l !="" {
+    @if $l !=auto {
         left: $l;
     }
 
-    @if $r !="" {
+    @if $r !=auto {
         right: $r;
     }
 
@@ -299,7 +297,7 @@ $index_l: 70000;
 }
 
 //center fix
-@mixin cfix($w:"auto", $h:"auto", $index:1) {
+@mixin centerfix($w:auto, $h:auto, $index:1) {
     position: fixed;
     top: calc(50% - #{$h} /2);
     left: calc(50% - #{$w} /2);

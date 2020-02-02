@@ -20,7 +20,7 @@ export default {
 .cover {
   width: 100vw;
   height: 100vh;
-  @include bg($coverbg);
+  @include bgc($coverbg);
   @include fix($t: 0, $l: 0, $index: $index_h);
 }
 </style>

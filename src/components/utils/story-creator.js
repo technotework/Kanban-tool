@@ -37,6 +37,7 @@ let maps = {
     c: { val: "color", type: color },
     bgc: { val: "backgroundColor", type: color },
     p: { val: "padding", type: text },
+    m: { val: "margin", type: text },
     r: { val: "round", type: text },
     pt: { val: "top", type: text },
     pb: { val: "bottom", type: text },
@@ -54,6 +55,7 @@ let maps = {
     src: { val: "src", type: text },
     alt: { val: "alt", type: text },
     placeholder: { val: "placeholder", type: text },
+    index: { val: "index", type: text },
 }
 
 let createStory = function (compo, compoName, propsObj, actionObj = null, slot = false, contents = "contents") {
@@ -88,7 +90,8 @@ function createTemplate(compo, propsObj, actionObj, slot, contents) {
 
     let start = `<${compo}`
     let action = (actionObj != null && Object.keys(actionObj).length != 0) ? `@${actionObj.event}="action"` : ``;
-    let close = slot ? `>${contents}</${compo}>` : `/>`;
+    let startEnd = `>`;
+    let close = slot ? contents + `</${compo}>` : `/>`;
     let binds = function () {
 
         let ary = [];
@@ -109,7 +112,7 @@ function createTemplate(compo, propsObj, actionObj, slot, contents) {
         return result;
     }
 
-    return `${start} ${action} ${binds()} ${close}`
+    return `${start} ${action} ${binds()} ${startEnd} ${close}`
 
 }
 

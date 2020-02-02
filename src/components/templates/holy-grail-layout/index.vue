@@ -1,5 +1,5 @@
 <template>
-  <StyledHolyGrailLayout :size="size">
+  <div :size="size">
     <header>
       <HolyGrailContainer :width="size.headerWidth" :height="size.headerHeight">
         <slot name="header" />
@@ -15,12 +15,11 @@
         <slot name="footer" />
       </HolyGrailContainer>
     </footer>
-  </StyledHolyGrailLayout>
+  </div>
 </template>
 
 <script>
-import HolyGrailContainer from "@/components/templates/holy-grail-container/";
-
+import HolyGrailContainer from "@/components/templates/holy-grail-container";
 export default {
   name: "HolyGrailLayout",
   props: {
@@ -42,8 +41,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.class {
-}
 </style>
 
 

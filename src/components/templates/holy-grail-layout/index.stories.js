@@ -1,24 +1,29 @@
 
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
-import { BaseLayout } from "./compose";
+import { action, styled, withKnobs, text, color, object, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
+import HolyGrailLayout from "./index";
 
-export default {
-    title: "templates/HolyGrailLayout",
-    component: { BaseLayout },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("templates/HolyGrailLayout", HolyGrailLayout);
 
 export const Basic = () => ({
-    components: { BaseLayout },
+    components: { HolyGrailLayout },
+    props: {
+        size: {
+            default: object("size", {
+                headerWidth: "100vw",
+                headerHeight: "50px",
+                mainWidth: "100vw",
+                mainHeight: "calc(100vh - 100px)",
+                footerWidth: "100vw",
+                footerHeight: "50px"
+            })
+        }
+    },
     template: `
-    
-        <BaseLayout>
-        <template #header>header</template>
-        <template #main>main</template>
-        <template #footer>footer</template>
-        </BaseLayout>
+        <HolyGrailLayout :size="size">
+            <template #header>header</template>
+            <template #main>main</template>
+            <template #footer>footer</template>
+        </HolyGrailLayout>
     `
 });

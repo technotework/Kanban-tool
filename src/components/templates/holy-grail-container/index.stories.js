@@ -1,21 +1,17 @@
-
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import HolyGrailContainer from "./index.vue";
 
-export default {
-    title: "templates/HolyGrailContainer",
-    component: { HolyGrailContainer },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("templates/HolyGrailContainer", HolyGrailContainer);
 
-export const Basic = () => ({
-    components: { HolyGrailContainer },
-    props: {
-        width: { default: text("width", "100vw") },
-        height: { default: text("height", "auto") },
-    },
-    template: `<HolyGrailContainer :width="width" :height="height">content</HolyGrailContainer>`
-});
+
+let propsObj = {
+
+    w: "100vw",
+    h: "auto",
+    bgc: "#ccc"
+}
+
+let actionObj = {
+}
+
+export const Basic = () => (createStory(HolyGrailContainer, "HolyGrailContainer", propsObj, actionObj, true));

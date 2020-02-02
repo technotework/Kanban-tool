@@ -28,18 +28,18 @@ export default {
 }
 .error {
   display: inline-block;
-  @include pd($s4);
-  @include bg($error);
+  @include p($s4);
+  @include bgc($error);
 }
 .warn {
   display: inline-block;
-  @include pd($s4);
-  @include bg($warn);
+  @include p($s4);
+  @include bgc($warn);
 }
 .normal {
   display: inline-block;
-  @include pd($s4);
-  @include bg($normal);
+  @include p($s4);
+  @include bgc($normal);
 }
 </style>
 
