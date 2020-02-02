@@ -1,16 +1,12 @@
 <template>
-  <StyledBaseModalCover :index="index" :backgroundColor="backgroundColor" @click="onClick">
+  <div :class="$style.cover" @click="onClick">
     <slot />
-  </StyledBaseModalCover>
+  </div>
 </template>
 
 <script>
 export default {
   name: "BaseModalCover",
-  props: {
-    index: { type: Number },
-    backgroundColor: { type: String }
-  },
   methods: {
     onClick(e) {
       this.$emit("base-modal-cover-click-event", e);
@@ -19,6 +15,12 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.cover {
+  width: 100vw;
+  height: 100vh;
+  @include bg($coverbg);
+  @include fix($t: 0, $l: 0, $index: $index_h);
+}
 </style>
 
 

@@ -1,15 +1,10 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export";
+import { action, styled, withKnobs, text, color, boolean, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseCheckBox from "./index.vue";
 import BaseLabel from "@/components/atoms/base-form-label";
 
-export default {
-    title: "atoms/BaseCheckBox",
-    component: { BaseCheckBox },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("atoms/BaseCheckBox", BaseCheckBox);
+
 
 export const Basic = () => ({
     components: { BaseLabel, BaseCheckBox },

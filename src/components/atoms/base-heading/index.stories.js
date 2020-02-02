@@ -1,44 +1,38 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseHeading from "./index";
-import { H1 as H1Compo, H2 as H2Compo, H3 as H3Compo, H4 as H4Compo } from "./compose"
+import { H1, H2, H3, H4 } from "./compose"
 
-export default {
-    title: "atoms/BaseHeading",
-    component: { BaseHeading },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {}
-    }
-};
+export default createDefStory("atoms/BaseHeading", BaseHeading);
 
-export const H1 = () => ({
-    components: { H1Compo },
+
+export const HeadingH1 = () => ({
+    components: { H1 },
     template: `
     <div>
-        <H1Compo>H1</H1Compo>
+        <H1>H1</H1>
     </div>`
 });
 
-export const H2 = () => ({
-    components: { H2Compo },
+export const HeadingH2 = () => ({
+    components: { H2 },
     template: `
     <div>
-        <H2Compo>H2</H2Compo>
+        <H2>H2</H2>
     </div>`
 });
 
-export const H3 = () => ({
-    components: { H3Compo },
+export const HeadingH3 = () => ({
+    components: { H3 },
     template: `
     <div>
-        <H3Compo>H3</H3Compo>
+        <H3>H3</H3>
     </div>`
 });
 
-export const H4 = () => ({
-    components: { H4Compo },
+export const HeadingH4 = () => ({
+    components: { H4 },
     template: `
     <div>
-        <H4Compo>H4</H4Compo>
+        <H4>H4</H4>
     </div>`
 });

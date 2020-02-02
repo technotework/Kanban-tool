@@ -1,50 +1,32 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseIcon from "./index.vue"
 import { IconL, IconM, IconS } from "./compose"
 
-export default {
-    title: "atoms/BaseIcon",
-    component: { BaseIcon },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("atoms/BaseIcon", BaseIcon);
 
-export const Basic = () => ({
-    components: { BaseIcon },
-    props: {
-        width: { default: text("width", "200px") },
-        height: { default: text("height", "200px") },
-        round: { default: text("round", "100px") },
-        src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
-    },
-    template: `<BaseIcon v-bind="{width,height,round,src}" />`
-});
 
-export const L = () => ({
-    components: { IconL },
-    props: {
-        src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
-    },
-    template: `<IconL :src="src" />`
-});
+let propsObj = {
 
-export const M = () => ({
-    components: { IconM },
-    props: {
-        src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
-    },
-    template: `<IconM :src="src" />`
-});
+    w: "200px",
+    h: "200px",
+    round: "100px",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg"
+}
 
-export const S = () => ({
-    components: { IconS },
-    props: {
-        src: { default: text("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg") }
-    },
-    template: `<IconS :src="src" />`
-});
+let actionObj = {
+}
+
+export const Basic = () => (createStory(BaseIcon, "BaseIcon", propsObj, actionObj, false));
+
+
+let propsObjSub = {
+
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg"
+}
+
+export const L = () => (createStory(IconL, "IconL", propsObj, actionObj, false));
+export const M = () => (createStory(IconM, "IconL", propsObj, actionObj, false));
+export const S = () => (createStory(IconS, "IconL", propsObj, actionObj, false));
 
 
 

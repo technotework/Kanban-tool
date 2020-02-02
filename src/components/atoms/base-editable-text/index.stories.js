@@ -1,21 +1,16 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseEditableText from "./index.vue";
 
-export default {
-    title: "atoms/BaseEditableText",
-    component: { BaseEditableText },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("atoms/BaseEditableText", BaseEditableText);
 
-export const Basic = () => ({
-    components: { BaseEditableText },
-    props: {
-        width: { default: text("width", "100%") },
-        height: { default: text("height", "200px") },
-        padding: { default: text("padding", "10px") }
-    },
-    template: `<BaseEditableText v-bind="{width,height,padding}" />`
-});
+let propsObj = {
+
+    w: "100%",
+    h: "200px",
+    p: "10px"
+}
+
+let actionObj = {
+}
+
+export const Basic = () => (createStory(BaseEditableText, "BaseEditableText", propsObj, actionObj, false));

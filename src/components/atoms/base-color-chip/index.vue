@@ -3,30 +3,17 @@
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
+
 export default {
-  name: "BaseColorChip",
-  props: {
-    width: { type: String },
-    height: { type: String },
-    color: { type: String }
-  },
-  computed: {
-    styles() {
-      return {
-        "--w": this.width,
-        "--h": this.height,
-        "--c": this.color
-      };
-    }
-  }
+  mixins: [styles],
+  name: "BaseColorChip"
 };
 </script>
 <style lang="scss" module>
 .chip {
-  --w: auto;
-  --h: auto;
   width: var(--w);
   height: var(--h);
-  background-color: var(--c);
+  background-color: var(--bgc);
 }
 </style>

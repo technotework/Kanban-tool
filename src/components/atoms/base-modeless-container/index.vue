@@ -1,28 +1,23 @@
 <template>
-  <StyledBaseModelessContainer
-    :width="width"
-    :height="height"
-    :top="top"
-    :left="left"
-    :index="index"
-  >
+  <div :class="$style.modeless" :style="styles">
     <slot />
-  </StyledBaseModelessContainer>
+  </div>
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
+
 export default {
   name: "BaseModelessContainer",
-  props: {
-    width: { type: String },
-    height: { type: String },
-    index: { type: Number },
-    top: { type: String },
-    left: { type: String }
-  }
+  mixins: [styles]
 };
 </script>
 <style lang="scss" module>
+.modeless {
+  @include spr($w: var(--w), $h: var(--h), $p: var(--p), $r: var(--r));
+  @include bg(var(--c));
+  @include abs($t: var(--t), $l: var(--l), $index: $index_xm);
+}
 </style>
 
 

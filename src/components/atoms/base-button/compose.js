@@ -1,23 +1,30 @@
 import Vue from "vue"
 import BaseButton from "./index"
+import styles from "@/components/utils/styles-mixin";
+function getMixin(compose, value) {
 
-
-let factory = (id, compose, value) => {
-
-    return Vue.component(id, {
+    let mixin = {
         components: { BaseButton },
-        template: `<BaseButton compose="${compose}" value="${value}" :name="name" @click="onClick"/>`,
+        template: `<BaseButton compose="${compose}" value="${value}" :name="name" @click="onClick" />`,
         props: { ...BaseButton.props },
-        methods: { ...BaseButton.methods }
-    });
+
+    }
+    return mixin;
 }
 
-const PrimaryButton = factory("primary-button", "primary", "OK");
+const PrimaryButton = Vue.component("primary", {
+    mixins: [styles, getMixin("primary", "OK")],
+});
 export { PrimaryButton }
 
-const SaveButton = factory("save-button", "primary", "保存");
+
+const SaveButton = Vue.component("save", {
+    mixins: [styles, getMixin("primary", "保存")],
+});
 export { SaveButton }
 
-const SecondaryButton = factory("secondary-button", "secondary", "キャンセル");
+const SecondaryButton = Vue.component("secondary", {
+    mixins: [styles, getMixin("secondary", "キャンセル")],
+});
 export { SecondaryButton }
 

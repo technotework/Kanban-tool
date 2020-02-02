@@ -1,31 +1,16 @@
 <template>
-  <a
-    v-bind="{href,target,compose}"
-    :class="[$style.button,$compose[compose]]"
-    :style="styles"
-    @click="onClick"
-  >
+  <a :class="[$style.button,$compose[compose]]" :style="styles" :compose="compose" @click="onClick">
     <slot />
   </a>
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
 export default {
+  mixins: [styles],
   name: "BaseLinkButton",
   props: {
-    href: String,
-    target: String,
-    compose: String,
-    width: String,
-    height: String
-  },
-  computed: {
-    styles() {
-      return {
-        "--w": this.width,
-        "--h": this.height
-      };
-    }
+    compose: String
   }
 };
 </script>

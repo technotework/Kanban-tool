@@ -13,10 +13,7 @@ export default {
 
 export const Basic = () => ({
     components: { BaseModalCover },
-    props: {
-        backgroundColor: { default: text("backgroundColor", "rgba(0,0,0,0.3)") },
-        index: { default: text("index", "99998") }
-    },
-    template: `<BaseModalCover :backgroundColor="backgroundColor" :index="index" @base-modal-cover-click-event="action">内容</BaseModalCover>`,
+
+    template: `<BaseModalCover :index="index" @base-modal-cover-click-event="action">内容</BaseModalCover>`,
     methods: { action: action('base-modal-cover-click-event') }
 });

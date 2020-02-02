@@ -7,24 +7,11 @@
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
+
 export default {
-  name: "BaseIcon",
-  props: {
-    src: String,
-    round: String,
-    width: String,
-    height: String
-  },
-  computed: {
-    styles() {
-      return {
-        "--w": this.width,
-        "--h": this.height,
-        "--r": this.round,
-        "--src": `url("${this.src}")`
-      };
-    }
-  }
+  mixins: [styles],
+  name: "BaseIcon"
 };
 </script>
 <style lang="scss" module>
@@ -32,11 +19,11 @@ export default {
   --w: auto;
   --h: auto;
   --r: 100px;
-  --src: "";
+  --url: "";
 
   @include s($w: var(--w), $h: var(--h));
   @include r(var(--r));
-  @include bgi(var(--src));
+  @include bgi(var(--url));
 }
 </style>
 

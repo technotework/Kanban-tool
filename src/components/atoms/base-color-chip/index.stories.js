@@ -1,21 +1,17 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseColorChip from "./index.vue";
 
-export default {
-    title: "atoms/BaseColorChip",
-    component: { BaseColorChip },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
 
-export const Basic = () => ({
-    components: { BaseColorChip },
-    props: {
-        color: { default: color("color", "#f00") },
-        width: { default: text("width", "100px") },
-        height: { default: text("height", "100px") },
-    },
-    template: `<BaseColorChip v-bind="{width,height,color}" />`
-});
+export default createDefStory("atoms/BaseColorChip", BaseColorChip);
+
+let propsObj = {
+
+    w: "100px",
+    h: "100px",
+    bgc: "#f00",
+}
+
+let actionObj = {
+}
+
+export const Basic = () => (createStory(BaseColorChip, "BaseColorChip", propsObj, actionObj, false));

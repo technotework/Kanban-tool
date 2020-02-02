@@ -8,20 +8,19 @@
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
+
 export default {
+  mixins: [styles],
   name: "BaseButton",
   props: {
     value: String,
     name: String,
     compose: String
-  },
-  methods: {
-    onClick(e) {
-      this.$emit("click", e);
-    }
   }
 };
 </script>
+
 <style lang="scss" module>
 .button {
   @include text($f16);

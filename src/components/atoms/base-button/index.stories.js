@@ -1,73 +1,30 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseButton from "@/components/atoms/base-button/"
 import { PrimaryButton, SaveButton, SecondaryButton } from "./compose"
 
-export default {
-    title: "atoms/BaseButton",
-    component: { BaseButton },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("atoms/BaseButton", BaseButton);
 
-/**
- * Basic
- */
-export const Basic = () => ({
-    components: { BaseButton },
-    props: {
-        value: { default: text("value", "ButtonName") },
-        compose: { default: text("compose", "") }
-    },
-    template: `<BaseButton :value="value" :compose="compose" @click="action" />`,
-    parameters: {
-        info: {},
-    },
-    methods: { action: action('click') }
-});
 
-/**
- * Primary
- */
-export const Primary = () => ({
-    components: { PrimaryButton },
-    props: {
-        name: { default: text("name", "button") },
-    },
-    template: `<PrimaryButton :name="name" @click="action" />`,
-    parameters: {
-        info: {},
-    },
-    methods: { action: action('click') }
-});
+let propsObj = {
 
-/**
- * Save
- */
-export const Save = () => ({
-    components: { SaveButton },
-    props: {
-        name: { default: text("name", "button") },
-    },
-    template: `<SaveButton :name="name" @click="action" />`,
-    parameters: {
-        info: {},
-    },
-    methods: { action: action('click') }
-});
+    value: "myButton",
+    name: "buton",
+    compose: "primary"
+}
 
-/**
- * Secondary
- */
-export const Secondary = () => ({
-    components: { SecondaryButton },
-    props: {
-        name: { default: text("name", "button") },
-    },
-    template: `<SecondaryButton :name="name" @click="action" />`,
-    parameters: {
-        info: {},
-    },
-    methods: { action: action('click') }
-});
+let actionObj = {
+    event: "click"
+}
+
+export const Basic = () => (createStory(BaseButton, "BaseButton", propsObj, actionObj, false));
+
+
+let propsObjSub = {
+
+    name: "buton",
+}
+
+export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObjSub, actionObj, false));
+export const Save = () => (createStory(SaveButton, "SaveButton", propsObjSub, actionObj, false));
+export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObjSub, actionObj, false));
+

@@ -5,21 +5,15 @@
 </template>
 
 <script>
+import styles from "@/components/utils/styles-mixin";
+
 export default {
+  mixins: [styles],
   name: "BaseEditableText",
   props: {
     width: { type: String },
     height: { type: String },
     padding: { type: String }
-  },
-  computed: {
-    styles() {
-      return {
-        "--w": this.width,
-        "--h": this.height,
-        "--p": this.padding
-      };
-    }
   }
 };
 </script>

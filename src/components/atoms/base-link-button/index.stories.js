@@ -1,91 +1,25 @@
-
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import BaseLinkButton from "./index.vue";
-//import { PrimaryButton, SecondaryButton, PrimaryLinkButton, SecondaryLinkButton } from "./compose";
+import { PrimaryButton, SecondaryButton } from "./compose";
 
-export default {
-    title: "atoms/BaseLinkButton",
-    component: { BaseLinkButton },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
-
-export const Basic = () => ({
-    components: { BaseLinkButton },
-    methods: { action: action('click') },
-    props: {
-        width: { default: text("width", "150px") },
-        height: { default: text("height", "auto") },
-        href: { default: text("href", "https://www.google.com/") },
-        target: { default: text("target", "_blank") },
-    },
-    template: `
-    
-        <BaseLinkButton compose="primary" v-bind={width,height,target,href} @click="action">ボタン</BaseLinkButton>
-    
-    `
-});
-/*
-export const Primary = () => ({
-    components: { PrimaryButton },
-    methods: { action: action('click') },
-    props: {
-        width: { default: text("width", "150px") },
-        color: { default: color("color", "#000") }
-    },
-    template: `
-
-        <PrimaryButton :width="width" :color="color" @click="action">ボタン</PrimaryButton>
-
-    `
-});
-
-export const Secondary = () => ({
-    components: { SecondaryButton },
-    methods: { action: action('click') },
-    props: {
-        width: { default: text("width", "150px") },
-        color: { default: color("color", "#000") }
-    },
-    template: `
-
-        <SecondaryButton :width="width" :color="color" @click="action">ボタン</SecondaryButton>
-
-    `
-});
+export default createDefStory("atoms/BaseLinkButton", BaseLinkButton);
 
 
-export const PrimaryLink = () => ({
-    components: { PrimaryLinkButton },
-    methods: { action: action('click') },
-    props: {
-        width: { default: text("width", "150px") },
-        color: { default: color("color", "#000") },
-        href: { default: text("href", "https://www.google.com/") },
-        target: { default: text("target", "_blank") }
-    },
-    template: `
+let propsObj = {
 
-        <PrimaryLinkButton :width="width" :href="href" :target="target" :color="color" @click="action">ボタン</PrimaryLinkButton>
+    w: "150px",
+    h: "auto",
+    href: "https://www.google.com/",
+    target: "_blank"
+}
 
-    `
-});
+let actionObj = {
+}
 
-export const SecondaryLink = () => ({
-    components: { SecondaryLinkButton },
-    methods: { action: action('click') },
-    props: {
-        width: { default: text("width", "150px") },
-        color: { default: color("color", "#000") },
-        href: { default: text("href", "https://www.google.com/") },
-        target: { default: text("target", "_blank") }
-    },
-    template: `
+export const Basic = () => (createStory(BaseLinkButton, "BaseLinkButton", propsObj, actionObj, true, "Button"));
 
-    <SecondaryLinkButton :width="width" :href="href" :target="target" :color="color" @click="action">ボタン</SecondaryLinkButton>
+export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObj, actionObj, true, "Button"));
 
-    `
-});
-*/
+export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObj, actionObj, true, "Button"));
+
+
