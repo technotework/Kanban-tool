@@ -9,21 +9,13 @@ import base from "@/components/utils/base-mixin";
 
 export default {
   mixins: [base],
-  name: "BaseEditableText",
-  props: {
-    width: { type: String },
-    height: { type: String },
-    padding: { type: String }
-  }
+  name: "BaseEditableText"
 };
 </script>
 <style lang="scss" module>
 .editableText {
-  --w: auto;
-  --h: auto;
-  --p: $s16;
-  @include s($w: var(--w), $h: var(--h));
-  @include p(var(--p));
+  @include s($w: $vw100, $h: 200px);
   @include bdc($gray);
+  @include p($s8);
 }
 </style>

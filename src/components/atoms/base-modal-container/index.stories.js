@@ -1,28 +1,37 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import {
+  createDefStory,
+  createStory,
+  tagTemp
+} from "@/components/utils/story-creator";
 import BaseModalContainer from "./index.vue";
 import { Dialogue } from "./compose";
-
 
 export default createDefStory("atoms/BaseModalContainer", BaseModalContainer);
 
 
-let propsObj = {
+//---------------------
+//Basic
+let setting = {
+  name: "BaseModalContainer",
+  compos: { BaseModalContainer: BaseModalContainer },
+  props: {
+    compose: "none"
+  },
+  action: {},
+  template: tagTemp`<BaseModalContainer ${'props'} ${'action'}>Contents</BaseModalContainer>`
+};
 
-    w: "320px",
-    mh: "200px",
-    index: "90000",
-    t: "0",
-    l: "0"
-}
+export const Basic = () => (createStory(setting));
 
-let actionObj = {
+//---------------------
+//Basic
+let settingD = {
+  name: "Dialogue",
+  compos: { Dialogue: Dialogue },
+  props: {},
+  action: {},
+  template: tagTemp`<Dialogue ${'props'} ${'action'}>Contents</Dialogue>`
+};
 
-}
+export const ModalDialogue = () => (createStory(settingD));
 
-export const Basic = () => (createStory(BaseModalContainer, "BaseModalContainer", propsObj, actionObj, true, "Contents"));
-
-let propsObjSub = {
-
-}
-
-export const ModalDialogue = () => (createStory(Dialogue, "Dialogue", propsObjSub, actionObj, true, "Contents"));

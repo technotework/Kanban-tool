@@ -1,4 +1,4 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseHeading from "./index";
 import { H1, H2, H3, H4 } from "./compose"
 

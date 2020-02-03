@@ -2,11 +2,11 @@ import Vue from "vue"
 import BaseInput from "./index.vue"
 import base from "@/components/utils/base-mixin";
 
-function getMixin() {
+function getMixin(compose) {
 
     let mixin = {
         components: { BaseInput },
-        template: `<BaseInput round="8px" padding="10px" height="auto" @input="onInput" />`,
+        template: `<BaseInput compose="${compose}" v-bind="{placeholder,required,maxlength,name}" @input="onInput" />`,
         props: { ...BaseInput.props },
         methods: { ...BaseInput.methods },
     }
@@ -14,7 +14,7 @@ function getMixin() {
 }
 
 const SystemInput = Vue.component("system-input", {
-    mixins: [getMixin()],
+    mixins: [base, getMixin("system")],
 });
 export { SystemInput }
 

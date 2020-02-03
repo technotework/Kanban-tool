@@ -1,17 +1,17 @@
 <template>
   <div :size="size">
     <header>
-      <HolyGrailContainer :width="size.headerWidth" :height="size.headerHeight">
+      <HolyGrailContainer :style="headerStyle">
         <slot name="header" />
       </HolyGrailContainer>
     </header>
     <main>
-      <HolyGrailContainer :width="size.mainWidth" :height="size.mainHeight">
+      <HolyGrailContainer :style="mainStyle">
         <slot name="main" />
       </HolyGrailContainer>
     </main>
     <footer>
-      <HolyGrailContainer :width="size.footerWidth" :height="size.footerHeight">
+      <HolyGrailContainer :style="footerStyle">
         <slot name="footer" />
       </HolyGrailContainer>
     </footer>
@@ -26,13 +26,24 @@ export default {
     size: {
       type: Object,
       default: () => ({
-        headerWidth: "auto",
-        headerHeight: "auto",
-        mainWidth: "auto",
-        mainHeight: "auto",
-        footerWidth: "auto",
-        footerHeight: "auto"
+        hW: "auto",
+        hH: "auto",
+        mW: "auto",
+        mH: "auto",
+        fW: "auto",
+        fH: "auto"
       })
+    }
+  },
+  computed: {
+    headerStyle: function() {
+      return `width:${this.size.hW}; height:${this.size.hH};`;
+    },
+    mainStyle: function() {
+      return `width:${this.size.mW}; height:${this.size.mH};`;
+    },
+    footerStyle: function() {
+      return `width:${this.size.fW}; height:${this.size.fH};`;
     }
   },
   components: {
@@ -40,7 +51,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" module>
+<style lang="scss" module="$compose">
 </style>
 
 

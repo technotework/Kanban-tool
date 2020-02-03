@@ -14,7 +14,6 @@ export default {
 </script>
 <style lang="scss" module>
 .flex {
-  @include s(var(--w), var(--h));
   @include flex;
 }
 </style>

@@ -9,7 +9,7 @@ export default {
         onChange() {
             this.$emit("change");
         },
-        onInput(e) {
+        onInput() {
             this.$emit("input");
         }
     }

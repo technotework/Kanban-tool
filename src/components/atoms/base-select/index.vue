@@ -1,6 +1,6 @@
 <template>
   <select :name="name" v-model="selected" @change="onChange">
-    <option value selected>選択して下さい</option>
+    <option value>選択して下さい</option>
     <option v-for="item in items" :value="item.value" :key="item.value">{{item.content}}</option>
   </select>
 </template>

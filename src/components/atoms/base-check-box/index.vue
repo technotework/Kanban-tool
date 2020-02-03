@@ -1,5 +1,10 @@
 <template>
-  <input type="checkbox" :class="$style.cb" v-bind="{id,name,value}" @change="onInput" />
+  <input
+    type="checkbox"
+    :class="$style.cb"
+    v-bind="{ id, name, value }"
+    @change="onChange"
+  />
 </template>
 
 <script>

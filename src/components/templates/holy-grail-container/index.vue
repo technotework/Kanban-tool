@@ -13,11 +13,8 @@ export default {
 </script>
 <style lang="scss" module>
 .container {
-  --bgc: $transparent;
-
   position: relative;
-  @include s(var(--w), var(--h));
-  @include bgc(var(--bgc));
+  @include s($w: vw100, $h: auto);
 }
 </style>
 

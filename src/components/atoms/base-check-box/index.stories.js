@@ -1,22 +1,19 @@
-import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator";
 import BaseCheckBox from "./index.vue";
-import BaseLabel from "@/components/atoms/base-form-label";
+import BaseFormLabel from "@/components/atoms/base-form-label";
 
 export default createDefStory("atoms/BaseCheckBox", BaseCheckBox);
 
+let setting = {
+  name: "BaseCheckBox",
+  compos: { BaseLabel: BaseFormLabel, BaseCheckBox: BaseCheckBox },
+  props: {
+    id: "id",
+    value: "ねこ",
+    name: "cat"
+  },
+  action: { event: "change" },
+  template: tagTemp`<BaseLabel :for="id"><BaseCheckBox ${"props"} ${"ac¡tion"} /> Label </BaseLabel>`
+};
 
-export const Basic = () => ({
-    components: { BaseLabel, BaseCheckBox },
-    props: {
-        id: { default: text("id", "cat") },
-        value: { default: text("value", "ねこ") },
-        name: { default: text("name", "cat") },
-    },
-    template: `
-    <div>
-        <BaseLabel :for="id"><BaseCheckBox :id="id" :name="name" :value="value" @change="action" />{{value}}</BaseLabel>
-    </div>
-    `,
-    methods: { action: action('change') }
-});
+export const Basic = () => createStory(setting);

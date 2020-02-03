@@ -1,17 +1,17 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import HolyGrailContainer from "./index.vue";
 
 export default createDefStory("templates/HolyGrailContainer", HolyGrailContainer);
 
+//---------------------
+//Basic
+let setting = {
+    name: "HolyGrailContainer",
+    compos: { HolyGrailContainer: HolyGrailContainer },
+    props: {},
+    action: {},
+    template: tagTemp`<HolyGrailContainer ${'props'} ${'action'}>Contents</HolyGrailContainer>`
+};
 
-let propsObj = {
+export const Basic = () => (createStory(setting));
 
-    w: "100vw",
-    h: "auto",
-    bgc: "#ccc"
-}
-
-let actionObj = {
-}
-
-export const Basic = () => (createStory(HolyGrailContainer, "HolyGrailContainer", propsObj, actionObj, true));

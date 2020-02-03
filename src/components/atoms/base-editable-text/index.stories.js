@@ -1,16 +1,22 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import {
+  createDefStory,
+  createStory,
+  tagTemp
+} from "@/components/utils/story-creator";
 import BaseEditableText from "./index.vue";
 
 export default createDefStory("atoms/BaseEditableText", BaseEditableText);
 
-let propsObj = {
 
-    w: "100%",
-    h: "200px",
-    p: "10px"
-}
+//---------------------
+//Basic
+let setting = {
+  name: "BaseEditableText",
+  compos: { BaseEditableText: BaseEditableText },
+  props: {},
+  action: {},
+  template: tagTemp`<BaseEditableText ${'props'} ${'action'} />`
+};
 
-let actionObj = {
-}
+export const Basic = () => (createStory(setting));
 
-export const Basic = () => (createStory(BaseEditableText, "BaseEditableText", propsObj, actionObj, false));

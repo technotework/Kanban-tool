@@ -4,45 +4,79 @@ import { PrimaryButton, SaveButton, SecondaryButton, MenuButton } from "./compos
 
 export default createDefStory("atoms/BaseButton", BaseButton);
 
+//---------------------
+//Basic
+let setting = {
+    name: "BaseButton",
+    compos: { BaseButton: BaseButton },
+    props: {
+        value: "myButton",
+        name: "buton",
+        compose: "primary"
+    },
+    action: { event: "click" },
+    template: tagTemp`<BaseButton ${'props'} ${'action'} />`
+};
 
-let propsObj = {
+export const Basic = () => (createStory(setting));
 
-    value: "myButton",
-    name: "buton",
-    compose: "primary"
-}
+//---------------------
+//Primary
+let settingP = {
+    name: "PrimaryButton",
+    compos: { PrimaryButton: PrimaryButton },
+    props: {
+        name: "buton"
+    },
+    action: { event: "click" },
+    template: tagTemp`<PrimaryButton ${'props'} ${'action'} />`
+};
 
-let actionObj = {
-    event: "click"
-}
+export const Primary = () => (createStory(settingP));
 
-let temp1 = tagTemp`<BaseButton ${'props'} ${'action'} />`
+//---------------------
+//Save
 
-export const Basic = () => (createStory(BaseButton, "BaseButton", propsObj, actionObj, temp1));
+let settingS = {
+    name: "SaveButton",
+    compos: { SaveButton: SaveButton },
+    props: {
+        name: "buton"
+    },
+    action: { event: "click" },
+    template: tagTemp`<SaveButton ${'props'} ${'action'} />`
+};
 
+export const Save = () => (createStory(settingS));
 
-let propsObjSub = {
+//---------------------
+//Secondary
 
-    name: "buton",
-}
+let settingSc = {
+    name: "SecondaryButton",
+    compos: { SecondaryButton: SecondaryButton },
+    props: {
+        name: "buton"
+    },
+    action: { event: "click" },
+    template: tagTemp`<SecondaryButton ${'props'} ${'action'} />`
+};
 
-let temp2 = tagTemp`<PrimaryButton ${'props'} ${'action'} />`
+export const Secondary = () => (createStory(settingSc));
 
-export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObjSub, actionObj, temp2));
+//---------------------
+//Menu
 
-let temp3 = tagTemp`<SaveButton ${'props'} ${'action'} />`
+let settingM = {
+    name: "MenuButton",
+    compos: { MenuButton: MenuButton },
+    props: {
+        name: "buton",
+        value: "menu"
+    },
+    action: { event: "click" },
+    template: tagTemp`<MenuButton ${'props'} ${'action'} />`
+};
 
-export const Save = () => (createStory(SaveButton, "SaveButton", propsObjSub, actionObj, temp3));
-
-let temp4 = tagTemp`<SecondaryButton ${'props'} ${'action'} />`
-
-export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObjSub, actionObj, temp4));
-
-let propsObjSub2 = {
-
-    w: "200px",
-    name: "buton",
-    value: "menu"
-}
-
-export const Menu = () => (createStory(MenuButton, "MenuButton", propsObjSub2, actionObj, false));
+let tempMenu = tagTemp`<MenuButton ${'props'} ${'action'} />`
+export const Menu = () => (createStory(settingM));

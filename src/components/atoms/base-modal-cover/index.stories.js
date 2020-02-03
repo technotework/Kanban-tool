@@ -1,19 +1,21 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import {
+  createDefStory,
+  createStory,
+  tagTemp
+} from "@/components/utils/story-creator";
 import BaseModalCover from "./index.vue";
 
 export default createDefStory("atoms/BaseModalCover", BaseModalCover);
 
+//---------------------
+//Basic
+let setting = {
+  name: "BaseModalCover",
+  compos: { BaseModalCover: BaseModalCover },
+  props: {},
+  action: { event: "base-modal-cover-click-event" },
+  template: tagTemp`<BaseModalCover ${'props'} ${'action'} />`
+};
 
-let propsObj = {
-
-    index: "9000"
-}
-
-let actionObj = {
-
-    event: "base-modal-cover-click-event"
-}
-
-export const Basic = () => (createStory(BaseModalCover, "BaseModalCover", propsObj, actionObj, true, "Content"));
-
+export const Basic = () => (createStory(setting));
 

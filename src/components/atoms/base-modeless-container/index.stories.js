@@ -1,23 +1,18 @@
 
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseModelessContainer from "./index.vue";
 
 export default createDefStory("atoms/BaseModelessContainer", BaseModelessContainer);
 
+//---------------------
+//Basic
+let setting = {
+    name: "BaseModelessContainer",
+    compos: { BaseModelessContainer: BaseModelessContainer },
+    props: {},
+    action: {},
+    template: tagTemp`<BaseModelessContainer ${'props'} ${'action'}>Contents</BaseModelessContainer>`
+};
 
-let propsObj = {
-
-    w: "200px",
-    h: "300px",
-    t: "0",
-    l: "0",
-    p: "10px",
-    r: "8px",
-    bgc: "#ccc"
-}
-
-let actionObj = {
-}
-
-export const Basic = () => (createStory(BaseModelessContainer, "BaseModelessContainer", propsObj, actionObj, true));
+export const Basic = () => (createStory(setting));
 

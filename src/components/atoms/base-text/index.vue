@@ -11,10 +11,10 @@ export default {
   name: "BaseText"
 };
 </script>
+
 <style lang="scss" module>
 .text {
-  --mw: auto;
-  @include s($mw: var(--mw));
+  @include s($mw: 300px);
 }
 </style>
 

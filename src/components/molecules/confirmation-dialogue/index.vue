@@ -6,8 +6,16 @@
           <slot />
         </BaseText>
         <FlexLayout :class="$style.buttonContainer">
-          <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
-          <PrimaryButton :class="$style.button" name="ok" @click="onClickPrimary" />
+          <SecondaryButton
+            :class="$style.button"
+            name="cancel"
+            @click="onClickSecondary"
+          />
+          <PrimaryButton
+            :class="$style.button"
+            name="ok"
+            @click="onClickPrimary"
+          />
         </FlexLayout>
       </Dialogue>
     </BaseModalCover>
@@ -47,14 +55,10 @@ export default {
 </script>
 <style lang="scss" module>
 .buttonContainer {
-  position: absolute;
-  bottom: $s16;
-  right: $s16;
+  @include abs($b: $s18, $r: $s18);
 }
 
 .button {
   @include m(0 0 0 $s8);
 }
 </style>
-
-

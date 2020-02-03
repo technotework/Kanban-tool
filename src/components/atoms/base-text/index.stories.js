@@ -1,60 +1,74 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseText from "./index.vue";
 import { CaptionText, ErrorText, WarnText, NormalText } from "./compose";
 
 export default createDefStory("atoms/BaseText", BaseText);
 
-
-let propsObj = {
-
-    p: "10px",
-    bgc: "transparent",
-    color: "#000",
-    w: "auto",
-    mw: "auto",
-}
-
-let actionObj = {}
-
-export const Basic = () => (createStory(BaseText, "BaseText", propsObj, actionObj, true, "あいうえお"));
-
-let propsObjSub = {
-}
-
-export const Caption = () => (createStory(CaptionText, "CaptionText", propsObjSub, actionObj, true, "あいうえお"));
-
-export const Error = () => (createStory(ErrorText, "ErrorText", propsObjSub, actionObj, true, "あいうえお"));
-
-export const Warn = () => (createStory(WarnText, "WarnText", propsObjSub, actionObj, true, "あいうえお"));
-
-export const Normal = () => (createStory(NormalText, "NormalText", propsObjSub, actionObj, true, "あいうえお"));
-
-/*
-export const Caption = () => ({
-    components: { CaptionText },
-    template: `<CaptionText>あいうえお</CaptionText>`
-});
-
-export const Message = () => ({
-    components: { BaseMessage },
+//---------------------
+//Basic
+let setting = {
+    name: "BaseText",
+    compos: { BaseText: BaseText },
     props: {
-        backgroundColor: { default: color("backgroundColor", "#ff0") },
-        color: { default: color("color", "#000") },
+        compose: "contents"
     },
-    template: `<BaseMessage :backgroundColor="backgroundColor" :color="color">あいうえお</BaseMessage>`
-});
+    action: {},
+    template: tagTemp`<BaseText ${'props'} ${'action'}>テキスト</BaseText>`
+};
 
-export const Error = () => ({
-    components: { ErrorMessage },
-    template: `<ErrorMessage>あいうえお</ErrorMessage>`
-});
+export const Basic = () => (createStory(setting));
 
-export const Warn = () => ({
-    components: { WarnMessage },
-    template: `<WarnMessage>あいうえお</WarnMessage>`
-});
 
-export const Normal = () => ({
-    components: { NormalMessage },
-    template: `<NormalMessage>あいうえお</NormalMessage>`
-});*/
+//---------------------
+//Caption
+let settingC = {
+    name: "CaptionText",
+    compos: { CaptionText: CaptionText },
+    props: {
+        compose: "normal"
+    },
+    action: {},
+    template: tagTemp`<CaptionText ${'props'} ${'action'}>テキスト</CaptionText>`
+};
+
+export const Caption = () => (createStory(settingC));
+
+
+//---------------------
+//Caption
+let settingE = {
+    name: "ErrorText",
+    compos: { ErrorText: ErrorText },
+    props: {},
+    action: {},
+    template: tagTemp`<ErrorText ${'props'} ${'action'}>テキスト</ErrorText>`
+};
+
+export const Error = () => (createStory(settingE));
+
+
+//---------------------
+//Warn
+let settingW = {
+    name: "WarnText",
+    compos: { WarnText: WarnText },
+    props: {},
+    action: {},
+    template: tagTemp`<WarnText ${'props'} ${'action'}>テキスト</WarnText>`
+};
+
+export const Warn = () => (createStory(settingW));
+
+
+//---------------------
+//Warn
+let settingN = {
+    name: "NormalText",
+    compos: { NormalText: NormalText },
+    props: {},
+    action: {},
+    template: tagTemp`<NormalText ${'props'} ${'action'}>テキスト</NormalText>`
+};
+
+export const Normal = () => (createStory(settingN));
+

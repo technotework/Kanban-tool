@@ -6,7 +6,7 @@ function getMixin(compose) {
 
     let mixin = {
         components: { BaseLinkButton },
-        template: `<BaseLinkButton width="150px" compose="${compose}"><slot /></BaseLinkButton>`,
+        template: `<BaseLinkButton width="150px" v-bind="{href,target}" compose="${compose}"><slot /></BaseLinkButton>`,
         props: { ...BaseLinkButton.props },
         methods: { ...BaseLinkButton.methods },
     }
@@ -14,11 +14,11 @@ function getMixin(compose) {
 }
 
 const PrimaryButton = Vue.component("primary-button", {
-    mixins: [getMixin("primary")],
+    mixins: [getMixin("primary"), base],
 });
 export { PrimaryButton }
 
 const SecondaryButton = Vue.component("secondary-button", {
-    mixins: [getMixin("secondary")],
+    mixins: [getMixin("secondary"), base],
 });
 export { SecondaryButton }

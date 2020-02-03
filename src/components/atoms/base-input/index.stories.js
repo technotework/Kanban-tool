@@ -1,35 +1,44 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseInput from "./index.vue";
 import { SystemInput } from "./compose";
 
 export default createDefStory("atoms/BaseInput", BaseInput);
 
 
-let propsObj = {
+//---------------------
+//Basic
+let setting = {
+    name: "BaseInput",
+    compos: { BaseInput: BaseInput },
+    props: {
+        placeholder: "inputText",
+        required: false,
+        maxlength: "100",
+        name: "input",
+        compose: "normal"
+    },
+    action: { event: "input" },
+    template: tagTemp`<BaseInput ${'props'} ${'action'} />`
+};
 
-    w: "200px",
-    h: "auto",
-    r: "0",
-    p: "10px",
-    name: "text-input",
-    required: false,
-    maxlength: "100",
-    placeholder: "please input"
-}
-
-let actionObj = {
-    event: "input"
-}
-
-export const Basic = () => (createStory(BaseInput, "BaseInput", propsObj, actionObj, false));
+export const Basic = () => (createStory(setting));
 
 
-let propsObjSub = {
 
-    name: "text-input",
-    required: false,
-    maxlength: "100",
-    placeholder: "please input"
-}
+//---------------------
+//System
+let settingS = {
+    name: "SystemInput",
+    compos: { SystemInput: SystemInput },
+    props: {
+        placeholder: "テキストを入力",
+        required: false,
+        maxlength: "100",
+        name: "input"
+    },
+    action: { event: "input" },
+    template: tagTemp`<SystemInput ${'props'} ${'action'} />`
+};
 
-export const Default = () => (createStory(SystemInput, "SystemInput", propsObjSub, actionObj, false));
+export const System = () => (createStory(settingS));
+

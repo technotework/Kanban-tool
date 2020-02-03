@@ -1,17 +1,24 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import {
+  createDefStory,
+  createStory,
+  tagTemp
+} from "@/components/utils/story-creator";
 import BaseColorChip from "./index.vue";
-
 
 export default createDefStory("atoms/BaseColorChip", BaseColorChip);
 
-let propsObj = {
 
-    w: "100px",
-    h: "100px",
-    bgc: "#f00",
-}
+//---------------------
+//Basic
+let setting = {
+  name: "BaseColorChip",
+  compos: { BaseColorChip: BaseColorChip },
+  props: {
+    color: "#ff0"
+  },
+  action: {},
+  template: tagTemp`<BaseColorChip ${'props'} ${'action'} />`
+};
 
-let actionObj = {
-}
+export const Basic = () => (createStory(setting));
 
-export const Basic = () => (createStory(BaseColorChip, "BaseColorChip", propsObj, actionObj, false));

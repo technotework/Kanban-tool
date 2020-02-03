@@ -1,31 +1,58 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseLinkButton from "./index.vue";
 import { PrimaryButton, SecondaryButton } from "./compose";
 
 export default createDefStory("atoms/BaseLinkButton", BaseLinkButton);
 
 
-let propsObj = {
+//---------------------
+//Basic
+let setting = {
+    name: "BaseLinkButton",
+    compos: { BaseLinkButton: BaseLinkButton },
+    props: {
+        href: "https://www.google.com/",
+        target: "_blank"
+    },
+    action: { event: "click" },
+    template: tagTemp`<BaseLinkButton ${'props'} ${'action'}>Button</BaseLinkButton>`
+};
 
-    w: "150px",
-    h: "auto",
-    href: "https://www.google.com/",
-    target: "_blank"
-}
+export const Basic = () => (createStory(setting));
 
-let actionObj = {
-}
 
-export const Basic = () => (createStory(BaseLinkButton, "BaseLinkButton", propsObj, actionObj, true, "Button"));
+//---------------------
+//PrimaryButton
 
-let propsObjSub = {
+let settingP = {
+    name: "PrimaryButton",
+    compos: { PrimaryButton: PrimaryButton },
+    props: {
+        href: "https://www.google.com/",
+        target: "_blank"
+    },
+    action: { event: "click" },
+    template: tagTemp`<PrimaryButton ${'props'} ${'action'}>Button</PrimaryButton>`
+};
 
-    href: "https://www.google.com/",
-    target: "_blank"
-}
+export const Primary = () => (createStory(settingP));
 
-export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObj, actionObj, true, "Button"));
 
-export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObj, actionObj, true, "Button"));
+
+//---------------------
+//PrimaryButton
+
+let settingS = {
+    name: "SecondaryButton",
+    compos: { SecondaryButton: SecondaryButton },
+    props: {
+        href: "https://www.google.com/",
+        target: "_blank"
+    },
+    action: { event: "click" },
+    template: tagTemp`<SecondaryButton ${'props'} ${'action'}>Button</SecondaryButton>`
+};
+
+export const Secondary = () => (createStory(settingS));
 
 

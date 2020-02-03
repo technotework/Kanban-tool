@@ -1,5 +1,5 @@
 <template>
-  <img v-bind="{src,alt}" :class="$style.image" />
+  <img v-bind="{src,width,height,alt}" />
 </template>
 
 <script>
@@ -10,13 +10,12 @@ export default {
   name: "BaseImage",
   props: {
     src: String,
-    alt: String
+    alt: String,
+    width: String,
+    height: String
   }
 };
 </script>
 <style lang="scss" module>
-.image {
-  @include spr(var(--w), var(--h), 0, var(--r));
-}
 </style>
 

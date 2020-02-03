@@ -1,8 +1,7 @@
 <template>
   <input
     type="text"
-    :class="$style.input"
-   
+    :class="[$style.basicInput,$compose[compose]]"
     v-bind="{placeholder,required,maxlength,name}"
     @input="onInput"
   />
@@ -21,9 +20,18 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" module>
-.input {
+.basicInput {
   @include bdc($gray);
-  @include spr(var(--w), var(--h), var(--p), var(--r));
+}
+</style>
+
+<style lang="scss" module="$compose">
+.normal {
+}
+.system {
+  @include p($s8);
+  @include r($round);
 }
 </style>

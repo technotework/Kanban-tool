@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.modal,$compose[compose]]" :compose="compose">
+  <div :class="[$style.modal, $compose[compose]]" :compose="compose">
     <slot />
   </div>
 </template>
@@ -12,10 +12,7 @@ export default {
 </script>
 <style lang="scss" module>
 .modal {
-  @include fix($t: var(--top), $l: var(--left), $index: $index_xh);
-  @include r($round);
-  @include s($w: var(--w), $mh: var(--mh));
-  @include bgc($lightGray);
+  position: relative;
 }
 </style>
 
@@ -24,12 +21,10 @@ export default {
   @include bgc($white);
 }
 .dialogue {
+  @include r($round);
+  @include s($w: 320px, $mh: 200px);
   @include bgc($white);
-  @include centerfix(var(--w), var(--mh), $index_xh);
-  @include p($s24);
+  @include p($s18);
   @include shadow;
 }
 </style>
-
-
-

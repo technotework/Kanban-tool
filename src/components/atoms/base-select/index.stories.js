@@ -1,20 +1,15 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 import BaseSelect from "./index.vue";
 
 export default createDefStory("atoms/BaseSelect", BaseSelect);
-
 
 export const Basic = () => ({
     components: { BaseSelect },
     data: function () {
         return {
             selected: "",
-            items: [
-                { value: "cat", content: "ねこさん" },
-                { value: "dog", content: "いぬさん" },
-                { value: "panda", content: "ぱんださん" }
-            ]
+
         }
     },
     props: {

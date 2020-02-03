@@ -1,4 +1,4 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import ConfirmationDialogue from "./index.vue";
 import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 

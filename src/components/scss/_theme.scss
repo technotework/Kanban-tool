@@ -29,15 +29,15 @@ $f32: 3.2rem;
 
 //font-size & line-height
 @mixin text($fs) {
-    font-size: $fs;
-    line-height: ($fs * 1.75);
+  font-size: $fs;
+  line-height: ($fs * 1.75);
 }
 
 //font-family
 @mixin ff {
-
-    font-family: "HiraginoSans-W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック Medium", YuGothic, YuGothicM, メイリオ, Meiryo, sans-serif;
-
+  font-family: "HiraginoSans-W3", "Hiragino Kaku Gothic ProN",
+    "Hiragino Kaku Gothic Pro", "游ゴシック Medium", YuGothic, YuGothicM,
+    メイリオ, Meiryo, sans-serif;
 }
 
 /*=================================
@@ -48,6 +48,8 @@ desigin Vars
 $s4: 0.4rem;
 $s8: 0.8rem;
 $s16: 1.6rem;
+$s18: 1.8rem;
+$s20: 2rem;
 $s24: 2.4rem;
 $s28: 2.8rem;
 $s32: 3.2rem;
@@ -64,55 +66,53 @@ $r200: 20rem;
 $round: $s4;
 
 //size&padding&radius
-@mixin spr($w:auto, $h:auto, $p:0, $r:$round) {
-
-    width: $w;
-    height: $h;
-    padding: $p;
-    border-radius: $r;
+@mixin spr($w: auto, $h: auto, $p: 0, $r: $round) {
+  width: $w;
+  height: $h;
+  padding: $p;
+  border-radius: $r;
 }
 
 //radius
-@mixin r($r:$round) {
-    border-radius: $r;
+@mixin r($r: $round) {
+  border-radius: $r;
 }
 
 //padding
 @mixin p($p) {
-    padding: $p;
+  padding: $p;
 }
 
 //margin
 @mixin m($m) {
-    margin: $m;
+  margin: $m;
 }
 
 //size
-@mixin s($w:auto, $h:auto, $mw:auto, $mh:auto, $mxw:auto, $mxh:auto) {
+@mixin s($w: auto, $h: auto, $mw: auto, $mh: auto, $mxw: auto, $mxh: auto) {
+  @if $w !=auto {
+    width: $w;
+  }
 
-    @if $w !=auto {
-        width: $w;
-    }
+  @if $h !=auto {
+    height: $h;
+  }
 
-    @if $h !=auto {
-        height: $h;
-    }
+  @if $mw !=auto {
+    min-width: $mw;
+  }
 
-    @if $mw !=auto {
-        min-width: $mw;
-    }
+  @if $mh !=auto {
+    min-height: $mh;
+  }
 
-    @if $mh !=auto {
-        min-height: $mh;
-    }
+  @if $mxw !=auto {
+    max-width: $mxw;
+  }
 
-    @if $mxw !=auto {
-        max-width: $mxw;
-    }
-
-    @if $mxh !=auto {
-        max-height: $mxh;
-    }
+  @if $mxh !=auto {
+    max-height: $mxh;
+  }
 }
 
 /*=================================
@@ -120,86 +120,82 @@ Colors Vars
 =================================*/
 
 //colors
-$white:#fff;
+$white: #fff;
 $black: #000;
 $lightGray: #e8e8e8;
 $gray: #ccc;
 $darkGray: #515151;
 
-$theme:#193489;
-$sub1:#62cff7;
-$sub2:#cbf762;
+$theme: #193489;
+$sub1: #62cff7;
+$sub2: #cbf762;
 $strong1: #c11212;
 $strong2: #ff8003;
-$primary:#62cff7;
-$phover:#aae7fd;
-$secondary:#ccc;
-$shover:#e8e8e8;
+$primary: #62cff7;
+$phover: #aae7fd;
+$secondary: #ccc;
+$shover: #e8e8e8;
 
-$transparent:transparent;
+$transparent: transparent;
 
 $menu: $transparent;
-$mhover:#62cff7;
+$mhover: #62cff7;
 
-$error:#f09393;
-$warn:#fcd86b;
-$normal:#62cff7;
+$error: #f09393;
+$warn: #fcd86b;
+$normal: #62cff7;
 
-$link:#193489;
-$lhover:#2c8fe6;
+$link: #193489;
+$lhover: #2c8fe6;
 
-$border:$lightGray;
+$border: $lightGray;
 
-$coverbg:rgba(0, 0, 0, 0.25);
+$coverbg: rgba(0, 0, 0, 0.25);
 
 //color
 @mixin c($c) {
-
-    color: $c;
+  color: $c;
 }
 
 //background-color
 @mixin bgc($c) {
-
-    background-color: $c;
+  background-color: $c;
 }
 
 //background-image
 @mixin bgi($src) {
-
-    background-image: $src;
-    background-position: center center;
-    background-repeat: no-repaet;
-    overflow: hidden;
-    background-size: cover;
+  background-image: $src;
+  background-position: center center;
+  background-repeat: no-repaet;
+  overflow: hidden;
+  background-size: cover;
 }
 
 //border
 @mixin bdc($c) {
-
-    border: solid 1px $c;
+  border: solid 1px $c;
 }
 
 //link
 @mixin link($c, $a) {
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: $c;
+
+  &:active {
+    color: $a;
+  }
+
+  &:hover,
+  &:visited {
     color: $c;
-
-    &:active {
-        color: $a;
-    }
-
-    &:hover,
-    &:visited {
-        color: $c;
-    }
+  }
 }
 
 //box-shadow
 @mixin shadow {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 /*=================================
@@ -214,92 +210,86 @@ $index_m: 8000;
 $index_xl: 70001;
 $index_l: 70000;
 
-
 //responsive
 @mixin res {
-
-    @media screen and (max-width:$responsive-min) {
-
-        @content;
-    }
+  @media screen and (max-width: $responsive-min) {
+    @content;
+  }
 }
 
 //container
 @mixin container {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    min-width: $responsive-min;
-    max-width: $responsive-max;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  min-width: $responsive-min;
+  max-width: $responsive-max;
 }
 
 //image
 @mixin img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 //flex
 @mixin flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 //absolute
-@mixin abs($t:auto, $b:auto, $l:auto, $r:auto, $index:100) {
+@mixin abs($t: auto, $b: auto, $l: auto, $r: auto, $index: 100) {
+  position: absolute;
 
-    position: absolute;
+  @if $t !=auto {
+    top: $t;
+  }
 
-    @if $t !=auto {
-        top: $t;
-    }
+  @if $b !=auto {
+    bottom: $b;
+  }
 
-    @if $b !=auto {
-        bottom: $b;
-    }
+  @if $l !=auto {
+    left: $l;
+  }
 
-    @if $l !=auto {
-        left: $l;
-    }
+  @if $r !=auto {
+    right: $r;
+  }
 
-    @if $r !=auto {
-        right: $r;
-    }
-
-    z-index: $index;
+  z-index: $index;
 }
 
-
 //fixed
-@mixin fix($t:auto, $b:auto, $l:auto, $r:auto, $index:1) {
+@mixin fix($t: auto, $b: auto, $l: auto, $r: auto, $index: 1) {
+  position: fixed;
 
-    position: fixed;
+  @if $t !=auto {
+    top: $t;
+  }
 
-    @if $t !=auto {
-        top: $t;
-    }
+  @if $b !=auto {
+    bottom: $b;
+  }
 
-    @if $b !=auto {
-        bottom: $b;
-    }
+  @if $l !=auto {
+    left: $l;
+  }
 
-    @if $l !=auto {
-        left: $l;
-    }
+  @if $r !=auto {
+    right: $r;
+  }
 
-    @if $r !=auto {
-        right: $r;
-    }
-
-    z-index: $index;
+  z-index: $index;
 }
 
 //center fix
-@mixin centerfix($w:auto, $h:auto, $index:1) {
-    position: fixed;
-    top: calc(50% - #{$h} /2);
-    left: calc(50% - #{$w} /2);
-    z-index: $index;
+@mixin centerfix($w: auto, $h: auto, $index: 1) {
+  position: fixed;
+  top: calc(50% - #{$h} / 2);
+  left: calc(50% - #{$w} / 2);
+  z-index: $index;
 }
