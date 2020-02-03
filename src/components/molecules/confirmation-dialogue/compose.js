@@ -1,6 +1,6 @@
 
 import Vue from "vue"
-import styled from "vue-styled-components";
+
 import Dialogue from "./index"
 
 /*=========================================================

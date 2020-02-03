@@ -7,19 +7,13 @@
 </template>
 
 <script>
-import StyledCompo from './style';
-
-import "./style"
-
 export default {
   name: "RootPage",
   props: {}
 };
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.class {
 }
 </style>
 

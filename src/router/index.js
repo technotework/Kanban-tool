@@ -11,7 +11,30 @@ const routes = [
     name: 'root-page',
     component: RootPage,
     children: [
-      {//新規登録画面
+      {//ログイン画面
+        path: 'login',
+        name: 'login-page',
+        component: () => import('../components/pages/login-page/index.vue')
+      },
+      {//プロジェクト一覧画面
+        path: 'project',
+        name: 'project-list-page',
+        component: () => import('../components/pages/project-list-page/index.vue'),
+        meta: { requiresAuth: true }
+      },
+      {//プロジェクト画面
+        path: 'project/:project-id',
+        name: 'project-page',
+        component: () => import('../components/pages/project-page/index.vue'),
+        meta: { requiresAuth: true }
+      },
+      {//タスク編集画面
+        path: 'project/:task-id',
+        name: 'task-edit-page',
+        component: () => import('../components/pages/task-edit-page/index.vue'),
+        meta: { requiresAuth: true }
+      },
+      /*{//新規登録画面
         path:  'regist',
         name: 'regist-page',
         component: () => import('../components/pages/regist-page/index.vue')
@@ -25,13 +48,8 @@ const routes = [
         path:  'complete-regist',
         name: 'complete-regist-page',
         component: () => import('../components/pages/complete-regist-page/index.vue')
-      },
-      {//ログイン画面
-        path:  'login',
-        name: 'login-page',
-        component: () => import('../components/pages/login-page/index.vue')
-      },
-      {//パスワード再発行画面
+      },*/
+      /*{//パスワード再発行画面
         path:  'password-reissue',
         name: 'password-reissue-page',
         component: () => import('../components/pages/password-reissue-page/index.vue')
@@ -41,20 +59,8 @@ const routes = [
         name: 'password-reset-page',
         component: () => import('../components/pages/password-reset-page/index.vue'),
         meta: { requiresAuth: true }
-      },
-      {//プロジェクト一覧画面
-        path:  'project',
-        name: 'project-list-page',
-        component: () => import('../components/pages/project-list-page/index.vue'),
-        meta: { requiresAuth: true }
-      },
-      {//プロジェクト画面
-        path:  'project/:project-id',
-        name: 'project-page',
-        component: () => import('../components/pages/project-page/index.vue'),
-        meta: { requiresAuth: true }
-      },
-      {//検索結果画面
+      },*/
+      /*{//検索結果画面
         path:  'project/:project-id/search-task-list',
         name: 'search-task-list-page',
         component: () => import('../components/pages/search-task-list-page/index.vue'),
@@ -65,32 +71,26 @@ const routes = [
         name: 'archive-task-list-page',
         component: () => import('../components/pages/archive-task-list-page/index.vue'),
         meta: { requiresAuth: true }
-      },
-      {//タスク編集画面
-        path:  'project/:task-id',
-        name: 'task-edit-page',
-        component: () => import('../components/pages/task-edit-page/index.vue'),
-        meta: { requiresAuth: true }
-      },
-      {//契約管理
-        path:  'manage-plan',
-        name: 'manage-plan-page',
-        component: () => import('../components/pages/manage-plan-page/index.vue'),
-        meta: { requiresAuth: true }
-      },
-      {//メンバー管理
-        path:  'manage-member',
-        name: 'manage-member-page',
-        component: () => import('../components/pages/manage-member-page/index.vue'),
-        meta: { requiresAuth: true }
-      },
-      {//アカウント管理
-        path:  'edit-profile',
-        name: 'edit-profile-page',
-        component: () => import('../components/pages/edit-profile-page/index.vue'),
-        meta: { requiresAuth: true }
-      },
-      
+      },*/
+      /* {//契約管理
+         path:  'manage-plan',
+         name: 'manage-plan-page',
+         component: () => import('../components/pages/manage-plan-page/index.vue'),
+         meta: { requiresAuth: true }
+       },
+       {//メンバー管理
+         path:  'manage-member',
+         name: 'manage-member-page',
+         component: () => import('../components/pages/manage-member-page/index.vue'),
+         meta: { requiresAuth: true }
+       },
+       {//アカウント管理
+         path:  'edit-profile',
+         name: 'edit-profile-page',
+         component: () => import('../components/pages/edit-profile-page/index.vue'),
+         meta: { requiresAuth: true }
+       },*/
+
     ]
   },
   {//notfound
@@ -109,23 +109,23 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
-  
+
   // ログインの有無判断
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   if (requiresAuth) {
-      firebase.auth().onAuthStateChanged(function (user) {
-          if (user) {
-              // ログイン時は各ページに移動
-              next();
-          } else {
-              // 未ログイン時はログイン画面にリダイレクト
-              next({
-                  path: '/app/login'
-              })
-          }
-      });
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // ログイン時は各ページに移動
+        next();
+      } else {
+        // 未ログイン時はログイン画面にリダイレクト
+        next({
+          path: '/app/login'
+        })
+      }
+    });
   } else {
-      next();
+    next();
   }
 });
 

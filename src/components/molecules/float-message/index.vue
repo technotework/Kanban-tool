@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import StyledCompo from './style';
+
 export default {
     name: 'FloatMessage',
     props: {

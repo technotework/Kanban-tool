@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import StyledCompo from './style';
+
 import firebase from 'firebase/app'
 import firebaseui from 'firebaseui-ja'
 import 'firebaseui-ja/dist/firebaseui.css'
