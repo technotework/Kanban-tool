@@ -5,11 +5,10 @@
         <BaseText>
           <slot />
         </BaseText>
-
         <LayoutPositioner compose="absolute" bottom="0" right="0">
-          <FlexLayout>
-            <SecondaryButton />
-            <PrimaryButton />
+          <FlexLayout width="100%">
+            <SecondaryButton name="cancel" @click="onClickSecondary" />
+            <PrimaryButton name="ok" @click="onClickPrimary" />
           </FlexLayout>
         </LayoutPositioner>
       </Dialogue>

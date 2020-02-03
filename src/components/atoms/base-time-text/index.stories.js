@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 import BaseTimeText from "./index.vue";
 import DateText from "./date-text.vue";
 import DateTimeText from "./date-time-text.vue";

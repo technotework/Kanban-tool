@@ -1,4 +1,4 @@
-import { action, styled, withKnobs, text, color, boolean, number, withInfo } from "@/components/utils/story-export"
+import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 
 /**===========================================
  * デフォルトストーリーを生成する

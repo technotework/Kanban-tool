@@ -1,41 +1,16 @@
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory } from "@/components/utils/story-creator"
 import ConfirmationDialogue from "./index.vue";
-import { ConfirmDialogue, SaveDialogue } from "./compose";
+import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 
-export default {
-    title: "molecules/ConfirmationDialogue",
-    component: { ConfirmationDialogue },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
-};
+export default createDefStory("molecules/ConfirmationDialogue", ConfirmationDialogue);
+
 
 export const Basic = () => ({
     components: { ConfirmationDialogue },
     props: {
-        pval: { default: text("pval", "OK") },
-        sval: { default: text("sval", "キャンセル") }
     },
-    template: `<ConfirmationDialogue :pval="pval" :sval="sval" @clickPrimary="p"  @clickSecondary="s">
+    template: `<ConfirmationDialogue @clickPrimary="primary"  @clickSecondary="secondary">
     メッセージ
     </ConfirmationDialogue>`,
-    methods: { p: action('clickPrimary'), s: action('clickSecondary') }
-});
-
-export const Confirm = () => ({
-    components: { ConfirmDialogue },
-    template: `<ConfirmDialogue @clickPrimary="p" @clickSecondary="s">
-    メッセージ
-    </ConfirmDialogue>`,
-    methods: { p: action('clickPrimary'), s: action('clickSecondary') }
-});
-
-
-export const Save = () => ({
-    components: { SaveDialogue },
-    template: `<SaveDialogue @clickPrimary="p" @clickSecondary="s">
-    メッセージ
-    </SaveDialogue>`,
-    methods: { p: action('clickPrimary'), s: action('clickSecondary') }
+    methods: { primary: action('clickPrimary'), secondary: action('clickSecondary') }
 });

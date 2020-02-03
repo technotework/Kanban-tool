@@ -1,5 +1,5 @@
 import { createDefStory, createStory } from "@/components/utils/story-creator"
-import { action, styled, withKnobs, text, color, object, boolean, number, withInfo } from "@/components/utils/story-export"
+import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 import BaseSelect from "./index.vue";
 
 export default createDefStory("atoms/BaseSelect", BaseSelect);

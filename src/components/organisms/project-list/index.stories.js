@@ -1,5 +1,5 @@
 
-import { action, styled, withKnobs, text, color, number, withInfo } from "@/components/utils/story-export"
+import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 import ProjectList from "./index.vue";
 
 export default {

@@ -1,5 +1,5 @@
 
-import { action, styled, withKnobs, text, color, object, number, withInfo } from "@/components/utils/story-export"
+import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 import { createDefStory, createStory } from "@/components/utils/story-creator"
 import HolyGrailLayout from "./index";
 
