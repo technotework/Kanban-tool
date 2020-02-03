@@ -1,6 +1,6 @@
 import Vue from "vue"
 import BaseIcon from "./index.vue"
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 function getMixin(size) {
 
@@ -13,15 +13,15 @@ function getMixin(size) {
 }
 
 const IconL = Vue.component("icon-l", {
-    mixins: [styles, getMixin("200px")],
+    mixins: [getMixin("200px")],
 });
 
 const IconM = Vue.component("icon-m", {
-    mixins: [styles, getMixin("150px")],
+    mixins: [getMixin("150px")],
 });
 
 const IconS = Vue.component("icon-s", {
-    mixins: [styles, getMixin("100px")],
+    mixins: [getMixin("100px")],
 });
 
 export { IconL, IconM, IconS }

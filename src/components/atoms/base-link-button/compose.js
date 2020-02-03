@@ -1,6 +1,6 @@
 import Vue from "vue"
 import BaseLinkButton from "./index.vue"
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 function getMixin(compose) {
 
@@ -14,11 +14,11 @@ function getMixin(compose) {
 }
 
 const PrimaryButton = Vue.component("primary-button", {
-    mixins: [styles, getMixin("primary")],
+    mixins: [getMixin("primary")],
 });
 export { PrimaryButton }
 
 const SecondaryButton = Vue.component("secondary-button", {
-    mixins: [styles, getMixin("secondary")],
+    mixins: [getMixin("secondary")],
 });
 export { SecondaryButton }

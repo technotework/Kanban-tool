@@ -1,7 +1,6 @@
 <template>
   <input
     :class="[$style.button,$compose[compose]]"
-    :style="styles"
     type="button"
     v-bind="{value,name,compose}"
     @click="onClick"
@@ -9,10 +8,10 @@
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseButton",
   props: {
     value: String,
@@ -25,8 +24,8 @@ export default {
 <style lang="scss" module>
 .button {
   @include text($f16);
-  @include p($s8 $s16 $s8 $s16);
-  @include r($s32);
+  @include p($s4 $s8 $s4 $s8);
+  @include r($s4);
   @include s($mw: 120px);
   @include bgc($gray);
 
@@ -58,7 +57,8 @@ export default {
     @include bgc($mhover);
   }
   text-align: left;
-  @include spr($w: var(--w), $p: $s4, $r: 0);
+  @include p($s4);
+  @include r(0);
   @include text($f16);
 }
 </style>

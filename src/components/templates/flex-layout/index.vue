@@ -1,14 +1,14 @@
 <template>
-  <div :class="$style.flex" :style="styles">
+  <div :class="$style.flex">
     <slot />
   </div>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "FlexLayout"
 };
 </script>

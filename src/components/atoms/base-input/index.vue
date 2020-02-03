@@ -2,16 +2,16 @@
   <input
     type="text"
     :class="$style.input"
-    :style="styles"
+   
     v-bind="{placeholder,required,maxlength,name}"
     @input="onInput"
   />
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseInput",
   props: {
     placeholder: String,

@@ -1,13 +1,13 @@
 <template>
-  <div :class="$style.container" :style="styles">
+  <div :class="$style.container">
     <slot />
   </div>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "HolyGrailContainer"
 };
 </script>

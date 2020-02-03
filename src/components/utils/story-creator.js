@@ -27,22 +27,52 @@ export { createDefStory }
  * 個別ストーリーを生成する
 ===========================================*/
 
+/**
+ * ストーリーテンプレートの生成
+ * 
+ * プロパティをアクションをうけとりテンプレートの$_tprops $_taction を置換する
+ * 
+ * <CompoName ${'props'} ${'action'}><slot /></CompoName>
+ * 
+ */
+let createStory = function (compo, compoName, propsObj, actionObj = null, temp) {
+
+    //テンプレート生成
+    let template = createTemplate(compoName, propsObj, actionObj, temp);
+
+    //プロパティ生成
+    let p = createProps(propsObj);
+
+    //メソッド生成
+    let action = createAction(actionObj);
+
+    //Objectの構築
+    let name = compoName;
+    let compoObj = {};
+    compoObj[name] = compo;
+
+    let result = {
+        components: compoObj,
+        props: p,
+        template: template
+    };
+
+    if (Object.keys(action).length != 0) {
+
+        result["methods"] = action;
+    }
+
+    console.log(result);
+    return result
+}
+
+export { createStory }
+
+/*=================================
+ * テンプレート部分の構築
+ =================================*/
+
 let maps = {
-    w: { val: "width", type: text },
-    mw: { val: "minWidth", type: text },
-    mxw: { val: "maxWidth", type: text },
-    h: { val: "height", type: text },
-    mh: { val: "minHeight", type: text },
-    mxh: { val: "maxHeight", type: text },
-    c: { val: "color", type: color },
-    bgc: { val: "backgroundColor", type: color },
-    p: { val: "padding", type: text },
-    m: { val: "margin", type: text },
-    r: { val: "round", type: text },
-    pt: { val: "top", type: text },
-    pb: { val: "bottom", type: text },
-    pl: { val: "left", type: text },
-    pr: { val: "right", type: text },
     id: { val: "id", type: text },
     name: { val: "name", type: text },
     value: { val: "value", type: text },
@@ -58,65 +88,63 @@ let maps = {
     index: { val: "index", type: text },
 }
 
-let createStory = function (compo, compoName, propsObj, actionObj = null, slot = false, contents = "contents") {
+/**======================================
+ * テンプレート生成
+ * @param {*} compo 
+ * @param {*} propsObj 
+ * @param {*} actionObj 
+ * @param {*} temp 
+======================================*/
+function createTemplate(compo, propsObj, actionObj, temp) {
 
-    let template = createTemplate(compoName, propsObj, actionObj, slot, contents);
-    let p = createProps(propsObj, slot, contents);
-    let action = createAction(actionObj);
+    let action = createBindAction(actionObj);
+    let bind = createBindProps(propsObj);
 
-    let name = compoName;
-    let compoObj = {};
-    compoObj[name] = compo;
+    let template = temp({ props: bind, action: action });
 
-
-    let result = {
-        components: compoObj,
-        props: p,
-        template: template
-    };
-
-    if (Object.keys(action).length != 0) {
-
-        result["methods"] = action;
-    }
-
-    return result
-
+    return template
 }
 
-export { createStory }
+//バインドするアクションの生成
+function createBindAction(actionObj) {
 
-function createTemplate(compo, propsObj, actionObj, slot, contents) {
+    let result = ``;
+    if (actionObj != null && Object.keys(actionObj).length != 0) {
 
-    let start = `<${compo}`
-    let action = (actionObj != null && Object.keys(actionObj).length != 0) ? `@${actionObj.event}="action"` : ``;
-    let startEnd = `>`;
-    let close = slot ? contents + `</${compo}>` : `/>`;
-    let binds = function () {
-
-        let ary = [];
-        for (const key in propsObj) {
-
-            if (maps.hasOwnProperty(key)) {
-                ary.push(maps[key].val);
-            }
-        }
-
-        let result = "";
-        if (ary.length > 0) {
-
-            let propsString = ary.join(",");
-            result = `v-bind={${propsString}}`;
-        }
-
-        return result;
+        result = `@${actionObj.event}="action"`;
     }
 
-    return `${start} ${action} ${binds()} ${startEnd} ${close}`
-
+    return result;
 }
 
-function createProps(propsObj, slot, contents) {
+//バインドプロパティの生成
+function createBindProps(propsObj) {
+
+    let ary = [];
+    for (const key in propsObj) {
+
+        if (maps.hasOwnProperty(key)) {
+            ary.push(maps[key].val);
+        }
+    }
+
+    let result = "";
+    if (ary.length > 0) {
+
+        let propsString = ary.join(",");
+        result = `v-bind={${propsString}}`;
+    }
+
+    return result;
+}
+
+
+/**======================================
+ * プロパティ生成
+ * @param {*} propsObj 
+ ======================================*/
+
+function createProps(propsObj) {
 
     let obj = {};
     for (const key in propsObj) {
@@ -126,14 +154,15 @@ function createProps(propsObj, slot, contents) {
             obj[maps[key].val] = { default: maps[key].type(maps[key].val, propsObj[key]) }
 
         }
-        if (slot) {
-
-            obj["contents"] = { default: text("contents", contents) }
-        }
     }
 
     return obj
 }
+
+/**======================================
+ * メソッド生成
+ * @param {*} actionObj 
+ ======================================*/
 
 function createAction(actionObj) {
     let obj = {};
@@ -144,3 +173,21 @@ function createAction(actionObj) {
 
     return obj;
 }
+
+/**=============================================
+ * Tagged Templateをつくるための共通関数
+ =============================================*/
+
+let tagTemp = function (strings, ...keys) {
+    return (function (...values) {
+        let dict = values[values.length - 1] || {};
+        let result = [strings[0]];
+        keys.forEach(function (key, i) {
+            let value = Number.isInteger(key) ? values[key] : dict[key];
+            result.push(value, strings[i + 1]);
+        });
+        return result.join('');
+    });
+}
+
+export { tagTemp }

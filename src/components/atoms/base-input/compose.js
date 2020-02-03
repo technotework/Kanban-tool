@@ -1,6 +1,6 @@
 import Vue from "vue"
 import BaseInput from "./index.vue"
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 function getMixin() {
 
@@ -14,7 +14,7 @@ function getMixin() {
 }
 
 const SystemInput = Vue.component("system-input", {
-    mixins: [styles, getMixin()],
+    mixins: [getMixin()],
 });
 export { SystemInput }
 

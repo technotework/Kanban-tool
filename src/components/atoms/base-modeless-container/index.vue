@@ -1,15 +1,15 @@
 <template>
-  <div :class="$style.modeless" :style="styles">
+  <div :class="$style.modeless">
     <slot />
   </div>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 export default {
   name: "BaseModelessContainer",
-  mixins: [styles]
+  mixins: [base]
 };
 </script>
 <style lang="scss" module>

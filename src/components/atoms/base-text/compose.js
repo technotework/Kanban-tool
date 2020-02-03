@@ -1,6 +1,6 @@
 import Vue from "vue"
 import BaseText from "./index.vue"
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 function getMixin(mw, compose) {
 
@@ -14,19 +14,19 @@ function getMixin(mw, compose) {
 }
 
 const CaptionText = Vue.component("caption-text", {
-    mixins: [styles, getMixin("300px", "caption")],
+    mixins: [getMixin("300px", "caption")],
 });
 
 
 const ErrorText = Vue.component("error-text", {
-    mixins: [styles, getMixin("300px", "error")],
+    mixins: [getMixin("300px", "error")],
 });
 
 const WarnText = Vue.component("warn-text", {
-    mixins: [styles, getMixin("300px", "warn")],
+    mixins: [getMixin("300px", "warn")],
 });
 
 const NormalText = Vue.component("warn-text", {
-    mixins: [styles, getMixin("300px", "normal")],
+    mixins: [getMixin("300px", "normal")],
 });
 export { CaptionText, ErrorText, WarnText, NormalText }

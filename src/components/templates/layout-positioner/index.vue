@@ -1,13 +1,13 @@
 <template>
-  <div :class="$compose[compose]" :style="styles">
+  <div :class="$compose[compose]">
     <slot />
   </div>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "LayoutPositioner",
   props: {
     position: String

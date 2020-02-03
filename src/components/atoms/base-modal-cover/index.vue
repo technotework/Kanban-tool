@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseModalCover",
   methods: {
     onClick: function() {

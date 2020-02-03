@@ -1,13 +1,13 @@
 <template>
-  <span :class="[$style.text,$compose[compose]]" :style="styles">
+  <span :class="[$style.text,$compose[compose]]">
     <slot />
   </span>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseText"
 };
 </script>

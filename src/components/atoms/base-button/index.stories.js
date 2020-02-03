@@ -1,4 +1,4 @@
-import { createDefStory, createStory } from "@/components/utils/story-creator"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseButton from "@/components/atoms/base-button/"
 import { PrimaryButton, SaveButton, SecondaryButton, MenuButton } from "./compose"
 
@@ -16,7 +16,9 @@ let actionObj = {
     event: "click"
 }
 
-export const Basic = () => (createStory(BaseButton, "BaseButton", propsObj, actionObj, false));
+let temp1 = tagTemp`<BaseButton ${'props'} ${'action'} />`
+
+export const Basic = () => (createStory(BaseButton, "BaseButton", propsObj, actionObj, temp1));
 
 
 let propsObjSub = {
@@ -24,11 +26,17 @@ let propsObjSub = {
     name: "buton",
 }
 
-export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObjSub, actionObj, false));
+let temp2 = tagTemp`<PrimaryButton ${'props'} ${'action'} />`
 
-export const Save = () => (createStory(SaveButton, "SaveButton", propsObjSub, actionObj, false));
+export const Primary = () => (createStory(PrimaryButton, "PrimaryButton", propsObjSub, actionObj, temp2));
 
-export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObjSub, actionObj, false));
+let temp3 = tagTemp`<SaveButton ${'props'} ${'action'} />`
+
+export const Save = () => (createStory(SaveButton, "SaveButton", propsObjSub, actionObj, temp3));
+
+let temp4 = tagTemp`<SecondaryButton ${'props'} ${'action'} />`
+
+export const Secondary = () => (createStory(SecondaryButton, "SecondaryButton", propsObjSub, actionObj, temp4));
 
 let propsObjSub2 = {
 

@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 import BaseTimeText from "./index";
 import * as moment from "moment";
 
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "DateText",
   props: {
     ...BaseTimeText.props

@@ -1,12 +1,12 @@
 <template>
-  <div :class="[$style.modal,$compose[compose]]" :style="styles" :compose="compose">
+  <div :class="[$style.modal,$compose[compose]]" :compose="compose">
     <slot />
   </div>
 </template>
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseModalContainer"
 };
 </script>
@@ -21,11 +21,12 @@ export default {
 
 <style lang="scss" module="$compose">
 .none {
-  @include bgc($lightGray);
+  @include bgc($white);
 }
 .dialogue {
+  @include bgc($white);
   @include centerfix(var(--w), var(--mh), $index_xh);
-  @include p($s16);
+  @include p($s24);
   @include shadow;
 }
 </style>

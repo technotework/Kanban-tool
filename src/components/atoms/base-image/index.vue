@@ -1,12 +1,12 @@
 <template>
-  <img v-bind="{src,alt}" :class="$style.image" :style="styles" />
+  <img v-bind="{src,alt}" :class="$style.image" />
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseImage",
   props: {
     src: String,

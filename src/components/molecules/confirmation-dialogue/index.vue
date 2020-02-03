@@ -5,12 +5,10 @@
         <BaseText>
           <slot />
         </BaseText>
-        <LayoutPositioner compose="absolute" bottom="0" right="0">
-          <FlexLayout width="100%">
-            <SecondaryButton name="cancel" @click="onClickSecondary" />
-            <PrimaryButton name="ok" @click="onClickPrimary" />
-          </FlexLayout>
-        </LayoutPositioner>
+        <FlexLayout :class="$style.buttonContainer">
+          <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
+          <PrimaryButton :class="$style.button" name="ok" @click="onClickPrimary" />
+        </FlexLayout>
       </Dialogue>
     </BaseModalCover>
   </div>
@@ -24,7 +22,6 @@ import {
   SecondaryButton
 } from "@/components/atoms/base-button/compose";
 import BaseText from "@/components/atoms/base-text";
-import LayoutPositioner from "@/components/templates/layout-positioner/";
 import FlexLayout from "@/components/templates/flex-layout/";
 
 export default {
@@ -36,8 +33,7 @@ export default {
     Dialogue,
     PrimaryButton,
     SecondaryButton,
-    BaseText,
-    LayoutPositioner
+    BaseText
   },
   methods: {
     onClickPrimary: function() {
@@ -50,7 +46,14 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.dialogue {
+.buttonContainer {
+  position: absolute;
+  bottom: $s16;
+  right: $s16;
+}
+
+.button {
+  @include m(0 0 0 $s8);
 }
 </style>
 

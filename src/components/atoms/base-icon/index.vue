@@ -1,16 +1,16 @@
 <template>
   <div class="base-icon">
-    <div :class="$style.icon" :style="styles">
+    <div :class="$style.icon">
       <slot />
     </div>
   </div>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseIcon"
 };
 </script>

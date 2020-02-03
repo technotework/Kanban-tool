@@ -61,7 +61,7 @@ $r10: 1rem;
 $r100: 10rem;
 $r200: 20rem;
 
-$round: $s8;
+$round: $s4;
 
 //size&padding&radius
 @mixin spr($w:auto, $h:auto, $p:0, $r:$round) {
@@ -199,7 +199,7 @@ $coverbg:rgba(0, 0, 0, 0.25);
 
 //box-shadow
 @mixin shadow {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 /*=================================

@@ -1,14 +1,14 @@
 <template>
-  <div :class="$style.editableText" :style="styles" contenteditable="true">
+  <div :class="$style.editableText" contenteditable="true">
     <slot />
   </div>
 </template>
 
 <script>
-import styles from "@/components/utils/styles-mixin";
+import base from "@/components/utils/base-mixin";
 
 export default {
-  mixins: [styles],
+  mixins: [base],
   name: "BaseEditableText",
   props: {
     width: { type: String },
