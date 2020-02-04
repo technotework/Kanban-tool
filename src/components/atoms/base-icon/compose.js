@@ -1,29 +1,26 @@
 import Vue from "vue"
 import BaseImageIcon from "./index.vue"
-import base from "@/components/utils/base-mixin";
 
-function getMixin(compose,shape) {
+function getMixin(compose) {
 
     let mixin = {
         components: { BaseImageIcon },
-        template: `<BaseImageIcon compose="${compose}" shape="${shape}" :img="img"><slot /></BaseImageIcon>`,
+        template: `<BaseImageIcon compose="${compose}" :type="type" />`,
         props: { ...BaseImageIcon.props },
     }
     return mixin;
 }
 
 const IconL = Vue.component("icon-l", {
-    mixins: [getMixin("l","round")],
+    mixins: [getMixin("l")],
 });
 
 const IconM = Vue.component("icon-m", {
-    mixins: [getMixin("m","round")],
+    mixins: [getMixin("m")],
 });
 
 const IconS = Vue.component("icon-s", {
-    mixins: [getMixin("s","round")],
+    mixins: [getMixin("s")],
 });
 
-const IconSquare = Vue.component("icon-sq", {
-    mixins: [getMixin("s","square")],
-});
+export {IconL,IconM,IconS}

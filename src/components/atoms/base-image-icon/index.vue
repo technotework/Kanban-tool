@@ -1,8 +1,6 @@
 <template>
-  <div class="base-icon">
-    <div :class="[$style.icon,$compose[compose],$shape[shape]]" :img="img" :style="backgroundImage">
-      <slot />
-    </div>
+  <div :class="[$style.icon,$compose[compose],$shape[shape]]" :img="img" :style="backgroundImage">
+    <slot />
   </div>
 </template>
 
@@ -10,7 +8,7 @@
 import base from "@/components/utils/base-mixin";
 
 export default {
-  name: "BaseIcon",
+  name: "base-image-icon",
   mixins: [base],
   props: {
     img: String,

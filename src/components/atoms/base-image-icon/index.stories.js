@@ -1,24 +1,24 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
-import BaseIcon from "./index.vue"
+import BaseImageIcon from "./index.vue"
 import { IconL, IconM, IconS, IconSquare} from "./compose"
 
 
-let description = 'import BaseIcon from "@/components/atoms/base-icon/"';
-export default createDefStory("atoms/BaseIcon", BaseIcon, description);
+let description = 'import BaseImageIcon from "@/components/atoms/base-image-icon/"';
+export default createDefStory("atoms/BaseImageIcon", BaseImageIcon, description);
 
 
 //---------------------
 //Basic
 let setting = {
-    name: "BaseIcon",
-    compos: { BaseIcon: BaseIcon },
+    name: "BaseImageIcon",
+    compos: { BaseImageIcon: BaseImageIcon },
     props: {
         img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg",
         compose: "normal",
         shape: "round"
     },
     action: {},
-    template: tagTemp`<BaseIcon ${'props'} ${'action'} />`
+    template: tagTemp`<BaseImageIcon ${'props'} ${'action'} />`
 };
 
 export const Basic = () => (createStory(setting));
