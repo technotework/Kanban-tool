@@ -6,7 +6,8 @@ import {
 import BaseModalContainer from "./index.vue";
 import { Dialogue } from "./compose";
 
-export default createDefStory("atoms/BaseModalContainer", BaseModalContainer);
+let description = 'import BaseModalContainer from "@/components/atoms/base-modal-container/"';
+export default createDefStory("atoms/BaseModalContainer", BaseModalContainer, description);
 
 
 //---------------------

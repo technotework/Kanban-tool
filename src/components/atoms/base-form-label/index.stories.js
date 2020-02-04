@@ -6,7 +6,8 @@ import {
 import BaseFormLabel from "./index.vue";
 import BaseCheckBox from "@/components/atoms/base-check-box";
 
-export default createDefStory("atoms/BaseFormLabel", BaseFormLabel);
+let description = 'import BaseFormLabel from "@/components/atoms/base-form-label/"';
+export default createDefStory("atoms/BaseFormLabel", BaseFormLabel, description);
 
 
 //---------------------

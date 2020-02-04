@@ -1,7 +1,8 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import FlexLayout from "./index.vue";
 
-export default createDefStory("templates/FlexLayout", FlexLayout);
+let description = 'import FlexLayout from "@/components/templates/flex-layout/"';
+export default createDefStory("templates/FlexLayout", FlexLayout, description);
 
 //---------------------
 //Basic

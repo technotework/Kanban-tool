@@ -5,7 +5,8 @@ import {
 } from "@/components/utils/story-creator";
 import BaseColorChip from "./index.vue";
 
-export default createDefStory("atoms/BaseColorChip", BaseColorChip);
+let description = 'import BaseColorChip from "@/components/atoms/base-color-chip/"';
+export default createDefStory("atoms/BaseColorChip", BaseColorChip, description);
 
 
 //---------------------

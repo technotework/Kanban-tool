@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import BaseHeading from "./index";
 import { H1, H2, H3, H4 } from "./compose"
 
-export default createDefStory("atoms/BaseHeading", BaseHeading);
+let description = 'import BaseHeading from "@/components/atoms/base-heading/"';
+export default createDefStory("atoms/BaseHeading", BaseHeading, description);
 
 
 export const HeadingH1 = () => ({

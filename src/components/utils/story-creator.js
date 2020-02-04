@@ -13,16 +13,18 @@ import {
 /**===========================================
  * デフォルトストーリーを生成する
 ===========================================*/
-function createDefStory(title, compo) {
+function createDefStory(title, compo, description=``) {
   let compoObj = {};
   compoObj[name] = compo;
-
+console.log(description);
   let obj = {
     title: title,
     component: compoObj,
     decorators: [withKnobs, withInfo],
     parameters: {
-      info: {}
+      info: {
+        summary: description
+      }
     }
   };
   return obj;

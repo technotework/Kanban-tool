@@ -1,7 +1,8 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseImage from "./index.vue";
 
-export default createDefStory("atoms/BaseImage", BaseImage);
+let description = 'import BaseImage from "@/components/atoms/base-image/"';
+export default createDefStory("atoms/BaseImage", BaseImage, description);
 
 
 //---------------------

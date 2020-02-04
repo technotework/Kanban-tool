@@ -5,7 +5,8 @@ import {
 } from "@/components/utils/story-creator";
 import BaseEditableText from "./index.vue";
 
-export default createDefStory("atoms/BaseEditableText", BaseEditableText);
+let description = 'import BaseEditableText from "@/components/atoms/base-editable-text/"';
+export default createDefStory("atoms/BaseEditableText", BaseEditableText, description);
 
 
 //---------------------

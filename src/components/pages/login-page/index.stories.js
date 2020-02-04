@@ -7,7 +7,6 @@ export default {
     component: { LoginPage },
     decorators: [withKnobs, withInfo],
     parameters: {
-        info: {},
     }
 };
 

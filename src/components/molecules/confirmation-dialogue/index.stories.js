@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import ConfirmationDialogue from "./index.vue";
 import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 
-export default createDefStory("molecules/ConfirmationDialogue", ConfirmationDialogue);
+let description = 'import ConfirmationDialogue from "@/components/molecules/confirmation-dialogue/"';
+export default createDefStory("molecules/ConfirmationDialogue", ConfirmationDialogue, description);
 
 
 export const Basic = () => ({

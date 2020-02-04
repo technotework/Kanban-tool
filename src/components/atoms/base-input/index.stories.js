@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import BaseInput from "./index.vue";
 import { SystemInput } from "./compose";
 
-export default createDefStory("atoms/BaseInput", BaseInput);
+let description = 'import BaseInput from "@/components/atoms/base-input/"';
+export default createDefStory("atoms/BaseInput", BaseInput, description);
 
 
 //---------------------

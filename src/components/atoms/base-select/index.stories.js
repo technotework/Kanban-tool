@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
 import BaseSelect from "./index.vue";
 
-export default createDefStory("atoms/BaseSelect", BaseSelect);
+let description = 'import BaseSelect from "@/components/atoms/base-select/"';
+export default createDefStory("atoms/BaseSelect", BaseSelect, description);
 
 export const Basic = () => ({
     components: { BaseSelect },

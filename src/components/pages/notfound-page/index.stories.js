@@ -6,12 +6,16 @@ export default {
     title: "pages/NotfoundPage",
     component: { NotfoundPage },
     decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
+    
 };
 
 export const Basic = () => ({
     components: { NotfoundPage },
-    template: `<NotfoundPage />`
+    template: `<NotfoundPage />`,
+    parameters: {
+        
+        info: {
+            text: `description`
+        },
+    }
 });

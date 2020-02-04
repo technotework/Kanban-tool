@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import BaseLinkButton from "./index.vue";
 import { PrimaryButton, SecondaryButton } from "./compose";
 
-export default createDefStory("atoms/BaseLinkButton", BaseLinkButton);
+let description = 'import BaseLinkButton from "@/components/atoms/base-link-button/"';
+export default createDefStory("atoms/BaseLinkButton", BaseLinkButton, description);
 
 
 //---------------------

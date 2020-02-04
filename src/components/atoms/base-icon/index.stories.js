@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import BaseIcon from "./index.vue"
 import { IconL, IconM, IconS } from "./compose"
 
-export default createDefStory("atoms/BaseIcon", BaseIcon);
+let description = 'import BaseIcon from "@/components/atoms/base-icon/"';
+export default createDefStory("atoms/BaseIcon", BaseIcon, description);
 
 
 //---------------------

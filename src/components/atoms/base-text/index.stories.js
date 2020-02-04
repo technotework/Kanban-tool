@@ -2,7 +2,8 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import BaseText from "./index.vue";
 import { CaptionText, ErrorText, WarnText, NormalText } from "./compose";
 
-export default createDefStory("atoms/BaseText", BaseText);
+let description = 'import BaseText from "@/components/atoms/base-text/"';
+export default createDefStory("atoms/BaseText", BaseText, description);
 
 //---------------------
 //Basic

@@ -2,7 +2,8 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseModelessContainer from "./index.vue";
 
-export default createDefStory("atoms/BaseModelessContainer", BaseModelessContainer);
+let description = 'import BaseModelessContainer from "@/components/atoms/base-modeless-container/"';
+export default createDefStory("atoms/BaseModelessContainer", BaseModelessContainer, description);
 
 //---------------------
 //Basic

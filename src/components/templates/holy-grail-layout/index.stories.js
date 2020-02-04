@@ -3,7 +3,8 @@ import { action, withKnobs, text, color, number, array, object, boolean, withInf
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import HolyGrailLayout from "./index";
 
-export default createDefStory("templates/HolyGrailLayout", HolyGrailLayout);
+let description = 'import HolyGrailLayout from "@/components/templates/holy-grail-layout/"';
+export default createDefStory("templates/HolyGrailLayout", HolyGrailLayout, description);
 
 export const Basic = () => ({
     components: { HolyGrailLayout },
