@@ -16,7 +16,7 @@ import {
 function createDefStory(title, compo, description=``) {
   let compoObj = {};
   compoObj[name] = compo;
-console.log(description);
+
   let obj = {
     title: title,
     component: compoObj,
@@ -70,7 +70,7 @@ let createStory = function (obj) {
     result["methods"] = action;
   }
 
-  console.log(result);
+  
   return result;
 };
 
@@ -96,7 +96,7 @@ let maps = {
   index: { val: "index", type: text },
   width: { val: "width", type: text },
   height: { val: "height", type: text },
-  color: { val: "color", type: color }
+  color: { val: "color", type: color },
 };
 
 /**======================================

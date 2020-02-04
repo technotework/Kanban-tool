@@ -57,8 +57,9 @@ export default {
     @include bgc($mhover);
   }
   text-align: left;
+  @include s($w: 100%);
   @include p($s4);
   @include r(0);
-  @include text($f16);
+  @include text($f14);
 }
 </style>

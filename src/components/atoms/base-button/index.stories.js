@@ -2,7 +2,9 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import BaseButton from "@/components/atoms/base-button/"
 import { PrimaryButton, SaveButton, SecondaryButton, MenuButton } from "./compose"
 
-let description = 'import BaseButton from "@/components/atoms/base-button/"';
+let description = `import BaseButton from "@/components/atoms/base-button/"\n
+import { PrimaryButton, SaveButton, SecondaryButton, MenuButton } from  "@/components/atoms/base-button/compose"';
+`;
 export default createDefStory("atoms/BaseButton", BaseButton, description);
 
 //---------------------
