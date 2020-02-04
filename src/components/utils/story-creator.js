@@ -89,6 +89,7 @@ let maps = {
   for: { val: "for", type: text },
   required: { val: "required", type: boolean },
   compose: { val: "compose", type: text },
+  shape: { val: "shape", type: text },
   img: { val: "img", type: text },
   src: { val: "src", type: text },
   alt: { val: "alt", type: text },

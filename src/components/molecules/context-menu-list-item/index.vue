@@ -10,14 +10,8 @@ export default {
     name: 'ContextMenuListItem',
     props: {
         name:String,
-        value:String
-        items: {
-            default: object("items", [
-                { value: "cat", content: "ねこさん" },
-                { value: "dog", content: "いぬさん" },
-                { value: "panda", content: "ぱんださん" }
-            ])
-        }
+        value:String,
+        items:Array
     },
     components:{
         MenuButton

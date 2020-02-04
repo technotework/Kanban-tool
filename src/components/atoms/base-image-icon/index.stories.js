@@ -1,7 +1,6 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseIcon from "./index.vue"
 import { IconL, IconM, IconS, IconSquare} from "./compose"
-import closeIcon from "@/assets/svg/close.svg";
 
 
 let description = 'import BaseIcon from "@/components/atoms/base-icon/"';
@@ -77,7 +76,7 @@ let settingIconSquare = {
     name: "IconSquare",
     compos: { IconSquare: IconSquare },
     props: {
-        img: closeIcon,
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg",
     },
     action: {},
     template: tagTemp`<IconSquare ${'props'} ${'action'} />`

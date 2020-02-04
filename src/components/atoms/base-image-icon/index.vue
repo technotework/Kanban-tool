@@ -1,5 +1,5 @@
 <template>
-  <div class="base-image-icon">
+  <div class="base-icon">
     <div :class="[$style.icon,$compose[compose],$shape[shape]]" :img="img" :style="backgroundImage">
       <slot />
     </div>
@@ -8,10 +8,9 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import icons from "./icons"
 
 export default {
-  name: "BaseImageIcon",
+  name: "BaseIcon",
   mixins: [base],
   props: {
     img: String,
