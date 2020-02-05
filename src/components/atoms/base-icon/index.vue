@@ -33,7 +33,7 @@ export default {
   @include s($w: 200px, $h: 200px);
 }
 .l {
-  @include s($w: 30px, $h: 30px);
+  @include s($w: 35px, $h: 35px);
 }
 .m {
   @include s($w: 20px, $h: 20px);
