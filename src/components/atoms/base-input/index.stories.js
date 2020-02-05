@@ -1,8 +1,8 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseInput from "./index.vue";
-import { SystemInput } from "./compose";
+import { SystemInput,SystemPassword } from "./compose";
 
-let description = 'import BaseInput from "@/components/atoms/base-input/"';
+let description = 'import BaseInput from "@/components/atoms/base-input/"<br>import { SystemInput,SystemPassword } from "@/components/atoms/base-input/compose"';
 export default createDefStory("atoms/BaseInput", BaseInput, description);
 
 
@@ -16,7 +16,8 @@ let setting = {
         required: false,
         maxlength: "100",
         name: "input",
-        compose: "normal"
+        compose: "normal",
+        type:"text"
     },
     action: { event: "input" },
     template: tagTemp`<BaseInput ${'props'} ${'action'} />`
@@ -41,5 +42,21 @@ let settingS = {
     template: tagTemp`<SystemInput ${'props'} ${'action'} />`
 };
 
-export const System = () => (createStory(settingS));
+export const Input = () => (createStory(settingS));
 
+//---------------------
+//System
+let settingPW = {
+    name: "SystemPassword",
+    compos: { SystemPassword: SystemPassword },
+    props: {
+        placeholder: "パスワードを入力",
+        required: false,
+        maxlength: "100",
+        name: "input"
+    },
+    action: { event: "input" },
+    template: tagTemp`<SystemPassword ${'props'} ${'action'} />`
+};
+
+export const Password = () => (createStory(settingPW));

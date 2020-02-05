@@ -1,6 +1,6 @@
 <template>
   <input
-    type="text"
+    :type="type"
     :class="[$style.basicInput,$compose[compose]]"
     v-bind="{placeholder,required,maxlength,name}"
     @input="onInput"
@@ -16,7 +16,8 @@ export default {
     placeholder: String,
     required: Boolean,
     maxlength: String,
-    name: String
+    name: String,
+    type:String
   }
 };
 </script>
