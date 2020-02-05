@@ -1,4 +1,4 @@
-import CloseIcon from "@/assets/svg/close.svg"
+import CloseIcon from "@/assets/svg/sprite.svg"
 
 const ICON = {
 
@@ -20,7 +20,7 @@ const getIcon = function(type){
             break;
     }
 
-    return img;
+    return `<svg><use xmlns:xlink="http://www.w3.org/1999/xlink"  xlink:href="${CloseIcon}#close"></use></svg>`;
 }
 
 export {getIcon} 

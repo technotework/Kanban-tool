@@ -99,6 +99,7 @@ let maps = {
   width: { val: "width", type: text },
   height: { val: "height", type: text },
   color: { val: "color", type: color },
+  fill: { val: "fill", type: color },
 };
 
 /**======================================
