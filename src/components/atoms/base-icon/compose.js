@@ -3,9 +3,13 @@ import BaseImageIcon from "./index.vue";
 
 function getMixin(compose) {
   let mixin = {
-    components: { BaseImageIcon },
-    template: `<BaseImageIcon compose="${compose}" :type="type" :fill="fill" />`,
-    props: { ...BaseImageIcon.props }
+    components: {
+      BaseImageIcon
+    },
+    template: `<BaseImageIcon compose="${compose}" :type="type" />`,
+    props: {
+      ...BaseImageIcon.props
+    }
   };
   return mixin;
 }
@@ -22,4 +26,8 @@ const IconS = Vue.component("icon-s", {
   mixins: [getMixin("s")]
 });
 
-export { IconL, IconM, IconS };
+export {
+  IconL,
+  IconM,
+  IconS
+};

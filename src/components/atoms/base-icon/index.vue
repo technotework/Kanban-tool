@@ -1,6 +1,6 @@
 <template>
-  <svg :type="type" :class="[$style.icon, $compose[compose]]" :fill="fill">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="icon"></use>
+  <svg :type="type" :class="[$style.icon, $compose[compose]]">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="icon" />
   </svg>
 </template>
 
@@ -13,8 +13,7 @@ export default {
   name: "BaseImageIcon",
   mixins: [base],
   props: {
-    type: String,
-    fill: String
+    type: String
   },
   computed: {
     icon: function() {
@@ -26,6 +25,7 @@ export default {
 <style lang="scss" module>
 .icon {
   @include r(0);
+  fill: #ddd;
 }
 </style>
 <style lang="scss" module="$compose">

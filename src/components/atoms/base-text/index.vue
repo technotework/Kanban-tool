@@ -15,6 +15,8 @@ export default {
 <style lang="scss" module>
 .text {
   @include s($mw: 300px);
+  word-wrap: break-word;
+  vertical-align: top;
 }
 </style>
 

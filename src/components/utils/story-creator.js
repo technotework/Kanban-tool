@@ -13,7 +13,7 @@ import {
 /**===========================================
  * デフォルトストーリーを生成する
 ===========================================*/
-function createDefStory(title, compo, description=``) {
+function createDefStory(title, compo, description = ``) {
   let compoObj = {};
   compoObj[name] = compo;
 
@@ -30,7 +30,9 @@ function createDefStory(title, compo, description=``) {
   return obj;
 }
 
-export { createDefStory };
+export {
+  createDefStory
+};
 
 /**===========================================
  * 個別ストーリーを生成する
@@ -70,36 +72,95 @@ let createStory = function (obj) {
     result["methods"] = action;
   }
 
-  
+
   return result;
 };
 
-export { createStory };
+export {
+  createStory
+};
 
 /*=================================
  * テンプレート部分の構築
  =================================*/
 
 let maps = {
-  id: { val: "id", type: text },
-  name: { val: "name", type: text },
-  value: { val: "value", type: text },
-  href: { val: "href", type: text },
-  target: { val: "target", type: text },
-  for: { val: "for", type: text },
-  required: { val: "required", type: boolean },
-  compose: { val: "compose", type: text },
-  shape: { val: "shape", type: text },
-  type: { val: "type", type: text },
-  img: { val: "img", type: text },
-  src: { val: "src", type: text },
-  alt: { val: "alt", type: text },
-  placeholder: { val: "placeholder", type: text },
-  index: { val: "index", type: text },
-  width: { val: "width", type: text },
-  height: { val: "height", type: text },
-  color: { val: "color", type: color },
-  fill: { val: "fill", type: color },
+  id: {
+    val: "id",
+    type: text
+  },
+  name: {
+    val: "name",
+    type: text
+  },
+  value: {
+    val: "value",
+    type: text
+  },
+  href: {
+    val: "href",
+    type: text
+  },
+  target: {
+    val: "target",
+    type: text
+  },
+  for: {
+    val: "for",
+    type: text
+  },
+  required: {
+    val: "required",
+    type: boolean
+  },
+  compose: {
+    val: "compose",
+    type: text
+  },
+  shape: {
+    val: "shape",
+    type: text
+  },
+  type: {
+    val: "type",
+    type: text
+  },
+  img: {
+    val: "img",
+    type: text
+  },
+  src: {
+    val: "src",
+    type: text
+  },
+  alt: {
+    val: "alt",
+    type: text
+  },
+  placeholder: {
+    val: "placeholder",
+    type: text
+  },
+  index: {
+    val: "index",
+    type: text
+  },
+  width: {
+    val: "width",
+    type: text
+  },
+  height: {
+    val: "height",
+    type: text
+  },
+  color: {
+    val: "color",
+    type: color
+  },
+  message: {
+    val: "message",
+    type: text
+  },
 };
 
 /**======================================
@@ -113,7 +174,10 @@ function createTemplate(compo, propsObj, actionObj, temp) {
   let action = createBindAction(actionObj);
   let bind = createBindProps(propsObj);
 
-  let template = temp({ props: bind, action: action });
+  let template = temp({
+    props: bind,
+    action: action
+  });
 
   return template;
 }
@@ -195,4 +259,6 @@ let tagTemp = function (strings, ...keys) {
   };
 };
 
-export { tagTemp };
+export {
+  tagTemp
+};
