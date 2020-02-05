@@ -31,6 +31,7 @@ export default {
     @include p(0.2rem 0.5rem);
     @include text($f18);
     min-width: auto;
+    user-select: none;
 }
 </style>
 <style lang="scss" module="$compose">

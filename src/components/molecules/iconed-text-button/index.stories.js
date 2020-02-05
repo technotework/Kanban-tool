@@ -1,16 +1,22 @@
-import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import IconedTextButton from "./index.vue";
 
-export default {
-    title: "molecules/IconedTextButton",
-    component: { IconedTextButton },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
+
+let description = 'import IconedTextButton from "@/components/molecules/iconed-text-button/"'
+export default createDefStory("molecules/IconedTextButton", IconedTextButton, description);
+
+//---------------------
+//Basic
+let setting = {
+    name: "IconedTextButton",
+    compos: { IconedTextButton: IconedTextButton },
+    props: {
+        type: "new",
+        compose:"left"
+    },
+    action: { event: "click" },
+    template: tagTemp`<IconedTextButton ${'props'} ${'action'}>新規作成</IconedTextButton>`
 };
 
-export const Basic = () => ({
-    components: { IconedTextButton },
-    template: `<IconedTextButton />`
-});
+export const Basic = () => (createStory(setting));
+
