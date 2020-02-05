@@ -14,7 +14,7 @@ export default {
 <style lang="scss" module>
 .container {
   position: relative;
-  @include s($w: vw100, $h: auto);
+  @include s($w: $vw100, $h: auto);
 }
 </style>
 
