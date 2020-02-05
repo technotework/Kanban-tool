@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "svg": "npx svg-sprite -C svg-sprite-config.json src/assets/svg/src/*svg",
+    "svg": "npx svg-sprite -C svg-config.json src/assets/svg/src/*svg",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
