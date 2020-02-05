@@ -34,6 +34,7 @@ export default {
   &:active {
     @include bgc($lightGray);
   }
+  user-select: none;
 }
 </style>
 
