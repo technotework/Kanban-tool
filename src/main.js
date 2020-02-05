@@ -7,6 +7,7 @@ import 'firebase/analytics';
 import 'firebase/auth'
 import firebaseui from 'firebaseui-ja'
 import 'firebaseui-ja/dist/firebaseui.css'
+import './components/scss/global.scss'
 
 Vue.config.productionTip = false
 
