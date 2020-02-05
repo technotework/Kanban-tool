@@ -241,6 +241,14 @@ $index_l: 70000;
   justify-content: flex-start;
 }
 
+//grid
+@mixin grid($row,$col,$area) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+  grid-template-areas: $area;
+}
+
 //absolute
 @mixin abs($t: auto, $b: auto, $l: auto, $r: auto, $index: 100) {
   position: absolute;
