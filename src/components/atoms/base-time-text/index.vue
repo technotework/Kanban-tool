@@ -15,6 +15,7 @@ export default {
 </script>
 <style lang="scss" module>
 .date{
+  display: block;
   @include text($f14);
 }
 </style>

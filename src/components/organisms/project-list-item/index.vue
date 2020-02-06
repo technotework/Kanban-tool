@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.projectListItem" :name="name">
-    <div :class="$style.thumb">
+    <div :class="$style.thumb" >
       <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
       <div @click.stop="onClick">
         <TransparentButton>
@@ -10,9 +10,7 @@
     </div>
     <span :class="$style.projectName">{{name}}</span>
     <br />
-    <span :class="$style.time">
-      <DateTimeText :date="date" :class="$style.date" />
-    </span>
+     <DateTimeText :date="date" :class="$style.date" />
 
     <template v-if="showContext">
       <ContextMenuList
@@ -60,7 +58,6 @@ export default {
       this.showContext = !this.showContext;
     },
     onClose: function(e) {
-      console.log("hoge");
       this.showContext = !this.showContext;
     },
     onMenuClick: function(value) {
@@ -74,16 +71,15 @@ export default {
   position: relative;
   width: 270px;
 }
-
 .thumb {
   position: relative;
   @include s($w: 270px, $h: 178px);
   @include r($round);
-  @include bgc($gray);
+  @include bgc($lightGray);
   @include m(0 0 $s8 0);
 
   .thumbIcon {
-    fill: $white;
+    fill: rgba(255,255,255,0.4);
     display: block;
     width: 142px;
     height: auto;
@@ -97,10 +93,12 @@ export default {
     height: 28px;
     @include abs($b: $s4, $r: $s16);
     &:hover {
-      fill: $white;
+      fill: $gray;
     }
   }
 }
+
+
 .projectName {
   font-weight: bold;
   font-size: $f16;
