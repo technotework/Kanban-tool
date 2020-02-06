@@ -161,6 +161,10 @@ let maps = {
     val: "message",
     type: text
   },
+  date: {
+    val: "date",
+    type: text
+  },
 };
 
 /**======================================

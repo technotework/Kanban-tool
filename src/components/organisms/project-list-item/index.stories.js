@@ -16,8 +16,12 @@ let setting = {
     compos: {
         ProjectListItem: ProjectListItem
     },
-    props: {},
-    template: tagTemp `<ProjectListItem />`
+    props: {
+        id: "p1",
+        name: "myProjectName",
+        date: "1580964954", 
+    },
+    template: tagTemp `<ProjectListItem ${"props"} ${"ac¡tion"} />`
 };
 
 export const Basic = () => createStory(setting);

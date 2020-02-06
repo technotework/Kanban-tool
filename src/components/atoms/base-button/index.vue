@@ -58,7 +58,7 @@ export default {
   }
   text-align: left;
   @include s($w: 100%);
-  @include p($s4);
+  @include p($s8);
   @include r(0.1rem);
   @include text($f14);
 }

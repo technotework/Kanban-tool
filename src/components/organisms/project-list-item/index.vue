@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.projectListItem">
+  <div :class="$style.projectListItem" :name="name">
     <div :class="$style.thumb">
       <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
       <div @click.stop="onClick">
@@ -8,9 +8,15 @@
         </TransparentButton>
       </div>
     </div>
+    <span :class="$style.projectName">{{name}}</span>
+    <br />
+    <span :class="$style.time">
+      <DateTimeText :date="date" :class="$style.date" />
+    </span>
+
     <template v-if="showContext">
       <ContextMenuList
-        :id="projectID"
+        :id="id"
         :items="contextMenuItem"
         :class="$style.contextMenuBody"
         @context-menu-click="onMenuClick"
@@ -24,15 +30,23 @@
 import BaseIcon from "@/components/atoms/base-icon/";
 import ContextMenuList from "@/components/molecules/context-menu-list/";
 import { TransparentButton } from "@/components/atoms/base-no-link-button/compose";
+import DateTimeText from "@/components/atoms/base-time-text/date-time-text";
+
 export default {
   name: "ProjectListItem",
+  props: {
+    id: String,
+    name: String,
+    date: String
+  },
   data: function() {
     return {
-      projectID: "p1",
-      projectName: "myProjectName",
-      projectUpdateDate: 1580964954,
       showContext: false,
       contextMenuItem: [
+        {
+          value: "編集",
+          name: "edit"
+        },
         {
           value: "削除",
           name: "delete"
@@ -40,8 +54,7 @@ export default {
       ]
     };
   },
-  props: {},
-  components: { BaseIcon, TransparentButton, ContextMenuList },
+  components: { BaseIcon, TransparentButton, ContextMenuList, DateTimeText },
   methods: {
     onClick(e) {
       this.showContext = !this.showContext;
@@ -67,6 +80,7 @@ export default {
   @include s($w: 270px, $h: 178px);
   @include r($round);
   @include bgc($gray);
+  @include m(0 0 $s8 0);
 
   .thumbIcon {
     fill: $white;
@@ -87,9 +101,15 @@ export default {
     }
   }
 }
-
+.projectName {
+  font-weight: bold;
+  font-size: $f16;
+}
 .contextMenuBody {
   @include abs($t: 175px, $r: 0);
+}
+.date:before {
+  content: "Update:";
 }
 </style>
 

@@ -4,59 +4,59 @@ import base from "@/components/utils/base-mixin";
 
 function getMixin(compose, value) {
 
-    let mixin = {
-        components: {
-            BaseButton
-        },
-        template: `<BaseButton compose="${compose}" value="${value}" :name="name"  />`,
-        props: {
-            ...BaseButton.props
-        },
+  let mixin = {
+    components: {
+      BaseButton
+    },
+    template: `<BaseButton compose="${compose}" value="${value}" :name="name"  />`,
+    props: {
+      ...BaseButton.props
+    },
 
-    }
-    return mixin;
+  }
+  return mixin;
 }
 
 const PrimaryButton = Vue.component("primary", {
-    mixins: [getMixin("primary", "OK"), base],
+  mixins: [getMixin("primary", "OK"), base],
 });
 export {
-    PrimaryButton
+  PrimaryButton
 }
 
 
 const SaveButton = Vue.component("save", {
-    mixins: [getMixin("primary", "保存"), base],
+  mixins: [getMixin("primary", "保存"), base],
 });
 export {
-    SaveButton
+  SaveButton
 }
 
 const SecondaryButton = Vue.component("secondary", {
-    mixins: [getMixin("secondary", "キャンセル"), base],
+  mixins: [getMixin("secondary", "キャンセル"), base],
 });
 export {
-    SecondaryButton
+  SecondaryButton
 }
 
 
 function getMixin2(compose) {
 
-    let mixin = {
-        components: {
-            BaseButton
-        },
-        template: `<BaseButton compose="${compose}" v-bind="{value,name}"  />`,
-        props: {
-            ...BaseButton.props
-        }
+  let mixin = {
+    components: {
+      BaseButton
+    },
+    template: `<BaseButton compose="${compose}" v-bind="{value,name}"  />`,
+    props: {
+      ...BaseButton.props
     }
-    return mixin;
+  }
+  return mixin;
 }
 
 const MenuButton = Vue.component("menu-button", {
-    mixins: [getMixin2("menu"), base],
+  mixins: [getMixin2("menu"), base],
 });
 export {
-    MenuButton
+  MenuButton
 }

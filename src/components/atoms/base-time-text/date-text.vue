@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <BaseTimeText :date="date" />
-    {{date|formatUnixToDate}}
-  </div>
+  
+    <BaseTimeText :date="date">
+    {{date|formatUnixToDate}}</BaseTimeText>
+  
 </template>
 
 <script>
