@@ -1,44 +1,59 @@
 <template>
-    <BaseModelessContainer :id="id" :items="items" :class="$style.menu">
-    <ul >
-        <li v-for="item in items" :key="item.name" :class="$style.menuItem">
-            <BaseModelessItem :value="item.value" :name="item.name" @click="onClick(id,item.name)"/>
-        </li>
+  <BaseModelessContainer :id="id" :items="items" :class="$style.menu">
+    <ul>
+      <li v-for="item in items" :key="item.name" :class="$style.menuItem">
+        <BaseModelessItem
+          :value="item.value"
+          :name="item.name"
+          @click="onClick(id,item.name,$event)"
+        />
+      </li>
     </ul>
-        
-    </BaseModelessContainer>
+  </BaseModelessContainer>
 </template>
 
 <script>
-import BaseModelessContainer from "@/components/atoms/base-modeless-container/"
-import BaseModelessItem from "@/components/molecules/context-menu-list-item/"
-
+import BaseModelessContainer from "@/components/atoms/base-modeless-container/";
+import BaseModelessItem from "@/components/molecules/context-menu-list-item/";
+import listener from "@/components/utils/listener-mixin";
 export default {
-    name: 'ContextMenuList',
-    props: {
-        id:String,
-        items: { type: Array },
-    },
-    components:{
-        BaseModelessContainer,
-        BaseModelessItem
-    },
-    methods:{
-        onClick(id,name) {
-            this.$emit("context-menu-click",{id:id,name:name});
-        },
+  name: "ContextMenuList",
+  mixins: [listener],
+  created: function() {
+    this.listen(
+      window,
+      "click",
+      function(e) {
+        if (!this.$el.contains(e.target)) {
+          this.$emit("close");
+        }
+      }.bind(this)
+    );
+  },
+  props: {
+    id: String,
+    items: { type: Array }
+  },
+  components: {
+    BaseModelessContainer,
+    BaseModelessItem
+  },
+  methods: {
+    onClick(id, name, e) {
+      this.$emit("context-menu-click", { id: id, name: name });
     }
-}
+  }
+};
 </script>
 <style lang="scss" module>
-.menu{
+.menu {
   @include shadow;
   @include p($s4);
   @include bdc($gray);
   @include bgc($white);
+  @include r($round);
 }
 
-.menuItem{
-    
+.menuItem {
 }
 </style>

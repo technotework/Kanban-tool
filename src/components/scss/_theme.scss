@@ -125,7 +125,7 @@ $white: #fff;
 $black: #000;
 $lightGray: #e8e8e8;
 $gray: #ccc;
-$darkGray: #515151;
+$darkGray: #7f7f7f;
 
 $theme: #193489;
 $sub1: #62cff7;
@@ -242,7 +242,7 @@ $index_l: 70000;
 }
 
 //grid
-@mixin grid($row,$col,$area) {
+@mixin grid($row, $col, $area) {
   display: grid;
   grid-template-columns: $col;
   grid-template-rows: $row;

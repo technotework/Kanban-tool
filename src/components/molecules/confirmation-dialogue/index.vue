@@ -6,16 +6,8 @@
           <slot />
         </BaseText>
         <FlexLayout :class="$style.buttonContainer">
-          <SecondaryButton
-            :class="$style.button"
-            name="cancel"
-            @click="onClickSecondary"
-          />
-          <PrimaryButton
-            :class="$style.button"
-            name="ok"
-            @click="onClickPrimary"
-          />
+          <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
+          <PrimaryButton :class="$style.button" name="ok" @click="onClickPrimary" />
         </FlexLayout>
       </Dialogue>
     </BaseModalCover>
@@ -44,10 +36,10 @@ export default {
     BaseText
   },
   methods: {
-    onClickPrimary: function() {
+    onClickPrimary: function(e) {
       this.$emit("clickPrimary");
     },
-    onClickSecondary: function() {
+    onClickSecondary: function(e) {
       this.$emit("clickSecondary");
     }
   }

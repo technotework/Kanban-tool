@@ -10,7 +10,7 @@ export default {
   mixins: [base],
   name: "BaseModalCover",
   methods: {
-    onClick: function() {
+    onClick: function(e) {
       this.$emit("base-modal-cover-click-event");
     }
   }

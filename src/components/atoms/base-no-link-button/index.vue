@@ -9,12 +9,7 @@ import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
   name: "BaseNoLinkButton",
-  props: {},
-  methods: {
-    onClick() {
-      this.$emit("click");
-    }
-  }
+  props: {}
 };
 </script>
 

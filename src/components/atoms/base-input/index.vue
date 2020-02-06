@@ -17,7 +17,7 @@ export default {
     required: Boolean,
     maxlength: String,
     name: String,
-    type:String
+    type: String
   }
 };
 </script>

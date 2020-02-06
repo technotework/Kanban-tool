@@ -1,17 +1,23 @@
-
-import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator";
+import {
+    action
+} from "@/components/utils/story-export"
 import ProjectListItem from "./index.vue";
 
-export default {
-    title: "organisms/ProjectListItem",
-    component: { ProjectListItem },
-    decorators: [withKnobs, withInfo],
-    parameters: {
-        info: {},
-    }
+let description = 'import ProjectListItem from "@/components/organisms/project-list-item/"';
+export default createDefStory("organisms/ProjectListItem", ProjectListItem, description);
+
+let setting = {
+    name: "ProjectListItem",
+    compos: {
+        ProjectListItem: ProjectListItem
+    },
+    props: {},
+    template: tagTemp `<ProjectListItem />`
 };
 
-export const Basic = () => ({
-    components: { ProjectListItem },
-    template: `<ProjectListItem />`
-});
+export const Basic = () => createStory(setting);

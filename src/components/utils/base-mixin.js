@@ -1,15 +1,17 @@
 export default {
     props: {
-        compose: { type: String },
+        compose: {
+            type: String
+        },
     },
     methods: {
-        onClick() {
+        onClick(e) {
             this.$emit("click");
         },
-        onChange() {
+        onChange(e) {
             this.$emit("change");
         },
-        onInput() {
+        onInput(e) {
             this.$emit("input");
         }
     }

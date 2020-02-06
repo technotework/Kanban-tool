@@ -1,5 +1,12 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
-import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator"
+import {
+    action,
+    object,
+} from "@/components/utils/story-export"
 import ContextMenuList from "./index.vue";
 
 
@@ -10,18 +17,30 @@ export default createDefStory("molecules/ContextMenuList", ContextMenuList, desc
 //---------------------
 //Basic
 export const Basic = () => ({
-    components: { ContextMenuList },
+    components: {
+        ContextMenuList
+    },
     props: {
-        id:"menu1",
+        id: "menu1",
         items: {
-            default: object("items", [
-                {value:"編集",name:"edit"},
-                {value:"削除",name:"delete"},
-                {value:"複製",name:"duplicate"}
+            default: object("items", [{
+                    value: "編集",
+                    name: "edit"
+                },
+                {
+                    value: "削除",
+                    name: "delete"
+                },
+                {
+                    value: "複製",
+                    name: "duplicate"
+                }
             ])
         }
     },
-    template: `<ContextMenuList v-bind={id,items} @context-menu-click="action" />`,
-    methods: { action: action('context-menu-click') }
+    template: `<ContextMenuList v-bind={id,items} @context-menu-click="action" @close="close" />`,
+    methods: {
+        action: action('context-menu-click'),
+        close: action('close'),
+    }
 });
-
