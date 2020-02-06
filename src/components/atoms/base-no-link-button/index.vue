@@ -60,4 +60,11 @@ export default {
     @include bgc($transparent);
   }
 }
+.text {
+  @extend .transparent;
+  @include p($s8);
+  &:active {
+    @include c($primary);
+  }
+}
 </style>

@@ -16,6 +16,7 @@ export default {
 <style lang="scss" module>
 .heading {
   font-weight: bold;
+  display: inline-block;
 }
 </style>
 

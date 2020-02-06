@@ -3,25 +3,25 @@ import {
     createStory,
     tagTemp
 } from "@/components/utils/story-creator"
-import BaseLayout from "./index";
+import AppLayout from "./index";
 
-let description = 'import BaseLayout from "@/components/templates/base-layout/"';
-export default createDefStory("templates/BaseLayout", BaseLayout, description);
+let description = 'import AppLayout from "@/components/templates/base-layout/"';
+export default createDefStory("templates/AppLayout", AppLayout, description);
 
 
 //---------------------
 //Basic
 let setting = {
-    name: "BaseLayout",
+    name: "AppLayout",
     compos: {
-        BaseLayout: BaseLayout
+        AppLayout: AppLayout
     },
     props: {},
     action: {},
-    template: tagTemp `<BaseLayout>
+    template: tagTemp `<AppLayout>
     <template #header>header</template>
     <template #main>main</template>
-</BaseLayout>`
+</AppLayout>`
 };
 
 export const Basic = () => (createStory(setting));

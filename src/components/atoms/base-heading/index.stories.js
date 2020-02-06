@@ -1,13 +1,24 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator"
 import BaseHeading from "./index";
-import { H1, H2, H3, H4 } from "./compose"
+import {
+    H1,
+    H2,
+    H3,
+    H4
+} from "./compose"
 
-let description = 'import BaseHeading from "@/components/atoms/base-heading/"';
+let description = 'import BaseHeading from "@/components/atoms/base-heading/"<br>import { H1, H2, H3, H4 } from "@/components/atoms/base-heading/compose"';
 export default createDefStory("atoms/BaseHeading", BaseHeading, description);
 
 
 export const HeadingH1 = () => ({
-    components: { H1 },
+    components: {
+        H1
+    },
     template: `
     <div>
         <H1>H1</H1>
@@ -15,7 +26,9 @@ export const HeadingH1 = () => ({
 });
 
 export const HeadingH2 = () => ({
-    components: { H2 },
+    components: {
+        H2
+    },
     template: `
     <div>
         <H2>H2</H2>
@@ -23,7 +36,9 @@ export const HeadingH2 = () => ({
 });
 
 export const HeadingH3 = () => ({
-    components: { H3 },
+    components: {
+        H3
+    },
     template: `
     <div>
         <H3>H3</H3>
@@ -31,7 +46,9 @@ export const HeadingH3 = () => ({
 });
 
 export const HeadingH4 = () => ({
-    components: { H4 },
+    components: {
+        H4
+    },
     template: `
     <div>
         <H4>H4</H4>
