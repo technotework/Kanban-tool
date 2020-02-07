@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.projectListItem" :name="name">
-    <div :class="$style.thumb" >
+    <div :class="$style.thumb">
       <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
       <div @click.stop="onClick">
         <TransparentButton>
@@ -10,7 +10,7 @@
     </div>
     <span :class="$style.projectName">{{name}}</span>
     <br />
-     <DateTimeText :date="date" :class="$style.date" />
+    <DateTimeText :date="date" :class="$style.date" />
 
     <template v-if="showContext">
       <ContextMenuList
@@ -79,7 +79,7 @@ export default {
   @include m(0 0 $s8 0);
 
   .thumbIcon {
-    fill: rgba(255,255,255,0.4);
+    fill: rgba(255, 255, 255, 0.4);
     display: block;
     width: 142px;
     height: auto;
@@ -97,7 +97,6 @@ export default {
     }
   }
 }
-
 
 .projectName {
   font-weight: bold;

@@ -1,24 +1,22 @@
 <template>
-<div :class="$style.wrapper">
+  <div :class="$style.wrapper">
     <ul :class="$style.list">
       <li v-for="item in items" :key="item.id" :class="$style.listItem">
         <ProjectListItem :id="item.id" :name="item.name" :date="item.date" />
       </li>
     </ul>
-</div>
+  </div>
 </template>
 
 <script>
 import ProjectListItem from "@/components/organisms/project-list-item/";
-import FlexLayout from "@/components/templates/flex-layout/";
 export default {
   name: "ProjectList",
   props: {
     items: Array
   },
   components: {
-    ProjectListItem,
-    FlexLayout
+    ProjectListItem
   }
 };
 </script>
@@ -26,10 +24,10 @@ export default {
 .wrapper {
   display: inline-block;
 }
-.list{
+.list {
   @include flex;
 
-  .listItem{
+  .listItem {
     @include m(0 $s18 4rem $s18);
   }
 }

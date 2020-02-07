@@ -165,6 +165,10 @@ let maps = {
     val: "date",
     type: text
   },
+  title: {
+    val: "title",
+    type: text
+  },
 };
 
 /**======================================

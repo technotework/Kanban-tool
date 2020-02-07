@@ -11,6 +11,8 @@ import {
 let description = 'import AppHeader from "@/components/organisms/app-header/"';
 export default createDefStory("organisms/AppHeader", AppHeader, description);
 
+//---------------------
+//Basic
 let setting = {
   name: "AppHeader",
   compos: {
