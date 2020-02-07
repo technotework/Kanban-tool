@@ -13,11 +13,14 @@ export default createDefStory("atoms/BaseEditableText", BaseEditableText, descri
 //Basic
 let setting = {
   name: "BaseEditableText",
-  compos: { BaseEditableText: BaseEditableText },
-  props: {},
+  compos: {
+    BaseEditableText: BaseEditableText
+  },
+  props: {
+    contenteditable: true
+  },
   action: {},
-  template: tagTemp`<BaseEditableText ${'props'} ${'action'} />`
+  template: tagTemp `<BaseEditableText ${'props'} ${'action'} />`
 };
 
 export const Basic = () => (createStory(setting));
-

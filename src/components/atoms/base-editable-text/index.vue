@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.editableText" contenteditable="true">
+  <div :class="$style.editableText" :contenteditable="contenteditable">
     <slot />
   </div>
 </template>
@@ -9,7 +9,10 @@ import base from "@/components/utils/base-mixin";
 
 export default {
   mixins: [base],
-  name: "BaseEditableText"
+  name: "BaseEditableText",
+  props: {
+    contenteditable: Boolean
+  }
 };
 </script>
 <style lang="scss" module>
