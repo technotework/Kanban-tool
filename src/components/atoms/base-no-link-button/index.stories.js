@@ -7,12 +7,13 @@ import BaseNoLinkButton from "./index.vue";
 import {
   PrimaryButton,
   SecondaryButton,
+  MiniButton,
   TransparentButton,
   TextButton
 } from "./compose";
 
 let description =
-  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, TransparentButton, TextButton} from "@/components/atoms/base-no-link-button/compose"';
+  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, MiniButton, TransparentButton, TextButton} from "@/components/atoms/base-no-link-button/compose"';
 export default createDefStory(
   "atoms/BaseNoLinkButton",
   BaseNoLinkButton,
@@ -69,6 +70,24 @@ let settingS = {
 };
 
 export const Secondary = () => createStory(settingS);
+
+
+//---------------------
+//MiniButton
+
+let settingM = {
+  name: "MiniButton",
+  compos: {
+    MiniButton: MiniButton
+  },
+  action: {
+    event: "click"
+  },
+  template: tagTemp `<MiniButton ${"props"} ${"action"}>Button</MiniButton>`
+};
+
+export const Mini = () => createStory(settingM);
+
 
 //---------------------
 //TransparentButton

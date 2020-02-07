@@ -46,6 +46,12 @@ export default {
     @include bgc($shover);
   }
 }
+.mini {
+  @include bgc($primary);
+  @include text($f14);
+  @include p($s4 $s4);
+  @include r($s4);
+}
 .transparent {
   display: inline-block;
   @include r(0);

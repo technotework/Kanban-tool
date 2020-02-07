@@ -32,6 +32,13 @@ export {
   SecondaryButton
 };
 
+const MiniButton = Vue.component("mini-button", {
+  mixins: [getMixin("mini"), base]
+});
+export {
+  MiniButton
+};
+
 const TransparentButton = Vue.component("transparent-button", {
   mixins: [getMixin("transparent"), base]
 });
