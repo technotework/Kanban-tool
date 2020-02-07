@@ -2,7 +2,7 @@
   <input
     :type="type"
     :class="[$style.basicInput,$compose[compose]]"
-    v-bind="{placeholder,required,maxlength,name}"
+    v-bind="{value,placeholder,required,maxlength,name,readonly}"
     @input="onInput"
   />
 </template>
@@ -13,26 +13,38 @@ export default {
   mixins: [base],
   name: "BaseInput",
   props: {
+    value: String,
     placeholder: String,
     required: Boolean,
     maxlength: String,
     name: String,
-    type: String
+    type: String,
+    readonly: Boolean
   }
 };
 </script>
 
 <style lang="scss" module>
 .basicInput {
+  width: 100%;
   @include bdc($gray);
 }
 </style>
 
 <style lang="scss" module="$compose">
-.normal {
-}
 .system {
   @include p($s8);
   @include r($round);
+}
+.editable {
+  border: solid 1px $gray;
+  @include bgc($white);
+  @include p($s8);
+  @include r(0);
+}
+.editable:read-only {
+  @include bgc($transparent);
+  border: solid 1px $white;
+  border-bottom: solid 1px $gray;
 }
 </style>
