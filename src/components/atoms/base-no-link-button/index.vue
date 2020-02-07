@@ -47,9 +47,10 @@ export default {
   }
 }
 .mini {
+  font-size: $f14;
+  line-height: 3.4rem;
   @include bgc($primary);
-  @include text($f14);
-  @include p($s4 $s4);
+  @include p($s4 $s16);
   @include r($s4);
 }
 .transparent {

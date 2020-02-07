@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.editableText" :contenteditable="contenteditable">
+  <div ref="editableText" :class="$style.editableText" :contenteditable="contenteditable">
     <slot />
   </div>
 </template>
@@ -12,6 +12,11 @@ export default {
   name: "BaseEditableText",
   props: {
     contenteditable: Boolean
+  },
+  methods: {
+    focus: function() {
+      this.$refs.editableText.focus();
+    }
   }
 };
 </script>
