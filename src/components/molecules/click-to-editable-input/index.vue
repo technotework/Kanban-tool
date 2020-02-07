@@ -88,7 +88,6 @@ export default {
   flex-grow: 1;
   .editableInput {
     @include bgc($transparent);
-    border-bottom: dotted 1px $darkGray;
   }
 }
 </style>

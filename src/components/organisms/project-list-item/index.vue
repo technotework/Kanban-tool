@@ -65,23 +65,13 @@ export default {
     @include p(12px 0 0 0);
   }
   .contextMenu {
-    fill: $darkGray;
-    display: block;
-    width: 30px;
-    height: 28px;
     @include abs($b: $s4, $r: $s16);
-    &:hover {
-      fill: $gray;
-    }
   }
 }
 
 .projectName {
   font-weight: bold;
   font-size: $f16;
-}
-.contextMenuBody {
-  @include abs($t: 175px, $r: 0);
 }
 .date:before {
   content: "Update:";

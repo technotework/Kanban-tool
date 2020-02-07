@@ -1,8 +1,7 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import ContextMenuListItem from "./index.vue";
 
-let description = `import ContextMenuListItem from "@/components/molecules/context-menu-list-item/"';
-`;
+let description = 'import ContextMenuListItem from "@/components/molecules/context-menu-list-item/"';
 export default createDefStory("molecules/ContextMenuListItem", ContextMenuListItem, description);
 
 

@@ -31,8 +31,7 @@ export default {
   },
   data: function() {
     return {
-      showContext: false,
-      dstyle: ""
+      showContext: false
     };
   },
   components: {

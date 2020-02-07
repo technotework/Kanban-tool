@@ -1,4 +1,8 @@
 import {
+  text,
+  object,
+} from "@/components/utils/story-export"
+import {
     createDefStory,
     createStory,
     tagTemp
@@ -9,21 +13,60 @@ import ProjectBoardListItem from "./index.vue";
   export default createDefStory("organisms/ProjectBoardListItem", ProjectBoardListItem, description);
   
 
-//---------------------
+  //---------------------
 //Basic
-let setting = {
-    name: "ProjectBoardListItem",
-    compos: {
-      ProjectBoardListItem: ProjectBoardListItem
-    },
-    props: {
-      content:"Title"
-    },
-    action: {
-    },
-    template: tagTemp `<ProjectBoardListItem ${'props'} ${'action'} />`
-  };
-  
-  export const Basic = () => (createStory(setting));
-
-
+export const Basic = () => ({
+  components: {
+    ProjectBoardListItem
+  },
+  props: {
+    content: { default: text("content", "Title") },
+      id: { default: text("id", "board1") },
+      tasks: {
+          default: object("tasks", [{
+                  id: "t1",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t2",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t3",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t4",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t5",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t6",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t7",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t8",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t9",
+                  title: "todo:あいうえおあいうえお"
+              },
+              {
+                  id: "t10",
+                  title: "todo:あいうえおあいうえお"
+              }
+          ])
+      }
+  },
+  template: `<ProjectBoardListItem v-bind="{tasks,id,content}" />`,
+  methods: {
+  }
+});

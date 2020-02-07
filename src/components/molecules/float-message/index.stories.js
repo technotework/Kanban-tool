@@ -5,8 +5,8 @@ import {
 } from "@/components/utils/story-creator";
 import FloatMessage from "./index.vue";
 
-let description = `import FloatMessage from "@/components/molecules/float-message/"';
-`;
+let description = 'import FloatMessage from "@/components/molecules/float-message/"';
+
 export default createDefStory(
     "molecules/FloatMessage",
     FloatMessage,

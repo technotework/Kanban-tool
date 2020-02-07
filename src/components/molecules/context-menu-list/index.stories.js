@@ -10,8 +10,8 @@ import {
 import ContextMenuList from "./index.vue";
 
 
-let description = `import ContextMenuList from "@/components/molecules/context-menu-list/"';
-`;
+let description = 'import ContextMenuList from "@/components/molecules/context-menu-list/"';
+
 export default createDefStory("molecules/ContextMenuList", ContextMenuList, description);
 
 //---------------------

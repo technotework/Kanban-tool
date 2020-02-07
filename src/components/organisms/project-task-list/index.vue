@@ -29,7 +29,7 @@ export default {
 <style lang="scss" module>
 .list {
   @include s($w: 100%, $h: 100%);
-  overflow-y: scroll;
+  
   @include flex;
   flex-direction: column;
 }

@@ -8,8 +8,7 @@ import { action, withKnobs, text, color, number, array, object, boolean, withInf
 import ContextMenu from "./index.vue";
 
 
-let description = `import ContextMenu from "@/components/molecules/context-menu/"';
-`;
+let description = 'import ContextMenu from "@/components/molecules/context-menu/"';
 export default createDefStory("molecules/ContextMenu", ContextMenu, description);
 
 //---------------------
