@@ -97,6 +97,10 @@ let maps = {
     val: "value",
     type: text
   },
+  content: {
+    val: "content",
+    type: text
+  },
   href: {
     val: "href",
     type: text
@@ -173,8 +177,8 @@ let maps = {
     val: "contenteditable",
     type: boolean
   },
-  readonly: {
-    val: "readonly",
+  disabled: {
+    val: "disabled",
     type: boolean
   },
 };

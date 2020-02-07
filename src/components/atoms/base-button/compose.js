@@ -8,9 +8,12 @@ function getMixin(compose, value) {
     components: {
       BaseButton
     },
-    template: `<BaseButton compose="${compose}" value="${value}" :name="name"  />`,
+    template: `<BaseButton compose="${compose}" value="${value}" :name="name" @click="onClick" />`,
     props: {
       ...BaseButton.props
+    },
+    methods: {
+      ...BaseButton.methods
     },
 
   }
@@ -46,10 +49,13 @@ function getMixin2(compose) {
     components: {
       BaseButton
     },
-    template: `<BaseButton compose="${compose}" v-bind="{value,name}"  />`,
+    template: `<BaseButton compose="${compose}" v-bind="{value,name}" @click="onClick" />`,
     props: {
       ...BaseButton.props
-    }
+    },
+    methods: {
+      ...BaseButton.methods
+    },
   }
   return mixin;
 }

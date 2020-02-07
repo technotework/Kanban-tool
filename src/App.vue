@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <router-view />
-    <ClickToEditableText></ClickToEditableText>
+    <EditInput />
   </div>
 </template>
 
 <script>
-import ClickToEditableText from "@/components/molecules/click-to-editable-text/";
+import { EditInput } from "@/components/atoms/base-input/compose"
 export default {
   name: "App",
   props: {},
   data: function() {
     return {};
   },
-  components: { ClickToEditableText }
+  components: { EditInput }
 };
 </script>

@@ -28,7 +28,8 @@ let setting = {
         name: "input",
         compose: "normal",
         type: "text",
-        readonly: false
+        disabled: false,
+        content:"Text"
     },
     action: {
         event: "input"
@@ -52,7 +53,8 @@ let settingS = {
         required: false,
         maxlength: "100",
         name: "input",
-        readonly: false,
+        disabled: false,
+        content:"Text"
     },
     action: {
         event: "input"
@@ -74,7 +76,8 @@ let settingPW = {
         required: false,
         maxlength: "100",
         name: "input",
-        readonly: false,
+        disabled: false,
+        content:"Text"
     },
     action: {
         event: "input"
@@ -97,7 +100,8 @@ let settingE = {
         required: false,
         maxlength: "100",
         name: "input",
-        readonly: true,
+        disabled: true,
+        content:"Text"
     },
     action: {
         event: "input"

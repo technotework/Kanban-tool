@@ -5,7 +5,7 @@
         <BaseModelessItem
           :value="item.value"
           :name="item.name"
-          @click="onClick(id,item.name,$event)"
+          @click="onClick(id, item.name, $event)"
         />
       </li>
     </ul>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     onClick(id, name, e) {
-      this.$emit("context-menu-click", { id: id, name: name });
+      this.$emit("context-menu-click", { id: id, name: name, e: e });
     }
   }
 };
@@ -52,8 +52,5 @@ export default {
   @include bdc($gray);
   @include bgc($white);
   @include r($round);
-}
-
-.menuItem {
 }
 </style>

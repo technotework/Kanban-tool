@@ -2,45 +2,29 @@
   <div :class="$style.projectListItem" :name="name">
     <div :class="$style.thumb">
       <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
-      <div @click.stop="onClick">
-        <TransparentButton>
-          <BaseIcon compose="normal" type="context" :class="$style.contextMenu" />
-        </TransparentButton>
-      </div>
+      <ContextMenu :class="$style.contextMenu" @context-menu-click="onMenuClick" v-bind={items,id} compose="top" />
     </div>
     <span :class="$style.projectName">{{name}}</span>
     <br />
     <DateTimeText :date="date" :class="$style.date" />
 
-    <template v-if="showContext">
-      <ContextMenuList
-        :id="id"
-        :items="contextMenuItem"
-        :class="$style.contextMenuBody"
-        @context-menu-click="onMenuClick"
-        @close="onClose"
-      />
-    </template>
   </div>
 </template>
 
 <script>
-import BaseIcon from "@/components/atoms/base-icon/";
-import ContextMenuList from "@/components/molecules/context-menu-list/";
-import { TransparentButton } from "@/components/atoms/base-no-link-button/compose";
 import DateTimeText from "@/components/atoms/base-time-text/date-time-text";
-
+import BaseIcon from "@/components/atoms/base-icon/";
+import ContextMenu from "@/components/molecules/context-menu/";
 export default {
   name: "ProjectListItem",
   props: {
     id: String,
-    name: String,
+    name:String,
     date: String
   },
   data: function() {
     return {
-      showContext: false,
-      contextMenuItem: [
+      items: [
         {
           value: "編集",
           name: "edit"
@@ -52,14 +36,8 @@ export default {
       ]
     };
   },
-  components: { BaseIcon, TransparentButton, ContextMenuList, DateTimeText },
+  components: { ContextMenu, DateTimeText, BaseIcon },
   methods: {
-    onClick(e) {
-      this.showContext = !this.showContext;
-    },
-    onClose: function(e) {
-      this.showContext = !this.showContext;
-    },
     onMenuClick: function(value) {
       console.log(value);
     }

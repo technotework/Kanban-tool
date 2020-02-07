@@ -2,7 +2,8 @@
   <input
     :type="type"
     :class="[$style.basicInput,$compose[compose]]"
-    v-bind="{placeholder,required,maxlength,name,readonly}"
+    v-bind="{placeholder,required,maxlength,name,disabled,content}"
+    v-model="hoge"
     @input="onInput"
   />
 </template>
@@ -12,13 +13,19 @@ import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
   name: "BaseInput",
+  data:function(){
+      return {
+          hoge:this.content
+      }
+  },
   props: {
     placeholder: String,
     required: Boolean,
     maxlength: String,
     name: String,
     type: String,
-    readonly: Boolean
+    disabled: Boolean,
+    content:String
   }
 };
 </script>
@@ -39,9 +46,9 @@ export default {
   border: solid 1px $gray;
   @include bgc($white);
   @include p($s8);
-  @include r(0);
+  @include r(2px);
 }
-.editable:read-only {
+.editable:disable{
   @include bgc($transparent);
   border: solid 1px $white;
   border-bottom: solid 1px $gray;

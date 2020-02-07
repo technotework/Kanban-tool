@@ -1,14 +1,19 @@
 <template>
-  <div :class="$style.board"></div>
+  <div :class="$style.board" :content="content" >
+  <ClickToEditableInput v-model="content" />
+  
+  </div>
 </template>
 
 <script>
+import ClickToEditableInput from "@/components/molecules/click-to-editable-input/"
+
 export default {
   name: "ProjectBoardListItem",
   props: {
-    title: String
+    content: String
   },
-  components: {}
+  components: {ClickToEditableInput}
 };
 </script>
 <style lang="scss" module>

@@ -17,7 +17,7 @@ let setting = {
     ClickToEditableInput: ClickToEditableInput
   },
   props: {
-
+    content:"BoardName"
   },
   action: {
     event: "click"
