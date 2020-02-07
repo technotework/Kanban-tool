@@ -5,7 +5,9 @@
 <script>
 export default {
   name: "ProjectBoardListItem",
-  props: {},
+  props: {
+    title: String
+  },
   components: {}
 };
 </script>

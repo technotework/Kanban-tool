@@ -22,7 +22,6 @@ let setting = {
         BaseInput: BaseInput
     },
     props: {
-        value: "",
         placeholder: "inputText",
         required: false,
         maxlength: "100",
@@ -54,7 +53,6 @@ let settingS = {
         maxlength: "100",
         name: "input",
         readonly: false,
-        value: "Text"
     },
     action: {
         event: "input"
@@ -77,7 +75,6 @@ let settingPW = {
         maxlength: "100",
         name: "input",
         readonly: false,
-        value: "Text"
     },
     action: {
         event: "input"
@@ -101,7 +98,6 @@ let settingE = {
         maxlength: "100",
         name: "input",
         readonly: true,
-        value: "Text"
     },
     action: {
         event: "input"

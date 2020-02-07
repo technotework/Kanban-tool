@@ -2,7 +2,7 @@
   <input
     :type="type"
     :class="[$style.basicInput,$compose[compose]]"
-    v-bind="{value,placeholder,required,maxlength,name,readonly}"
+    v-bind="{placeholder,required,maxlength,name,readonly}"
     @input="onInput"
   />
 </template>
@@ -13,7 +13,6 @@ export default {
   mixins: [base],
   name: "BaseInput",
   props: {
-    value: String,
     placeholder: String,
     required: Boolean,
     maxlength: String,

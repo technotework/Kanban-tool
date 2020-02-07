@@ -8,7 +8,7 @@ function getMixin(compose, type) {
     components: {
       BaseInput
     },
-    template: `<BaseInput type="${type}" compose="${compose}" v-bind="{placeholder,required,maxlength,name,value,readonly}" @input="onInput" />`,
+    template: `<BaseInput type="${type}" compose="${compose}" v-bind="{placeholder,required,maxlength,name,readonly}" @input="onInput" />`,
     props: {
       ...BaseInput.props
     },

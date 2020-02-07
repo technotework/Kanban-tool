@@ -169,6 +169,14 @@ let maps = {
     val: "title",
     type: text
   },
+  contenteditable: {
+    val: "contenteditable",
+    type: boolean
+  },
+  readonly: {
+    val: "readonly",
+    type: boolean
+  },
 };
 
 /**======================================
