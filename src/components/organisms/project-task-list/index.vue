@@ -19,8 +19,8 @@ export default {
     items: Array
   },
   methods: {
-    onClick: function(id, e) {
-      this.$emit("click-task-edit");
+    onClick: function(...args) {
+      this.$emit("click-task-edit", ...args);
     }
   },
   components: { ProjectTaskListItem }

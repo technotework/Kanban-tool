@@ -6,13 +6,13 @@ export default {
     },
     methods: {
         onClick(e) {
-            this.$emit("click");
+            this.$emit("click", e);
         },
         onChange(e) {
-            this.$emit("change");
+            this.$emit("change", e);
         },
         onInput(e) {
-            this.$emit("input");
+            this.$emit("input", e);
         }
     }
 };

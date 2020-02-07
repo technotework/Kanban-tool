@@ -1,25 +1,18 @@
 <template>
-    <div class="project-board-list-item">
-    src/components/organisms/project-board-list-item/index.vue
-    </div>
+  <div :class="$style.board"></div>
 </template>
 
 <script>
-
 export default {
-    name: 'ProjectBoardListItem',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "ProjectBoardListItem",
+  props: {},
+  components: {}
+};
 </script>
 <style lang="scss" module>
-.class{
-
-  
+.board {
+  @include spr($w: 270px, $h: auto, $p: $s16, $r: $round);
+  @include bgc($lightGray);
 }
 </style>
 

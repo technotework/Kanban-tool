@@ -62,7 +62,7 @@ export const Basic = () => ({
             ])
         }
     },
-    template: `<ProjectTaskList :items="items" />`,
+    template: `<ProjectTaskList :items="items" @click-task-edit="action" />`,
     methods: {
         action: action('click-task-edit')
     }
