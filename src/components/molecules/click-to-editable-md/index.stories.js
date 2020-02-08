@@ -35,7 +35,7 @@ export const Basic = () => ({
       default: boolean("isinitial", false)
     }
   },
-  template: `<ClickToEditableMD v-bind={isedit,isinitial} v-model.lazy="myValue" />`
+  template: `<ClickToEditableMD v-bind={isinitial} v-model.lazy="myValue" />`
 });
 
 
