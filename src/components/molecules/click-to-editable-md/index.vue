@@ -1,24 +1,34 @@
 <template>
-  <div :class="$style.wrapper">
+  <div :class="$style.wrapper" :isinitial="isinitial">
     <BaseEditableMD
       v-model.lazy="myValue"
       :class="$style.md"
-      :isedit="isedit"
+      :isedit="status"
       ref="md"
     />
     <div :class="$style.buttons">
-      <template v-if="!isedit">
-        <TextButton :class="$style.button" @click="onEditMD">
-          編集
+      <template v-if="isinitial">
+        <TextButton :class="$style.button" @click="onCancelSubmitMD">
+          キャンセル
+        </TextButton>
+        <TextButton :class="$style.button" @click="onSubmitMD">
+          送信
         </TextButton>
       </template>
       <template v-else>
-        <TextButton :class="$style.button" @click="onCancelMD">
-          キャンセル
-        </TextButton>
-        <TextButton :class="$style.button" @click="onSaveMD">
-          保存
-        </TextButton>
+        <template v-if="!status">
+          <TextButton :class="$style.button" @click="onEditMD">
+            編集
+          </TextButton>
+        </template>
+        <template v-else>
+          <TextButton :class="$style.button" @click="onCancelMD">
+            キャンセル
+          </TextButton>
+          <TextButton :class="$style.button" @click="onSaveMD">
+            保存
+          </TextButton>
+        </template>
       </template>
     </div>
   </div>
@@ -33,25 +43,37 @@ export default {
   mixins: [base],
   name: "ClickToEditableMD",
   props: {
-    value: String
+    value: String,
+    isinitial: Boolean
+  },
+  mounted: function() {
+    if (this.isinitial) {
+      this.status = true;
+    }
   },
   data: function() {
     return {
-      isedit: false,
-      temp: ""
+      temp: "",
+      status: false
     };
   },
   methods: {
     onEditMD: function() {
       this.temp = this.$refs.md.getContent();
-      this.isedit = true;
+      this.status = true;
     },
     onSaveMD: function() {
-      this.isedit = false;
+      this.status = false;
     },
     onCancelMD: function() {
       this.myValue = this.temp;
-      this.isedit = false;
+      this.status = false;
+    },
+    onSubmitMD: function(e) {
+      this.$emit("submit-md", { value: this.myValue, e: e });
+    },
+    onCancelSubmitMD: function(e) {
+      this.$emit("cancel-submit-md", e);
     }
   },
   computed: {
