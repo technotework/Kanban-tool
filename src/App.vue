@@ -2,16 +2,16 @@
   <div id="app">
     <router-view />
 
-    <MD />
+    <BaseButton />
   </div>
 </template>
 
 <script>
-import MD from "@/components/atoms/base-editable-md/";
+import BaseButton from "@/components/atoms/base-button/";
 export default {
   name: "App",
   props: {},
   methods: {},
-  components: { MD }
+  components: { BaseButton }
 };
 </script>

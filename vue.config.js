@@ -11,7 +11,13 @@ module.exports = {
     },
   },
   css: {
+    requireModuleExtension: true,
     loaderOptions: {
+      css: {
+        modules: {
+          localIdentName: '[folder]---[local]---[hash:base64:5]'
+        }
+      },
       sass: {
         prependData: `
           @import "~@/components/scss/_theme.scss";
