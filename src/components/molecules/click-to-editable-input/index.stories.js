@@ -11,18 +11,17 @@ export default createDefStory("molecules/ClickToEditableInput", ClickToEditableI
 
 //---------------------
 //Basic
-let setting = {
-  name: "ClickToEditableInput",
-  compos: {
-    ClickToEditableInput: ClickToEditableInput
-  },
-  props: {
-    content:"BoardName"
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp `<ClickToEditableInput ${'props'} ${'action'} />`
-};
 
-export const Basic = () => (createStory(setting));
+export const Basic = () => ({
+  components: {
+    ClickToEditableInput
+  },
+  data: function () {
+    return {
+      myValue: "",
+    }
+  },
+  props: {},
+  template: `<ClickToEditableInput v-model.lazy="myValue" />`,
+  methods: {}
+});

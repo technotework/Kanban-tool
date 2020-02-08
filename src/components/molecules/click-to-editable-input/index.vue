@@ -1,17 +1,22 @@
 <template>
-  <div :class="$style.wrapper" >
-    <div @click="onClickEdit" :class="[$style.editableInputContainer,$compose[status]]">
+  <div :class="$style.wrapper">
+    <div
+      @click="onClickEdit"
+      :class="[$style.editableInputContainer, $compose[status]]"
+    >
       <EditInput
         :class="$style.editableInput"
-        :disable="isDisable"
-        :content="content"
+        :readonly="isDisable"
+        v-model.lazy="myValue"
       />
       <template v-if="isDisable">
         <IconM type="edit" :class="$style.icon" />
       </template>
     </div>
     <template v-if="!isDisable">
-      <MiniButton @click="onClickCompleteEdit" :class="$style.button">OK</MiniButton>
+      <MiniButton @click="onClickCompleteEdit" :class="$style.button"
+        >OK</MiniButton
+      >
     </template>
   </div>
 </template>
@@ -25,14 +30,14 @@ import { EditInput } from "@/components/atoms/base-input/compose";
 export default {
   mixins: [base],
   name: "ClickToEditableInput",
-  props:{
-    content:String,
-  },
   data: function() {
     return {
       isDisable: true,
       status: "uneditable"
     };
+  },
+  props: {
+    value: String
   },
   methods: {
     onClickEdit: function(e) {
@@ -43,6 +48,16 @@ export default {
       this.isDisable = true;
       this.status = "uneditable";
       //更新処理
+    }
+  },
+  computed: {
+    myValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
     }
   },
   components: { EditInput, MiniButton, IconM }
@@ -65,20 +80,18 @@ export default {
   cursor: text;
 }
 .button {
-
   @include s($w: 55px, $h: auto);
   @include m(0 0 0 $s8);
 }
 .icon {
   fill: $darkGray;
-  @include s($w:18px,$h:18px);
+  @include s($w: 18px, $h: 18px);
   @include abs($t: 12px, $r: 10px);
 }
 </style>
 
 <style lang="scss" module="$compose">
 .editable {
- 
   .editableInput {
     @include bgc($white);
     @include p($s8);

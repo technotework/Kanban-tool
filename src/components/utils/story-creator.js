@@ -177,8 +177,8 @@ let maps = {
     val: "contenteditable",
     type: boolean
   },
-  disabled: {
-    val: "disabled",
+  readonly: {
+    val: "readonly",
     type: boolean
   },
 };

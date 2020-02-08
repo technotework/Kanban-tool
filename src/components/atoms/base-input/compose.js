@@ -8,12 +8,15 @@ function getMixin(compose, type) {
     components: {
       BaseInput
     },
-    template: `<BaseInput type="${type}" compose="${compose}" v-bind="{placeholder,required,maxlength,name,disabled,content}" @input="onInput" />`,
+    template: `<BaseInput type="${type}" compose="${compose}" v-bind="{placeholder,required,maxlength,name,readonly}" v-model.lazy="myValue"  />`,
     props: {
       ...BaseInput.props
     },
     methods: {
       ...BaseInput.methods
+    },
+    computed: {
+      ...BaseInput.computed
     },
   }
   return mixin;

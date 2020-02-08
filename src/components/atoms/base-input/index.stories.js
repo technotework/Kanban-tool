@@ -3,6 +3,17 @@ import {
     createStory,
     tagTemp
 } from "@/components/utils/story-creator"
+import {
+    action,
+    withKnobs,
+    text,
+    color,
+    number,
+    array,
+    object,
+    boolean,
+    withInfo
+} from "@/components/utils/story-export"
 import BaseInput from "./index.vue";
 import {
     SystemInput,
@@ -16,97 +27,161 @@ export default createDefStory("atoms/BaseInput", BaseInput, description);
 
 //---------------------
 //Basic
-let setting = {
-    name: "BaseInput",
-    compos: {
-        BaseInput: BaseInput
+
+export const Basic = () => ({
+    components: {
+        BaseInput
+    },
+    data: function () {
+        return {
+            myValue: "",
+        }
     },
     props: {
-        placeholder: "inputText",
-        required: false,
-        maxlength: "100",
-        name: "input",
-        compose: "normal",
-        type: "text",
-        disabled: false,
-        content:"Text"
+        placeholder: {
+            default: text("placeholder", "inputText")
+        },
+        required: {
+            default: boolean("required", false)
+        },
+        maxlength: {
+            default: text("maxlength", "100")
+        },
+        name: {
+            default: text("name", "input")
+        },
+        compose: {
+            default: text("compose", "normal")
+        },
+        type: {
+            default: text("type", "text")
+        },
+        readonly: {
+            default: boolean("readonly", false)
+        },
     },
-    action: {
-        event: "input"
-    },
-    template: tagTemp `<BaseInput ${'props'} ${'action'} />`
-};
-
-export const Basic = () => (createStory(setting));
+    template: `<BaseInput v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
+    methods: {}
+});
 
 
 
 //---------------------
 //System
-let settingS = {
-    name: "SystemInput",
-    compos: {
-        SystemInput: SystemInput
+
+export const Input = () => ({
+    components: {
+        SystemInput
+    },
+    data: function () {
+        return {
+            myValue: "",
+        }
     },
     props: {
-        placeholder: "テキストを入力",
-        required: false,
-        maxlength: "100",
-        name: "input",
-        disabled: false,
-        content:"Text"
+        placeholder: {
+            default: text("placeholder", "テキストを入力")
+        },
+        required: {
+            default: boolean("required", false)
+        },
+        maxlength: {
+            default: text("maxlength", "100")
+        },
+        name: {
+            default: text("name", "input")
+        },
+        compose: {
+            default: text("compose", "normal")
+        },
+        type: {
+            default: text("type", "text")
+        },
+        readonly: {
+            default: boolean("readonly", false)
+        },
     },
-    action: {
-        event: "input"
-    },
-    template: tagTemp `<SystemInput ${'props'} ${'action'} />`
-};
+    template: `<SystemInput v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
+    methods: {}
+});
 
-export const Input = () => (createStory(settingS));
 
 //---------------------
 //System
-let settingPW = {
-    name: "SystemPassword",
-    compos: {
-        SystemPassword: SystemPassword
+
+
+export const Password = () => ({
+    components: {
+        SystemPassword
+    },
+    data: function () {
+        return {
+            myValue: "",
+        }
     },
     props: {
-        placeholder: "パスワードを入力",
-        required: false,
-        maxlength: "100",
-        name: "input",
-        disabled: false,
-        content:"Text"
+        placeholder: {
+            default: text("placeholder", "パスワードを入力")
+        },
+        required: {
+            default: boolean("required", false)
+        },
+        maxlength: {
+            default: text("maxlength", "100")
+        },
+        name: {
+            default: text("name", "input")
+        },
+        compose: {
+            default: text("compose", "normal")
+        },
+        type: {
+            default: text("type", "password")
+        },
+        readonly: {
+            default: boolean("readonly", false)
+        },
     },
-    action: {
-        event: "input"
-    },
-    template: tagTemp `<SystemPassword ${'props'} ${'action'} />`
-};
-
-export const Password = () => (createStory(settingPW));
+    template: `<SystemPassword v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
+    methods: {}
+});
 
 
 //---------------------
 //Edit
-let settingE = {
-    name: "EditInput",
-    compos: {
-        EditInput: EditInput
+
+export const Edit = () => ({
+    components: {
+        EditInput
+    },
+    data: function () {
+        return {
+            myValue: "",
+        }
     },
     props: {
-        placeholder: "InputText",
-        required: false,
-        maxlength: "100",
-        name: "input",
-        disabled: true,
-        content:"Text"
+        placeholder: {
+            default: text("placeholder", "TextInput")
+        },
+        required: {
+            default: boolean("required", false)
+        },
+        maxlength: {
+            default: text("maxlength", "100")
+        },
+        name: {
+            default: text("name", "input")
+        },
+        compose: {
+            default: text("compose", "normal")
+        },
+        type: {
+            default: text("type", "text")
+        },
+        readonly: {
+            default: boolean("readonly", false)
+        },
     },
-    action: {
-        event: "input"
-    },
-    template: tagTemp `<EditInput ${'props'} ${'action'} />`
-};
-
-export const Edit = () => (createStory(settingE));
+    template: `<EditInput v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
+    methods: {}
+});
