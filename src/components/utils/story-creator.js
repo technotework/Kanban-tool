@@ -180,7 +180,7 @@ let maps = {
   readonly: {
     val: "readonly",
     type: boolean
-  },
+  }
 };
 
 /**======================================

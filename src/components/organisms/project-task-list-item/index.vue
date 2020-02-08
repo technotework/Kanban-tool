@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.item" :id="id">
     <span :class="$style.title" :title="title">{{ title }}</span>
-    <TextButton :class="$style.button" @click="onClick(id, $event)"
-      >編集</TextButton
-    >
+    <TextButton :class="$style.button" @click="onClick(id, $event)">
+      編集
+    </TextButton>
   </div>
 </template>
 

@@ -4,15 +4,8 @@ import {
     tagTemp
 } from "@/components/utils/story-creator"
 import {
-    action,
-    withKnobs,
     text,
-    color,
-    number,
-    array,
-    object,
     boolean,
-    withInfo
 } from "@/components/utils/story-export"
 import BaseInput from "./index.vue";
 import {
