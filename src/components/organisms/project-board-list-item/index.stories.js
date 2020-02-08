@@ -38,34 +38,6 @@ export const Basic = () => ({
         {
           id: "t3",
           title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t4",
-          title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t5",
-          title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t6",
-          title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t7",
-          title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t8",
-          title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t9",
-          title: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t10",
-          title: "todo:あいうえおあいうえお"
         }
       ])
     }

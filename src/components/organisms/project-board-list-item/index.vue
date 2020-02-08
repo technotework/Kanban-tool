@@ -46,8 +46,10 @@ export default {
 <style lang="scss" module>
 .board {
   position: relative;
-  @include spr($w: 270px, $h: auto, $p: $s16, $r: $round);
+  @include spr($w: 270px, $h: auto, $p: $s16 0, $r: $round);
   @include bgc($lightGray);
+  display: flex;
+  flex-direction: column;
 }
 .input {
   @include m(24px 0 18px 0);
@@ -55,5 +57,6 @@ export default {
 
 .contextMenu {
   @include abs($t: $s8, $r: $s18);
+  flex: 1;
 }
 </style>

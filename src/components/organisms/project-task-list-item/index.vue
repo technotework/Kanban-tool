@@ -1,7 +1,9 @@
 <template>
   <div :class="$style.item" :id="id">
-    <span :class="$style.title" :title="title">{{title}}</span>
-    <TextButton :class="$style.button" @click="onClick(id,$event)">編集</TextButton>
+    <span :class="$style.title" :title="title">{{ title }}</span>
+    <TextButton :class="$style.button" @click="onClick(id, $event)"
+      >編集</TextButton
+    >
   </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
 <style lang="scss" module>
 .item {
   position: relative;
-  @include spr($w: 100%, $h: 100px, $p: $s16, $r: 0);
+  @include spr($w: 100%, $mh: 100px, $p: $s16 $s16 3.4rem $s16, $r: 0);
   @include bgc($white);
 }
 .title {
@@ -35,10 +37,8 @@ export default {
   @include abs($b: 0, $r: $s8);
   text-decoration: underline;
   @include c($primary);
-  :focus{
+  :focus {
     @include c($phover);
   }
 }
 </style>
-
-

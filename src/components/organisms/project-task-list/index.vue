@@ -28,14 +28,12 @@ export default {
 </script>
 <style lang="scss" module>
 .list {
-  @include s($w: 100%, $h: 100%);
-  
-  @include flex;
-  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  @include p(0 16px);
 }
 .listItem {
-  @include m(0 0 $s16 0);
+  @include m(0 0 16px 0);
+  @include s($mxw: 238px);
 }
 </style>
-
-
