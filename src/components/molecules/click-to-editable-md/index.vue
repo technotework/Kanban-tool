@@ -92,14 +92,14 @@ export default {
 <style lang="scss" module>
 .wrapper {
   position: relative;
-  @include p(0 0 3.5rem 0);
+  @include p(0 0 3.2rem 0);
 }
 .md {
-  height: 300px;
+  @include s($mh: 100px);
 }
 .buttons {
   @include flex;
-  @include abs($b: 0, $r: 0);
+  @include abs($b: 0, $r: $s8);
 }
 .button {
   display: block;

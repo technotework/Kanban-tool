@@ -1,32 +1,36 @@
 <template>
-  <div :class="$style.item" :id="id">
-    <span :class="$style.title" :title="title">{{ title }}</span>
-    <TextButton :class="$style.button" @click="onClick(id, $event)">
-      編集
-    </TextButton>
+  <div :class="$style.item">
+    <PostedMD v-model.lazy="myValue" />
   </div>
 </template>
 
 <script>
-import { TextButton } from "@/components/atoms/base-no-link-button/compose";
+import { PostedMD } from "@/components/molecules/click-to-editable-md/compose";
 export default {
   name: "ProjectTaskListItem",
   props: {
-    id: String,
-    title: String
+    value: String
   },
   methods: {
-    onClick: function(id, e) {
-      this.$emit("click-task-edit", { id: id, e: e });
+    onClick: function() {}
+  },
+  computed: {
+    myValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
     }
   },
-  components: { TextButton }
+  components: { PostedMD }
 };
 </script>
 <style lang="scss" module>
 .item {
   position: relative;
-  @include spr($w: 100%, $mh: 100px, $p: $s16 $s16 3.4rem $s16, $r: 0);
+  @include spr($w: 100%, $mh: 100px, $p: 0, $r: 0);
   @include bgc($white);
 }
 .title {

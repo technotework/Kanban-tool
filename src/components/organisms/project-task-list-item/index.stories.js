@@ -11,19 +11,16 @@ export default createDefStory("organisms/ProjectTaskListItem", ProjectTaskListIt
 
 //---------------------
 //Basic
-let setting = {
-    name: "ProjectTaskListItem",
-    compos: {
-        ProjectTaskListItem: ProjectTaskListItem
-    },
-    props: {
-        id: "t1",
-        title: "view実装：ProjectItem",
-    },
-    action: {
-        event: "click-task-edit"
-    },
-    template: tagTemp `<ProjectTaskListItem ${'props'} ${'action'} />`
-};
 
-export const Basic = () => (createStory(setting));
+
+export const Basic = () => ({
+    components: {
+        ProjectTaskListItem
+    },
+    data: function () {
+        return {
+            myValue: "content",
+        }
+    },
+    template: `<ProjectTaskListItem v-model.lazy="myValue" />`
+});

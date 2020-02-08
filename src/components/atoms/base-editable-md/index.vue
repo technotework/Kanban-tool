@@ -48,14 +48,16 @@ export default {
 .md {
   width: 100%;
   @include p($s16);
-  @include bdc($gray);
+  line-height: 2.4rem;
+  @include bdc($white);
 }
 
 .text {
   width: 100%;
-  @include bdc($gray);
-  @include p($s8);
-  @include text($f16);
+  @include bdc($white);
+  @include p($s16);
+  font-size: $f16;
+  line-height: 2.4rem;
   resize: none;
 }
 </style>

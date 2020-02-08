@@ -2,8 +2,7 @@
   <ul :class="$style.list">
     <li v-for="item in items" :key="item.id">
       <ProjectTaskListItem
-        :id="item.id"
-        :title="item.title"
+        v-model.lazy="item.title"
         :class="$style.listItem"
         @click-task-edit="onClick"
       />
@@ -16,7 +15,8 @@ import ProjectTaskListItem from "@/components/organisms/project-task-list-item/"
 export default {
   name: "ProjectTaskList",
   props: {
-    items: Array
+    items: Array,
+    value: String
   },
   methods: {
     onClick: function(...args) {

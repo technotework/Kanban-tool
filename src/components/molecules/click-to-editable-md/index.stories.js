@@ -14,7 +14,7 @@ import {
   SubmitMD
 } from "./compose";
 
-let description = 'import ClickToEditableMD from "@/components/molecules/click-to-editable-md/"';
+let description = 'import ClickToEditableMD from "@/components/molecules/click-to-editable-md/"<br>import {PostedMD, SubmitMD} from "@/components/molecules/click-to-editable-md/compose"';
 export default createDefStory("molecules/ClickToEditableMD", ClickToEditableMD, description);
 
 
