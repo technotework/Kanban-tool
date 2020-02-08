@@ -1,6 +1,10 @@
 <template>
-  <div :class="$style.board" :content="content">
-    <ClickToEditableInput v-model.lazy="myValue" :class="$style.input" />
+  <div :class="$style.board">
+    <ClickToEditableInput
+      v-model.lazy="name"
+      :class="$style.input"
+      role="title"
+    />
     <ContextMenu
       :class="$style.contextMenu"
       @context-menu-click="onMenuClick"
@@ -19,7 +23,6 @@ import ProjectTaskList from "@/components/organisms/project-task-list/";
 export default {
   name: "ProjectBoardListItem",
   props: {
-    content: String,
     id: String,
     tasks: Array,
     value: String
@@ -34,7 +37,16 @@ export default {
       ]
     };
   },
-  computed: { ...ClickToEditableInput.computed },
+  computed: {
+    name: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
+    }
+  },
   methods: {
     onMenuClick: function(value) {
       console.log(value);
@@ -52,7 +64,7 @@ export default {
   flex-direction: column;
 }
 .input {
-  @include m(24px 0 18px 0);
+  @include m(2.4rem 1.6rem 1.8rem 1.6rem);
 }
 
 .contextMenu {

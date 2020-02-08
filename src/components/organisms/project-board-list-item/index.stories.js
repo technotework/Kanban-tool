@@ -20,9 +20,6 @@ export const Basic = () => ({
     ProjectBoardListItem
   },
   props: {
-    content: {
-      default: text("content", "Title")
-    },
     id: {
       default: text("id", "board1")
     },

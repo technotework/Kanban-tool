@@ -3,6 +3,10 @@ import {
   createStory,
   tagTemp
 } from "@/components/utils/story-creator";
+
+import {
+  text
+} from "@/components/utils/story-export"
 import ClickToEditableInput from "./index.vue";
 
 let description = 'import ClickToEditableInput from "@/components/molecules/click-to-editable-input/"';
@@ -21,7 +25,10 @@ export const Basic = () => ({
       myValue: "",
     }
   },
-  props: {},
-  template: `<ClickToEditableInput v-model.lazy="myValue" />`,
-  methods: {}
+  props: {
+    role: {
+      default: text("role", "text")
+    },
+  },
+  template: `<ClickToEditableInput :role="role" v-model.lazy="myValue" />`
 });

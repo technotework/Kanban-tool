@@ -2,7 +2,7 @@
   <div :class="$style.wrapper">
     <div
       @click="onClickEdit"
-      :class="[$style.editableInputContainer, $compose[status]]"
+      :class="[$style.editableInputContainer, $compose[status], $role[role]]"
     >
       <EditInput
         :class="$style.editableInput"
@@ -37,7 +37,8 @@ export default {
     };
   },
   props: {
-    value: String
+    value: String,
+    role: String
   },
   methods: {
     onClickEdit: function(e) {
@@ -101,6 +102,20 @@ export default {
   flex-grow: 1;
   .editableInput {
     @include bgc($transparent);
+  }
+}
+</style>
+
+<style lang="scss" module="$role">
+.title {
+  .editableInput {
+    font-size: $f18;
+    font-weight: bold;
+  }
+}
+.text {
+  .editableInput {
+    font-size: $f16;
   }
 }
 </style>
