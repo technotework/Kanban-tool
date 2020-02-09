@@ -8,17 +8,21 @@
       compose="bottom"
     />
     <IconedButton @click="onAddClick" type="add" :class="$style.add" />
-    <template v-if="showPost">
-      <transition>
-        <div :class="$style.postForm">
-          <PostForm
-            v-model="postContent"
-            @form-cancel="onFormCancelClick"
-            @form-add="onFormAddClick"
-          />
-        </div>
-      </transition>
-    </template>
+
+    <div
+      :class="[
+        $style.postForm,
+        { [$style.open]: showPost },
+        { [$style.close]: !showPost }
+      ]"
+    >
+      <PostForm
+        v-model="postContent"
+        @form-cancel="onFormCancelClick"
+        @form-add="onFormAddClick"
+      />
+    </div>
+
     <ProjectTaskList :task-list="taskList" />
   </div>
 </template>
@@ -117,9 +121,20 @@ export default {
   @include m(2.4rem 1.6rem 1.8rem 1.6rem);
 }
 .postForm {
+  overflow: hidden;
   @include m(0 1.6rem 0.4rem 1.6rem);
-  height: 137px;
+  height: 0px;
+  @include tran($ms300);
 }
+
+.open {
+  height: 143px;
+}
+
+.close {
+  height: 0px;
+}
+
 .contextMenu {
   @include abs($t: $s8, $r: $s18);
   flex: 1;

@@ -302,3 +302,19 @@ $index_l: 70000;
   left: calc(50% - #{$w} / 2);
   z-index: $index;
 }
+
+/*=================================
+Animation Vars
+=================================*/
+
+$ms100:100ms;
+$ms200:200ms;
+$ms300:300ms;
+$ms400:400ms;
+$ms500:500ms;
+$sc1:1000ms;
+
+@mixin tran($ms) {
+
+  transition: all $ms 0s ease;
+}

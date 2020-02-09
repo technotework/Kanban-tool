@@ -60,7 +60,7 @@ export default {
 }
 .buttons {
   @include flex;
-  @include abs($b: 0, $r: $s8);
+  @include abs($b: 5px, $r: 0);
 }
 .button {
   display: block;
