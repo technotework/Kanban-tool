@@ -15,9 +15,6 @@ let description = 'import PostForm from "@/components/molecules/post-form/"';
 export default createDefStory("molecules/PostForm", PostForm, description);
 
 
-//---------------------
-//Basic
-
 export const Basic = () => ({
   components: {
     PostForm
@@ -28,5 +25,9 @@ export const Basic = () => ({
     }
   },
   props: {},
-  template: `<PostForm  v-model.lazy="myValue" />`
+  template: `<PostForm v-model.lazy="myValue" @form-add="add" @form-cancel="cancel" />`,
+  methods: {
+    add: action('form-add'),
+    cancel: action('form-cancel')
+  }
 });

@@ -41,9 +41,9 @@ export const Basic = () => ({
   },
   data: () => {
     return {
-      myValue: "",
+      myValue: "Title",
     }
   },
-  template: `<ProjectBoardListItem v-model.lazy="title" v-bind="{taskList}" />`,
+  template: `<ProjectBoardListItem v-model.lazy="myValue" v-bind="{taskList}" />`,
   methods: {}
 });

@@ -2,10 +2,10 @@
   <div :class="$style.wrapper">
     <BaseTextArea v-model.lazy="content" :class="$style.text" />
     <div :class="$style.buttons">
-      <TextButton :class="$style.button" @click="onCancelSubmitMD">
+      <TextButton :class="$style.button" @click="onCancelSubmit">
         キャンセル
       </TextButton>
-      <TextButton :class="$style.button" @click="onSubmitMD">
+      <TextButton :class="$style.button" @click="onSubmit">
         送信
       </TextButton>
     </div>
@@ -24,12 +24,12 @@ export default {
     value: String
   },
   methods: {
-    onSubmitMD: function(e) {
-      this.$emit("submit", { value: this.myValue, e: e });
+    onSubmit: function(e) {
+      this.$emit("form-add", { value: this.content, e: e });
     },
-    onCancelSubmitMD: function(e) {
+    onCancelSubmit: function(e) {
       this.reset();
-      this.$emit("cancel-submit", e);
+      this.$emit("form-cancel", e);
     },
     reset: function() {
       this.content = "";
@@ -55,6 +55,8 @@ export default {
 }
 .text {
   @include s($mh: 100px);
+  @include r($round);
+  @include bdc($primary);
 }
 .buttons {
   @include flex;

@@ -23,9 +23,14 @@ export default {
 </script>
 <style lang="scss" module>
 .button {
-  height: 2.5rem;
+  height: 1.7rem;
+  @include p(0);
 }
 .icon {
+  display: block;
   fill: $white;
+  @include s($w: 12px, $h: auto);
+  @include p(2px 0 0 0);
+  @include m(0 auto);
 }
 </style>

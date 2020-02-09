@@ -1,7 +1,5 @@
 <template>
-  <div :class="$style.wrapper">
-    <textarea :class="$style.text" v-model.lazy="content"></textarea>
-  </div>
+  <textarea :class="$style.text" v-model.lazy="content"></textarea>
 </template>
 
 <script>
@@ -26,9 +24,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.wrapper {
-  display: flex;
-}
 .text {
   width: 100%;
   @include bdc($white);
