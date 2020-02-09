@@ -11,6 +11,9 @@
       v-bind="{ menuItems, id }"
       compose="bottom"
     />
+    <template v-if="showPost">
+      <PostForm v-model="postContent" :class="$style.postForm" />
+    </template>
     <ProjectTaskList :task-list="taskList" />
   </div>
 </template>
@@ -39,6 +42,7 @@ boardList:[
   {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
 ]
 */
+import PostForm from "@/components/molecules/post-form/";
 import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
 import ContextMenu from "@/components/molecules/context-menu/";
 import ProjectTaskList from "@/components/organisms/boards/project-task-list/";
@@ -57,7 +61,9 @@ export default {
           value: "ボードを削除",
           name: "delete"
         }
-      ]
+      ],
+      postContent: "",
+      showPost: true
     };
   },
   computed: {
@@ -75,7 +81,7 @@ export default {
       console.log(value);
     }
   },
-  components: { ClickToEditableInput, ContextMenu, ProjectTaskList }
+  components: { ClickToEditableInput, ContextMenu, ProjectTaskList, PostForm }
 };
 </script>
 <style lang="scss" module>
@@ -89,7 +95,9 @@ export default {
 .input {
   @include m(2.4rem 1.6rem 1.8rem 1.6rem);
 }
-
+.postForm {
+  @include m(0 1.6rem 0.4rem 1.6rem);
+}
 .contextMenu {
   @include abs($t: $s8, $r: $s18);
   flex: 1;

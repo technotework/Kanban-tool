@@ -2,13 +2,13 @@ import Vue from "vue"
 import ClickToEditableMD from "./index.vue"
 import base from "@/components/utils/base-mixin";
 
-function getMixin() {
+function getMixin(initial) {
 
   let mixin = {
     components: {
       ClickToEditableMD
     },
-    template: `<ClickToEditableMD v-model.lazy="myValue" />`,
+    template: `<ClickToEditableMD :isinitial="${initial}" v-model.lazy="myValue" ${initial ? `@cancel-submit-md="onCancelSubmitMD" @submit-md="onSubmitMD"`:``} />`,
     props: {
       ...ClickToEditableMD.props
     },
@@ -26,8 +26,18 @@ function getMixin() {
 //Posted
 
 const PostedMD = Vue.component("posted-md", {
-  mixins: [base, getMixin()],
+  mixins: [base, getMixin(false, false)],
 });
 export {
   PostedMD
+}
+
+//--------
+//Submit
+
+const SubmitMD = Vue.component("submit-md", {
+  mixins: [base, getMixin(true, false)],
+});
+export {
+  SubmitMD
 }

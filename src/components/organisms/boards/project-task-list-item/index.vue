@@ -56,16 +56,4 @@ export default {
   @include spr($w: 100%, $mh: 100px, $p: 0, $r: 0);
   @include bgc($white);
 }
-.title {
-  @include text($f16);
-}
-.button {
-  @include text($f12);
-  @include abs($b: 0, $r: $s8);
-  text-decoration: underline;
-  @include c($primary);
-  :focus {
-    @include c($phover);
-  }
-}
 </style>

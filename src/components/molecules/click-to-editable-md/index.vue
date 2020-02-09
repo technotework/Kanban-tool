@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.wrapper" :isinitial="isinitial">
+  <div :class="$style.wrapper">
     <BaseEditableMD
       v-model.lazy="myValue"
       :class="$style.md"
@@ -7,28 +7,18 @@
       ref="md"
     />
     <div :class="$style.buttons">
-      <template v-if="isinitial">
-        <TextButton :class="$style.button" @click="onCancelSubmitMD">
-          キャンセル
-        </TextButton>
-        <TextButton :class="$style.button" @click="onSubmitMD">
-          送信
+      <template v-if="!status">
+        <TextButton :class="$style.button" @click="onEditMD">
+          編集
         </TextButton>
       </template>
       <template v-else>
-        <template v-if="!status">
-          <TextButton :class="$style.button" @click="onEditMD">
-            編集
-          </TextButton>
-        </template>
-        <template v-else>
-          <TextButton :class="$style.button" @click="onCancelMD">
-            キャンセル
-          </TextButton>
-          <TextButton :class="$style.button" @click="onSaveMD">
-            保存
-          </TextButton>
-        </template>
+        <TextButton :class="$style.button" @click="onCancelMD">
+          キャンセル
+        </TextButton>
+        <TextButton :class="$style.button" @click="onSaveMD">
+          保存
+        </TextButton>
       </template>
     </div>
   </div>
@@ -43,13 +33,7 @@ export default {
   mixins: [base],
   name: "ClickToEditableMD",
   props: {
-    value: String,
-    isinitial: Boolean
-  },
-  mounted: function() {
-    if (this.isinitial) {
-      this.status = true;
-    }
+    value: String
   },
   data: function() {
     return {
@@ -68,12 +52,6 @@ export default {
     onCancelMD: function() {
       this.myValue = this.temp;
       this.status = false;
-    },
-    onSubmitMD: function(e) {
-      this.$emit("submit-md", { value: this.myValue, e: e });
-    },
-    onCancelSubmitMD: function(e) {
-      this.$emit("cancel-submit-md", e);
     }
   },
   computed: {

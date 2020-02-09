@@ -10,8 +10,7 @@ import {
 } from "@/components/utils/story-export"
 import ClickToEditableMD from "./index.vue";
 import {
-  PostedMD,
-  SubmitMD
+  PostedMD
 } from "./compose";
 
 let description = 'import ClickToEditableMD from "@/components/molecules/click-to-editable-md/"<br>import {PostedMD, SubmitMD} from "@/components/molecules/click-to-editable-md/compose"';
@@ -52,23 +51,4 @@ export const Posted = () => ({
     }
   },
   template: `<PostedMD v-model.lazy="myValue" />`
-});
-
-//---------------------
-//Submit
-
-export const Submit = () => ({
-  components: {
-    SubmitMD
-  },
-  data: function () {
-    return {
-      myValue: "",
-    }
-  },
-  template: `<SubmitMD v-model.lazy="myValue" @cancel-submit-md="cancel" @submit-md="submit" />`,
-  methods: {
-    cancel: action('cancel-submit-md'),
-    submit: action('submit-md')
-  }
 });
