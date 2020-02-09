@@ -118,7 +118,7 @@ export default {
   flex-direction: column;
 }
 .input {
-  @include m(2.4rem 1.6rem 1.8rem 1.6rem);
+  @include m(2.4rem 1.6rem 1.2rem 1.6rem);
 }
 .postForm {
   overflow: hidden;
@@ -136,11 +136,11 @@ export default {
 }
 
 .contextMenu {
-  @include abs($t: $s8, $r: $s18);
+  @include abs($t: $s12, $r: 2.2rem);
   flex: 1;
 }
 .add {
   width: 77px;
-  @include abs($t: 11px, $l: 14px);
+  @include abs($t: 12px, $l: 19px);
 }
 </style>

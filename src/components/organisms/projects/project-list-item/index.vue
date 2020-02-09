@@ -2,12 +2,16 @@
   <div :class="$style.projectListItem" :name="name">
     <div :class="$style.thumb">
       <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
-      <ContextMenu :class="$style.contextMenu" @context-menu-click="onMenuClick" v-bind={items,id} compose="top" />
+      <ContextMenu
+        :class="$style.contextMenu"
+        @context-menu-click="onMenuClick"
+        v-bind="{ menuItems, id }"
+        compose="top"
+      />
     </div>
-    <span :class="$style.projectName">{{name}}</span>
+    <span :class="$style.projectName">{{ name }}</span>
     <br />
     <DateTimeText :date="date" :class="$style.date" />
-
   </div>
 </template>
 
@@ -19,12 +23,12 @@ export default {
   name: "ProjectListItem",
   props: {
     id: String,
-    name:String,
+    name: String,
     date: String
   },
   data: function() {
     return {
-      items: [
+      menuItems: [
         {
           value: "編集",
           name: "edit"
@@ -65,7 +69,7 @@ export default {
     @include p(12px 0 0 0);
   }
   .contextMenu {
-    @include abs($b: $s4, $r: $s16);
+    @include abs($b: 0, $r: $s16);
   }
 }
 
@@ -77,5 +81,3 @@ export default {
   content: "Update:";
 }
 </style>
-
-

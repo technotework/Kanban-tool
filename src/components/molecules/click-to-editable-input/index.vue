@@ -87,7 +87,7 @@ export default {
 .icon {
   fill: $darkGray;
   @include s($w: 18px, $h: 18px);
-  @include abs($t: 12px, $r: 10px);
+  @include abs($t: 12px, $r: 4px);
 }
 </style>
 

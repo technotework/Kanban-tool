@@ -1,7 +1,7 @@
 <template>
   <div @click.stop="onMenuTriggerClick" :class="$style.wrapper">
     <TransparentButton>
-      <BaseIcon compose="normal" type="context" :class="$style.contextMenu" />
+      <BaseIcon compose="m" type="context" :class="$style.contextMenu" />
     </TransparentButton>
     <template v-if="showContext">
       <ContextMenuList
@@ -64,13 +64,12 @@ export default {
 </script>
 <style lang="scss" module>
 .wrapper {
-  position: relative;
 }
 .contextMenu {
   fill: $darkGray;
   display: block;
-  width: 30px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   &:hover {
     fill: $gray;
   }
