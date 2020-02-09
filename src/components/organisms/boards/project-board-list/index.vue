@@ -38,6 +38,7 @@ boardList:[
   {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
 ]
 */
+import draggable from "vuedraggable";
 import ProjectBoardListItem from "@/components/organisms/boards/project-board-list-item/";
 export default {
   name: "ProjectBoardList",

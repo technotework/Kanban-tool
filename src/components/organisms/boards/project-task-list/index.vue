@@ -1,9 +1,9 @@
 <template>
-  <ul :class="$style.list">
+  <draggable :list="taskList" :class="$style.list" tag="ul" group="tasks">
     <li v-for="task in taskList" :key="task.id">
       <ProjectTaskListItem v-model.lazy="task.data" :class="$style.listItem" />
     </li>
-  </ul>
+  </draggable>
 </template>
 
 <script>
@@ -30,6 +30,7 @@ boardList:[
   {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
 ]
 */
+import draggable from "vuedraggable";
 import ProjectTaskListItem from "@/components/organisms/boards/project-task-list-item/";
 export default {
   name: "ProjectTaskList",
@@ -37,7 +38,7 @@ export default {
     value: String,
     taskList: Array
   },
-  components: { ProjectTaskListItem }
+  components: { ProjectTaskListItem, draggable }
 };
 </script>
 <style lang="scss" module>

@@ -1,13 +1,14 @@
 <template>
-  <ul :items="items">
+  <draggable tag="ul" :list="items">
     <li v-for="item in items" :key="item.id">
       <span>{{ item.content }}</span>
       <SB3 :items="item.data" />
     </li>
-  </ul>
+  </draggable>
 </template>
 
 <script>
+import draggable from "vuedraggable";
 import SB3 from "./Sandbox3";
 export default {
   name: "Sandbox4",
@@ -17,7 +18,8 @@ export default {
   },
   computed: {},
   components: {
-    SB3
+    SB3,
+    draggable
   }
 };
 </script>
