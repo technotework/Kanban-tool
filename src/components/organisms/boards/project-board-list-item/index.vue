@@ -1,35 +1,58 @@
 <template>
   <div :class="$style.board">
     <ClickToEditableInput
-      v-model.lazy="name"
+      v-model.lazy="title"
       :class="$style.input"
       role="title"
     />
     <ContextMenu
       :class="$style.contextMenu"
       @context-menu-click="onMenuClick"
-      v-bind="{ items, id }"
+      v-bind="{ menuItems, id }"
       compose="bottom"
     />
-    <ProjectTaskList :items="tasks" />
+    <ProjectTaskList :task-list="taskList" />
   </div>
 </template>
 
 <script>
+/*
+[Components]
+project-board-list
+↓
+(propsでboardList)
+[here!] project-board-list-item
+(v-modelでtitle)
+↓
+(propsでtaskList)
+project-task-list(taskList)
+↓
+(v-modelでtaskData)
+project-task-list-item(taskData)
+↓
+(v-modelでcontent)
+click-to-editable-md
+
+[DATA] v-model
+boardList:[
+  {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
+  {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
+]
+*/
 import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
 import ContextMenu from "@/components/molecules/context-menu/";
-import ProjectTaskList from "@/components/organisms/project-task-list/";
+import ProjectTaskList from "@/components/organisms/boards/project-task-list/";
 
 export default {
   name: "ProjectBoardListItem",
   props: {
-    id: String,
-    tasks: Array,
-    value: String
+    value: String,
+    taskList: Array,
+    id: String
   },
   data: function() {
     return {
-      items: [
+      menuItems: [
         {
           value: "ボードを削除",
           name: "delete"
@@ -38,7 +61,7 @@ export default {
     };
   },
   computed: {
-    name: {
+    title: {
       get() {
         return this.value;
       },

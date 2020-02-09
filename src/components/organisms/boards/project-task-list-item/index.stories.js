@@ -6,12 +6,11 @@ import {
 import ProjectTaskListItem from "./index.vue";
 
 
-let description = 'import ProjectTaskListItem from "@/components/organisms/project-task-list-item/"'
-export default createDefStory("organisms/ProjectTaskListItem", ProjectTaskListItem, description);
+let description = 'import ProjectTaskListItem from "@/components/organisms/boards/project-task-list-item/"'
+export default createDefStory("organisms/boards/ProjectTaskListItem", ProjectTaskListItem, description);
 
 //---------------------
 //Basic
-
 
 export const Basic = () => ({
     components: {
@@ -19,8 +18,8 @@ export const Basic = () => ({
     },
     data: function () {
         return {
-            myValue: "content",
+            taskContent: "content",
         }
     },
-    template: `<ProjectTaskListItem v-model.lazy="myValue" />`
+    template: `<ProjectTaskListItem v-model.lazy="taskContent" />`
 });

@@ -1,16 +1,13 @@
 import {
-  text,
   object,
 } from "@/components/utils/story-export"
 import {
   createDefStory,
-  createStory,
-  tagTemp
 } from "@/components/utils/story-creator";
 import ProjectBoardList from "./index.vue";
 
-let description = 'import ProjectBoardList from "@/components/organisms/project-board-list/"';
-export default createDefStory("organisms/ProjectBoardList", ProjectBoardList, description);
+let description = 'import ProjectBoardList from "@/components/organisms/boards/project-board-list/"';
+export default createDefStory("organisms/boards/ProjectBoardList", ProjectBoardList, description);
 
 
 //---------------------
@@ -20,57 +17,57 @@ export const Basic = () => ({
     ProjectBoardList
   },
   props: {
-    items: {
-      default: object("items", [
+    boardList: {
+      default: object("boardList", [
 
         {
           id: "b1",
-          name: "backlog",
-          tasks: [{
+          title: "backlog",
+          taskList: [{
               id: "t1",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             },
             {
               id: "t2",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             },
             {
               id: "t3",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             }
           ]
         },
         {
           id: "b2",
-          name: "todo",
-          tasks: [{
+          title: "todo",
+          taskList: [{
               id: "t1",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             },
             {
               id: "t2",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             },
             {
               id: "t3",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             }
           ]
         },
         {
           id: "b3",
-          name: "debug",
-          tasks: [{
+          title: "debug",
+          taskList: [{
               id: "t1",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             },
             {
               id: "t2",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             },
             {
               id: "t3",
-              title: "todo:あいうえおあいうえお"
+              data: "todo:あいうえおあいうえお"
             }
           ]
         },
@@ -83,6 +80,6 @@ export const Basic = () => ({
       myValue: "",
     }
   },
-  template: `<ProjectBoardList v-bind="{items}" />`,
+  template: `<ProjectBoardList v-bind="{boardList}" />`,
   methods: {}
 });

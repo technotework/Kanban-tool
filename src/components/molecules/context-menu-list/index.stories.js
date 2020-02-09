@@ -22,8 +22,8 @@ export const Basic = () => ({
     },
     props: {
         id: "menu1",
-        items: {
-            default: object("items", [{
+        menuItems: {
+            default: object("menuItems", [{
                     value: "編集",
                     name: "edit"
                 },
@@ -38,7 +38,7 @@ export const Basic = () => ({
             ])
         }
     },
-    template: `<ContextMenuList v-bind={id,items} @context-menu-click="action" @close="close" />`,
+    template: `<ContextMenuList v-bind={id,menuItems} @context-menu-click="action" @close="close" />`,
     methods: {
         action: action('context-menu-click'),
         close: action('close'),

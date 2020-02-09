@@ -1,7 +1,7 @@
 <template>
-  <BaseModelessContainer :id="id" :items="items" :class="$style.menu">
+  <BaseModelessContainer :id="id" :items="menuItems" :class="$style.menu">
     <ul>
-      <li v-for="item in items" :key="item.name" :class="$style.menuItem">
+      <li v-for="item in menuItems" :key="item.name" :class="$style.menuItem">
         <BaseModelessItem
           :value="item.value"
           :name="item.name"
@@ -32,7 +32,7 @@ export default {
   },
   props: {
     id: String,
-    items: { type: Array }
+    menuItems: { type: Array }
   },
   components: {
     BaseModelessContainer,

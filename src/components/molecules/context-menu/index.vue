@@ -5,7 +5,7 @@
     </TransparentButton>
     <template v-if="showContext">
       <ContextMenuList
-        v-bind="{ id, items }"
+        v-bind="{ id, menuItems }"
         ref="menuElement"
         :class="[$style.contextMenuBody, $compose[compose]]"
         @context-menu-click="onMenuItemClick"
@@ -27,7 +27,7 @@ export default {
   name: "ContextMenu",
   props: {
     id: String,
-    items: { type: Array }
+    menuItems: { type: Array }
   },
   data: function() {
     return {

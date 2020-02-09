@@ -1,10 +1,33 @@
 <template>
   <div :class="$style.item">
-    <PostedMD v-model.lazy="myValue" />
+    <PostedMD v-model.lazy="taskData" />
   </div>
 </template>
 
 <script>
+/*
+[Components]
+project-board-list
+↓
+(propsでboardList)
+project-board-list-item
+(v-modelでtitle)
+↓
+(propsでtaskList)
+project-task-list(taskList)
+↓
+(v-modelでtaskData)
+[here!] project-task-list-item(taskData)
+↓
+(v-modelでcontent)
+click-to-editable-md
+
+[DATA] v-model
+boardList:[
+  {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
+  {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
+]
+*/
 import { PostedMD } from "@/components/molecules/click-to-editable-md/compose";
 export default {
   name: "ProjectTaskListItem",
@@ -15,7 +38,7 @@ export default {
     onClick: function() {}
   },
   computed: {
-    myValue: {
+    taskData: {
       get() {
         return this.value;
       },

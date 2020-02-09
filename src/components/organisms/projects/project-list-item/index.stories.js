@@ -8,8 +8,8 @@ import {
 } from "@/components/utils/story-export"
 import ProjectListItem from "./index.vue";
 
-let description = 'import ProjectListItem from "@/components/organisms/project-list-item/"';
-export default createDefStory("organisms/ProjectListItem", ProjectListItem, description);
+let description = 'import ProjectListItem from "@/components/organisms/projects/project-list-item/"';
+export default createDefStory("organisms/projects/ProjectListItem", ProjectListItem, description);
 
 let setting = {
     name: "ProjectListItem",
@@ -19,7 +19,7 @@ let setting = {
     props: {
         id: "p1",
         name: "myProjectName",
-        date: "1580964954", 
+        date: "1580964954",
     },
     template: tagTemp `<ProjectListItem ${"props"} ${"ac¡tion"} />`
 };

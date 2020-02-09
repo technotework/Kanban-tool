@@ -17,8 +17,8 @@ import {
 import ProjectList from "./index.vue";
 
 
-let description = 'import ProjectList from "@/components/organisms/project-list/"'
-export default createDefStory("organisms/ProjectList", ProjectList, description);
+let description = 'import ProjectList from "@/components/organisms/projects/project-list/"'
+export default createDefStory("organisms/projects/ProjectList", ProjectList, description);
 
 
 //---------------------

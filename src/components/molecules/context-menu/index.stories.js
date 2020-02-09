@@ -4,7 +4,17 @@ import {
     tagTemp
 } from "@/components/utils/story-creator"
 
-import { action, withKnobs, text, color, number, array, object, boolean, withInfo } from "@/components/utils/story-export"
+import {
+    action,
+    withKnobs,
+    text,
+    color,
+    number,
+    array,
+    object,
+    boolean,
+    withInfo
+} from "@/components/utils/story-export"
 import ContextMenu from "./index.vue";
 
 
@@ -18,10 +28,14 @@ export const Basic = () => ({
         ContextMenu
     },
     props: {
-        compose:{ default: text("compose", "top") },
-        id:{ default: text("id", "m1") },
-        items: {
-            default: object("items", [{
+        compose: {
+            default: text("compose", "top")
+        },
+        id: {
+            default: text("id", "m1")
+        },
+        menuItems: {
+            default: object("menuItems", [{
                     value: "編集",
                     name: "edit"
                 },
@@ -36,7 +50,7 @@ export const Basic = () => ({
             ])
         }
     },
-    template: `<div style="margin:200px;"><ContextMenu v-bind={id,items,compose} @context-menu-click="action" @close="close" /></div>`,
+    template: `<div style="margin:200px;"><ContextMenu v-bind={id,menuItems,compose} @context-menu-click="action" @close="close" /></div>`,
     methods: {
         action: action('context-menu-click'),
         close: action('close'),

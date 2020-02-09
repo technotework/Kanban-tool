@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ProjectListItem from "@/components/organisms/project-list-item/";
+import ProjectListItem from "@/components/organisms/projects/project-list-item/";
 export default {
   name: "ProjectList",
   props: {
@@ -32,5 +32,3 @@ export default {
   }
 }
 </style>
-
-
