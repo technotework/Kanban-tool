@@ -1,5 +1,10 @@
 <template>
-  <ul :board-list="boardList" :class="$style.list">
+  <draggable
+    :list="boardList"
+    :class="$style.list"
+    tag="ul"
+    v-bind="dragOptions"
+  >
     <li
       v-for="boardItem in boardList"
       :key="boardItem.id"
@@ -11,7 +16,7 @@
         :task-list="boardItem.taskList"
       />
     </li>
-  </ul>
+  </draggable>
 </template>
 
 <script>
@@ -46,7 +51,15 @@ export default {
     value: String,
     boardList: Array
   },
-  components: { ProjectBoardListItem }
+  computed: {
+    dragOptions() {
+      return {
+        animation: 200,
+        ghostClass: this.$style.ghost
+      };
+    }
+  },
+  components: { ProjectBoardListItem, draggable }
 };
 </script>
 <style lang="scss" module>
@@ -59,5 +72,10 @@ export default {
 }
 .listItem {
   @include m(0 $s32 0 0);
+  cursor: move;
+}
+.ghost {
+  opacity: 0.3;
+  cursor: move;
 }
 </style>

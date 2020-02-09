@@ -1,5 +1,10 @@
 <template>
-  <draggable :list="taskList" :class="$style.list" tag="ul" group="tasks">
+  <draggable
+    :list="taskList"
+    :class="$style.list"
+    tag="ul"
+    v-bind="dragOptions"
+  >
     <li v-for="task in taskList" :key="task.id">
       <ProjectTaskListItem v-model.lazy="task.data" :class="$style.listItem" />
     </li>
@@ -38,6 +43,15 @@ export default {
     value: String,
     taskList: Array
   },
+  computed: {
+    dragOptions() {
+      return {
+        animation: 200,
+        group: "tasks",
+        ghostClass: this.$style.ghost
+      };
+    }
+  },
   components: { ProjectTaskListItem, draggable }
 };
 </script>
@@ -45,10 +59,16 @@ export default {
 .list {
   width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   @include p(0 16px);
 }
 .listItem {
   @include m(0 0 16px 0);
   @include s($mxw: 238px);
+  cursor: move;
+}
+.ghost {
+  opacity: 0.3;
+  cursor: move;
 }
 </style>
