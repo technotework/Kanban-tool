@@ -1,22 +1,32 @@
 <template>
   <div :class="$style.wrapper">
-    <ul :class="$style.list">
+    <draggable :list="items" :class="$style.list" tag="ul" v-bind="dragOptions">
       <li v-for="item in items" :key="item.id" :class="$style.listItem">
         <ProjectListItem :id="item.id" :name="item.name" :date="item.date" />
       </li>
-    </ul>
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from "vuedraggable";
 import ProjectListItem from "@/components/organisms/projects/project-list-item/";
 export default {
   name: "ProjectList",
   props: {
     items: Array
   },
+  computed: {
+    dragOptions() {
+      return {
+        animation: 200,
+        ghostClass: this.$style.ghost
+      };
+    }
+  },
   components: {
-    ProjectListItem
+    ProjectListItem,
+    draggable
   }
 };
 </script>
@@ -29,6 +39,11 @@ export default {
 
   .listItem {
     @include m(0 $s18 4rem $s18);
+    cursor: move;
   }
+}
+.ghost {
+  opacity: 0.3;
+  cursor: move;
 }
 </style>

@@ -41,15 +41,15 @@ export const Basic = () => ({
           id: "b2",
           title: "todo",
           taskList: [{
-              id: "t1",
+              id: "t4",
               data: "todo:あいうえおあいうえお"
             },
             {
-              id: "t2",
+              id: "t5",
               data: "todo:あいうえおあいうえお"
             },
             {
-              id: "t3",
+              id: "t6",
               data: "todo:あいうえおあいうえお"
             }
           ]
@@ -58,15 +58,15 @@ export const Basic = () => ({
           id: "b3",
           title: "debug",
           taskList: [{
-              id: "t1",
+              id: "t7",
               data: "todo:あいうえおあいうえお"
             },
             {
-              id: "t2",
+              id: "t8",
               data: "todo:あいうえおあいうえお"
             },
             {
-              id: "t3",
+              id: "t9",
               data: "todo:あいうえおあいうえお"
             }
           ]
