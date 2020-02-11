@@ -1,14 +1,22 @@
 <template>
   <div id="app">
     <router-view />
-    <ProjectBoardList :board-list="boardList" />
+    <button @click="onClick" />
+    <button @click="onClick2" />
+    {{name}}
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import ProjectBoardList from "@/components/organisms/boards/project-board-list/";
 export default {
   name: "App",
+  computed: {
+    name: function() {
+      return this.$store.getters.getName;
+    }
+  },
   data: () => {
     return {
       boardList: [
@@ -69,7 +77,15 @@ export default {
       ]
     };
   },
-  methods: {},
-  components: { ProjectBoardList }
+  methods: {
+    ...mapActions(["rename", "nameGet"]),
+    onClick() {
+      this.nameGet();
+    },
+    onClick2() {
+      this.rename("にゃああああ");
+    }
+  },
+  components: {}
 };
 </script>

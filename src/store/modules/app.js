@@ -1,16 +1,28 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
 	strict: true,
+	namespaced: true,
 	state: {
+		user: {},
+		loginStatus: false
 	},
 	mutations: {
+		onAuthStateChanged(state, user) {
+			//ユーザー情報
+			state.user = user;
+		},
+		onUserStatusChanged(state, loginStatus) {
+			//ログイン状態かどうか
+			state.loginStatus = loginStatus;
+		}
 	},
-	actions: {
+	getters: {
+		user(state) {
+			return state.user;
+		},
+		isSignedIn(state) {
+			return state.loginStatus;
+		}
 	},
-	modules: {
-	}
-})
+	actions: {},
+	modules: {}
+}
