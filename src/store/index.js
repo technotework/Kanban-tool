@@ -5,7 +5,7 @@ import app from './modules/app'
 
 Vue.use(Vuex);
 Firebase.init();
-
+let fireStore = Firebase.firebase.firestore;
 let db = Firebase.db();
 
 Vue.config.productionTip = false;
@@ -46,9 +46,21 @@ export default new Vuex.Store({
 					console.log(doc.id, doc.data());
 					let obj = doc.data();
 					let id = doc.id;
-					commit("changeName", obj.cat);
+					commit("changeName", obj.cats[0]);
 					commit("setDocId", id);
 				});
+			});
+		},
+		deleteArray({ commit }) {
+			//配列のアップデート
+			db.collection("animal").doc("pet").update({
+				cats: fireStore.FieldValue.arrayRemove('しまねこ')
+			});
+		},
+		updateArray({ commit }, value) {
+			//配列のアップデート
+			db.collection("animal").doc("pet").update({
+				cats: fireStore.FieldValue.arrayRemove('しまねこ')
 			});
 		}
 	},

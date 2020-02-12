@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <router-view />
-    <button @click="onClick" />
-    <button @click="onClick2" />
+    <button @click="onClick" value="取得" />
+    <button @click="onClickUpdate" value="更新" />
+    <button @click="onClickDelete" value="配列削除" />
+    <button @click="onClickUpdateArray" value="配列更新" />
     {{name}}
   </div>
 </template>
@@ -78,12 +80,18 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["rename", "nameGet"]),
+    ...mapActions(["rename", "nameGet", "deleteArray", "updateArray"]),
     onClick() {
       this.nameGet();
     },
-    onClick2() {
+    onClickUpdate() {
       this.rename("にゃああああ");
+    },
+    onClickDelete() {
+      this.deleteArray();
+    },
+    onClickUpdateArray() {
+      this.updateArray("さばねこ");
     }
   },
   components: {}
