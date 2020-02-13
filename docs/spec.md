@@ -80,21 +80,19 @@
 
 ### 契約単位のコレクション
 
-#### contracts
+#### users
 
-契約と、ぶらさがっているユーザーのメタデータを管理する
+ユーザーのメタデータを管理する
 
-- [C] contracts
-	- [D] contract_id 自動生成されたドキュメントID
-		- [F] contract_type:String (契約ID)
-		- [F] limit_date:TimeStamp (利用期限)
-		- [C] users
-			- [D] ユーザーuuid
-				- [F] nickname:String
-				- [F] role:String (roleID)
-				- [F] team_uuids:Array (所属team_uuiIDの配列)
-				- [F] isDeleted:Boolean (削除フラグ)
-
+- [C] users
+	- [D] ユーザーuuid
+		- [F] nickname:String
+		- [F] role:String (roleID)
+		- [F] team_uuids:Array (所属team_uuiIDの配列)
+		- [F] isDeleted:Boolean (削除フラグ)
+		- [F] contracts:Array
+				- contract_uuid:String (契約uuid)
+				- teams:Array (チームuuidの配列)
 
 #### workspace
 
@@ -102,6 +100,8 @@
 
 - [C] workspace
 	- [D] 契約uuid
+		- [F] contract_type:String 契約種別名
+		- [F] limit:TimeStamp 契約期限
 		- [C] teams
 			- [D] team_id 自動生成されたドキュメントID
 				- [F] label:String (チーム名)
@@ -138,14 +138,32 @@
 
 1. 契約者ユーザーが契約情報を入力する
 1. 契約者ユーザーをアカウント登録情報を入力する
-1. 契約者を初期ユーザーとして登録する -> user_uuid発行
-1. contractsにドキュメントを生成する -> contract_uuid発行
-1. contractsに初期ユーザーとして契約者を登録する
-1. workspaceにcontract_uuidでドキュメントを作成する
-1. workspace/contract_uuid/に teamsコレクションを作成しドキュメントを作成する -> team_uuid発行
-1. contracts/users/user_uuid/(契約者) にteam_uuidをわりあてる
-1. workspace/contract_uuid/teams/team_uuid/projects/　以下にドキュメントを追加し、初期設定プロジェクトを生成する
+1. 契約者を初期ユーザーとして登録する 
+1. FirebaseAuth側でユーザーが登録される -> user_uuid発行
+1. workspaceにドキュメントを自動IDで作成し、それをcontract_uuidとする
+1. つづけて workspace/contract_uuid/teams/team_uuidを作成する
+1. つづけて workspace/contract_uuid/teams/team_uuid/projects 以下に自動IDでドキュメントを作成し、その中にBoards、Tasksのプリセットデータを格納して、プロジェクトデータが1つ存在するようにする。
+1. usersにuser_uuidのドキュメントを作成する
+1. users/user_uuid/contractsに 上記で生成された契約ID contract_uuid とチームID team_uuid を登録する
 
+
+## ユーザー登録フロー
+
+今回はデモのため以下登録フローは想定のみとする
+
+1. 契約者ユーザーは新規ユーザーを登録する
+1. FirebaseAuth側でユーザーが登録される -> user_uuid発行
+1. /usersにuser_uuidをドキュメントとしてデータを追加し、操作を行った該当の、契約ID contract_uuid とチームID team_uuidを登録する
+
+## ユーザーログインフロー
+
+1. ユーザーはログインする
+1. 認証完了 -> user_uuid 取得
+1. usersをuser_uuidでひいて、contract_uuidを特定
+1. workspaceをcontract_uuidで参照する
+1. workspace/contract_uuid/teams/team_uuidでprojectsリストを取得して画面を展開する
+	- デモバージョンではteamはいっこのためteamsの最初のドキュメントをそのまま使う
+	- 2ndPhaseでユーザーに対して複数契約・複数チームの選択フローをいれる 
 
 
 ---
