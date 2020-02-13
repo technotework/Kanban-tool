@@ -31,214 +31,122 @@
 
 #### バックエンド
 
-- GoogleFirebase RealTimeDatabase
+- GoogleFirebase FireStore
 
 
 ---
 
 ---
 
-## データ形式
+## データ設計
 
-### 共通(static)
+[C] コレクション
+[D] ドキュメント
+[F] ドキュメントフィールド
 
-以下 setting.json にまとめる
+### staticなコレクション
 
-#### contract_type
+#### contractType
 
-```json
+契約種別と制限事項のリスト
 
-"contract": {
-	"id": Number,
-	"type_name": String,
-	"function_limit":{ (作成個数制限)
-		"team_num": Number, (0を無制限とする)
-		"project_num": Number, (0を無制限とする)
-		"board_num": Number, (0を無制限とする)
-		"member_num": Number, (0を無制限とする)
-	}
-}
-
-```
-
-
-#### roles
-
-```json
-
-"roles": [
-	{
-		"id" : Number,
-		"role_name": String (contractor | manager | member)
-	}
-]
-
-
-```
-
-#### search_method
-
-```json
-
-"search_types": [
-	{
-		"id": Number,
-		"name": String
-	}
-]
-
-```
-
-##### label_color
-
-```json
-
-
-label_colors:[
-	
-	{
-		"id": Number,
-		"name": String,
-		"color": String (16進数)
-	}
-]
-
-```
-
-
----
-
-### 契約ごとに作成
-
-以下、[contract_id]/app.jsonにまとめる
-
-#### contract
-
-```json
-
-"contract: {
-	"id": Number,
-	"create_date": Date,
-	"end_date": Date,
-	"contract_type": Number, (contractTypeのID)
-	"teams": Array (チームIDの配列)
-}
-
-```
-
-#### team
-
-```json
-
-"team":{
-	"id": Number,
-	"teamName": String, (初期値 "MyTeam")
-}
-
-```
-
-#### accounts
-
-``` json
-
-"members":[
-	{
-		"id": Number,
-		"mail_address": String,
-		"password": String,
-		"icon_image": String,
-		"nickname": String,
-		"create_date": Date,
-		"teams": Array,(所属チームidの配列),
-		"role_id": Number (roleのID)
-	},
-]
-
-```
+- [C] contractType
+	- [D] id : free | pro | enterprise
+		- [F]label:String
+		- [F] board_limit:Number (0を無制限とする)
+		- [F] member_limit:Number
+		- [F] project_limit:Number
+		- [F] team_limit:Number
+		
 
 #### labels
 
-```json
+カラーラベル
 
-"labels":[
-	
-	{
-		"id": Number,
-		"color": String,(16進数)
-		"name": String
-	}
-	
-]
+- [C] labels
+	- [D] id: 欧文色名
+		- [F] color: String(十六進数色 #000000)
+		- [F] label: String(日本語色名)
+
+#### roles
+
+役割名定数
+
+- [C] roles
+	- [D]id: contractor | manager | member
+		- [F] label:String (role表示名)
+
+---
+
+### 契約単位のコレクション
+
+#### contracts
+
+契約と、ぶらさがっているユーザーのメタデータを管理する
+
+- [C] contracts
+	- [D] contract_id 自動生成されたドキュメントID
+		- [F] contract_type:String (契約ID)
+		- [F] limit_date:TimeStamp (利用期限)
+		- [C] users
+			- [D] ユーザーuuid
+				- [F] nickname:String
+				- [F] role:String (roleID)
+				- [F] team_uuids:Array (所属team_uuiIDの配列)
+				- [F] isDeleted:Boolean (削除フラグ)
 
 
-```
+#### workspace
+
+アプリデータの管理
+
+- [C] workspace
+	- [D] 契約uuid
+		- [C] teams
+			- [D] team_id 自動生成されたドキュメントID
+				- [F] label:String (チーム名)
+				- [C] projects
+					- [D] project_id 自動生成されたドキュメントID
+					 - [F] label:String（プロジェクト名）
+					 - [F] create_date:TimeStamp
+					 - [F] update_date:TimeStamp
+					 - [C] boards
+						- [D] board_id  自動生成されたドキュメントID
+						  - [F] label:String（ボード名）
+							- [F] wip:Number (制限個数)
+							- [C] tasks
+								- [D] task_id  自動生成されたドキュメントID
+								- [F] data:String（タスク本文）
+								- [F] labels:Array（ラベルID配列） 
+								- [F] members:Array（割当メンバーuuid配列）
+								- [F] create_user:String（制作ユーザーuuid）
+								- [F] create_date:TcmeStamp
+								- [F] start_date:TimeStamp(作業開始日)
+								- [F] end_date:TimeStamp(作業終了日)
+								- [F] archive_date:TimeStamp
+								- [C] comment
+									- [D] comment_id  自動生成されたドキュメントID
+										- [F] create_user:String(ユーザーuuid)
+										- [F] data:String (本文)
+										- [F] update_date:TimeStamp
+
+---
+
+## 初期生成フロー
+
+今回はデモのため以下登録フローは想定のみとする
+
+1. 契約者ユーザーが契約情報を入力する
+1. 契約者ユーザーをアカウント登録情報を入力する
+1. 契約者を初期ユーザーとして登録する -> user_uuid発行
+1. contractsにドキュメントを生成する -> contract_uuid発行
+1. contractsに初期ユーザーとして契約者を登録する
+1. workspaceにcontract_uuidでドキュメントを作成する
+1. workspace/contract_uuid/に teamsコレクションを作成しドキュメントを作成する -> team_uuid発行
+1. contracts/users/user_uuid/(契約者) にteam_uuidをわりあてる
+1. workspace/contract_uuid/teams/team_uuid/projects/　以下にドキュメントを追加し、初期設定プロジェクトを生成する
 
 
-#### project_list
-
-```json
-
-"projects": [ 
-	{
-		"id": Number, (projects/[id] と一致させる)
-		"name": String,
-		"update_date": Date,
-		"create_date": Date
-	}
-]
-
-```
-
-
-以下は個別ファイル
-
-#### [contract_id]/projects/[id]/project.json
-
-```json
-
-{
-	"id": Number,
-	"name": String,
-	"update_date": Date,
-	"create_date": Date,
-	"boards": [
-	
-		{
-			"id": Number,
-			"name": String,(初期値：MyBoard)
-			"wip": Number,(初期値:5)
-			"searchMethod": Number, (searchMethodのID)
-			"tasks":[
-			
-				{
-					"id": Number,
-					"name": String,
-					"detail": String,
-					"labels": Array, (labelsIDの配列)
-					"members": Array, (memberIDの配列)
-					"create_date": Date,
-					"start_date": Date,
-					"end_date": Date,
-					"archived_date": Date,
-					"isArchive": Boolean,
-					"comments":[
-						
-						{
-							"id": Number,
-							"detail": String,
-							"member_id": Number
-						}
-					
-					]
-				}
-			
-			]
-		}
-	
-	]
-}
-
-```
 
 ---
 
