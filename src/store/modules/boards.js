@@ -6,32 +6,20 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	strict: true,
 	state: {
+		boardsData: []
 	},
 	mutations: {
+		createJson(state, payload) {}
 	},
-	methods: {
-		createBoard(){
-		
-			let resultNumber;
-		
-			return resultNumber;
+	getters: {
+		boards(state) {
+			return state.boardsData;
 		},
-		updateBoardInfo(data){
-		
-			let resultObject;
-		
-			return resultObject;
-		},
-		deleteBoard(boardId){
-		
-			let resultBoolean;
-		
-			return resultBoolean;
-		},
-
 	},
 	actions: {
-	},
-	modules: {
+		create() {},
+		read() {},
+		update() {},
+		delete() {}
 	}
 })

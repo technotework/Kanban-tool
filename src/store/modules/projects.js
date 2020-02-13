@@ -6,44 +6,20 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	strict: true,
 	state: {
+		projectData: []
 	},
 	mutations: {
+		createJson(state, payload) {}
 	},
-	methods: {
-		readProjectList() {
-
-			let resultArray;
-
-			return resultArray;
-		},
-		updateProjectName(name) {
-
-			let resultString;
-
-			return resultString;
-		},
-		deleteProject(projectId) {
-
-			let resultBoolean;
-
-			return resultBoolean;
-		},
-		createProject() {
-
-			let resultBoolean;
-
-			return resultBoolean;
-		},
-		readProject(projectId) {
-
-			let resultBoolean;
-
-			return resultBoolean;
-		},
-
+	getters: {
+		projects(state) {
+			return state.projectsData;
+		}
 	},
 	actions: {
-	},
-	modules: {
+		create() {},
+		read() {},
+		update() {},
+		delete() {}
 	}
 })
