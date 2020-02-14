@@ -1,13 +1,16 @@
 <template>
-  <ProjectList v-bind="{items}" />
+  <ProjectUnit @click="onClick" />
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ProjectList from "@/components/organisms/projects/project-list/";
+import ProjectUnit from "@/components/organisms/projects/project-unit/";
 
 export default {
   name: "Projects",
+  created: function() {
+    this.init();
+  },
   props: {},
   data: () => {
     return {
@@ -15,6 +18,13 @@ export default {
     };
   },
   computed: {},
-  components: { ProjectList }
+  methods: {
+    ...mapActions("projects", ["read"]),
+    init() {
+      this.read();
+    },
+    onClick() {}
+  },
+  components: { ProjectUnit }
 };
 </script>

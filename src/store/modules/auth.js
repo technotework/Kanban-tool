@@ -1,8 +1,3 @@
-import Firebase from "@/firebase"
-Firebase.init();
-let firebase = Firebase.firebase;
-let db = Firebase.db();
-
 export default {
 	namespaced: true,
 	strict: true,
@@ -25,6 +20,9 @@ export default {
 		},
 		contract(state) {
 			return state.contractData;
+		},
+		team(state) {
+			return state.teamData;
 		}
 	},
 	actions: {
@@ -33,7 +31,9 @@ export default {
 		 * @param {*} context 
 		 * @param {*} idとpass
 		 */
-		login({ dispatch }, value) {
+		login({ dispatch, rootGetters }, value) {
+
+			let firebase = rootGetters.firebase;
 
 			firebase.auth().signInWithEmailAndPassword(value.id, value.pass)
 				.then(
@@ -53,8 +53,9 @@ export default {
 		 * @param {*} context 
 		 * @param {*} uid 
 		 */
-		getUserInfo({ commit }, uid) {
-			console.log(`users/${uid}`);
+		getUserInfo({ commit, rootGetters }, uid) {
+
+			let db = rootGetters.db;
 			let doc = db.doc(`users/${uid}`);
 			doc.get().then((doc) => {
 
@@ -75,7 +76,9 @@ export default {
 		 * Logout
 		 * @param {*} context 
 		 */
-		logout(context) {
+		logout({ rootGetters }) {
+
+			let firebase = rootGetters.firebase;
 			firebase.auth().signOut();
 		}
 	}

@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <router-view />
-    <Auth />
+    <Projects />
   </div>
 </template>
 
 <script>
 import Auth from "@/containers/Auth";
+import Projects from "@/containers/Projects";
 export default {
   name: "App",
   computed: {},
@@ -14,6 +15,6 @@ export default {
     return {};
   },
   methods: {},
-  components: { Auth }
+  components: { Projects }
 };
 </script>

@@ -1,3 +1,5 @@
+
+
 export default {
 	namespaced: true,
 	strict: true,
@@ -11,10 +13,23 @@ export default {
 		projects(state) {
 			return state.projectsData;
 		}
+
 	},
 	actions: {
 		create() { },
-		read() { },
+		read({ commit, rootGetters }) {
+			console.log(rootGetters)
+			/* 
+			let db = rootGetters.db;
+			let collection = db.collection("wor");
+			collection.onSnapshot(function (querySnapshot) {
+				querySnapshot.forEach(function (doc) {
+					console.log(doc.data());
+
+					commit("setName", doc.data());
+				});
+			});*/
+		},
 		update() { },
 		delete() { }
 	}

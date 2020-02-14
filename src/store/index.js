@@ -8,11 +8,22 @@ import tasks from './modules/tasks'
 import auth from './modules/auth'
 
 Vue.use(Vuex);
+Firebase.init();
 
 Vue.config.productionTip = false;
 
 export default new Vuex.Store({
 	strict: true,
+	state: {
+	},
+	getters: {
+		firebase: (state) => {
+			return Firebase.firebase;
+		},
+		db: (state) => {
+			return Firebase.db();
+		}
+	},
 	modules: {
 		app,
 		auth,
