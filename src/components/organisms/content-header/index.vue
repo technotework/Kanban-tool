@@ -1,12 +1,16 @@
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.firstContent">
-      <H2 :class="$style.h1Header">{{pageName}}</H2>
-      <slot name="first" />
+      <H2 :class="$style.h1Header">
+        <slot name="first" />
+      </H2>
+      <slot name="option" />
     </div>
     <nav :class="$style.secondContent">
       <div :class="$style.container">
-        <slot name="second" />
+        <IconedTextButton compose="right" type="new" @click="onClick">
+          <slot name="second" />
+        </IconedTextButton>
       </div>
     </nav>
   </div>
@@ -15,16 +19,15 @@
 <script>
 import base from "@/components/utils/base-mixin";
 import { H2 } from "@/components/atoms/base-heading/compose";
+import IconedTextButton from "@/components/molecules/iconed-text-button/";
 export default {
   mixins: [base],
   name: "ContentHeader",
   data: function() {
-    return {
-      pageName: "PageName"
-    };
+    return {};
   },
   props: {},
-  components: { H2 }
+  components: { H2, IconedTextButton }
 };
 </script>
 <style lang="scss" module>
@@ -32,7 +35,6 @@ export default {
   @include flex;
   justify-content: space-between;
   @include s($w: 100%, $h: 100%);
-  @include p(0 $s8);
 }
 .firstContent {
   @include flex;

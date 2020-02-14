@@ -19,7 +19,6 @@ export default {
 <style lang="scss" module>
 .grid {
   @include s($w: 100%, $h: 100%);
-  @include p($s32);
   @include grid($col: none, $row: 85px 1fr, $area: "nav" "article");
 }
 .header {
