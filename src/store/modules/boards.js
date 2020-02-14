@@ -1,15 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
+	namespaced: true,
 	strict: true,
 	state: {
 		boardsData: []
 	},
 	mutations: {
-		createJson(state, payload) {}
+		createJson(state, payload) { }
 	},
 	getters: {
 		boards(state) {
@@ -17,9 +13,9 @@ export default new Vuex.Store({
 		},
 	},
 	actions: {
-		create() {},
-		read() {},
-		update() {},
-		delete() {}
+		create() { },
+		read() { },
+		update() { },
+		delete() { }
 	}
-})
+}

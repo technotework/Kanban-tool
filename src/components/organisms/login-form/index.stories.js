@@ -9,7 +9,7 @@ import {
 
 import LoginForm from "./index"
 
-let description = 'import LoginForm from "@/components/atoms/base-input/"';
+let description = 'import LoginForm from "@/components/organisms/login-form/"';
 export default createDefStory("organisms/LoginForm", LoginForm, description);
 
 

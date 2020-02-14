@@ -30,7 +30,7 @@ export default {
   props: {},
   methods: {
     onLogin(e) {
-      this.$emit("login-event", { id: this.id, pass: this.pass });
+      this.$emit("login-event", { id: this.id, pass: this.pass, e: e });
     }
   },
   components: {

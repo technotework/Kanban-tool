@@ -1,9 +1,11 @@
 
-<template></template>
+<template>
+  <LoginForm @login-event="onClick" />
+</template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-
+import LoginForm from "@/components/organisms/login-form/";
 export default {
   name: "",
   props: {},
@@ -13,6 +15,12 @@ export default {
     };
   },
   computed: {},
-  components: {}
+  methods: {
+    ...mapActions("auth", ["login"]),
+    onClick(value) {
+      this.login(value);
+    }
+  },
+  components: { LoginForm }
 };
 </script>

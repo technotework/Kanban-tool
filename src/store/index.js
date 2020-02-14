@@ -1,22 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Firebase from "@/firebase"
-import Boards from './modules/boards'
-import Projects from './modules/projects'
-import Tasks from './modules/tasks'
-import Auth from './modules/auth'
+import app from './modules/app'
+import boards from './modules/boards'
+import projects from './modules/projects'
+import tasks from './modules/tasks'
+import auth from './modules/auth'
 
 Vue.use(Vuex);
-Firebase.init();
-let fireStore = Firebase.firebase.firestore;
-let db = Firebase.db();
 
 Vue.config.productionTip = false;
+
 export default new Vuex.Store({
+	strict: true,
 	modules: {
-		Auth,
-		Projects,
-		Boards,
-		Tasks
+		app,
+		auth,
+		projects,
+		boards,
+		tasks
 	}
 })
