@@ -4,7 +4,8 @@
 const state = {
 	userData: {},
 	contractData: "",
-	teamData: ""
+	teamData: "",
+	pathData: ""
 }
 
 //--------------
@@ -16,6 +17,7 @@ const mutations = {
 		state.userData = payload;
 		state.contractData = payload.contracts[0].uuid;
 		state.teamData = payload.contracts[0].teams[0];
+		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`
 	}
 }
 
@@ -31,6 +33,10 @@ const getters = {
 	},
 	team(state) {
 		return state.teamData;
+	},
+	path(state) {
+		return "/workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
+		//return state.pathData;
 	}
 }
 

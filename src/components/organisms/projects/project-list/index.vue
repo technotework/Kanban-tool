@@ -1,8 +1,12 @@
 <template>
   <div :class="$style.wrapper">
     <draggable :list="items" :class="$style.list" tag="ul" v-bind="dragOptions">
-      <li v-for="item in items" :key="item.id" :class="$style.listItem">
-        <ProjectListItem :id="item.id" :name="item.name" :date="item.date" />
+      <li v-for="item in items" :key="item.project.id" :class="$style.listItem">
+        <ProjectListItem
+          :id="item.project.id"
+          :name="item.project.label"
+          :date="item.project.update_date"
+        />
       </li>
     </draggable>
   </div>

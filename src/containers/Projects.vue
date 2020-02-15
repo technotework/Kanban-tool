@@ -1,5 +1,5 @@
 <template>
-  <ProjectUnit @click="onClick" />
+  <ProjectUnit :items="projects" @click="onClick" />
 </template>
 
 <script>
@@ -13,17 +13,19 @@ export default {
   },
   props: {},
   data: () => {
-    return {
-      items: []
-    };
+    return {};
   },
-  computed: {},
+  computed: {
+    ...mapGetters("projects", ["projects"])
+  },
   methods: {
-    ...mapActions("projects", ["read"]),
+    ...mapActions("projects", ["read", "create"]),
     init() {
       this.read();
     },
-    onClick() {}
+    onClick() {
+      this.create();
+    }
   },
   components: { ProjectUnit }
 };
