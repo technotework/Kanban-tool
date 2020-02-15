@@ -1,6 +1,5 @@
 import project from "../../src/store/modules/projects/"
-import actions from "../../src/store/modules/projects/actions"
-import state from "../../src/store/modules/projects/state"
+import { state, mutations, getters, actions } from "../../src/store/modules/projects"
 import Vuex from 'vuex'
 import Firebase from "../../src/firebase"
 import { createLocalVue } from '@vue/test-utils'
@@ -13,10 +12,10 @@ let rootGetters;
 beforeAll(() => {
 
   let app = Firebase.initApp();
-  let store = Firebase.db();
+  let db = Firebase.db();
   rootGetters = {
     "firebase": app,
-    "db": store,
+    "db": db,
     "auth/user": {
       role: "manager",
       nickname: "ねこ",
@@ -28,9 +27,11 @@ beforeAll(() => {
 });
 
 describe('Projects action', () => {
-  test('renders props.msg when passed', async (done) => {
-    let st = new Vuex.Store(project);
-    let commit = st.commit;
+  test('projectDataの読み込み', async (done) => {
+
+    let store = new Vuex.Store(project);
+    let commit = store.commit;
+
     await actions.read({ commit, rootGetters });
     expect(state.projectData).toBe("あ");
     done();
