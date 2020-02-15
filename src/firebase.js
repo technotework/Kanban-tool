@@ -2,7 +2,6 @@ import firebase from 'firebase/app'
 import 'firebase/analytics';
 import 'firebase/auth'
 import 'firebase/firestore'
-import store from './store'
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -23,24 +22,6 @@ export default {
     firebase.analytics();
     //セッション保持形式
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-  },
-  login(email, password) {
-
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-    });
-  },
-  logout() {
-    firebase.auth().signOut()
-  },
-  onAuth() {
-    firebase.auth().onAuthStateChanged(user => {
-      user = user ? user : {};
-      store.commit('app/onAuthStateChanged', user);
-      store.commit('app/onUserStatusChanged', user.uid ? true : false);
-    });
   },
   db() {
     return firebase.firestore();
