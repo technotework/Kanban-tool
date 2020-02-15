@@ -1,14 +1,12 @@
 import actions from "./actions"
+import mutations from "./mutations"
+import state from "./state"
 
 export default {
 	namespaced: true,
 	strict: true,
-	state: {
-		projectData: []
-	},
-	mutations: {
-		createJson(state, payload) { }
-	},
+	state,
+	mutations,
 	getters: {
 		projects(state) {
 			return state.projectsData;
