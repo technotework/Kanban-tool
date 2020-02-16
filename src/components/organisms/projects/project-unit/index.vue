@@ -7,7 +7,7 @@
       </ContentHeader>
     </template>
     <template #article>
-      <ProjectList :items="items" @change="update" />
+      <ProjectList v-model="items" />
     </template>
   </ContentAreaLayout>
 </template>
@@ -21,12 +21,16 @@ export default {
   mixins: [base],
   name: "ProjectUnit",
   props: {
-    items: Array
+    value: Array
   },
-  computed: {},
-  methods: {
-    update() {
-      this.$emit("change");
+  computed: {
+    items: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
     }
   },
   components: {

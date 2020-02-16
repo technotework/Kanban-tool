@@ -1,9 +1,9 @@
 <template>
-  <ProjectUnit :items="projects" @click="onClick" @change="updateMessage" />
+  <ProjectUnit v-model="projectItems" @click="onClick" />
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import ProjectUnit from "@/components/organisms/projects/project-unit/";
 
 export default {
@@ -13,22 +13,28 @@ export default {
   },
   props: {},
   data: () => {
-    return {};
+    return {
+      value: Array
+    };
   },
   computed: {
-    ...mapGetters("projects", ["projects"])
+    ...mapGetters("projects", ["projects"]),
+    projectItems: {
+      get() {
+        return this.projects;
+      },
+      set(value) {
+        this.$store.commit("projects/setData", value);
+      }
+    }
   },
   methods: {
     ...mapActions("projects", ["read", "create"]),
-    ...mapMutations("projects", ["setData"]),
     init() {
       this.read();
     },
     onClick() {
       this.create();
-    },
-    updateMessage() {
-      this.setData(this.projects);
     }
   },
   components: { ProjectUnit }
