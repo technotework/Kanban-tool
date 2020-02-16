@@ -45,83 +45,79 @@ const actions = {
 
 			let initialTemplate = {
 				"project": {
-					id: "",
-					label: "Project",
-					update_date: `${date}`,
-					"boards": [{
-						"id": `${getUUID()} `,
-						"title": "backlog",
-						"taskList": [{
-							"id": `${getUUID()}`,
-							"data": "バックログ",
-							"labels": [],
-							"createUser": `${uuid}`,
-							"create_date": `${date}`,
-							"start_date": null,
-							"end_date": null,
-							"archive_date": null,
-							"comments": []
-						}]
-					},
-					{
-						"id": `${getUUID()} `,
-						"title": "toDo",
-						"taskList": [{
-							"id": `${getUUID()}`,
-							"data": "これからやるタスク",
-							"labels": [],
-							"createUser": `${uuid}`,
-							"create_date": `${date}`,
-							"start_date": null,
-							"end_date": null,
-							"archive_date": null,
-							"comments": []
-						}]
-					},
-					{
-						"id": `${getUUID()} `,
-						"title": "Progress",
-						"taskList": [{
-							"id": `${getUUID()}`,
-							"data": "進行中のタスク",
-							"labels": [],
-							"createUser": `${uuid}`,
-							"create_date": `${date}`,
-							"start_date": null,
-							"end_date": null,
-							"archive_date": null,
-							"comments": []
-						}]
-					},
-					{
-						"id": `${getUUID()} `,
-						"title": "complete",
-						"taskList": [{
-							"id": `${getUUID()}`,
-							"data": "完了したタスク",
-							"labels": [],
-							"createUser": `${uuid}`,
-							"create_date": `${date}`,
-							"start_date": null,
-							"end_date": null,
-							"archive_date": null,
-							"comments": []
-						}]
-					}
-					]
+					"id": "",
+					"label": "Project",
+					"update_date": `${date}`,
+					"boards_sort": []
 				}
+			};
+
+			let initialBoardOrder = [
+				"Backlog", "ToDo", "Progress", "Complete"
+			];
+
+			let initialBoardsTemplate = [{
+				"id": "",
+				"title": "Backlog",
+				"task_sort": []
+			},
+			{
+				"id": "",
+				"title": "ToDo",
+				"task_sort": []
+			},
+			{
+				"id": "",
+				"title": "Progress",
+				"task_sort": []
+			},
+			{
+				"id": "",
+				"title": "Complete",
+				"task_sort": []
+			}
+			];
+
+			let initialTaskTemplate =
+			{
+				"id": "",
+				"data": "",
+				"labels": [],
+				"createUser": `${uuid}`,
+				"create_date": `${date}`,
+				"start_date": null,
+				"end_date": null,
+				"archive_date": null,
+				"comments": []
 			};
 
 			let collection = db.collection(path);
 			collection.add(initialTemplate).then((doc) => {
-				collection.doc(doc.id).get().then((doc) => {
 
-					let result = doc.data();
-					result.project.id = doc.id;
-					resolve();
-				}).catch(function (error) {
-					reject();
-				});
+				collection.doc(doc.id).get()
+					.then((doc) => {
+
+						//続けてboardsドキュメントを作る
+						let collection = db.collection(path + doc.id + "/boards/");
+						let array = initialBoardsTemplate;
+						let orderArray = [];
+
+						for (let i = 0; i < array.length; i++) {
+
+							collection.add(array[i]).then((doc) => {
+
+								//初期Orderを更新
+								orderArray.push(doc.id);
+							});
+						}
+
+						let parentProject = db.collection(path + doc.id);
+						parentProject.set({ "boards_sort": orderArray }, { merge: true });
+
+					})
+					.catch((error) => {
+						reject();
+					});
 			});
 		}, (error) => {
 			console.log(error);
