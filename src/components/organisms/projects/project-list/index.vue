@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <draggable :list="items" :class="$style.list" tag="ul" v-bind="dragOptions">
+    <draggable :list="items" :class="$style.list" tag="ul" v-bind="dragOptions" @change="update">
       <li v-for="item in items" :key="item.project.id" :class="$style.listItem">
         <ProjectListItem
           :id="item.project.id"
@@ -19,6 +19,11 @@ export default {
   name: "ProjectList",
   props: {
     items: Array
+  },
+  methods: {
+    update(value) {
+      this.$emit("change");
+    }
   },
   computed: {
     dragOptions() {

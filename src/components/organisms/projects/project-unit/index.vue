@@ -7,7 +7,7 @@
       </ContentHeader>
     </template>
     <template #article>
-      <ProjectList :items="items" />
+      <ProjectList :items="items" @change="update" />
     </template>
   </ContentAreaLayout>
 </template>
@@ -24,6 +24,11 @@ export default {
     items: Array
   },
   computed: {},
+  methods: {
+    update() {
+      this.$emit("change");
+    }
+  },
   components: {
     ContentAreaLayout,
     ContentHeader,

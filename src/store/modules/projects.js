@@ -12,7 +12,8 @@ const state = {
 //--------------
 const mutations = {
 
-	createJson(state, payload) {
+	setData(state, payload) {
+		console.log("aaaaaaaaaa", payload);
 		state.projectsData = payload;
 	}
 }
@@ -154,7 +155,7 @@ const actions = {
 					array.push(result);
 				})
 
-				commit("createJson", array);
+				commit("setData", array);
 			});
 
 		}, (error) => {

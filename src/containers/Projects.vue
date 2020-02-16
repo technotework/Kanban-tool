@@ -1,9 +1,9 @@
 <template>
-  <ProjectUnit :items="projects" @click="onClick" />
+  <ProjectUnit :items="projects" @click="onClick" @change="updateMessage" />
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import ProjectUnit from "@/components/organisms/projects/project-unit/";
 
 export default {
@@ -20,11 +20,15 @@ export default {
   },
   methods: {
     ...mapActions("projects", ["read", "create"]),
+    ...mapMutations("projects", ["setData"]),
     init() {
       this.read();
     },
     onClick() {
       this.create();
+    },
+    updateMessage() {
+      this.setData(this.projects);
     }
   },
   components: { ProjectUnit }
