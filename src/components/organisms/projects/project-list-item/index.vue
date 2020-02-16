@@ -43,7 +43,7 @@ export default {
   components: { ContextMenu, DateTimeText, BaseIcon },
   methods: {
     onMenuClick: function(value) {
-      console.log(value);
+      this.$emit("context-menu-click", value);
     }
   }
 };

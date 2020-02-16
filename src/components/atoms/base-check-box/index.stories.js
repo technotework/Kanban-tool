@@ -14,7 +14,7 @@ let setting = {
     name: "cat"
   },
   action: { event: "change" },
-  template: tagTemp`<BaseLabel :for="id"><BaseCheckBox ${"props"} ${"ac¡tion"} /> Label </BaseLabel>`
+  template: tagTemp`<BaseLabel :for="id"><BaseCheckBox ${"props"} ${"action"} /> Label </BaseLabel>`
 };
 
 export const Basic = () => createStory(setting);

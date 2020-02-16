@@ -20,7 +20,7 @@ let setting = {
     TextButton: TextButton
   },
   props: {},
-  template: tagTemp `<AppHeader ${"props"} ${"ac¡tion"}> 
+  template: tagTemp `<AppHeader ${"props"} ${"action"}> 
     <template #first>
        
     </template>

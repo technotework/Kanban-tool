@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "svg": "npx svg-sprite -C svg-config.json src/assets/svg/src/*svg",
+    "fb": "npx firebase serve --only firestore",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --detectOpenHandles",

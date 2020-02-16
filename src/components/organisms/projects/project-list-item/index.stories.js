@@ -21,7 +21,10 @@ let setting = {
         name: "myProjectName",
         date: "1580964954",
     },
-    template: tagTemp `<ProjectListItem ${"props"} ${"ac¡tion"} />`
+    action: {
+        event: "context-menu-click"
+    },
+    template: tagTemp `<ProjectListItem ${"props"} ${"action"} />`
 };
 
 export const Basic = () => createStory(setting);

@@ -7,7 +7,7 @@
       </ContentHeader>
     </template>
     <template #article>
-      <ProjectList v-model="items" />
+      <ProjectList v-model="items" @context-menu-click="onMenuClick" />
     </template>
   </ContentAreaLayout>
 </template>
@@ -31,6 +31,11 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
+    }
+  },
+  methods: {
+    onMenuClick: function(value) {
+      this.$emit("context-menu-click", value);
     }
   },
   components: {

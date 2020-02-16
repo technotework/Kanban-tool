@@ -6,6 +6,7 @@
           :id="item.project.id"
           :name="item.project.label"
           :date="item.project.update_date"
+          @context-menu-click="onMenuClick"
         />
       </li>
     </draggable>
@@ -23,6 +24,9 @@ export default {
   methods: {
     update(value) {
       this.$emit("change");
+    },
+    onMenuClick: function(value) {
+      this.$emit("context-menu-click", value);
     }
   },
   computed: {

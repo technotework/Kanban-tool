@@ -1,5 +1,5 @@
 <template>
-  <ProjectUnit v-model="projectItems" @click="onClick" />
+  <ProjectUnit v-model="projectItems" @click="onClick" @context-menu-click="onMenuClick" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import ProjectUnit from "@/components/organisms/projects/project-unit/";
 export default {
   name: "Projects",
   created: function() {
+    //初期化時プロジェクトを読み込む
     this.init();
   },
   props: {},
@@ -29,12 +30,20 @@ export default {
     }
   },
   methods: {
-    ...mapActions("projects", ["read", "create"]),
+    ...mapActions("projects", ["read", "create", "delete"]),
     init() {
       this.read();
     },
     onClick() {
       this.create();
+    },
+    onMenuClick(value) {
+      let id = value.id;
+      if (value.name == "delete") {
+        this.delete(id);
+      } else if (value.name == "edit") {
+        console.log("edit", id);
+      }
     }
   },
   components: { ProjectUnit }

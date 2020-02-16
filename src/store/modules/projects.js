@@ -1,5 +1,3 @@
-
-
 //--------------
 //state
 //--------------
@@ -13,7 +11,6 @@ const state = {
 const mutations = {
 
 	setData(state, payload) {
-		console.log("aaaaaaaaaa", payload);
 		state.projectsData = payload;
 	}
 }
@@ -44,82 +41,73 @@ const actions = {
 			let uuid = rootGetters["auth/user"].uuid;
 			let db = rootGetters.db;
 			let path = rootGetters["auth/path"];
-			let date = new Date().getTime() / 1000;
+			let date = Math.floor(new Date().getTime() / 1000);
 
 			let initialTemplate = {
 				"project": {
 					id: "",
 					label: "Project",
 					update_date: `${date}`,
-					"boards": [
-						{
-							"id": `${getUUID()} `,
-							"title": "backlog",
-							"taskList": [
-								{
-									"id": `${getUUID()}`,
-									"data": "バックログ",
-									"labels": [],
-									"createUser": `${uuid}`,
-									"create_date": `${date}`,
-									"start_date": null,
-									"end_date": null,
-									"archive_date": null,
-									"comments": []
-								}
-							]
-						},
-						{
-							"id": `${getUUID()} `,
-							"title": "toDo",
-							"taskList": [
-								{
-									"id": `${getUUID()}`,
-									"data": "これからやるタスク",
-									"labels": [],
-									"createUser": `${uuid}`,
-									"create_date": `${date}`,
-									"start_date": null,
-									"end_date": null,
-									"archive_date": null,
-									"comments": []
-								}
-							]
-						},
-						{
-							"id": `${getUUID()} `,
-							"title": "Progress",
-							"taskList": [
-								{
-									"id": `${getUUID()}`,
-									"data": "進行中のタスク",
-									"labels": [],
-									"createUser": `${uuid}`,
-									"create_date": `${date}`,
-									"start_date": null,
-									"end_date": null,
-									"archive_date": null,
-									"comments": []
-								}
-							]
-						},
-						{
-							"id": `${getUUID()} `,
-							"title": "complete",
-							"taskList": [
-								{
-									"id": `${getUUID()}`,
-									"data": "完了したタスク",
-									"labels": [],
-									"createUser": `${uuid}`,
-									"create_date": `${date}`,
-									"start_date": null,
-									"end_date": null,
-									"archive_date": null,
-									"comments": []
-								}
-							]
-						}
+					"boards": [{
+						"id": `${getUUID()} `,
+						"title": "backlog",
+						"taskList": [{
+							"id": `${getUUID()}`,
+							"data": "バックログ",
+							"labels": [],
+							"createUser": `${uuid}`,
+							"create_date": `${date}`,
+							"start_date": null,
+							"end_date": null,
+							"archive_date": null,
+							"comments": []
+						}]
+					},
+					{
+						"id": `${getUUID()} `,
+						"title": "toDo",
+						"taskList": [{
+							"id": `${getUUID()}`,
+							"data": "これからやるタスク",
+							"labels": [],
+							"createUser": `${uuid}`,
+							"create_date": `${date}`,
+							"start_date": null,
+							"end_date": null,
+							"archive_date": null,
+							"comments": []
+						}]
+					},
+					{
+						"id": `${getUUID()} `,
+						"title": "Progress",
+						"taskList": [{
+							"id": `${getUUID()}`,
+							"data": "進行中のタスク",
+							"labels": [],
+							"createUser": `${uuid}`,
+							"create_date": `${date}`,
+							"start_date": null,
+							"end_date": null,
+							"archive_date": null,
+							"comments": []
+						}]
+					},
+					{
+						"id": `${getUUID()} `,
+						"title": "complete",
+						"taskList": [{
+							"id": `${getUUID()}`,
+							"data": "完了したタスク",
+							"labels": [],
+							"createUser": `${uuid}`,
+							"create_date": `${date}`,
+							"start_date": null,
+							"end_date": null,
+							"archive_date": null,
+							"comments": []
+						}]
+					}
 					]
 				}
 			};
@@ -130,10 +118,13 @@ const actions = {
 
 					let result = doc.data();
 					result.project.id = doc.id;
-
 					resolve();
+				}).catch(function (error) {
+					reject();
 				});
 			});
+		}, (error) => {
+			console.log(error);
 		});
 	},
 	//読み込み&リッスン
@@ -164,10 +155,31 @@ const actions = {
 
 	},
 	update() { },
-	delete() { }
+	delete({ commit, rootGetters }, id) {
+
+		return new Promise((resolve, reject) => {
+
+			let db = rootGetters.db;
+			let path = rootGetters["auth/path"];
+			let doc = db.collection(path).doc(id);
+			doc.delete().then(function () {
+				console.log("Document successfully deleted!");
+			}).catch(function (error) {
+				reject();
+			});
+
+		}, (error) => {
+			console.log(error);
+		});
+	}
 }
 
-export { state, mutations, getters, actions }
+export {
+	state,
+	mutations,
+	getters,
+	actions
+}
 export default {
 	namespaced: true,
 	strict: true,

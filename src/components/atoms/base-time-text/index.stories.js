@@ -25,7 +25,7 @@ let setting = {
     },
     action: {
     },
-    template: tagTemp `<DateText ${"props"} ${"ac¡tion"} />`
+    template: tagTemp `<DateText ${"props"} ${"action"} />`
 };
 
 export const Date = () => (createStory(setting));
@@ -43,7 +43,7 @@ let settingD = {
     },
     action: {
     },
-    template: tagTemp `<DateTimeText ${"props"} ${"ac¡tion"} />`
+    template: tagTemp `<DateTimeText ${"props"} ${"action"} />`
 };
 
 export const DateTime = () => (createStory(settingD));
