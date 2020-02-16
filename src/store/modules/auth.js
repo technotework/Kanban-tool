@@ -26,7 +26,9 @@ const mutations = {
 //--------------
 const getters = {
 	user(state) {
-		return state.userData;
+
+		return { uuid: "AzjzROft7NNxQIHgD1YYTVASnnp2" }
+		//return state.userData;
 	},
 	contract(state) {
 		return state.contractData;
