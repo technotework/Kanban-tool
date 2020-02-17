@@ -25,23 +25,18 @@ export const Basic = () => ({
   props: {
     taskList: {
       default: object("taskList", [{
-          id: "t1",
-          data: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t2",
-          data: "todo:あいうえおあいうえお"
-        },
-        {
-          id: "t3",
-          data: "todo:あいうえおあいうえお"
-        }
+        id: "t1",
+        data: "todo:あいうえおあいうえお"
+      },
+      {
+        id: "t2",
+        data: "todo:あいうえおあいうえお"
+      },
+      {
+        id: "t3",
+        data: "todo:あいうえおあいうえお"
+      }
       ])
-    }
-  },
-  data: () => {
-    return {
-      myValue: "Title",
     }
   },
   template: `<ProjectBoardListItem v-model.lazy="myValue" v-bind="{taskList}" />`,

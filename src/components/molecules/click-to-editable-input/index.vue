@@ -1,22 +1,13 @@
-<template>
-  <div :class="$style.wrapper">
-    <div
-      @click="onClickEdit"
-      :class="[$style.editableInputContainer, $compose[status], $role[role]]"
-    >
-      <EditInput
-        :class="$style.editableInput"
-        :readonly="isDisable"
-        v-model.lazy="myValue"
-      />
+  <template>
+  <div :class="[isDisable ? $style.wrapper : $style.wrapper2col,$role[role]]">
+    <div @click="onClickEdit" :class="[$style.editableInputContainer, $compose[status]]">
+      <EditInput :class="$style.editableInput" :readonly="isDisable" v-model.lazy="myValue" />
       <template v-if="isDisable">
         <IconM type="edit" :class="$style.icon" />
       </template>
     </div>
     <template v-if="!isDisable">
-      <MiniButton @click="onClickCompleteEdit" :class="$style.button"
-        >OK</MiniButton
-      >
+      <MiniButton @click="onClickCompleteEdit" :class="$style.button">OK</MiniButton>
     </template>
   </div>
 </template>
@@ -65,29 +56,31 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.wrapper2col {
+  display: grid;
+  grid-template-columns: 1fr 63px;
+}
 .wrapper {
-  @include flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .editableInputContainer {
   position: relative;
-  @include s($h: 39px);
   overflow: hidden;
 }
 .editableInput {
-  @include s($w: 100%, $h: 100%);
   @include bdc($transparent);
   @include p($s8 38px $s8 $s8);
+  @include s($h: 100%);
   cursor: text;
 }
 .button {
-  @include s($w: 55px, $h: auto);
   @include m(0 0 0 $s8);
 }
 .icon {
   fill: $darkGray;
   @include s($w: 18px, $h: 18px);
-  @include abs($t: 12px, $r: 4px);
+  @include abs($t: 10px, $r: 4px);
 }
 </style>
 
@@ -99,7 +92,6 @@ export default {
   }
 }
 .uneditable {
-  flex-grow: 1;
   .editableInput {
     @include bgc($transparent);
   }
@@ -107,13 +99,28 @@ export default {
 </style>
 
 <style lang="scss" module="$role">
-.title {
+.h1Header {
+  grid-template-rows: 39px;
   .editableInput {
-    font-size: $f18;
+    font-size: $f30;
     font-weight: bold;
+  }
+  .icon {
+    @include abs($t: 13px, $r: 4px);
+  }
+}
+.h2Header {
+  grid-template-rows: 39px;
+  .editableInput {
+    font-size: $f24;
+    font-weight: bold;
+  }
+  .icon {
+    @include abs($t: 13px, $r: 4px);
   }
 }
 .text {
+  grid-template-rows: 39px;
   .editableInput {
     font-size: $f16;
   }

@@ -1,8 +1,7 @@
 import {
-  createDefStory,
-  createStory,
-  tagTemp
+  createDefStory
 } from "@/components/utils/story-creator";
+import { action } from "@/components/utils/story-export"
 import AppHeader from "./index.vue";
 import {
   TextButton
@@ -11,25 +10,28 @@ import {
 let description = 'import AppHeader from "@/components/organisms/app-header/"';
 export default createDefStory("organisms/AppHeader", AppHeader, description);
 
+
+
 //---------------------
 //Basic
-let setting = {
-  name: "AppHeader",
-  compos: {
-    AppHeader: AppHeader,
-    TextButton: TextButton
+export const Basic = () => ({
+  components: {
+    AppHeader, TextButton
   },
-  props: {},
-  template: tagTemp `<AppHeader ${"props"} ${"action"}> 
+  data: () => ({
+    text: "MyTeamName"
+  }),
+  props: {
+  },
+  template: `<AppHeader v-model.lazy="text" @input="action"> 
     <template #first>
-       
+      
     </template>
     <template #second>
       <TextButton>button1</TextButton>
       <TextButton>button2</TextButton>
       <TextButton>button3</TextButton>
     </template>
-  </AppHeader>`
-};
-
-export const Basic = () => createStory(setting);
+  </AppHeader>`,
+  methods: { action: action('input') }
+});

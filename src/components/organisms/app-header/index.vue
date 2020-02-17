@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.firstContent">
-      <H1 :class="$style.h1Header">{{teamName}}</H1>
+      <ClickToEditableInput role="h1Header" v-model.lazy="title" />
       <slot name="first" />
     </div>
     <nav :class="$style.secondContent">
@@ -14,17 +14,24 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import { H1 } from "@/components/atoms/base-heading/compose";
+import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
 export default {
   mixins: [base],
   name: "AppHeader",
-  data: function() {
-    return {
-      teamName: "MyTeamName"
-    };
+  props: {
+    value: String
   },
-  props: {},
-  components: { H1 }
+  computed: {
+    title: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
+    }
+  },
+  components: { ClickToEditableInput }
 };
 </script>
 <style lang="scss" module>
@@ -32,7 +39,6 @@ export default {
   @include flex;
   justify-content: space-between;
   @include s($w: 100%, $h: 100%);
-  @include p(0 $s8);
 }
 .firstContent {
   @include flex;
@@ -41,7 +47,6 @@ export default {
   display: inline-block;
 
   .container {
-    @include m(6px 0 0 0);
     @include flex;
   }
 }
