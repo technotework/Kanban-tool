@@ -59,10 +59,12 @@ export default {
 .wrapper2col {
   display: grid;
   grid-template-columns: 1fr 63px;
+  overflow: hidden;
 }
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
+  overflow: hidden;
 }
 .editableInputContainer {
   position: relative;
@@ -119,6 +121,16 @@ export default {
     @include abs($t: 13px, $r: 4px);
   }
 }
+
+.label {
+  grid-template-rows: 39px;
+  .editableInput {
+    font-size: $f20;
+    font-weight: bold;
+    padding: 0;
+  }
+}
+
 .text {
   grid-template-rows: 39px;
   .editableInput {

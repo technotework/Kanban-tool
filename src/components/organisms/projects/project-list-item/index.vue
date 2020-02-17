@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.projectListItem" :name="name">
+  <div :class="$style.projectListItem">
     <div :class="$style.thumb">
       <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
       <ContextMenu
@@ -9,13 +9,13 @@
         compose="top"
       />
     </div>
-    <span :class="$style.projectName">{{ name }}</span>
-    <br />
+    <ClickToEditableInput role="label" v-model.lazy="title" />
     <DateTimeText :date="date" :class="$style.date" />
   </div>
 </template>
 
 <script>
+import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
 import DateTimeText from "@/components/atoms/base-time-text/date-time-text";
 import BaseIcon from "@/components/atoms/base-icon/";
 import ContextMenu from "@/components/molecules/context-menu/";
@@ -23,7 +23,7 @@ export default {
   name: "ProjectListItem",
   props: {
     id: String,
-    name: String,
+    value: String,
     date: String
   },
   data: function() {
@@ -40,7 +40,17 @@ export default {
       ]
     };
   },
-  components: { ContextMenu, DateTimeText, BaseIcon },
+  computed: {
+    title: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
+    }
+  },
+  components: { ContextMenu, DateTimeText, BaseIcon, ClickToEditableInput },
   methods: {
     onMenuClick: function(value) {
       this.$emit("context-menu-click", value);
@@ -58,7 +68,7 @@ export default {
   @include s($w: 270px, $h: 178px);
   @include r($round);
   @include bgc($lightGray);
-  @include m(0 0 $s8 0);
+  @include m(0 0 2px 0);
 
   .thumbIcon {
     fill: rgba(255, 255, 255, 0.4);

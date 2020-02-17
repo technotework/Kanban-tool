@@ -1,30 +1,28 @@
 import {
     createDefStory,
-    createStory,
-    tagTemp
 } from "@/components/utils/story-creator";
 import {
-    action
+    action, text
 } from "@/components/utils/story-export"
 import ProjectListItem from "./index.vue";
 
 let description = 'import ProjectListItem from "@/components/organisms/projects/project-list-item/"';
 export default createDefStory("organisms/projects/ProjectListItem", ProjectListItem, description);
 
-let setting = {
-    name: "ProjectListItem",
-    compos: {
-        ProjectListItem: ProjectListItem
-    },
-    props: {
-        id: "p1",
-        name: "myProjectName",
-        date: "1580964954",
-    },
-    action: {
-        event: "context-menu-click"
-    },
-    template: tagTemp `<ProjectListItem ${"props"} ${"action"} />`
-};
 
-export const Basic = () => createStory(setting);
+//---------------------
+//Basic
+export const Basic = () => ({
+    components: {
+        ProjectListItem
+    },
+    data: () => ({
+        text: "ProjectName"
+    }),
+    props: {
+        id: { default: text("id", "abcde") },
+        date: { default: text("date", "1581915376") },
+    },
+    template: `<ProjectListItem v-bind="{date,id}" @input="action" v-model.lazy="text" />`,
+    methods: { action: action('input') }
+});
