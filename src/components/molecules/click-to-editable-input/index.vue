@@ -104,7 +104,7 @@ export default {
 .h1Header {
   grid-template-rows: 39px;
   .editableInput {
-    font-size: $f30;
+    font-size: $f36;
     font-weight: bold;
   }
   .icon {
@@ -114,7 +114,7 @@ export default {
 .h2Header {
   grid-template-rows: 39px;
   .editableInput {
-    font-size: $f24;
+    font-size: $f32;
     font-weight: bold;
   }
   .icon {
