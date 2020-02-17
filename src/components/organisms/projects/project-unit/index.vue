@@ -2,12 +2,12 @@
   <ContentAreaLayout>
     <template #nav>
       <ContentHeader @click="onClick">
-        <template #first>Team Name</template>
+        <template #first>Projects</template>
         <template #second>新規作成</template>
       </ContentHeader>
     </template>
     <template #article>
-      <ProjectList v-model="items" @context-menu-click="onMenuClick" />
+      <ProjectList :items.sync="items" @context-menu-click="onMenuClick" />
     </template>
   </ContentAreaLayout>
 </template>
