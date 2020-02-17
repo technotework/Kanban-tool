@@ -87,14 +87,34 @@ const actions = {
 
 	},
 	/**
-	 * 更新
+	 * プロジェクト名更新
+	 * @param {*} param0 
+	 * @param {*} value 
 	 */
-	update() { },
-	/**
+	update({ rootGetters }, value) {
+		return new Promise((resolve, reject) => {
+
+			let db = rootGetters.db;
+			let path = rootGetters["auth/path"];
+			let name = value.name;
+			let id = value.id;
+
+			let parentProject = db.doc(path + id);
+			//実行
+			parentProject.set({ project: { "label": name } }, { merge: true }).then(() => {
+				resolve();
+			});
+
+		}, (error) => {
+			console.log(error);
+		});
+
+	},
+	/***=============================
 	 * 削除
 	 * @param {*} param0 
 	 * @param {*} id 
-	 */
+	*============================= */
 	delete({ rootGetters }, id) {
 
 		return new Promise(async (resolve, reject) => {

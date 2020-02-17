@@ -4,6 +4,7 @@
     :class="[$style.basicInput, $compose[compose]]"
     v-bind="{ placeholder, required, maxlength, name, readonly }"
     v-model.lazy="myValue"
+    @keyup.enter="onKeyup"
   />
 </template>
 
@@ -29,6 +30,11 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
+    }
+  },
+  methods: {
+    onKeyup(e) {
+      this.$emit("keyup-enter");
     }
   }
 };

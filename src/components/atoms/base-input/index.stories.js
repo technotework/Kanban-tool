@@ -6,6 +6,7 @@ import {
 import {
     text,
     boolean,
+    action
 } from "@/components/utils/story-export"
 import BaseInput from "./index.vue";
 import {
@@ -53,8 +54,8 @@ export const Basic = () => ({
             default: boolean("readonly", false)
         },
     },
-    template: `<BaseInput v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
-    methods: {}
+    template: `<BaseInput v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" @keyup.enter="action" />`,
+    methods: { action: action('keyup.enter') }
 });
 
 

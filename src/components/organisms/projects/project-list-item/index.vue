@@ -46,7 +46,6 @@ export default {
         return this.value;
       },
       set(value) {
-        this.value = value;
         this.$emit("edited-project-name", { name: value, id: this.id });
       }
     }
