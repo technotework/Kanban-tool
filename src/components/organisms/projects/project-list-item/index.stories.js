@@ -23,6 +23,6 @@ export const Basic = () => ({
         id: { default: text("id", "abcde") },
         date: { default: text("date", "1581915376") },
     },
-    template: `<ProjectListItem v-bind="{date,id}" @input="action" v-model.lazy="text" />`,
-    methods: { action: action('input') }
+    template: `<ProjectListItem v-bind="{date,id}" @edited-project-name="action" v-model.lazy="text" />`,
+    methods: { action: action('edited-project-name') }
 });

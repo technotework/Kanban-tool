@@ -7,7 +7,11 @@
       </ContentHeader>
     </template>
     <template #article>
-      <ProjectList :items.sync="items" @context-menu-click="onMenuClick" />
+      <ProjectList
+        :items.sync="items"
+        @context-menu-click="onMenuClick"
+        @edited-project-name="onInput"
+      />
     </template>
   </ContentAreaLayout>
 </template>
@@ -36,6 +40,9 @@ export default {
   methods: {
     onMenuClick: function(value) {
       this.$emit("context-menu-click", value);
+    },
+    onInput: function(value) {
+      this.$emit("edited-project-name", value);
     }
   },
   components: {

@@ -7,6 +7,7 @@
           v-model="item.project.label"
           :date="item.project.update_date"
           @context-menu-click="onMenuClick"
+          @edited-project-name="onInput"
         />
       </li>
     </draggable>
@@ -27,6 +28,9 @@ export default {
     },
     onMenuClick: function(value) {
       this.$emit("context-menu-click", value);
+    },
+    onInput: function(value) {
+      this.$emit("edited-project-name", value);
     }
   },
   computed: {

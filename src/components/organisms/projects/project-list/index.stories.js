@@ -47,8 +47,8 @@ export const Basic = () => ({
             ])
         }
     },
-    template: `<ProjectList :items.sync="items" />`,
+    template: `<ProjectList :items.sync="items" @edited-project-name="action" />`,
     methods: {
-        action: action('change')
+        action: action('edited-project-name')
     }
 });

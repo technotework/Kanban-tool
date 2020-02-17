@@ -37,9 +37,10 @@ export const Basic = () => ({
         }
     },
     methods: {
-        action: action('click')
+        action: action('click'),
+        change: action('edited-project-name'),
     },
-    template: `<ProjectUnit v-model="items" @click="action">
+    template: `<ProjectUnit v-model="items" @click="action" @edited-project-name="change">
     <template #first>aa</template>
     <template #second>aaa</template>
     </ProjectUnit>`
