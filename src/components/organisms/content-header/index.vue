@@ -1,8 +1,10 @@
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.firstContent">
-      <ClickToEditableInput role="h2Header" v-model.lazy="title" />
-      <slot name="first" />
+      <H2 :class="$style.h1Header">
+        <slot name="first" />
+      </H2>
+      <slot name="option" />
     </div>
     <nav :class="$style.secondContent">
       <div :class="$style.container">
@@ -16,25 +18,16 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
+import { H2 } from "@/components/atoms/base-heading/compose";
 import IconedTextButton from "@/components/molecules/iconed-text-button/";
 export default {
   mixins: [base],
   name: "ContentHeader",
-  props: {
-    value: String
+  data: function() {
+    return {};
   },
-  computed: {
-    title: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
-    }
-  },
-  components: { ClickToEditableInput, IconedTextButton }
+  props: {},
+  components: { H2, IconedTextButton }
 };
 </script>
 <style lang="scss" module>
