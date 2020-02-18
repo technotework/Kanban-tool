@@ -10,6 +10,7 @@ let description = 'import ProjectBoardUnit from "@/components/organisms/boards/p
 export default createDefStory("organisms/boards/ProjectBoardUnit", ProjectBoardUnit, description);
 
 
+
 //---------------------
 //Basic
 export const Basic = () => ({
@@ -76,7 +77,8 @@ export const Basic = () => ({
         }
     },
     methods: {
-        action: action('click')
+        action: action('click'),
+        change: action('input')
     },
-    template: `<ProjectBoardUnit v-bind="{boardList}" @click="action" />`
+    template: `<ProjectBoardUnit v-bind="{boardList}" v-model.lazy="text" @input="change" @click="action" />`
 });

@@ -1,5 +1,10 @@
 <template>
-  <ProjectUnit v-model="projectItems" @click="onClick" @context-menu-click="onMenuClick" />
+  <ProjectUnit
+    v-model="projectItems"
+    @click="onClick"
+    @context-menu-click="onMenuClick"
+    @edited-project-name="onInput"
+  />
 </template>
 
 <script>
@@ -30,7 +35,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("projects", ["read", "create", "delete"]),
+    ...mapActions("projects", ["read", "create", "delete", "update"]),
     init() {
       this.read();
     },
@@ -48,6 +53,9 @@ export default {
           paramas: { id: value.id }
         });
       }
+    },
+    onInput: function(value) {
+      this.update(value);
     }
   },
   components: { ProjectUnit }

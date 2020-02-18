@@ -1,7 +1,12 @@
   <template>
   <div :class="[isDisable ? $style.wrapper : $style.wrapper2col,$role[role]]">
     <div @click="onClickEdit" :class="[$style.editableInputContainer, $compose[status]]">
-      <EditInput :class="$style.editableInput" :readonly="isDisable" v-model.lazy="myValue" />
+      <EditInput
+        :class="$style.editableInput"
+        :readonly="isDisable"
+        v-model.lazy="myValue"
+        @keyup-enter="onClickCompleteEdit"
+      />
       <template v-if="isDisable">
         <IconM type="edit" :class="$style.icon" />
       </template>
@@ -39,7 +44,7 @@ export default {
     onClickCompleteEdit: function(e) {
       this.isDisable = true;
       this.status = "uneditable";
-      //更新処理
+      this.$emit("keyup-enter");
     }
   },
   computed: {
@@ -104,7 +109,7 @@ export default {
 .h1Header {
   grid-template-rows: 39px;
   .editableInput {
-    font-size: $f30;
+    font-size: $f36;
     font-weight: bold;
   }
   .icon {
@@ -114,7 +119,7 @@ export default {
 .h2Header {
   grid-template-rows: 39px;
   .editableInput {
-    font-size: $f24;
+    font-size: $f32;
     font-weight: bold;
   }
   .icon {

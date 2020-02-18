@@ -1,10 +1,10 @@
 <template>
   <ContentAreaLayout>
     <template #nav>
-      <ContentHeader @click="onClick">
-        <template #first>Project Name</template>
+      <EditableContentHeader v-model.lazy="text" @input="textChange" @click="onClick">
+        <template #first></template>
         <template #second>新規作成</template>
-      </ContentHeader>
+      </EditableContentHeader>
     </template>
     <template #article>
       <ProjectBoardList v-bind="{boardList}" />
@@ -15,7 +15,7 @@
 <script>
 import base from "@/components/utils/base-mixin";
 import ProjectBoardList from "@/components/organisms/boards/project-board-list/";
-import ContentHeader from "@/components/organisms/content-header/";
+import EditableContentHeader from "@/components/organisms/editable-content-header/";
 import ContentAreaLayout from "@/components/templates/content-area-layout/";
 export default {
   mixins: [base],
@@ -26,7 +26,7 @@ export default {
   computed: {},
   components: {
     ContentAreaLayout,
-    ContentHeader,
+    EditableContentHeader,
     ProjectBoardList
   }
 };
