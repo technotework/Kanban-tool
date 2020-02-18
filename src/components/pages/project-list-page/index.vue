@@ -1,34 +1,15 @@
 <template>
-    <div class="project-list-page">
-    src/components/pages/project-list-page/index.vue<br>    
-    <router-link to="/app/project">project-page</router-link><br>
-    
-    <router-link to="/app/manage-plan">manage-plan-page</router-link><br>
-    
-    <router-link to="/app/manage-member">manage-member-page</router-link><br>
-    
-    <router-link to="/app/edit-profile">edit-profile-page</router-link><br>
-    
-    </div>
+  <Projects />
 </template>
 
 <script>
-
+import Projects from "@/containers/Projects";
 export default {
-    name: 'ProjectListPage',
-    props: {
-
-    },
-    components:{
-        
-    }
-}
+  name: "ProjectListPage",
+  props: {},
+  components: {
+    Projects
+  }
+};
 </script>
-<style lang="scss" module>
-.class{
-
-  
-}
-</style>
-
 

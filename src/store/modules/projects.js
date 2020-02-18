@@ -12,7 +12,12 @@ const mutations = {
 
 	setData(state, payload) {
 		state.projectsData = payload;
+	},
+	setName(state, payload) {
+
+
 	}
+
 }
 
 //--------------
@@ -48,7 +53,7 @@ const actions = {
 			let projectDoc = await createProject(db, path, date);
 			//boardsドキュメントを作ります
 			let firstBoardID = await createBoards(path, projectDoc, db);
-			console.log(firstBoardID);
+
 			//続けてタスクを先頭のボードに追加する
 			let boardDocumentPath = path + projectDoc.id + "/boards/" + firstBoardID;
 			await createTasks(uuid, date, db, boardDocumentPath);
@@ -91,7 +96,7 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	 */
-	update({ rootGetters }, value) {
+	updateProjectName({ rootGetters }, value) {
 		return new Promise((resolve, reject) => {
 
 			let db = rootGetters.db;
@@ -146,7 +151,7 @@ const actions = {
 
 							let taskDocPath = tasksPath + doc.id;
 							let taskDoc = db.doc(taskDocPath);
-							taskDoc.delete().then(() => { console.log("d!") });
+							taskDoc.delete();
 
 						});
 					});
@@ -211,24 +216,32 @@ function createBoards(path, projectDoc, db) {
 	return new Promise(async (resolve, reject) => {
 
 		let initialBoardsTemplate = [{
-			"id": "",
-			"title": "Backlog",
-			"task_sort": []
+			"board": {
+				"id": "",
+				"title": "Backlog",
+				"task_sort": []
+			}
 		},
 		{
-			"id": "",
-			"title": "ToDo",
-			"task_sort": []
+			"board": {
+				"id": "",
+				"title": "ToDo",
+				"task_sort": []
+			}
 		},
 		{
-			"id": "",
-			"title": "Progress",
-			"task_sort": []
+			"board": {
+				"id": "",
+				"title": "Progress",
+				"task_sort": []
+			}
 		},
 		{
-			"id": "",
-			"title": "Complete",
-			"task_sort": []
+			"board": {
+				"id": "",
+				"title": "Complete",
+				"task_sort": []
+			}
 		}
 		];
 
@@ -265,16 +278,18 @@ function createBoards(path, projectDoc, db) {
 function createTasks(uuid, date, db, boardDocumentPath) {
 	return new Promise(async (resolve, reject) => {
 		let initialTaskTemplate = {
-			"id": "",
-			"data": "",
-			"labels": [],
-			"members": [],
-			"createUser": `${uuid}`,
-			"create_date": `${date}`,
-			"start_date": null,
-			"end_date": null,
-			"archive_date": null,
-			"comments": []
+			task: {
+				"id": "",
+				"data": "",
+				"labels": [],
+				"members": [],
+				"createUser": `${uuid}`,
+				"create_date": `${date}`,
+				"start_date": null,
+				"end_date": null,
+				"archive_date": null,
+				"comments": []
+			}
 		};
 		let dataPath = boardDocumentPath + "/tasks/";
 		let collection = db.collection(dataPath);
@@ -282,7 +297,7 @@ function createTasks(uuid, date, db, boardDocumentPath) {
 		//タスクの順番をIDの配列としてフィールドに追加
 		dataPath = boardDocumentPath;
 		let parentProject = db.doc(dataPath);
-		await parentProject.set({ "task_sort": [taskDoc.id] }, { merge: true });
+		await parentProject.set({ board: { "task_sort": [taskDoc.id] } }, { merge: true });
 
 		resolve();
 

@@ -17,13 +17,13 @@ const routes = [
         component: () => import('../components/pages/login-page/index.vue')
       },
       {//プロジェクト一覧画面
-        path: 'project',
+        path: 'projects',
         name: 'project-list-page',
         component: () => import('../components/pages/project-list-page/index.vue'),
         meta: { requiresAuth: true }
       },
       {//プロジェクト画面
-        path: 'project/:id',
+        path: 'projects/:id',
         name: 'project-page',
         component: () => import('../components/pages/project-page/index.vue'),
         meta: { requiresAuth: true }
@@ -120,7 +120,7 @@ router.beforeEach((to, from, next) => {
       } else {
         // 未ログイン時はログイン画面にリダイレクト
         next({
-          path: '/app/login'
+          //path: '/app/login'
         })
       }
     });

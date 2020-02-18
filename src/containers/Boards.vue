@@ -1,10 +1,9 @@
 
 <template>
-  <ProjectBoardUnit v-bind="{boardList}" @click="onClick" />
+  <ProjectBoardUnit v-model="boardList" :title.sync="title" @click="onClick" />
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 import ProjectBoardUnit from "@/components/organisms/boards/project-board-unit/";
 
 export default {
@@ -12,29 +11,47 @@ export default {
   props: {},
   data: () => {
     return {
-      id: ""
+      title: "joge"
     };
   },
   mounted: function() {
     this.init();
   },
   computed: {
-    ...mapGetters("boards", ["boards"]),
+    id: function() {
+      return this.$route.params.id;
+    },
     boardList: {
       get() {
-        return this.boards;
+        return this.$store.getters["boards/boards"];
       },
       set(value) {
         this.$store.commit("boards/setData", value);
       }
     }
+    /*
+    projectName: {
+      get() {
+        let projects = this.$store.getters["projects/projects"];
+        let title = "";
+        if (this.id != undefined) {
+          for (let i = 0; i < projects.length; i++) {
+            if (projects[i].project.id == this.id) {
+              title = projects[i].project.label;
+            }
+          }
+        }
+        return title;
+      },
+      set(value) {
+        this.$store.commit("projects/setName", { id: this.id, value: value });
+      }
+    }*/
   },
   methods: {
-    ...mapActions("boards", ["read", "create", "delete"]),
     init() {
-      let id = "li8k1FpjDDz6lOIr3O3B";
-      //let id = this.$route.params.id;
-      this.read(id);
+      console.log("aaa");
+      this.$store.dispatch("boards/read", this.id);
     },
     onClick(e) {}
   },

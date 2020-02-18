@@ -1,15 +1,10 @@
 <template>
   <div id="app">
     <router-view />
-
-    <Boards />
   </div>
 </template>
 
 <script>
-import Auth from "@/containers/Auth";
-import Boards from "@/containers/Boards";
-
 export default {
   name: "App",
   computed: {},
@@ -17,6 +12,6 @@ export default {
     return {};
   },
   methods: {},
-  components: { Boards }
+  components: {}
 };
 </script>

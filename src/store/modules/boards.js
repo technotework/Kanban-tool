@@ -47,8 +47,8 @@ const actions = {
 			querySnapshot.forEach(function (doc) {
 
 				let result = doc.data();
-				result.id = doc.id;
-				result.task_list = [];
+				result.board.id = doc.id;
+				result.board.task_list = [];
 
 				//task取得
 				let taskPath = boardPath + doc.id + "/tasks/";
@@ -56,13 +56,13 @@ const actions = {
 				collection.onSnapshot(function (querySnapshot) {
 					querySnapshot.forEach(function (doc) {
 						let taskData = doc.data();
-						result.task_list.push(taskData);
+						result.board.task_list.push(taskData);
 					});
 				});
 
 				array.push(result);
 			})
-
+			console.log(array);
 			commit("setData", array);
 
 		}, (error) => {

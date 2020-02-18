@@ -35,7 +35,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions("projects", ["read", "create", "delete", "update"]),
+    ...mapActions("projects", [
+      "read",
+      "create",
+      "delete",
+      "updateProjectName"
+    ]),
     init() {
       this.read();
     },
@@ -48,14 +53,14 @@ export default {
         this.delete(id);
       } else if (value.name == "edit") {
         //画面遷移
+        let path = "projects/" + value.id;
         this.$router.push({
-          path: "project",
-          paramas: { id: value.id }
+          path: path
         });
       }
     },
     onInput: function(value) {
-      this.update(value);
+      this.updateProjectName(value);
     }
   },
   components: { ProjectUnit }
