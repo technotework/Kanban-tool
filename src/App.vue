@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <router-view />
-    <button @click="c" />
-    <Projects />
+
+    <Boards />
   </div>
 </template>
 
 <script>
 import Auth from "@/containers/Auth";
-import Projects from "@/containers/Projects";
+import Boards from "@/containers/Boards";
 
 export default {
   name: "App",
@@ -16,9 +16,7 @@ export default {
   data: () => {
     return {};
   },
-  methods: {
-    c() {}
-  },
-  components: { Projects }
+  methods: {},
+  components: { Boards }
 };
 </script>

@@ -42,7 +42,11 @@ export default {
       if (value.name == "delete") {
         this.delete(id);
       } else if (value.name == "edit") {
-        console.log("edit", id);
+        //画面遷移
+        this.$router.push({
+          path: "project",
+          paramas: { id: value.id }
+        });
       }
     }
   },

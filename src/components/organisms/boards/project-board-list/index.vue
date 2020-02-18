@@ -1,19 +1,10 @@
 <template>
-  <draggable
-    :list="boardList"
-    :class="$style.list"
-    tag="ul"
-    v-bind="dragOptions"
-  >
-    <li
-      v-for="boardItem in boardList"
-      :key="boardItem.id"
-      :class="$style.listItem"
-    >
+  <draggable :list="boardList" :class="$style.list" tag="ul" v-bind="dragOptions">
+    <li v-for="boardItem in boardList" :key="boardItem.id" :class="$style.listItem">
       <ProjectBoardListItem
         v-model="boardItem.title"
         :id="boardItem.id"
-        :task-list="boardItem.taskList"
+        :task-list="boardItem.task_list"
       />
     </li>
   </draggable>

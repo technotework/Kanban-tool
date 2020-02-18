@@ -23,18 +23,18 @@ const routes = [
         meta: { requiresAuth: true }
       },
       {//プロジェクト画面
-        path: 'project/:project-id',
+        path: 'project/:id',
         name: 'project-page',
         component: () => import('../components/pages/project-page/index.vue'),
         meta: { requiresAuth: true }
       },
-      {//タスク編集画面
+      /*{//タスク編集画面
         path: 'project/:task-id',
         name: 'task-edit-page',
         component: () => import('../components/pages/task-edit-page/index.vue'),
         meta: { requiresAuth: true }
       },
-      /*{//新規登録画面
+      {//新規登録画面
         path:  'regist',
         name: 'regist-page',
         component: () => import('../components/pages/regist-page/index.vue')

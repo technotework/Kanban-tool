@@ -248,6 +248,7 @@ function createTasks(uuid, date, db, boardDocumentPath) {
 			"id": "",
 			"data": "",
 			"labels": [],
+			"members": [],
 			"createUser": `${uuid}`,
 			"create_date": `${date}`,
 			"start_date": null,

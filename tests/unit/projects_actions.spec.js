@@ -48,7 +48,7 @@ beforeAll(() => {
     },
     "auth/contract": "C1s25ymrqZUpS0WzqqoU",
     "auth/team": "6snw7RU3yAYjYeHU4p2A",
-    "auth/path": "workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects"
+    "auth/path": "workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/"
   }
 });
 
