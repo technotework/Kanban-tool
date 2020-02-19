@@ -8,7 +8,7 @@
     </template>
     <template #article>
       <ProjectList
-        :items.sync="items"
+        v-model="items"
         @context-menu-click="onMenuClick"
         @edited-project-name="onInput"
       />

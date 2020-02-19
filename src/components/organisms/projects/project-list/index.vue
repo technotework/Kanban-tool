@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <draggable :items.sync="items" :class="$style.list" tag="ul" v-bind="dragOptions">
+    <draggable v-model="items" :class="$style.list" tag="ul" v-bind="dragOptions">
       <li v-for="item in items" :key="item.project.id" :class="$style.listItem">
         <ProjectListItem
           :id="item.project.id"
@@ -20,7 +20,7 @@ import ProjectListItem from "@/components/organisms/projects/project-list-item/"
 export default {
   name: "ProjectList",
   props: {
-    items: Array
+    value: Array
   },
   methods: {
     update(value) {
@@ -39,6 +39,14 @@ export default {
         animation: 200,
         ghostClass: this.$style.ghost
       };
+    },
+    items: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
     }
   },
   components: {
