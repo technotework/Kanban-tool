@@ -9,9 +9,9 @@ const state = {
 //mutations
 //--------------
 const mutations = {
-	setData(state, payload) {
+	setBoardData(state, payload) {
 
-		state.boardsData = payload;
+		state.boardsData = payload.data;
 	}
 }
 
@@ -33,44 +33,63 @@ const actions = {
 	 * 初期読み込み
 	 * @param {*} param0 
 	 */
-	read({ commit, rootGetters }, projectId) {
+	read({ commit, rootGetters }) {
+		return new Promise(async (resolve, reject) => {
 
-		let db = rootGetters.db;
-		let path = rootGetters["auth/path"];
-		let boardPath = path + projectId + "/boards/";
-		let collection = db.collection(boardPath);
 
-		collection.onSnapshot(function (querySnapshot) {
+			let db = rootGetters.db;
+			let path = rootGetters["auth/path"];
+			let boardPath = path + "4191PHGlZZ7OWynw4qSO" + "/boards/";
+			let collection = db.collection(boardPath);
 
-			let array = [];
-			//フィールド取得
-			querySnapshot.forEach(function (doc) {
+			collection.onSnapshot(function (querySnapshot) {
 
-				let result = doc.data();
-				result.board.id = doc.id;
-				result.board.task_list = [];
+				let array = [];
+				querySnapshot.forEach(function (doc) {
+					let result = doc.data();
+					result.board.id = doc.id;
+					result.board.task_list = [];
 
-				//task取得
-				let taskPath = boardPath + doc.id + "/tasks/";
-				let collection = db.collection(taskPath);
-				collection.onSnapshot(function (querySnapshot) {
-					querySnapshot.forEach(function (doc) {
-						let taskData = doc.data();
-						result.board.task_list.push(taskData);
+					let taskpath = boardPath + doc.id + "/tasks/"
+					let collection = db.collection(taskpath);
+					collection.onSnapshot(function (querySnapshot) {
+
+						let tasksArray = [];
+						querySnapshot.forEach(function (doc) {
+							let result = doc.data();
+							tasksArray.push(result);
+						})
+						result.board.task_list = tasksArray;
 					});
+
+					array.push(result);
 				});
 
-				array.push(result);
-			})
-			console.log(array);
-			commit("setData", array);
+
+				commit("setBoardData", { data: array });
+			});
+
 
 		}, (error) => {
 			console.log(error);
 		});
+
 	},
 	update() { },
 	delete() { }
+}
+
+
+function getBoard() {
+
+	return new Promise((resolve, reject) => {
+
+
+
+
+
+	});
+
 }
 
 
