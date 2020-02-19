@@ -7,17 +7,17 @@ import {
   createStory,
   tagTemp
 } from "@/components/utils/story-creator";
-import ProjectBoardListItem from "./index.vue";
+import BoardListItem from "./index.vue";
 
-let description = 'import ProjectBoardListItem from "@/components/organisms/boards/project-board-list-item/"';
-export default createDefStory("organisms/boards/ProjectBoardListItem", ProjectBoardListItem, description);
+let description = 'import BoardListItem from "@/components/organisms/boards/board-list-item/"';
+export default createDefStory("organisms/boards/BoardListItem", BoardListItem, description);
 
 
 //---------------------
 //Basic
 export const Basic = () => ({
   components: {
-    ProjectBoardListItem
+    BoardListItem
   },
   data: () => ({
     title: "boardName",
@@ -39,6 +39,6 @@ export const Basic = () => ({
       ])
     }
   },
-  template: `<ProjectBoardListItem v-model.lazy="myValue" v-bind="{taskList}" />`,
+  template: `<BoardListItem v-model.lazy="myValue" v-bind="{taskList}" />`,
   methods: {}
 });

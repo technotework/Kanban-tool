@@ -1,11 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <textarea
-      v-model.lazy="myValue"
-      :class="$style.text"
-      v-show="isedit"
-      ref="textArea"
-    ></textarea>
+    <textarea v-model.lazy="myValue" :class="$style.text" v-show="isedit" ref="textArea"></textarea>
     <div v-html="compiledMarkdown" :class="$style.md" v-show="!isedit"></div>
   </div>
 </template>
@@ -23,7 +18,7 @@ export default {
   },
   computed: {
     compiledMarkdown: function() {
-      return marked(this.myValue, { sanitize: true });
+      return marked(this.myValue);
     },
     myValue: {
       get() {

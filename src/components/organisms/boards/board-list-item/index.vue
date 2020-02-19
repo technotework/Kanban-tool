@@ -16,51 +16,23 @@
         { [$style.close]: !showPost }
       ]"
     >
-      <PostForm
-        v-model="postContent"
-        @form-cancel="onFormCancelClick"
-        @form-add="onFormAddClick"
-      />
+      <PostForm v-model="postContent" @form-cancel="onFormCancelClick" @form-add="onFormAddClick" />
     </div>
-
-    <ProjectTaskList :task-list="taskList" />
+    <Tasks :id="id" />
   </div>
 </template>
 
 <script>
-/*
-[Components]
-project-board-list
-↓
-(propsでboardList)
-[here!] project-board-list-item
-(v-modelでtitle)
-↓
-(propsでtaskList)
-project-task-list(taskList)
-↓
-(v-modelでtaskData)
-project-task-list-item(taskData)
-↓
-(v-modelでcontent)
-click-to-editable-md
-
-[DATA] v-model
-boardList:[
-  {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
-  {id:boardID,title:boardTitle,taskList:[{id:taskID,data:taskData},{id:taskID,data:taskData}]},
-]
-*/
 import PostForm from "@/components/molecules/post-form/";
 import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
 import ContextMenu from "@/components/molecules/context-menu/";
-import ProjectTaskList from "@/components/organisms/boards/project-task-list/";
+import Tasks from "@/containers/Tasks";
 import IconedButton from "@/components/molecules/iconed-button/";
+
 export default {
-  name: "ProjectBoardListItem",
+  name: "BoardListItem",
   props: {
     value: String,
-    taskList: Array,
     id: String
   },
   data: function() {
@@ -81,7 +53,7 @@ export default {
         return this.value;
       },
       set(value) {
-        this.$emit("input", value);
+        this.$emit("edited-board-name", { name: value, id: this.id });
       }
     }
   },
@@ -103,7 +75,7 @@ export default {
   components: {
     ClickToEditableInput,
     ContextMenu,
-    ProjectTaskList,
+    Tasks,
     PostForm,
     IconedButton
   }

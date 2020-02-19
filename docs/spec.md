@@ -469,19 +469,19 @@ project-board-quick-editor/index.vue
 
 ##### ボード
 
-project-board-list-item/index.vue
+board-list-item/index.vue
 
 ##### ボードリスト
 
-project-board-list/index.vue
+board-list/index.vue
 
 ##### タスク
 
-project-task-list-item/index.vue
+task-list-item/index.vue
 
 ##### タスクリスト
 
-project-task-list/index.vue
+task-list/index.vue
 
 ##### タスク本文
 

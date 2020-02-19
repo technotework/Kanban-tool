@@ -4,10 +4,10 @@ import {
 import {
     createDefStory,
 } from "@/components/utils/story-creator"
-import ProjectBoardUnit from "./index.vue";
+import BoardUnit from "./index.vue";
 
-let description = 'import ProjectBoardUnit from "@/components/organisms/boards/project-board-unit/"'
-export default createDefStory("organisms/boards/ProjectBoardUnit", ProjectBoardUnit, description);
+let description = 'import BoardUnit from "@/components/organisms/boards/board-unit/"'
+export default createDefStory("organisms/boards/BoardUnit", BoardUnit, description);
 
 
 
@@ -15,7 +15,7 @@ export default createDefStory("organisms/boards/ProjectBoardUnit", ProjectBoardU
 //Basic
 export const Basic = () => ({
     components: {
-        ProjectBoardUnit
+        BoardUnit
     },
     props: {
         boardList: {
@@ -80,5 +80,5 @@ export const Basic = () => ({
         action: action('click'),
         change: action('input')
     },
-    template: `<ProjectBoardUnit v-bind="{boardList}" v-model.lazy="text" @input="change" @click="action" />`
+    template: `<BoardUnit v-bind="{boardList}" v-model.lazy="text" @input="change" @click="action" />`
 });

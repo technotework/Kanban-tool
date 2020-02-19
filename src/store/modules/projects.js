@@ -218,28 +218,28 @@ function createBoards(path, projectDoc, db) {
 		let initialBoardsTemplate = [{
 			"board": {
 				"id": "",
-				"title": "Backlog",
+				"label": "Backlog",
 				"task_sort": []
 			}
 		},
 		{
 			"board": {
 				"id": "",
-				"title": "ToDo",
+				"label": "ToDo",
 				"task_sort": []
 			}
 		},
 		{
 			"board": {
 				"id": "",
-				"title": "Progress",
+				"label": "Progress",
 				"task_sort": []
 			}
 		},
 		{
 			"board": {
 				"id": "",
-				"title": "Complete",
+				"label": "Complete",
 				"task_sort": []
 			}
 		}

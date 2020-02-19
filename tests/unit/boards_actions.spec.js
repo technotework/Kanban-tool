@@ -1,5 +1,5 @@
-import project from "../../src/store/modules/projects/"
-import { state, mutations, getters, actions } from "../../src/store/modules/projects"
+import boards from "../../src/store/modules/boards"
+import { state, mutations, getters, actions } from "../../src/store/modules/boards"
 import Vuex from 'vuex'
 import FB from "../../src/firebase";
 import { createLocalVue } from '@vue/test-utils'
@@ -13,7 +13,7 @@ if (isTest) {
 const localVue = createLocalVue();
 localVue.use(Vuex)
 
-let store = new Vuex.Store(project);
+let store = new Vuex.Store(boards);
 let commit = store.commit;
 let rootGetters;
 
@@ -53,26 +53,15 @@ beforeAll(() => {
 });
 
 /**
- * projectDataの新規作成
+ * BoardDataの読み込み
  */
-describe('Projects action create', () => {
-  test('projectDataの新規作成', async (done) => {
+describe('Board action read', () => {
+  test('Boardの読み込み', async (done) => {
 
-    await actions.create({ commit, rootGetters });
+    await actions.read({ commit, rootGetters }, "USQxuwsqOkICCmDfnABD");
     done();
 
   })
-})
+});
 
-/**
- * projectDataの読み込み
 
-describe('Projects action read', () => {
-  test('projectDataの読み込み', async (done) => {
-
-    await actions.read({ commit, rootGetters });
-    done();
-
-  })
-})
-*/

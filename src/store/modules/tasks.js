@@ -9,13 +9,18 @@ const state = {
 //mutations
 //--------------
 const mutations = {
-  createJson(state, payload) { }
+  setTasksData(state, payload) {
+    state.tasksData = payload;
+  }
 }
 
 //--------------
 //getters
 //--------------
 const getters = {
+  tasks(state) {
+    return state.tasksData;
+  }
 }
 
 //--------------
@@ -23,7 +28,37 @@ const getters = {
 //--------------
 const actions = {
   create() { },
-  read() { },
+  /**
+   * 初期読み込み
+   * @param {*} param0 
+   * @param {*} value 
+   */
+  read({ commit, rootGetters }, value) {
+    return new Promise(async (resolve, reject) => {
+
+      let db = rootGetters.db;
+      let path = rootGetters["auth/path"];
+      let projectId = rootGetters["boards/projectId"];
+      let boardPath = path + projectId + "/boards/";
+      let tasksPath = boardPath + value + "/tasks/"
+
+      let collection = db.collection(tasksPath);
+      collection.onSnapshot(function (querySnapshot) {
+
+        let array = [];
+        querySnapshot.forEach(function (doc) {
+          let result = doc.data();
+          result.task.id = doc.id;
+          array.push(result);
+        });
+
+        commit("setTasksData", array);
+      });
+
+    }, (error) => {
+      console.log(error);
+    });
+  },
   update() { },
   delete() { }
 }

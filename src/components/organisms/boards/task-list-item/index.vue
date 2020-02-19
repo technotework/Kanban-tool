@@ -7,17 +7,17 @@
 <script>
 /*
 [Components]
-project-board-list
+board-list
 ↓
 (propsでboardList)
-project-board-list-item
+board-list-item
 (v-modelでtitle)
 ↓
 (propsでtaskList)
-project-task-list(taskList)
+task-list(taskList)
 ↓
 (v-modelでtaskData)
-[here!] project-task-list-item(taskData)
+[here!] task-list-item(taskData)
 ↓
 (v-modelでcontent)
 click-to-editable-md
@@ -30,7 +30,7 @@ boardList:[
 */
 import { PostedMD } from "@/components/molecules/click-to-editable-md/compose";
 export default {
-  name: "ProjectTaskListItem",
+  name: "TaskListItem",
   props: {
     value: String
   },

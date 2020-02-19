@@ -4,6 +4,7 @@ module.exports = {
     port: '8080'
   },
   configureWebpack: {
+    devtool: 'source-map',
     resolve: {
       alias: {
         'vue$': 'vue/dist/vue.esm.js'
