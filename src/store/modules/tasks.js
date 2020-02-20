@@ -30,12 +30,62 @@ const getters = {
 //actions
 //--------------
 const actions = {
-  create() { },
-  /**
+  /**=============================
+   * Taskの新規作成
+   * @param {*} param0 
+   * @param {*} value 
+   =============================*/
+  createTask({ rootGetters }, value) {
+    return new Promise(async (resolve, reject) => {
+
+      let content = value.value;
+      let boardId = value.boardId;
+      let db = rootGetters.db;
+      let path = rootGetters["auth/path"];
+      let projectId = rootGetters["boards/projectId"];
+      let boardPath = path + projectId + "/boards/";
+      let taskPath = boardPath + boardId + "/tasks/";
+
+      //実行
+      let collection = db.collection(taskPath);
+      let uuid = rootGetters["auth/user"].uuid;
+      let date = Math.floor(new Date().getTime() / 1000);
+      let template = {
+        task: {
+          "id": "",
+          "data": content,
+          "labels": [],
+          "members": [],
+          "createUser": `${uuid}`,
+          "create_date": `${date}`,
+          "start_date": null,
+          "end_date": null,
+          "archive_date": null,
+          "comments": []
+        }
+      };
+      //新規タスク追加
+      let taskDoc = await collection.add(template);
+
+      //並び順管理するためのフィールドを更新
+      //全部取得
+      let boardDoc = db.doc(boardPath + boardId);
+      let docData = await boardDoc.get();
+
+      //一部書き換えてset
+      let obj = docData.data();
+      obj.board.task_sort.unshift(taskDoc.id);
+      await boardDoc.set({ board: { "task_sort": obj.board.task_sort } }, { merge: true });
+
+    }, (error) => {
+      console.log(error);
+    });
+  },
+  /**=============================
    * 初期読み込み
    * @param {*} param0 
    * @param {*} value 
-   */
+   =============================*/
   read({ commit, rootGetters }, value) {
     return new Promise(async (resolve, reject) => {
 
@@ -64,11 +114,11 @@ const actions = {
       console.log(error);
     });
   },
-  /**
+  /**=============================
    * タスクをアップデート
    * @param {*} param0 
    * @param {*} value 
-   */
+   =============================*/
   updateTask({ rootGetters }, value) {
 
     return new Promise((resolve, reject) => {

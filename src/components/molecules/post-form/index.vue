@@ -2,12 +2,8 @@
   <div :class="$style.wrapper">
     <BaseTextArea v-model.lazy="content" :class="$style.text" />
     <div :class="$style.buttons">
-      <TextButton :class="$style.button" @click="onCancelSubmit">
-        キャンセル
-      </TextButton>
-      <TextButton :class="$style.button" @click="onSubmit">
-        送信
-      </TextButton>
+      <TextButton :class="$style.button" @click="onCancelSubmit">キャンセル</TextButton>
+      <TextButton :class="$style.button" @click="onSubmit">送信</TextButton>
     </div>
   </div>
 </template>
@@ -20,12 +16,16 @@ import { TextButton } from "@/components/atoms/base-no-link-button/compose";
 export default {
   mixins: [base],
   name: "PostForm",
-  props: {
-    value: String
+  props: {},
+  data: () => {
+    return {
+      content: ""
+    };
   },
   methods: {
     onSubmit: function(e) {
       this.$emit("form-add", { value: this.content, e: e });
+      this.reset();
     },
     onCancelSubmit: function(e) {
       this.reset();
@@ -35,16 +35,7 @@ export default {
       this.content = "";
     }
   },
-  computed: {
-    content: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
-    }
-  },
+  computed: {},
   components: { BaseTextArea, TextButton }
 };
 </script>
