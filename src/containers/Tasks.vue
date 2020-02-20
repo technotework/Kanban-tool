@@ -1,5 +1,10 @@
 <template  >
-  <TaskList v-model="taskList" @md-save-event="onSave" @form-add="onAddTask" />
+  <TaskList
+    v-model="taskList"
+    @md-save-event="onSave"
+    @form-add="onCreate"
+    @md-delete-event="onDelete"
+  />
 </template>
 
 <script>
@@ -56,9 +61,13 @@ export default {
       value.boardId = this.id;
       this.$store.dispatch(this.storeModuleName + "/updateTask", value);
     },
-    onAddTask(value) {
+    onCreate(value) {
       value.boardId = this.id;
       this.$store.dispatch(this.storeModuleName + "/createTask", value);
+    },
+    onDelete(value) {
+      value.boardId = this.id;
+      this.$store.dispatch(this.storeModuleName + "/deleteTask", value);
     }
   },
   components: { TaskList }

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.item">
-    <PostedMD :content="content" @md-save-event="onSave" />
+    <PostedMD :content="content" @md-save-event="onSave" @md-delete-event="onDelete" />
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
     onSave(value) {
       value.id = this.id;
       this.$emit("md-save-event", value);
+    },
+    onDelete(value) {
+      this.$emit("md-delete-event", { id: this.id });
     }
   },
   computed: {},

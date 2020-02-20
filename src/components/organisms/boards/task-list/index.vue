@@ -17,6 +17,7 @@
           :content="item.task.data"
           :class="$style.listItem"
           @md-save-event="onSave"
+          @md-delete-event="onDelete"
         />
       </li>
     </draggable>
@@ -67,6 +68,9 @@ export default {
     },
     onSave(value) {
       this.$emit("md-save-event", value);
+    },
+    onDelete: function(value) {
+      this.$emit("md-delete-event", value);
     }
   },
   components: { PostForm, IconedButton, TaskListItem, draggable }

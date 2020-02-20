@@ -3,6 +3,7 @@
     <BaseEditableMD v-model.lazy="mdContent" :class="$style.md" :isedit="status" ref="md" />
     <div :class="$style.buttons">
       <template v-if="!status">
+        <TextButton :class="$style.button" @click="onDeleteMD">削除</TextButton>
         <TextButton :class="$style.button" @click="onEditMD">編集</TextButton>
       </template>
       <template v-else>
@@ -43,6 +44,9 @@ export default {
     onEditMD: function() {
       this.temp = this.$refs.md.getContent();
       this.status = true;
+    },
+    onDeleteMD: function() {
+      this.$emit("md-delete-event");
     },
     onSaveMD: function() {
       this.status = false;

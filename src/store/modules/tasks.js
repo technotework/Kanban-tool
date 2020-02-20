@@ -75,7 +75,9 @@ const actions = {
       //一部書き換えてset
       let obj = docData.data();
       obj.board.task_sort.unshift(taskDoc.id);
-      await boardDoc.set({ board: { "task_sort": obj.board.task_sort } }, { merge: true });
+      await boardDoc.set({ board: { "task_sort": obj.board.task_sort } }, { merge: true }).then(() => {
+        resolve();
+      });
 
     }, (error) => {
       console.log(error);
@@ -140,7 +142,45 @@ const actions = {
     });
 
   },
-  delete() { }
+  /**=============================
+   * タスクを削除
+   * @param {*} param0 
+   * @param {*} value 
+   =============================*/
+  deleteTask({ rootGetters }, value) {
+
+    return new Promise(async (resolve, reject) => {
+
+      let taskId = value.id;
+      let boardId = value.boardId;
+      let db = rootGetters.db;
+      let path = rootGetters["auth/path"];
+      let projectId = rootGetters["boards/projectId"];
+      let boardPath = path + projectId + "/boards/";
+      let taskDocPath = boardPath + boardId + "/tasks/" + taskId;
+      console.log(taskDocPath);
+      await db.doc(taskDocPath).delete();
+
+      //並び順管理するためのフィールドを更新
+      //全部取得
+      let boardDoc = db.doc(boardPath + boardId);
+      let docData = await boardDoc.get();
+
+      //一部書き換えてset
+      let obj = docData.data();
+      let array = obj.board.task_sort
+      let index = array.indexOf(taskId);
+      if (index >= 0) {
+        array.splice(index, 1);
+      }
+      await boardDoc.set({ board: { "task_sort": array } }, { merge: true }).then(() => {
+        resolve();
+      });
+
+    }, (error) => {
+      console.log(error);
+    });
+  }
 }
 
 export { state, mutations, getters, actions }

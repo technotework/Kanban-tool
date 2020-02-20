@@ -8,7 +8,7 @@ function getMixin() {
     components: {
       ClickToEditableMD
     },
-    template: `<ClickToEditableMD :content="content" @md-save-event="onSave"/>`,
+    template: `<ClickToEditableMD :content="content" @md-save-event="onSave" @md-delete-event="onDeleteMD" />`,
     props: {
       ...ClickToEditableMD.props
     },
