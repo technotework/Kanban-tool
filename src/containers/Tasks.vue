@@ -24,6 +24,11 @@ export default {
       storeModuleName: ""
     };
   },
+  watch: {
+    id(value) {
+      this.storeModuleName = "task_" + value;
+    }
+  },
   computed: {
     taskList: {
       get() {
