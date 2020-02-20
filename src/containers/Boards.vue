@@ -51,6 +51,7 @@ export default {
     ...mapMutations("boards", ["setProjectId"]),
     init() {
       this.setProjectId(this.$route.params.id);
+      this.$store.dispatch("boards/inits", this.$route.params.id);
       this.read();
     },
     onInput: function(value) {

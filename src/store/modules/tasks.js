@@ -3,7 +3,10 @@
 //--------------
 function state() {
   return {
-    tasksData: []
+    appInfo: {},
+    tasksData: [],
+    isOpenEditor: false,
+    parentBoardId: ""
   };
 }
 
@@ -11,9 +14,28 @@ function state() {
 //mutations
 //--------------
 const mutations = {
+  initializeData(state, payload) {
+    state.appInfo = payload;
+  },
+  setParentBoardId(state, payload) {
+    state.parentBoardId = payload;
+  },
   setTasksData(state, payload) {
 
     state.tasksData = payload;
+  },
+  setEditorOpen(state, payload) {
+    state.isOpenEditor = payload;
+  },
+  sortTaskData(state, payload) {
+
+    if (payload != undefined) {
+      let sortArray = payload;
+      state.tasksData.sort((a, b) => {
+        return (sortArray.indexOf(a) - sortArray.indexOf(b));
+      });
+    }
+
   }
 }
 
@@ -21,8 +43,17 @@ const mutations = {
 //getters
 //--------------
 const getters = {
+  info(state) {
+    return state.appInfo;
+  },
   tasks(state) {
     return state.tasksData;
+  },
+  isOpen(state) {
+    return state.isOpenEditor;
+  },
+  boardId(state) {
+    return state.parentBoardId;
   }
 }
 
@@ -30,25 +61,30 @@ const getters = {
 //actions
 //--------------
 const actions = {
+  setInitialData({ rootGetters, commit }, value) {
+
+    let info = {
+      db: rootGetters.db,
+      uuid: rootGetters["auth/user"].uuid,
+      projectPath: rootGetters["auth/path"] + rootGetters["boards/projectId"],
+      boardPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/",
+      boardDocPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/" + value,
+      taskPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/" + value + "/tasks/"
+    }
+    commit("initializeData", info);
+  },
   /**=============================
    * Taskの新規作成
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  createTask({ rootGetters }, value) {
+  createTask({ getters }, value) {
     return new Promise(async (resolve, reject) => {
 
+      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
       let content = value.value;
-      let boardId = value.boardId;
-      let db = rootGetters.db;
-      let path = rootGetters["auth/path"];
-      let projectId = rootGetters["boards/projectId"];
-      let boardPath = path + projectId + "/boards/";
-      let taskPath = boardPath + boardId + "/tasks/";
-
       //実行
       let collection = db.collection(taskPath);
-      let uuid = rootGetters["auth/user"].uuid;
       let date = Math.floor(new Date().getTime() / 1000);
       let template = {
         task: {
@@ -69,7 +105,7 @@ const actions = {
 
       //並び順管理するためのフィールドを更新
       //全部取得
-      let boardDoc = db.doc(boardPath + boardId);
+      let boardDoc = db.doc(boardDocPath);
       let docData = await boardDoc.get();
 
       //一部書き換えてset
@@ -88,18 +124,13 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  read({ commit, rootGetters }, value) {
+  read({ commit, getters }) {
     return new Promise(async (resolve, reject) => {
 
-      //パスの設定
-      let db = rootGetters.db;
-      let path = rootGetters["auth/path"];
-      let projectId = rootGetters["boards/projectId"];
-      let boardPath = path + projectId + "/boards/";
-      let tasksPath = boardPath + value + "/tasks/"
+      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
 
       //読み込み&Listen
-      let collection = db.collection(tasksPath);
+      let collection = db.collection(taskPath);
       collection.onSnapshot(function (querySnapshot) {
 
         let array = [];
@@ -108,31 +139,38 @@ const actions = {
           result.task.id = doc.id;
           array.push(result);
         });
-
         commit("setTasksData", array);
+
+        //並び順取得
+        db.doc(boardDocPath).onSnapshot(function (doc) {
+
+          let taskSort = doc.data().board.task_sort;
+          commit("sortTaskData", taskSort);
+        });
+
       });
 
     }, (error) => {
       console.log(error);
     });
   },
+
+
   /**=============================
    * タスクをアップデート
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  updateTask({ rootGetters }, value) {
+  updateTask({ getters }, value) {
 
     return new Promise((resolve, reject) => {
 
+      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
       let content = value.value;
       let taskId = value.id;
-      let boardId = value.boardId;
-      let db = rootGetters.db;
-      let path = rootGetters["auth/path"];
-      let projectId = rootGetters["boards/projectId"];
-      let boardPath = path + projectId + "/boards/";
-      let taskDocPath = boardPath + boardId + "/tasks/" + taskId;
+      let boardId = getters.boardId;
+
+      let taskDocPath = taskPath + taskId;
       db.doc(taskDocPath).set({ task: { "data": content } }, { merge: true }).then(() => {
         resolve();
       });
@@ -142,28 +180,26 @@ const actions = {
     });
 
   },
+
   /**=============================
    * タスクを削除
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  deleteTask({ rootGetters }, value) {
+  deleteTask({ getters }, value) {
 
     return new Promise(async (resolve, reject) => {
 
+      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
+
       let taskId = value.id;
-      let boardId = value.boardId;
-      let db = rootGetters.db;
-      let path = rootGetters["auth/path"];
-      let projectId = rootGetters["boards/projectId"];
-      let boardPath = path + projectId + "/boards/";
-      let taskDocPath = boardPath + boardId + "/tasks/" + taskId;
-      console.log(taskDocPath);
+      let taskDocPath = taskPath + taskId;
+
       await db.doc(taskDocPath).delete();
 
       //並び順管理するためのフィールドを更新
       //全部取得
-      let boardDoc = db.doc(boardPath + boardId);
+      let boardDoc = db.doc(boardDocPath);
       let docData = await boardDoc.get();
 
       //一部書き換えてset
@@ -180,7 +216,36 @@ const actions = {
     }, (error) => {
       console.log(error);
     });
-  }
+  },
+
+  /**=========================================================
+   * ドラッグ&ドロップによる更新関連
+  /**=========================================================
+   * ドラッグして追加されたので、旧リストからデータを引き継ぎ元を消す
+   * @param {*} param0 
+   * @param {*} value 
+   =============================*/
+  onUpdeteList({ rootGetters }, value) {
+
+
+
+  },
+  dragAdded({ rootGetters, getters }, value) {
+    return new Promise(async (resolve, reject) => {
+
+      let taskId = value.id;
+      let originalBoardId = value.boardId;
+      let boardId = getters.boardId;
+
+      let db = rootGetters.db;
+      let path = rootGetters["auth/path"];
+      let projectId = rootGetters["boards/projectId"];
+      let boardPath = path + projectId + "/boards/";
+      let taskDocPath = boardPath + boardId + "/tasks/" + taskId;
+
+    });
+
+  },
 }
 
 export { state, mutations, getters, actions }

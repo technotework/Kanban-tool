@@ -1,9 +1,13 @@
 <template  >
   <TaskList
     v-model="taskList"
+    :open.sync="isOpen"
+    :data-board-id="id"
     @md-save-event="onSave"
     @form-add="onCreate"
     @md-delete-event="onDelete"
+    @update-list-sort="onUpdeteList"
+    @drag-add-list="onDragAddList"
   />
 </template>
 
@@ -43,6 +47,15 @@ export default {
       set(value) {
         this.$store.commit(this.storeModuleName + "/setTasksData", value);
       }
+    },
+    isOpen: {
+      get() {
+        let key = this.storeModuleName + "/isOpen";
+        return this.$store.getters[key];
+      },
+      set(value) {
+        this.$store.commit(this.storeModuleName + "/setEditorOpen", value);
+      }
     }
   },
   methods: {
@@ -50,24 +63,29 @@ export default {
     registTaskModule() {
       this.storeModuleName = "task_" + this.id;
       this.$store.registerModule(this.storeModuleName, taskModule);
+      this.$store.commit(this.storeModuleName + "/setParentBoardId", this.id);
+      this.$store.dispatch(this.storeModuleName + "/setInitialData", this.id);
     },
     unregistTaskModule() {
       this.$store.unregisterModule(this.storeModuleName);
     },
     init() {
-      this.$store.dispatch(this.storeModuleName + "/read", this.id);
+      this.$store.dispatch(this.storeModuleName + "/read");
     },
     onSave(value) {
-      value.boardId = this.id;
       this.$store.dispatch(this.storeModuleName + "/updateTask", value);
     },
     onCreate(value) {
-      value.boardId = this.id;
       this.$store.dispatch(this.storeModuleName + "/createTask", value);
     },
     onDelete(value) {
-      value.boardId = this.id;
       this.$store.dispatch(this.storeModuleName + "/deleteTask", value);
+    },
+    onUpdeteList() {
+      this.$store.dispatch(this.storeModuleName + "/updateSort");
+    },
+    onDragAddList(value) {
+      this.$store.dispatch(this.storeModuleName + "/dragAdded", value);
     }
   },
   components: { TaskList }

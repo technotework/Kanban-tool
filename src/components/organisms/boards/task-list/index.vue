@@ -4,14 +4,26 @@
     <div
       :class="[
         $style.postForm,
-        { [$style.open]: showPost },
-        { [$style.close]: !showPost }
+        { [$style.open]: open },
+        { [$style.close]: !open }
       ]"
     >
       <PostForm @form-cancel="onCancelAddTask" @form-add="onAddTask" />
     </div>
-    <draggable v-model="taskList" :class="$style.list" tag="ul" v-bind="dragOptions">
-      <li v-for="item in taskList" :key="item.task.id">
+    <draggable
+      v-model="taskList"
+      :class="$style.list"
+      tag="ul"
+      v-bind="dragOptions"
+      @end="onDragUpdeteList"
+      @add="onDragAdd"
+    >
+      <li
+        v-for="item in taskList"
+        :key="item.task.id"
+        :data-id="item.task.id"
+        :data-board-id="dataBoardId"
+      >
         <TaskListItem
           :id="item.task.id"
           :content="item.task.data"
@@ -32,7 +44,9 @@ import TaskListItem from "@/components/organisms/boards/task-list-item/";
 export default {
   name: "TaskList",
   props: {
-    value: Array
+    value: Array,
+    open: Boolean,
+    dataBoardId: String
   },
   data: function() {
     return {
@@ -58,19 +72,30 @@ export default {
   },
   methods: {
     onAddClick: function(e) {
-      this.showPost = !this.showPost;
+      this.changeOpen(!this.open);
     },
     onAddTask(value) {
       this.$emit("form-add", value);
     },
     onCancelAddTask: function(value) {
-      this.showPost = false;
+      this.changeOpen(false);
     },
     onSave(value) {
       this.$emit("md-save-event", value);
     },
     onDelete: function(value) {
       this.$emit("md-delete-event", value);
+    },
+    changeOpen(value) {
+      this.$emit("update:open", value);
+    },
+    onDragUpdeteList() {
+      this.$emit("update-list-sort");
+    },
+    onDragAdd(e) {
+      let dataSet = e.item.dataset;
+      console.log(dataSet);
+      this.$emit("drag-add-list", dataSet);
     }
   },
   components: { PostForm, IconedButton, TaskListItem, draggable }
