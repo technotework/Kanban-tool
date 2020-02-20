@@ -1,7 +1,12 @@
 <template>
   <draggable v-model="taskList" :class="$style.list" tag="ul" v-bind="dragOptions">
     <li v-for="item in taskList" :key="item.task.id">
-      <TaskListItem v-model.lazy="item.task.data" :class="$style.listItem" />
+      <TaskListItem
+        :id="item.task.id"
+        :content="item.task.data"
+        :class="$style.listItem"
+        @md-save-event="onSave"
+      />
     </li>
   </draggable>
 </template>
@@ -29,6 +34,11 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
+    }
+  },
+  methods: {
+    onSave(value) {
+      this.$emit("md-save-event", value);
     }
   },
   components: { TaskListItem, draggable }

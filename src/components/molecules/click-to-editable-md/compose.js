@@ -8,16 +8,16 @@ function getMixin() {
     components: {
       ClickToEditableMD
     },
-    template: `<ClickToEditableMD v-model.lazy="myValue" />`,
+    template: `<ClickToEditableMD :content="content" @md-save-event="onSave"/>`,
     props: {
       ...ClickToEditableMD.props
     },
     methods: {
-      ...ClickToEditableMD.methods
-    },
-    computed: {
-      ...ClickToEditableMD.computed
-    },
+      ...ClickToEditableMD.methods,
+      onSave(value) {
+        this.$emit("md-save-event", value)
+      }
+    }
   }
   return mixin;
 }

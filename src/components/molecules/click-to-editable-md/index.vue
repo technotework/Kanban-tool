@@ -1,24 +1,13 @@
 <template>
   <div :class="$style.wrapper">
-    <BaseEditableMD
-      v-model.lazy="myValue"
-      :class="$style.md"
-      :isedit="status"
-      ref="md"
-    />
+    <BaseEditableMD v-model.lazy="mdContent" :class="$style.md" :isedit="status" ref="md" />
     <div :class="$style.buttons">
       <template v-if="!status">
-        <TextButton :class="$style.button" @click="onEditMD">
-          編集
-        </TextButton>
+        <TextButton :class="$style.button" @click="onEditMD">編集</TextButton>
       </template>
       <template v-else>
-        <TextButton :class="$style.button" @click="onCancelMD">
-          キャンセル
-        </TextButton>
-        <TextButton :class="$style.button" @click="onSaveMD">
-          保存
-        </TextButton>
+        <TextButton :class="$style.button" @click="onCancelMD">キャンセル</TextButton>
+        <TextButton :class="$style.button" @click="onSaveMD">保存</TextButton>
       </template>
     </div>
   </div>
@@ -33,13 +22,22 @@ export default {
   mixins: [base],
   name: "ClickToEditableMD",
   props: {
-    value: String
+    content: String
   },
   data: function() {
     return {
+      mdContent: "",
       temp: "",
       status: false
     };
+  },
+  watch: {
+    content: {
+      immediate: true,
+      handler(value) {
+        this.mdContent = value;
+      }
+    }
   },
   methods: {
     onEditMD: function() {
@@ -48,20 +46,12 @@ export default {
     },
     onSaveMD: function() {
       this.status = false;
+      let value = this.$refs.md.getContent();
+      this.$emit("md-save-event", { value: value });
     },
     onCancelMD: function() {
-      this.myValue = this.temp;
+      this.mdContent = this.temp;
       this.status = false;
-    }
-  },
-  computed: {
-    myValue: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
     }
   },
   components: { BaseEditableMD, TextButton }

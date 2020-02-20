@@ -39,13 +39,14 @@ const actions = {
   read({ commit, rootGetters }, value) {
     return new Promise(async (resolve, reject) => {
 
-
+      //パスの設定
       let db = rootGetters.db;
       let path = rootGetters["auth/path"];
       let projectId = rootGetters["boards/projectId"];
       let boardPath = path + projectId + "/boards/";
       let tasksPath = boardPath + value + "/tasks/"
 
+      //読み込み&Listen
       let collection = db.collection(tasksPath);
       collection.onSnapshot(function (querySnapshot) {
 
@@ -63,7 +64,32 @@ const actions = {
       console.log(error);
     });
   },
-  update() { },
+  /**
+   * タスクをアップデート
+   * @param {*} param0 
+   * @param {*} value 
+   */
+  updateTask({ rootGetters }, value) {
+
+    return new Promise((resolve, reject) => {
+
+      let content = value.value;
+      let taskId = value.id;
+      let boardId = value.boardId;
+      let db = rootGetters.db;
+      let path = rootGetters["auth/path"];
+      let projectId = rootGetters["boards/projectId"];
+      let boardPath = path + projectId + "/boards/";
+      let taskDocPath = boardPath + boardId + "/tasks/" + taskId;
+      db.doc(taskDocPath).set({ task: { "data": content } }, { merge: true }).then(() => {
+        resolve();
+      });
+
+    }, (error) => {
+      console.log(error);
+    });
+
+  },
   delete() { }
 }
 

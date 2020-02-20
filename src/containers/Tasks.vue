@@ -1,5 +1,5 @@
-<template :id="id" >
-  <TaskList v-model="taskList" />
+<template  >
+  <TaskList v-model="taskList" @md-save-event="onSave" />
 </template>
 
 <script>
@@ -51,6 +51,10 @@ export default {
     },
     init() {
       this.$store.dispatch(this.storeModuleName + "/read", this.id);
+    },
+    onSave(value) {
+      value.boardId = this.id;
+      this.$store.dispatch(this.storeModuleName + "/updateTask", value);
     }
   },
   components: { TaskList }
