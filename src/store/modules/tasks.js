@@ -1,8 +1,10 @@
 //--------------
 //state
 //--------------
-const state = {
-  tasksData: []
+function state() {
+  return {
+    tasksData: []
+  };
 }
 
 //--------------
@@ -10,6 +12,7 @@ const state = {
 //--------------
 const mutations = {
   setTasksData(state, payload) {
+
     state.tasksData = payload;
   }
 }
@@ -35,6 +38,7 @@ const actions = {
    */
   read({ commit, rootGetters }, value) {
     return new Promise(async (resolve, reject) => {
+
 
       let db = rootGetters.db;
       let path = rootGetters["auth/path"];
