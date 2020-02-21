@@ -7,7 +7,7 @@
       </EditableContentHeader>
     </template>
     <template #article>
-      <BoardList v-model="items" @edited-board-name="onInput" />
+      <BoardList v-model="items" @edited-board-name="onInput" @context-menu-click="onClick" />
     </template>
   </ContentAreaLayout>
 </template>
@@ -40,6 +40,9 @@ export default {
     },
     onEditedProjectName(value) {
       this.$emit("update:title", value);
+    },
+    onClick(value) {
+      this.$emit("context-menu-click", value);
     }
   },
   components: {

@@ -51,10 +51,10 @@ const actions = {
 		commit("setAppInfo", info);
 	},
 	create() { },
-	/**
+	/**========================
 	 * 初期読み込み
 	 * @param {*} param0 
-	 */
+	 ========================*/
 	read({ commit, rootGetters, getters, state, dispatch }) {
 		return new Promise(async (resolve, reject) => {
 
@@ -83,11 +83,11 @@ const actions = {
 
 	},
 
-	/**
+	/**========================
 	 * ボード名更新
 	 * @param {*} param0 
 	 * @param {*} value 
-	 */
+	======================== */
 	updateBoardName({ rootGetters, getters }, value) {
 		return new Promise((resolve, reject) => {
 
@@ -108,11 +108,43 @@ const actions = {
 		});
 
 	},
-	delete() { }
+	/**========================
+	 * ボード削除
+	 * @param {*} param0 
+	 * @param {*} value 
+	 ========================*/
+	delete({ rootGetters, getters }, value) {
+		return new Promise(async (resolve, reject) => {
+
+
+			let { projectId, boardPath } = getters.info;
+
+			let boardDocPath = boardPath + value.id;
+			let taskPath = boardDocPath + "/tasks/";
+
+			let db = rootGetters.db;
+			let board = db.doc(boardDocPath);
+			let tasks = db.collection(taskPath);
+
+			tasks.get().then((querySnapshot) => {
+
+				querySnapshot.forEach((doc) => {
+
+					let taskDocPath = taskPath + doc.id;
+					db.doc(taskDocPath).delete();
+				});
+				//tasks.delete();
+				board.delete();
+			});
+
+			resolve();
+
+		}, (error) => {
+			console.log(error);
+		});
+	}
+
 }
-
-
-
 export { state, mutations, getters, actions }
 
 export default {

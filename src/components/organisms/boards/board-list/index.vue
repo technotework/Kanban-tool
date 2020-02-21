@@ -5,6 +5,7 @@
         v-model="boardItem.board.label"
         :id="boardItem.board.id"
         @edited-board-name="onInput"
+        @context-menu-click="onClick"
       />
     </li>
   </draggable>
@@ -37,6 +38,9 @@ export default {
   methods: {
     onInput: function(value) {
       this.$emit("edited-board-name", value);
+    },
+    onClick: function(value) {
+      this.$emit("context-menu-click", value);
     }
   },
   components: { BoardListItem, draggable }

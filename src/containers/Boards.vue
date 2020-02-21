@@ -1,6 +1,11 @@
 
 <template>
-  <BoardUnit v-model="boardList" :title.sync="projectName" />
+  <BoardUnit
+    v-model="boardList"
+    :title.sync="projectName"
+    @edited-board-name="onInput"
+    @context-menu-click="onClick"
+  />
 </template>
 
 <script>
@@ -65,6 +70,11 @@ export default {
     },
     onInput(value) {
       this.updateBoardName(value);
+    },
+    onClick(value) {
+      if (value.name == "delete") {
+        this.delete(value);
+      }
     }
   },
   components: {
