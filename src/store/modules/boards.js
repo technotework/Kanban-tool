@@ -39,8 +39,12 @@ const actions = {
 	 * 初期読み込み
 	 * @param {*} param0 
 	 */
-	read({ commit, rootGetters, state }) {
+	read({ commit, rootGetters, state, dispatch }) {
 		return new Promise(async (resolve, reject) => {
+
+			if (rootGetters["projects/projects"].length == 0) {
+				dispatch("projects/read", null, { root: true });
+			}
 
 			let db = rootGetters.db;
 			let path = rootGetters["auth/path"];

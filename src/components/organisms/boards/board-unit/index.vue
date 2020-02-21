@@ -1,7 +1,7 @@
 <template>
   <ContentAreaLayout>
     <template #nav>
-      <EditableContentHeader v-model.lazy="projectName" @click="onClick">
+      <EditableContentHeader :title="title" @update:title="onEditedProjectName">
         <template #first></template>
         <template #second>新規作成</template>
       </EditableContentHeader>
@@ -21,12 +21,10 @@ export default {
   mixins: [base],
   name: "BoardUnit",
   props: {
-    value: Array
+    value: Array,
+    title: String
   },
   computed: {
-    projectName() {
-      return "a";
-    },
     items: {
       get() {
         return this.value;
@@ -39,6 +37,9 @@ export default {
   methods: {
     onInput: function(value) {
       this.$emit("edited-board-name", value);
+    },
+    onEditedProjectName(value) {
+      this.$emit("update:title", value);
     }
   },
   components: {

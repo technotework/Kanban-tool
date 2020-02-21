@@ -12,10 +12,6 @@ const mutations = {
 
 	setData(state, payload) {
 		state.projectsData = payload;
-	},
-	setName(state, payload) {
-
-
 	}
 
 }
@@ -103,7 +99,7 @@ const actions = {
 			let path = rootGetters["auth/path"];
 			let name = value.name;
 			let id = value.id;
-
+			console.log(name, id);
 			let parentProject = db.doc(path + id);
 			//実行
 			parentProject.set({ project: { "label": name } }, { merge: true }).then(() => {

@@ -1,12 +1,12 @@
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.firstContent">
-      <ClickToEditableInput role="h2Header" v-model.lazy="title" />
+      <ClickToEditableInput role="h2Header" :value="title" @input="onEditedProjectName" />
       <slot name="first" />
     </div>
     <nav :class="$style.secondContent">
       <div :class="$style.container">
-        <IconedTextButton compose="right" type="new" @click="onClick">
+        <IconedTextButton compose="right" type="new">
           <slot name="second" />
         </IconedTextButton>
       </div>
@@ -22,16 +22,13 @@ export default {
   mixins: [base],
   name: "EditableContentHeader",
   props: {
-    value: String
+    value: String,
+    title: String
   },
-  computed: {
-    title: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
+  computed: {},
+  methods: {
+    onEditedProjectName(value) {
+      this.$emit("update:title", value);
     }
   },
   components: { ClickToEditableInput, IconedTextButton }
