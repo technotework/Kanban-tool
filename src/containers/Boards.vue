@@ -5,6 +5,7 @@
     :title.sync="projectName"
     @edited-board-name="onInput"
     @context-menu-click="onClick"
+    @create-board="onCreateBoard"
   />
 </template>
 
@@ -75,6 +76,9 @@ export default {
       if (value.name == "delete") {
         this.delete(value);
       }
+    },
+    onCreateBoard() {
+      this.create();
     }
   },
   components: {

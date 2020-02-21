@@ -6,7 +6,7 @@
     </div>
     <nav :class="$style.secondContent">
       <div :class="$style.container">
-        <IconedTextButton compose="right" type="new">
+        <IconedTextButton compose="right" type="new" @click="onClick">
           <slot name="second" />
         </IconedTextButton>
       </div>

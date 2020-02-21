@@ -1,7 +1,11 @@
 <template>
   <ContentAreaLayout>
     <template #nav>
-      <EditableContentHeader :title="title" @update:title="onEditedProjectName">
+      <EditableContentHeader
+        :title="title"
+        @update:title="onEditedProjectName"
+        @click="onCreateBoard"
+      >
         <template #first></template>
         <template #second>新規作成</template>
       </EditableContentHeader>
@@ -43,6 +47,9 @@ export default {
     },
     onClick(value) {
       this.$emit("context-menu-click", value);
+    },
+    onCreateBoard() {
+      this.$emit("create-board");
     }
   },
   components: {

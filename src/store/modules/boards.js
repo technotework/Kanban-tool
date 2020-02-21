@@ -50,7 +50,37 @@ const actions = {
 		}
 		commit("setAppInfo", info);
 	},
-	create() { },
+	/**========================
+	 * ボード作成
+	 * @param {*} param0 
+	 * @param {*} value 
+	 ========================*/
+	create({ rootGetters, getters }, value) {
+
+		return new Promise(async (resolve, reject) => {
+
+			//setting
+			let { boardPath } = getters.info;
+			let db = rootGetters.db;
+			let collection = db.collection(boardPath);
+
+			let boardData = {
+				"board": {
+					"id": "",
+					"label": "NewBoard",
+					"task_sort": []
+				}
+			};
+
+			collection.add(boardData).then((doc) => {
+
+
+			});
+
+		}, (error) => {
+			console.log(error);
+		});
+	},
 	/**========================
 	 * 初期読み込み
 	 * @param {*} param0 
@@ -58,14 +88,17 @@ const actions = {
 	read({ commit, rootGetters, getters, state, dispatch }) {
 		return new Promise(async (resolve, reject) => {
 
+			//リロード対策 projectモジュールの再読み込み
 			if (rootGetters["projects/projects"].length == 0) {
 				dispatch("projects/read", null, { root: true });
 			}
-			let { projectId, boardPath } = getters.info;
 
+			//setting
+			let { projectId, boardPath } = getters.info;
 			let db = rootGetters.db;
 			let collection = db.collection(boardPath);
 
+			//読み込み$listen
 			collection.onSnapshot(function (querySnapshot) {
 
 				let array = [];
@@ -91,14 +124,13 @@ const actions = {
 	updateBoardName({ rootGetters, getters }, value) {
 		return new Promise((resolve, reject) => {
 
+			//setting
 			let { projectId, boardPath } = getters.info;
-
 			let boardDocPath = boardPath + value.id
-
 			let db = rootGetters.db;
 			let board = db.doc(boardDocPath);
 
-			//実行
+			//ボード名変更
 			board.set({ board: { "label": name } }, { merge: true }).then(() => {
 				resolve();
 			});
@@ -116,16 +148,15 @@ const actions = {
 	delete({ rootGetters, getters }, value) {
 		return new Promise(async (resolve, reject) => {
 
-
+			//setting
 			let { projectId, boardPath } = getters.info;
-
 			let boardDocPath = boardPath + value.id;
 			let taskPath = boardDocPath + "/tasks/";
-
 			let db = rootGetters.db;
 			let board = db.doc(boardDocPath);
 			let tasks = db.collection(taskPath);
 
+			//TaskDocを消す
 			tasks.get().then((querySnapshot) => {
 
 				querySnapshot.forEach((doc) => {
@@ -133,6 +164,7 @@ const actions = {
 					let taskDocPath = taskPath + doc.id;
 					db.doc(taskDocPath).delete();
 				});
+				//Boardを消す
 				//tasks.delete();
 				board.delete();
 			});
