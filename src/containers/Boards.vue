@@ -33,7 +33,6 @@ export default {
         let projects = this.$store.getters["projects/projects"];
         let title = "";
         if (this.projectId != undefined) {
-          console.log(this.projectId, projects);
           for (let i = 0; i < projects.length; i++) {
             if (projects[i].project.id == this.projectId) {
               title = projects[i].project.label;
@@ -51,11 +50,17 @@ export default {
     }
   },
   methods: {
-    ...mapActions("boards", ["read", "create", "delete", "updateBoardName"]),
+    ...mapActions("boards", [
+      "initBoardData",
+      "read",
+      "create",
+      "delete",
+      "updateBoardName"
+    ]),
     ...mapMutations("boards", ["setProjectId"]),
     init() {
       this.projectId = this.$route.params.id;
-      this.setProjectId(this.$route.params.id);
+      this.initBoardData(this.$route.params.id);
       this.read();
     },
     onInput(value) {
