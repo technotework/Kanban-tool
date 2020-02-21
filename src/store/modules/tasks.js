@@ -64,7 +64,6 @@ const actions = {
   setInitialData({ rootGetters, commit }, value) {
 
     let info = {
-      db: rootGetters.db,
       uuid: rootGetters["auth/user"].uuid,
       projectPath: rootGetters["auth/path"] + rootGetters["boards/projectId"],
       boardPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/",
@@ -78,12 +77,14 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    ==============================*/
-  createTask({ getters }, value) {
+  createTask({ getters, rootGetters }, value) {
     return new Promise(async (resolve, reject) => {
 
-      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
+      let { uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
       let content = value.value;
       //実行
+
+      let db = rootGetters.db;
       let collection = db.collection(taskPath);
       let date = Math.floor(new Date().getTime() / 1000);
       let template = {
@@ -124,12 +125,13 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  read({ commit, getters }) {
+  read({ commit, getters, rootGetters }) {
     return new Promise(async (resolve, reject) => {
 
-      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
+      let { uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
 
       //読み込み&Listen
+      let db = rootGetters.db;
       let collection = db.collection(taskPath);
       collection.onSnapshot(function (querySnapshot) {
 
@@ -144,8 +146,11 @@ const actions = {
         //並び順取得
         db.doc(boardDocPath).onSnapshot(function (doc) {
 
-          let taskSort = doc.data().board.task_sort;
-          commit("sortTaskData", taskSort);
+          let data = doc.data();
+          if (data != undefined) {
+            let taskSort = data.board.task_sort;
+            commit("sortTaskData", taskSort);
+          }
         });
 
       });
@@ -161,11 +166,12 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  updateTask({ getters }, value) {
+  updateTask({ getters, rootGetters }, value) {
 
     return new Promise((resolve, reject) => {
 
-      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
+      let { uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
+      let db = rootGetters.db;
       let content = value.value;
       let taskId = value.id;
       let boardId = getters.boardId;
@@ -186,15 +192,15 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  deleteTask({ getters }, value) {
+  deleteTask({ getters, rootGetters }, value) {
 
     return new Promise(async (resolve, reject) => {
 
-      let { db, uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
+      let { uuid, projectPath, boardPath, boardDocPath, taskPath } = getters.info;
 
       let taskId = value.id;
       let taskDocPath = taskPath + taskId;
-
+      let db = rootGetters.db;
       await db.doc(taskDocPath).delete();
 
       //並び順管理するためのフィールドを更新

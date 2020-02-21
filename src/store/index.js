@@ -22,7 +22,8 @@ export default new Vuex.Store({
 		},
 		db: (state) => {
 			return Firebase.db();
-		}
+		},
+
 	},
 	modules: {
 		app,

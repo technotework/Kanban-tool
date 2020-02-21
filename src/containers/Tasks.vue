@@ -22,11 +22,7 @@ export default {
     id: String
   },
   created: function() {
-    this.registTaskModule();
     this.init();
-  },
-  destroyed: function() {
-    this.unregistTaskModule();
   },
   data: () => {
     return {
@@ -60,17 +56,9 @@ export default {
   },
   methods: {
     //...mapActions("tasks", ["read", "create", "delete", "updateTaskContent"]),
-    registTaskModule() {
-      this.storeModuleName = "task_" + this.id;
-      this.$store.registerModule(this.storeModuleName, taskModule);
-      this.$store.commit(this.storeModuleName + "/setParentBoardId", this.id);
-      this.$store.dispatch(this.storeModuleName + "/setInitialData", this.id);
-    },
-    unregistTaskModule() {
-      this.$store.unregisterModule(this.storeModuleName);
-    },
     init() {
-      this.$store.dispatch(this.storeModuleName + "/read");
+      this.storeModuleName = "task_" + this.id;
+      //this.$store.dispatch(this.storeModuleName + "/read");
     },
     onSave(value) {
       this.$store.dispatch(this.storeModuleName + "/updateTask", value);

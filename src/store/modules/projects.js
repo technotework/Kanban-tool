@@ -1,3 +1,4 @@
+import store from "@/store/index"
 //--------------
 //state
 //--------------
@@ -134,10 +135,18 @@ const actions = {
 
 					let boardsID = doc.id;
 
+					//残存モジュールがあれば消す
+					let storeModuleName = "task_" + boardsID;
+					let hasModule = store.state.hasOwnProperty(storeModuleName);
+					if (hasModule) {
+						store.unregisterModule(storeModuleName);
+					}
+
+					//boardDoc
 					let boardDocPath = projectDocPath + "/boards/" + boardsID;
 					let boardDoc = db.doc(boardDocPath);
 
-
+					//TaskCollection
 					let tasksPath = boardDocPath + "/tasks/";
 					let tasks = db.collection(tasksPath);
 
@@ -145,19 +154,21 @@ const actions = {
 
 						querySnapshot.forEach((doc) => {
 
+							//TaskCollection削除
 							let taskDocPath = tasksPath + doc.id;
 							let taskDoc = db.doc(taskDocPath);
 							taskDoc.delete();
 
 						});
 					});
-
+					//BoardDoc削除
 					boardDoc.delete();
-					resolve();
+
 				});
 
 			}).then(() => {
-				//boards.delete();
+
+				//Project削除
 				projectDoc.delete();
 				resolve();
 			});
