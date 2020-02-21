@@ -1,6 +1,11 @@
 
 <template>
-  <BoardUnit v-model="boardList" @click="onClick" @edited-board-name="onInput" />
+  <BoardUnit
+    v-model="boardList"
+    :title.sync="projectName"
+    @edited-board-name="onInput"
+    @context-menu-click="onClick"
+  />
 </template>
 
 <script>
@@ -12,7 +17,7 @@ export default {
   props: {},
   data: () => {
     return {
-      title: "joge"
+      projectId: ""
     };
   },
   created: function() {
@@ -27,14 +32,14 @@ export default {
       set(value) {
         this.$store.commit("boards/setBoardsData", value);
       }
-    } /*,
+    },
     projectName: {
       get() {
         let projects = this.$store.getters["projects/projects"];
         let title = "";
-        if (this.myId != undefined) {
+        if (this.projectId != undefined) {
           for (let i = 0; i < projects.length; i++) {
-            if (projects[i].project.id == this.myId) {
+            if (projects[i].project.id == this.projectId) {
               title = projects[i].project.label;
             }
           }
@@ -42,22 +47,35 @@ export default {
         return title;
       },
       set(value) {
-        this.$store.commit("projects/setName", { id: this.myId, value: value });
+        this.$store.dispatch("projects/updateProjectName", {
+          id: this.projectId,
+          name: value
+        });
       }
-    }*/
+    }
   },
   methods: {
-    ...mapActions("boards", ["read", "create", "delete", "updateBoardName"]),
+    ...mapActions("boards", [
+      "initBoardData",
+      "read",
+      "create",
+      "delete",
+      "updateBoardName"
+    ]),
     ...mapMutations("boards", ["setProjectId"]),
     init() {
-      this.setProjectId(this.$route.params.id);
-      this.$store.dispatch("boards/inits", this.$route.params.id);
+      this.projectId = this.$route.params.id;
+      this.initBoardData(this.$route.params.id);
       this.read();
     },
-    onInput: function(value) {
+    onInput(value) {
       this.updateBoardName(value);
     },
-    onClick(e) {}
+    onClick(value) {
+      if (value.name == "delete") {
+        this.delete(value);
+      }
+    }
   },
   components: {
     BoardUnit

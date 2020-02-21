@@ -73,11 +73,11 @@ const actions = {
     }
     commit("initializeData", info);
   },
-  /**=============================
+  /**==============================
    * Taskの新規作成
    * @param {*} param0 
    * @param {*} value 
-   =============================*/
+   ==============================*/
   createTask({ getters }, value) {
     return new Promise(async (resolve, reject) => {
 
