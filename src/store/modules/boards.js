@@ -161,7 +161,7 @@ const actions = {
 			let boardDocPath = boardPath + value.id
 			let db = rootGetters.db;
 			let board = db.doc(boardDocPath);
-
+			let name = value.name;
 			//ボード名変更
 			board.set({ board: { "label": name } }, { merge: true }).then(() => {
 				resolve();
