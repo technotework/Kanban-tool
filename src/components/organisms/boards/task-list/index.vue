@@ -94,7 +94,6 @@ export default {
     },
     onDragAdd(e) {
       let dataSet = e.item.dataset;
-      console.log(dataSet);
       this.$emit("drag-add-list", dataSet);
     }
   },

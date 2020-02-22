@@ -132,10 +132,12 @@ const actions = {
 				db.doc(projectDocPath).get().then((doc) => {
 
 					let data = doc.data();
-					let boards_sort = data.project.boards_sort;
-					array.sort((a, b) => boards_sort.indexOf(a.board.id) - boards_sort.indexOf(b.board.id));
-					console.log(array);
-					commit("setBoardsData", array);
+					if (data != undefined) {
+						let boards_sort = data.project.boards_sort;
+						array.sort((a, b) => boards_sort.indexOf(a.board.id) - boards_sort.indexOf(b.board.id));
+
+						commit("setBoardsData", array);
+					}
 				});
 
 
