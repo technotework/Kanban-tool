@@ -11,7 +11,12 @@
       </EditableContentHeader>
     </template>
     <template #article>
-      <BoardList v-model="items" @edited-board-name="onInput" @context-menu-click="onClick" />
+      <BoardList
+        v-model="items"
+        @edited-board-name="onInput"
+        @context-menu-click="onClick"
+        @drag-sort-list="onDragSortList"
+      />
     </template>
   </ContentAreaLayout>
 </template>
@@ -47,6 +52,9 @@ export default {
     },
     onClick(value) {
       this.$emit("context-menu-click", value);
+    },
+    onDragSortList(value) {
+      this.$emit("drag-sort-list", value);
     },
     onCreateBoard() {
       this.$emit("create-board");

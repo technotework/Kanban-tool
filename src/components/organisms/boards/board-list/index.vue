@@ -1,6 +1,17 @@
 <template>
-  <draggable v-model="boardList" :class="$style.list" tag="ul" v-bind="dragOptions">
-    <li v-for="boardItem in boardList" :key="boardItem.id" :class="$style.listItem">
+  <draggable
+    v-model="boardList"
+    :class="$style.list"
+    tag="ul"
+    v-bind="dragOptions"
+    @end="onDragSortList"
+  >
+    <li
+      v-for="boardItem in boardList"
+      :data-id="boardItem.board.id"
+      :key="boardItem.board.id"
+      :class="$style.listItem"
+    >
       <BoardListItem
         v-model="boardItem.board.label"
         :id="boardItem.board.id"
@@ -41,6 +52,10 @@ export default {
     },
     onClick: function(value) {
       this.$emit("context-menu-click", value);
+    },
+    onDragSortList(e) {
+      let dataSet = e.item.dataset;
+      this.$emit("drag-sort-list", dataSet);
     }
   },
   components: { BoardListItem, draggable }

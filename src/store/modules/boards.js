@@ -201,6 +201,33 @@ const actions = {
 		}, (error) => {
 			console.log(error);
 		});
+	},
+	/**=========================================================
+	 * ドラッグ&ドロップによる更新関連
+	/**=========================================================
+	 * ドラッグして追加されたので、旧リストからデータを引き継ぎ元を消す
+	 * @param {*} param0 
+	 * @param {*} value 
+	 =============================*/
+	dragSortUpdate({ rootGetters, getters }, value) {
+		return new Promise(async (resolve, reject) => {
+
+			let { boardPath } = getters.info;
+
+			let boardId = value.id;
+			let boardDocPath = boardPath + boardId;
+
+			let order = getOrder(boardId, getters.boards);
+
+			let db = rootGetters.db;
+			db.doc(boardDocPath).set({ board: { "order": order } }, { merge: true }).then(() => {
+				resolve();
+			});
+
+
+		}, (error) => {
+			console.log(error);
+		});
 	}
 
 }
@@ -208,26 +235,34 @@ const actions = {
 /**
  * 自分のorderを算出
  * @param {*} id 
- * @param {*} boardsArray 
+ * @param {*} boardArray 
  */
 function getOrder(id, boards) {
 
+	let unit = 10000000;
 	let prevOrder, nextOrder, myOrder = null;
-	let boardsArray = boards;
+	let boardArray = boards;
 
-	if (boards.length == 0) {
+	//新規
+	//新規で自分しかいない
+	if (id == null && boardArray.length == 0) {
 
-		return 10000000;
+		myOrder = unit;
 	}
+	//自分が先頭で後ろにいる
+	else if (id == null && boardArray.length > 0) {
 
-	if (id != null) {
+		prevOrder = 0;
+		nextOrder = boardArray[0].board.order;
+	}
+	//新規じゃない
+	else {
 
-		//既存のIDのあるボード
 		//indexを特定
 		let myIndex;
-		for (let i = 0; i < boardsArray.length; i++) {
+		for (let i = 0; i < boardArray.length; i++) {
 
-			if (boardsArray[i].board.id == id) {
+			if (boardArray[i].board.id == id) {
 
 				myIndex = i;
 			}
@@ -236,28 +271,36 @@ function getOrder(id, boards) {
 		let prev = myIndex - 1;
 		let next = myIndex + 1;
 
-		if (myIndex == 0) {
-			//先頭に自分がいます
-			prevOrder = 0;
-			nextOrder = boardsArray[1].board.order;
-		} else if (myIndex == boards.length - 1) {
-			//自分が末端です
-			prevOrder = boardsArray[prev].board.order;
-			nextOrder = prevOrder + 200000000;
-		} else {
-			//先頭でも末端でもない
-			prevOrder = boardsArray[prev].board.order;
-			nextOrder = boardsArray[next].board.order;
-		}
-		//-----
 
-	} else {
-		//新規のBoardの場合
-		prevOrder = 0;
-		nextOrder = boardsArray[0].board.order;
+		//新規じゃないが自分しかいない
+		if (myIndex == 0 && boardArray.length == 1) {
+
+			myOrder = unit;
+		}
+		//自分が先頭
+		else if (myIndex == 0 && boardArray.length > 1) {
+
+			prevOrder = 0;
+			nextOrder = boardArray[next].board.order;
+		}
+		//自分が末端
+		else if (myIndex == boardArray.length - 1 && boardArray.length > 1) {
+
+			prevOrder = boardArray[prev].board.order;
+			myOrder = prevOrder + unit;
+		}
+		//自分の前後にいる
+		else {
+			prevOrder = boardArray[prev].board.order;
+			nextOrder = boardArray[next].board.order;
+		}
+
 	}
 
-	myOrder = prevOrder + (nextOrder - prevOrder) / 2;
+	if (myOrder == null) {
+		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
+		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
+	}
 	return myOrder;
 }
 

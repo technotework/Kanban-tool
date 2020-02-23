@@ -225,7 +225,6 @@ const actions = {
 
       let { taskPath } = getters.info;
 
-      let content = value.value;
       let taskId = value.id;
       let taskDocPath = taskPath + taskId;
 
@@ -241,6 +240,11 @@ const actions = {
       console.log(error);
     });
   },
+  /**===========================
+  * ドラッグして追加されたので、旧リストからデータを引き継ぎ元を消す
+  * @param {*} param0 
+  * @param {*} value 
+  =============================*/
   dragAdded({ rootGetters, getters, dispatch }, value) {
     return new Promise(async (resolve, reject) => {
 
@@ -263,7 +267,6 @@ const actions = {
     }, (error) => {
       console.log(error);
     });
-
   }
 }
 
@@ -338,6 +341,7 @@ function getOrder(id, tasks) {
   }
   return myOrder;
 }
+
 export { state, mutations, getters, actions }
 export default {
   namespaced: true,

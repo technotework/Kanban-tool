@@ -5,6 +5,7 @@
     :title.sync="projectName"
     @edited-board-name="onInput"
     @context-menu-click="onClick"
+    @drag-sort-list="onDragSortList"
     @create-board="onCreateBoard"
   />
 </template>
@@ -61,7 +62,8 @@ export default {
       "read",
       "create",
       "delete",
-      "updateBoardName"
+      "updateBoardName",
+      "dragSortUpdate"
     ]),
     ...mapMutations("boards", ["setProjectId"]),
     init() {
@@ -76,6 +78,9 @@ export default {
       if (value.name == "delete") {
         this.delete(value);
       }
+    },
+    onDragSortList(value) {
+      this.dragSortUpdate(value);
     },
     onCreateBoard() {
       this.create();
