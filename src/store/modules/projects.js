@@ -200,8 +200,7 @@ function createProject(db, path, date) {
 			"project": {
 				"id": "",
 				"label": "Project",
-				"update_date": `${date}`,
-				"boards_sort": []
+				"update_date": `${date}`
 			}
 		};
 		let collection = db.collection(path);
@@ -226,28 +225,28 @@ function createBoards(path, projectDoc, db) {
 			"board": {
 				"id": "",
 				"label": "Backlog",
-				"task_sort": []
+				"order": 10000000
 			}
 		},
 		{
 			"board": {
 				"id": "",
 				"label": "ToDo",
-				"task_sort": []
+				"order": 20000000
 			}
 		},
 		{
 			"board": {
 				"id": "",
 				"label": "Progress",
-				"task_sort": []
+				"order": 30000000
 			}
 		},
 		{
 			"board": {
 				"id": "",
 				"label": "Complete",
-				"task_sort": []
+				"order": 40000000
 			}
 		}
 		];
@@ -287,6 +286,7 @@ function createTasks(uuid, date, db, boardDocumentPath) {
 		let initialTaskTemplate = {
 			task: {
 				"id": "",
+				"order": 10000000,
 				"data": "",
 				"labels": [],
 				"members": [],

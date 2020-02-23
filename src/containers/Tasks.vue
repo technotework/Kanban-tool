@@ -6,7 +6,7 @@
     @md-save-event="onSave"
     @form-add="onCreate"
     @md-delete-event="onDelete"
-    @update-list-sort="onUpdeteList"
+    @drag-sort-list="onDragSortList"
     @drag-add-list="onDragAddList"
   />
 </template>
@@ -69,8 +69,8 @@ export default {
     onDelete(value) {
       this.$store.dispatch(this.storeModuleName + "/deleteTask", value);
     },
-    onUpdeteList() {
-      this.$store.dispatch(this.storeModuleName + "/updateSort");
+    onDragSortList(value) {
+      this.$store.dispatch(this.storeModuleName + "/dragSortUpdate", value);
     },
     onDragAddList(value) {
       this.$store.dispatch(this.storeModuleName + "/dragAdded", value);

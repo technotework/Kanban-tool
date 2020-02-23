@@ -89,8 +89,9 @@ export default {
     changeOpen(value) {
       this.$emit("update:open", value);
     },
-    onDragUpdeteList() {
-      this.$emit("update-list-sort");
+    onDragUpdeteList(e) {
+      let dataSet = e.item.dataset;
+      this.$emit("drag-sort-list", dataSet);
     },
     onDragAdd(e) {
       let dataSet = e.item.dataset;

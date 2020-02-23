@@ -66,9 +66,12 @@ const actions = {
 			let { projectDocPath, boardPath } = getters.info;
 			let db = rootGetters.db;
 
+			let order = getOrder(null, getters.boards);
+
 			let boardData = {
 				"board": {
 					"id": "",
+					"order": order,
 					"label": "NewBoard",
 					"task_sort": []
 				}
@@ -76,16 +79,9 @@ const actions = {
 
 			//ボード追加から新規作成されたDocをとってID取得
 			let collection = db.collection(boardPath);
-			let boardDoc = await collection.add(boardData);
-
-			//親プロジェクトのフィールドのboard_sortの先頭にidを足す
-			let docData = await db.doc(projectDocPath).get();
-			let obj = docData.data();
-
-			obj.project.boards_sort.unshift(boardDoc.id);
-
-			//反映
-			await db.doc(projectDocPath).set({ project: { "boards_sort": obj.project.boards_sort } }, { merge: true })
+			await collection.add(boardData).then(() => {
+				resolve();
+			});
 
 		}, (error) => {
 			console.log(error);
@@ -109,7 +105,7 @@ const actions = {
 			let collection = db.collection(boardPath);
 
 			//読み込み&listen
-			collection.onSnapshot(function (querySnapshot) {
+			collection.orderBy("board.order").onSnapshot(function (querySnapshot) {
 
 				let array = [];
 				querySnapshot.forEach(function (doc) {
@@ -128,19 +124,7 @@ const actions = {
 						store.dispatch(storeModuleName + "/read", doc.id);
 					}
 				});
-
-				db.doc(projectDocPath).get().then((doc) => {
-
-					let data = doc.data();
-					if (data != undefined) {
-						let boards_sort = data.project.boards_sort;
-						array.sort((a, b) => boards_sort.indexOf(a.board.id) - boards_sort.indexOf(b.board.id));
-
-						commit("setBoardsData", array);
-					}
-				});
-
-
+				commit("setBoardsData", array);
 
 			});
 
@@ -202,16 +186,6 @@ const actions = {
 				resolve();
 			});
 
-			//親プロジェクトのフィールドのboard_sortの配列から消す
-			let docData = await db.doc(projectDocPath).get();
-			let obj = docData.data();
-			let array = obj.project.boards_sort;
-			let index = array.indexOf(boardDocId);
-			if (index > -1) {
-				array.splice(index, 1);
-			}
-			//反映
-			await db.doc(projectDocPath).set({ project: { "boards_sort": array } }, { merge: true })
 			//ボード削除
 			await board.delete();
 
@@ -230,6 +204,64 @@ const actions = {
 	}
 
 }
+
+/**
+ * 自分のorderを算出
+ * @param {*} id 
+ * @param {*} boardsArray 
+ */
+function getOrder(id, boards) {
+
+	let prevOrder, nextOrder, myOrder = null;
+	let boardsArray = boards;
+
+	if (boards.length == 0) {
+
+		return 10000000;
+	}
+
+	if (id != null) {
+
+		//既存のIDのあるボード
+		//indexを特定
+		let myIndex;
+		for (let i = 0; i < boardsArray.length; i++) {
+
+			if (boardsArray[i].board.id == id) {
+
+				myIndex = i;
+			}
+		}
+		//前後のindexを特定
+		let prev = myIndex - 1;
+		let next = myIndex + 1;
+
+		if (myIndex == 0) {
+			//先頭に自分がいます
+			prevOrder = 0;
+			nextOrder = boardsArray[1].board.order;
+		} else if (myIndex == boards.length - 1) {
+			//自分が末端です
+			prevOrder = boardsArray[prev].board.order;
+			nextOrder = prevOrder + 200000000;
+		} else {
+			//先頭でも末端でもない
+			prevOrder = boardsArray[prev].board.order;
+			nextOrder = boardsArray[next].board.order;
+		}
+		//-----
+
+	} else {
+		//新規のBoardの場合
+		prevOrder = 0;
+		nextOrder = boardsArray[0].board.order;
+	}
+
+	myOrder = prevOrder + (nextOrder - prevOrder) / 2;
+	return myOrder;
+}
+
+
 export { state, mutations, getters, actions }
 
 export default {
