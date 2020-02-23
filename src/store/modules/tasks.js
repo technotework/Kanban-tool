@@ -72,7 +72,6 @@ const actions = {
   createTask({ getters, rootGetters }, value) {
     return new Promise(async (resolve, reject) => {
 
-      console.log("c");
       let { uuid, taskPath } = getters.info;
 
       let content = value.value;
