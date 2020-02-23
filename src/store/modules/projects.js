@@ -30,9 +30,15 @@ const getters = {
 //--------------
 //actions
 //--------------
-const uuidv4 = require('uuid/v4');
 const actions = {
+	initProjectData({ commit, rootGetters }, value) {
 
+		let info = {
+			uuid: rootGetters["auth/user"].uuid,
+			authPath: rootGetters["auth/path"],
+		}
+		commit("setAppInfo", info);
+	},
 	/**=============================
 	 * 新規作成
 	 * @param {*} param0 
@@ -177,11 +183,108 @@ const actions = {
 		}, (error) => {
 			console.log(error);
 		});
+	},
+	/**=========================================================
+	 * ドラッグ&ドロップによる更新関連
+	/**=========================================================
+	 * ドラッグして追加されたので、旧リストからデータを引き継ぎ元を消す
+	 * @param {*} param0 
+	 * @param {*} value 
+	 =============================*/
+	dragSortUpdate({ rootGetters, getters }, value) {
+		return new Promise(async (resolve, reject) => {
+
+			let { boardPath } = getters.info;
+
+			let boardId = value.id;
+			let boardDocPath = boardPath + boardId;
+
+			let order = getOrder(boardId, getters.boards);
+
+			let db = rootGetters.db;
+			db.doc(boardDocPath).set({ board: { "order": order } }, { merge: true }).then(() => {
+				resolve();
+			});
 
 
+		}, (error) => {
+			console.log(error);
+		});
 	}
 }
 
+
+/**
+ * 自分のorderを算出
+ * @param {*} id 
+ * @param {*} projectArray 
+ */
+function getOrder(id, projects) {
+
+	let unit = 10000000;
+	let prevOrder, nextOrder, myOrder = null;
+	let projectArray = projects;
+
+	//新規
+	//新規で自分しかいない
+	if (id == null && projectArray.length == 0) {
+
+		myOrder = unit;
+	}
+	//自分が先頭で後ろにいる
+	else if (id == null && projectArray.length > 0) {
+
+		prevOrder = 0;
+		nextOrder = projectArray[0].project.order;
+	}
+	//新規じゃない
+	else {
+
+		//indexを特定
+		let myIndex;
+		for (let i = 0; i < projectArray.length; i++) {
+
+			if (projectArray[i].project.id == id) {
+
+				myIndex = i;
+			}
+		}
+		//前後のindexを特定
+		let prev = myIndex - 1;
+		let next = myIndex + 1;
+
+
+		//新規じゃないが自分しかいない
+		if (myIndex == 0 && projectArray.length == 1) {
+
+			myOrder = unit;
+		}
+		//自分が先頭
+		else if (myIndex == 0 && projectArray.length > 1) {
+
+			prevOrder = 0;
+			nextOrder = projectArray[next].project.order;
+		}
+		//自分が末端
+		else if (myIndex == projectArray.length - 1 && projectArray.length > 1) {
+
+			prevOrder = projectArray[prev].project.order;
+			myOrder = prevOrder + unit;
+		}
+		//自分の前後にいる
+		else {
+			prevOrder = projectArray[prev].project.order;
+			nextOrder = projectArray[next].project.order;
+		}
+
+	}
+
+	if (myOrder == null) {
+		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
+		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
+	}
+	return myOrder;
+}
 
 //-----------------------------------------------
 //methods: action.create
@@ -196,9 +299,12 @@ function createProject(db, path, date) {
 
 	return new Promise((resolve, reject) => {
 
+		let order;
+
 		let initialTemplate = {
 			"project": {
 				"id": "",
+				"order": order,
 				"label": "Project",
 				"update_date": `${date}`
 			}
