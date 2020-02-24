@@ -1,8 +1,11 @@
+import { db } from "@/store/index"
 import store from "@/store/index"
+import common from "@/store/common"
 //--------------
 //state
 //--------------
 const state = {
+	appInfo: {},
 	projectsData: []
 }
 
@@ -13,6 +16,9 @@ const mutations = {
 
 	setData(state, payload) {
 		state.projectsData = payload;
+	},
+	setAppInfo(state, payload) {
+		state.appInfo = payload;
 	}
 
 }
@@ -21,7 +27,9 @@ const mutations = {
 //getters
 //--------------
 const getters = {
-
+	info(state) {
+		return state.appInfo;
+	},
 	projects(state) {
 		return state.projectsData;
 	}
@@ -33,9 +41,12 @@ const getters = {
 const actions = {
 	initProjectData({ commit, rootGetters }, value) {
 
+		let path = rootGetters["auth/path"];
+		let uuid = rootGetters["auth/user"].uuid;
+
 		let info = {
-			uuid: rootGetters["auth/user"].uuid,
-			authPath: rootGetters["auth/path"],
+			uuid: uuid,
+			projectPath: path
 		}
 		commit("setAppInfo", info);
 	},
@@ -43,23 +54,20 @@ const actions = {
 	 * 新規作成
 	 * @param {*} param0 
 	 =============================*/
-	create({ rootGetters }) {
+	create({ getters, rootGetters }) {
 
 		return new Promise(async (resolve, reject) => {
 
-			let uuid = rootGetters["auth/user"].uuid;
-			let db = rootGetters.db;
-			let path = rootGetters["auth/path"];
+			let { uuid, projectPath } = getters.info;
 			let date = Math.floor(new Date().getTime() / 1000);
-
 			//Projectドキュメントをを追加します
-			let projectDoc = await createProject(db, path, date);
+			let projectDoc = await createProject(projectPath, date, getters.projects);
 			//boardsドキュメントを作ります
-			let firstBoardID = await createBoards(path, projectDoc, db);
+			let firstBoardID = await createBoards(projectPath, projectDoc);
 
 			//続けてタスクを先頭のボードに追加する
-			let boardDocumentPath = path + projectDoc.id + "/boards/" + firstBoardID;
-			await createTasks(uuid, date, db, boardDocumentPath);
+			let boardDocumentPath = projectPath + projectDoc.id + "/boards/" + firstBoardID.id;
+			await createTasks(uuid, date, boardDocumentPath);
 
 			resolve();
 		});
@@ -68,24 +76,25 @@ const actions = {
 	 * 読み込み
 	 * @param {*} param0 
 	 =============================*/
-	read({ commit, rootGetters }) {
+	read({ commit, rootGetters, getters }) {
 
 		return new Promise((resolve, reject) => {
 
+			let { projectPath } = getters.info;
 			let db = rootGetters.db;
-			let path = rootGetters["auth/path"];
-			let collection = db.collection(path);
-
-			collection.onSnapshot(function (querySnapshot) {
+			//ProjectをRead&Listen
+			let collection = db.collection(projectPath);
+			collection.orderBy("project.order").onSnapshot(function (querySnapshot) {
 
 				let array = [];
+				//Projectデータ取得してArrayにつめこむ
 				querySnapshot.forEach(function (doc) {
-
 					let result = doc.data();
 					result.project.id = doc.id;
 					array.push(result);
-				})
-
+				});
+				console.log(array);
+				//完了
 				commit("setData", array);
 			});
 
@@ -99,19 +108,17 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	 */
-	updateProjectName({ rootGetters }, value) {
-		return new Promise((resolve, reject) => {
+	updateProjectName({ getters }, value) {
+		return new Promise(async (resolve, reject) => {
 
-			let db = rootGetters.db;
-			let path = rootGetters["auth/path"];
+			let { projectPath } = getters.info;
 			let name = value.name;
-			let id = value.id;
-			console.log(name, id);
-			let parentProject = db.doc(path + id);
-			//実行
-			parentProject.set({ project: { "label": name } }, { merge: true }).then(() => {
-				resolve();
-			});
+			let object = {
+				path: projectPath + value.id,
+				content: { project: { "label": name } }
+			};
+			await common.fb.setDoc(object).catch(reject);
+			resolve();
 
 		}, (error) => {
 			console.log(error);
@@ -123,63 +130,53 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} id 
 	*============================= */
-	delete({ rootGetters }, id) {
+	delete({ getters }, id) {
 
 		return new Promise(async (resolve, reject) => {
 
-			let db = rootGetters.db;
-			let path = rootGetters["auth/path"];
+			let { projectPath } = getters.info;
 
-			let projectDocPath = path + id;
-			let projectDoc = db.doc(projectDocPath);
+			//パスの設定
+			let projectDocPath = projectPath + id;
 
-			let boards = db.collection(projectDocPath + "/boards/");
+			//ボード全取得
+			let boardsPath = projectDocPath + "/boards/";
+			let boardDataArray = await common.fb.get({ path: boardsPath, key: "board" }).catch(reject);
 
-			boards.get().then((querySnapshot) => {
+			//ボードにぶらさがっているModuleとtaskの処理
+			let i = 0;
+			let taskDataArray = [];
+			for (i = 0; i < boardDataArray.length; i++) {
 
-				querySnapshot.forEach((doc) => {
+				//値の設定
+				let boardsID = boardDataArray[i].board.id;
+				let boardDocPath = boardsPath + boardsID;
+				let tasksPath = boardDocPath + "/tasks/";
 
-					let boardsID = doc.id;
+				//残存モジュールがあれば消す
+				let storeModuleName = "task_" + boardsID;
+				let hasModule = store.state.hasOwnProperty(storeModuleName);
+				if (hasModule) {
+					store.unregisterModule(storeModuleName);
+				}
+				//taskを読み込む
+				taskDataArray = await common.fb.get({ path: tasksPath, key: "task" });
 
-					//残存モジュールがあれば消す
-					let storeModuleName = "task_" + boardsID;
-					let hasModule = store.state.hasOwnProperty(storeModuleName);
-					if (hasModule) {
-						store.unregisterModule(storeModuleName);
-					}
-
-					//boardDoc
-					let boardDocPath = projectDocPath + "/boards/" + boardsID;
-					let boardDoc = db.doc(boardDocPath);
-
-					//TaskCollection
-					let tasksPath = boardDocPath + "/tasks/";
-					let tasks = db.collection(tasksPath);
-
-					tasks.get().then((querySnapshot) => {
-
-						querySnapshot.forEach((doc) => {
-
-							//TaskCollection削除
-							let taskDocPath = tasksPath + doc.id;
-							let taskDoc = db.doc(taskDocPath);
-							taskDoc.delete();
-
-						});
-					});
-					//BoardDoc削除
-					boardDoc.delete();
-
-				});
-
-			}).then(() => {
-
-				//Project削除
-				projectDoc.delete();
-				resolve();
-			});
-
+				for (let j = 0; j < taskDataArray.length; j++) {
+					//Task削除
+					let taskId = taskDataArray[j].task.id;
+					let object = { path: tasksPath + taskId };
+					await common.fb.deleteDoc(object).catch(reject);
+				}
+				//Board削除
+				let object = { path: boardDocPath };
+				await common.fb.deleteDoc(object).catch(reject);
+			}
+			//project削除
+			let object = { path: projectDocPath };
+			await common.fb.deleteDoc(object).catch(reject);
 			resolve();
+
 		}, (error) => {
 			console.log(error);
 		});
@@ -191,99 +188,25 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	 =============================*/
-	dragSortUpdate({ rootGetters, getters }, value) {
+	dragSortUpdate({ getters }, value) {
 		return new Promise(async (resolve, reject) => {
 
-			let { boardPath } = getters.info;
+			let { projectPath } = getters.info;
+			let projectId = value.id;
+			let projectDocPath = projectPath + projectId;
+			let order = common.util.getOrder(projectId, getters.projects, "project");
+			let object = {
+				path: projectDocPath,
+				content: { project: { "order": order } }
+			};
+			common.fb.setDoc(object).catch(reject);
 
-			let boardId = value.id;
-			let boardDocPath = boardPath + boardId;
-
-			let order = getOrder(boardId, getters.boards);
-
-			let db = rootGetters.db;
-			db.doc(boardDocPath).set({ board: { "order": order } }, { merge: true }).then(() => {
-				resolve();
-			});
-
+			resolve();
 
 		}, (error) => {
 			console.log(error);
 		});
 	}
-}
-
-
-/**
- * 自分のorderを算出
- * @param {*} id 
- * @param {*} projectArray 
- */
-function getOrder(id, projects) {
-
-	let unit = 10000000;
-	let prevOrder, nextOrder, myOrder = null;
-	let projectArray = projects;
-
-	//新規
-	//新規で自分しかいない
-	if (id == null && projectArray.length == 0) {
-
-		myOrder = unit;
-	}
-	//自分が先頭で後ろにいる
-	else if (id == null && projectArray.length > 0) {
-
-		prevOrder = 0;
-		nextOrder = projectArray[0].project.order;
-	}
-	//新規じゃない
-	else {
-
-		//indexを特定
-		let myIndex;
-		for (let i = 0; i < projectArray.length; i++) {
-
-			if (projectArray[i].project.id == id) {
-
-				myIndex = i;
-			}
-		}
-		//前後のindexを特定
-		let prev = myIndex - 1;
-		let next = myIndex + 1;
-
-
-		//新規じゃないが自分しかいない
-		if (myIndex == 0 && projectArray.length == 1) {
-
-			myOrder = unit;
-		}
-		//自分が先頭
-		else if (myIndex == 0 && projectArray.length > 1) {
-
-			prevOrder = 0;
-			nextOrder = projectArray[next].project.order;
-		}
-		//自分が末端
-		else if (myIndex == projectArray.length - 1 && projectArray.length > 1) {
-
-			prevOrder = projectArray[prev].project.order;
-			myOrder = prevOrder + unit;
-		}
-		//自分の前後にいる
-		else {
-			prevOrder = projectArray[prev].project.order;
-			nextOrder = projectArray[next].project.order;
-		}
-
-	}
-
-	if (myOrder == null) {
-		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
-		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
-	}
-	return myOrder;
 }
 
 //-----------------------------------------------
@@ -295,24 +218,21 @@ function getOrder(id, projects) {
  * @param {*} path 
  * @param {*} initialTemplate 
  */
-function createProject(db, path, date) {
+function createProject(path, date, projects) {
+	return new Promise(async (resolve, reject) => {
 
-	return new Promise((resolve, reject) => {
-
-		let order;
-
-		let initialTemplate = {
-			"project": {
-				"id": "",
-				"order": order,
-				"label": "Project",
-				"update_date": `${date}`
-			}
+		//順番の初期化
+		let order = common.util.getOrder(null, projects, "project");
+		//テンプレートの取得
+		let initialTemplate = common.templates.project(date, order);
+		//作成
+		let object = {
+			path: path,
+			content: initialTemplate
 		};
-		let collection = db.collection(path);
-		collection.add(initialTemplate).then((doc) => {
-			resolve(doc);
-		})
+		let data = await common.fb.add(object).catch(reject);
+		resolve(data);
+
 	}, (error) => {
 		console.log(error);
 	});
@@ -324,56 +244,20 @@ function createProject(db, path, date) {
  * @param {*} projectDoc 
  * @param {*} db 
  */
-function createBoards(path, projectDoc, db) {
+function createBoards(path, projectDoc) {
 	return new Promise(async (resolve, reject) => {
 
-		let initialBoardsTemplate = [{
-			"board": {
-				"id": "",
-				"label": "Backlog",
-				"order": 10000000
-			}
-		},
-		{
-			"board": {
-				"id": "",
-				"label": "ToDo",
-				"order": 20000000
-			}
-		},
-		{
-			"board": {
-				"id": "",
-				"label": "Progress",
-				"order": 30000000
-			}
-		},
-		{
-			"board": {
-				"id": "",
-				"label": "Complete",
-				"order": 40000000
-			}
-		}
-		];
-
-		let dataPath = path + projectDoc.id + "/boards/";
-		let collection = db.collection(dataPath);
-		let array = initialBoardsTemplate;
-		let orderArray = [];
-		//実行
+		//テンプレ取得
+		let array = common.templates.initialBoards();
+		//作成
 		for (let i = 0; i < array.length; i++) {
-			await collection.add(array[i]).then((doc) => {
-				//ボードの順番をIDの配列としてフィールドに追加
-				orderArray.push(doc.id);
-			});
+			let object = {
+				path: path + projectDoc.id + "/boards/",
+				content: array[i]
+			};
+			let data = await common.fb.add(object).catch(reject);
+			resolve(data);
 		}
-
-		let parentProject = db.doc(path + projectDoc.id);
-		//実行
-		await parentProject.set({ project: { "boards_sort": orderArray } }, { merge: true });
-
-		resolve(orderArray[0]);
 
 	}, (error) => {
 		console.log(error);
@@ -387,32 +271,18 @@ function createBoards(path, projectDoc, db) {
  * @param {*} db 
  * @param {*} boardDocumentPath 
  */
-function createTasks(uuid, date, db, boardDocumentPath) {
+function createTasks(uuid, date, boardDocumentPath) {
 	return new Promise(async (resolve, reject) => {
-		let initialTaskTemplate = {
-			task: {
-				"id": "",
-				"order": 10000000,
-				"data": "",
-				"labels": [],
-				"members": [],
-				"createUser": `${uuid}`,
-				"create_date": `${date}`,
-				"start_date": null,
-				"end_date": null,
-				"archive_date": null,
-				"comments": []
-			}
-		};
-		let dataPath = boardDocumentPath + "/tasks/";
-		let collection = db.collection(dataPath);
-		let taskDoc = await collection.add(initialTaskTemplate);
-		//タスクの順番をIDの配列としてフィールドに追加
-		dataPath = boardDocumentPath;
-		let parentProject = db.doc(dataPath);
-		await parentProject.set({ board: { "task_sort": [taskDoc.id] } }, { merge: true });
 
-		resolve();
+		//テンプレ取得
+		let initialTaskTemplate = common.templates.task(uuid, date);
+		//作成
+		let object = {
+			path: boardDocumentPath + "/tasks/",
+			content: initialTaskTemplate
+		};
+		let data = await common.fb.add(object).catch(reject);
+		resolve(data);
 
 	}, (error) => {
 		console.log(error);

@@ -11,6 +11,7 @@
         v-model="items"
         @context-menu-click="onMenuClick"
         @edited-project-name="onInput"
+        @drag-sort-list="onDragSortList"
       />
     </template>
   </ContentAreaLayout>
@@ -43,6 +44,9 @@ export default {
     },
     onInput: function(value) {
       this.$emit("edited-project-name", value);
+    },
+    onDragSortList(value) {
+      this.$emit("drag-sort-list", value);
     }
   },
   components: {

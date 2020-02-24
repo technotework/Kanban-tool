@@ -11,6 +11,9 @@ Vue.use(Vuex);
 Firebase.init();
 
 Vue.config.productionTip = false;
+const db = Firebase.db();
+
+export { db };
 
 export default new Vuex.Store({
 	strict: true,

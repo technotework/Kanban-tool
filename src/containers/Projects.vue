@@ -4,6 +4,7 @@
     @click="onClick"
     @context-menu-click="onMenuClick"
     @edited-project-name="onInput"
+    @drag-sort-list="onDragSortList"
   />
 </template>
 
@@ -36,15 +37,19 @@ export default {
   },
   methods: {
     ...mapActions("projects", [
+      "initProjectData",
       "read",
       "create",
       "delete",
-      "updateProjectName"
+      "updateProjectName",
+      "dragSortUpdate"
     ]),
     init() {
+      this.initProjectData();
       this.read();
     },
     onClick() {
+      this.initProjectData();
       this.create();
     },
     onMenuClick(value) {
@@ -58,6 +63,9 @@ export default {
           path: path
         });
       }
+    },
+    onDragSortList(value) {
+      this.dragSortUpdate(value);
     },
     onInput: function(value) {
       this.updateProjectName(value);

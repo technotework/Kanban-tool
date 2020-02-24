@@ -1,7 +1,18 @@
 <template>
   <div :class="$style.wrapper">
-    <draggable v-model="items" :class="$style.list" tag="ul" v-bind="dragOptions">
-      <li v-for="item in items" :key="item.project.id" :class="$style.listItem">
+    <draggable
+      v-model="items"
+      :class="$style.list"
+      tag="ul"
+      v-bind="dragOptions"
+      @end="onDragSortList"
+    >
+      <li
+        v-for="item in items"
+        :key="item.project.id"
+        :data-id="item.project.id"
+        :class="$style.listItem"
+      >
         <ProjectListItem
           :id="item.project.id"
           v-model="item.project.label"
@@ -31,6 +42,10 @@ export default {
     },
     onInput: function(value) {
       this.$emit("edited-project-name", value);
+    },
+    onDragSortList(e) {
+      let dataSet = e.item.dataset;
+      this.$emit("drag-sort-list", dataSet);
     }
   },
   computed: {
