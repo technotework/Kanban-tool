@@ -38,7 +38,7 @@ const getters = {
 //actions
 //--------------
 const actions = {
-	initProjectData({ commit, rootGetters }, value) {
+	initProjectData({ commit, rootGetters }) {
 
 		let path = rootGetters["auth/path"];
 		let uuid = rootGetters["auth/user"].uuid;
@@ -75,11 +75,16 @@ const actions = {
 	 * 読み込み
 	 * @param {*} param0 
 	 =============================*/
-	read({ commit, rootGetters, getters }) {
+	read({ commit, rootGetters, getters, dispatch }) {
 
 		return new Promise((resolve, reject) => {
 
+			if (getters.info.projectPath == undefined) {
+				dispatch("initProjectData");
+			}
+
 			let { projectPath } = getters.info;
+
 			let db = rootGetters.db;
 			//ProjectをRead&Listen
 			let collection = db.collection(projectPath);
@@ -92,7 +97,7 @@ const actions = {
 					result.project.id = doc.id;
 					array.push(result);
 				});
-				console.log(array);
+
 				//完了
 				commit("setData", array);
 			});
@@ -165,15 +170,15 @@ const actions = {
 					//Task削除
 					let taskId = taskDataArray[j].task.id;
 					let object = { path: tasksPath + taskId };
-					await common.fb.deleteDoc(object).catch(reject);
+					common.fb.deleteDoc(object).catch(reject);
 				}
 				//Board削除
 				let object = { path: boardDocPath };
-				await common.fb.deleteDoc(object).catch(reject);
+				common.fb.deleteDoc(object).catch(reject);
 			}
 			//project削除
 			let object = { path: projectDocPath };
-			await common.fb.deleteDoc(object).catch(reject);
+			common.fb.deleteDoc(object).catch(reject);
 			resolve();
 
 		}, (error) => {
@@ -198,7 +203,7 @@ const actions = {
 				path: projectDocPath,
 				content: { project: { "order": order } }
 			};
-			common.fb.setDoc(object).catch(reject);
+			await common.fb.setDoc(object).catch(reject);
 
 			resolve();
 

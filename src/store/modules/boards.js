@@ -1,5 +1,6 @@
 import store from "@/store/index"
 import taskModule from "@/store/modules/tasks"
+import common from "@/store/common"
 //--------------
 //state
 //--------------
@@ -63,25 +64,16 @@ const actions = {
 		return new Promise(async (resolve, reject) => {
 
 			//setting
-			let { projectDocPath, boardPath } = getters.info;
-			let db = rootGetters.db;
+			let { boardPath } = getters.info;
+			let order = common.util.getOrder(null, getters.boards, "board");
+			let boardData = common.templates.board(order);
 
-			let order = getOrder(null, getters.boards);
-
-			let boardData = {
-				"board": {
-					"id": "",
-					"order": order,
-					"label": "NewBoard",
-					"task_sort": []
-				}
+			let object = {
+				path: boardPath,
+				content: boardData
 			};
-
-			//ボード追加から新規作成されたDocをとってID取得
-			let collection = db.collection(boardPath);
-			await collection.add(boardData).then(() => {
-				resolve();
-			});
+			await common.fb.add(object).catch(reject);
+			resolve();
 
 		}, (error) => {
 			console.log(error);
@@ -143,15 +135,14 @@ const actions = {
 		return new Promise((resolve, reject) => {
 
 			//setting
-			let { projectId, boardPath } = getters.info;
+			let { boardPath } = getters.info;
 			let boardDocPath = boardPath + value.id
-			let db = rootGetters.db;
-			let board = db.doc(boardDocPath);
-			let name = value.name;
-			//ボード名変更
-			board.set({ board: { "label": name } }, { merge: true }).then(() => {
-				resolve();
-			});
+
+			let object = {
+				path: boardDocPath,
+				content: { board: { "label": value.name } }
+			};
+			common.fb.setDoc(object).catch(reject);
 
 		}, (error) => {
 			console.log(error);
@@ -167,35 +158,26 @@ const actions = {
 		return new Promise(async (resolve, reject) => {
 
 			//setting
-			let { projectDocPath, boardPath } = getters.info;
+			let { boardPath } = getters.info;
 			let boardDocId = value.id;
 			let boardDocPath = boardPath + boardDocId;
 			let taskPath = boardDocPath + "/tasks/";
-			let db = rootGetters.db;
-			let board = db.doc(boardDocPath);
-			let tasks = db.collection(taskPath);
 
-			//TaskDocを消す
-			await tasks.get().then((querySnapshot) => {
+			let object = {
+				path: taskPath,
+				key: "task"
+			};
+			let taskDataArray = await common.fb.get(object).catch(reject);
 
-				querySnapshot.forEach((doc) => {
+			for (let i = 0; i < taskDataArray.length; i++) {
 
-					let taskDocPath = taskPath + doc.id;
-					db.doc(taskDocPath).delete();
-				});
-				resolve();
-			});
+				let taskDocPath = taskPath + taskDataArray[i].task.id;
 
-			//ボード削除
-			await board.delete();
-
-			//ボードのtaskのmodule削除
-			let storeModuleName = "task_" + boardDocId;
-			let hasModule = store.state.hasOwnProperty(storeModuleName);
-
-			if (hasModule) {
-				store.unregisterModule(storeModuleName);
+				common.fb.deleteDoc({ path: taskDocPath }).catch(reject);
 			}
+
+			common.fb.deleteDoc({ path: boardDocPath }).catch(reject);
+
 			resolve();
 
 		}, (error) => {
@@ -216,92 +198,20 @@ const actions = {
 
 			let boardId = value.id;
 			let boardDocPath = boardPath + boardId;
+			let order = common.util.getOrder(boardId, getters.boards, "board");
 
-			let order = getOrder(boardId, getters.boards);
-
-			let db = rootGetters.db;
-			db.doc(boardDocPath).set({ board: { "order": order } }, { merge: true }).then(() => {
-				resolve();
-			});
-
+			let object = {
+				path: boardDocPath,
+				content: { board: { "order": order } }
+			};
+			await common.fb.setDoc(object).catch(reject);
+			resolve();
 
 		}, (error) => {
 			console.log(error);
 		});
 	}
 
-}
-
-/**
- * 自分のorderを算出
- * @param {*} id 
- * @param {*} boardArray 
- */
-function getOrder(id, boards) {
-
-	let unit = 10000000;
-	let prevOrder, nextOrder, myOrder = null;
-	let boardArray = boards;
-
-	//新規
-	//新規で自分しかいない
-	if (id == null && boardArray.length == 0) {
-
-		myOrder = unit;
-	}
-	//自分が先頭で後ろにいる
-	else if (id == null && boardArray.length > 0) {
-
-		prevOrder = 0;
-		nextOrder = boardArray[0].board.order;
-	}
-	//新規じゃない
-	else {
-
-		//indexを特定
-		let myIndex;
-		for (let i = 0; i < boardArray.length; i++) {
-
-			if (boardArray[i].board.id == id) {
-
-				myIndex = i;
-			}
-		}
-		//前後のindexを特定
-		let prev = myIndex - 1;
-		let next = myIndex + 1;
-
-
-		//新規じゃないが自分しかいない
-		if (myIndex == 0 && boardArray.length == 1) {
-
-			myOrder = unit;
-		}
-		//自分が先頭
-		else if (myIndex == 0 && boardArray.length > 1) {
-
-			prevOrder = 0;
-			nextOrder = boardArray[next].board.order;
-		}
-		//自分が末端
-		else if (myIndex == boardArray.length - 1 && boardArray.length > 1) {
-
-			prevOrder = boardArray[prev].board.order;
-			myOrder = prevOrder + unit;
-		}
-		//自分の前後にいる
-		else {
-			prevOrder = boardArray[prev].board.order;
-			nextOrder = boardArray[next].board.order;
-		}
-
-	}
-
-	if (myOrder == null) {
-		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
-		myOrder = prevOrder + (nextOrder - prevOrder) / 2;
-	}
-	return myOrder;
 }
 
 

@@ -18,6 +18,16 @@ export default {
         }
       }
     },
+    board: (order) => {
+
+      return {
+        "board": {
+          "id": "",
+          "order": order,
+          "label": "NewBoard",
+        }
+      }
+    },
     initialBoards: () => {
 
       return [
