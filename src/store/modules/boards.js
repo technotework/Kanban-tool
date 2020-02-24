@@ -66,11 +66,11 @@ const actions = {
 			//setting
 			let { boardPath } = getters.info;
 			let order = common.util.getOrder(null, getters.boards, "board");
-			let boardData = common.templates.board(order);
+			let boardTemplate = common.templates.board(order);
 
 			let object = {
 				path: boardPath,
-				content: boardData
+				content: boardTemplate
 			};
 			await common.fb.add(object).catch(reject);
 			resolve();

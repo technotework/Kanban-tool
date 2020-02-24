@@ -61,7 +61,7 @@ export default {
         }
       ];
     },
-    task: (uuid, date, order = null) => {
+    task: (uuid, date, order = null, data = null) => {
 
       let ordarData;
       if (order != null) {
@@ -71,10 +71,19 @@ export default {
         ordarData = unit;
       }
 
+      let content;
+      if (data != null) {
+
+        content = data;
+      } else {
+
+        content = "";
+      }
+
       return {
         task: {
           "id": "",
-          "data": "",
+          "data": content,
           "order": ordarData,
           "labels": [],
           "members": [],
@@ -144,6 +153,7 @@ export default {
       return new Promise(async (resolve, reject) => {
         let { path, content } = object;
         let doc = db.doc(path);
+
         await doc.set(content, { merge: true }).then(() => {
           resolve();
 
@@ -219,6 +229,7 @@ export default {
             myIndex = i;
           }
         }
+        console.log(myIndex);
         //前後のindexを特定
         let prev = myIndex - 1;
         let next = myIndex + 1;
