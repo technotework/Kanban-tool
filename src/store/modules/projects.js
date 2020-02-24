@@ -1,4 +1,3 @@
-import { db } from "@/store/index"
 import store from "@/store/index"
 import common from "@/store/common"
 //--------------
