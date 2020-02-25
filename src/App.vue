@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <router-view />
+    <Message>
+      <router-view />
+    </Message>
   </div>
 </template>
 
 <script>
+import Message from "@/containers/Message";
 export default {
   name: "App",
   computed: {},
@@ -12,6 +15,6 @@ export default {
     return {};
   },
   methods: {},
-  components: {}
+  components: { Message }
 };
 </script>

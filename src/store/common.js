@@ -100,13 +100,14 @@ export default {
 
         let { path, content } = object;
         let collection = db.collection(path);
+
         await collection.add(content).then((doc) => {
 
           resolve(doc);
 
         }).catch(error => {
 
-          reject(error);
+          throw { type: "FIREBASE_FIRESTORE", error: error.code };
         });
 
       });
@@ -132,7 +133,7 @@ export default {
 
         }).catch(error => {
 
-          reject(error);
+          throw { type: "FIREBASE_FIRESTORE", error: error.code };
         });
 
       });
@@ -149,7 +150,7 @@ export default {
 
         }).catch(error => {
 
-          reject(error);
+          throw { type: "FIREBASE_FIRESTORE", error: error.code };
         });
 
       });
@@ -168,7 +169,7 @@ export default {
 
         }).catch(error => {
 
-          reject(error);
+          throw { type: "FIREBASE_FIRESTORE", error: error.code };
         });
 
       });
