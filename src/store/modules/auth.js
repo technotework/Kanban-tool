@@ -37,7 +37,7 @@ const getters = {
 		return state.teamData;
 	},
 	path(state) {
-		return "/workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
+		return "/workspaces	/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
 		//return state.pathData;
 	}
 }
@@ -63,10 +63,25 @@ const actions = {
 					dispatch("getUserInfo", userUid);
 
 				},
-				err => {
-					alert(err.message)
+				error => {
+					throw { type: "FIREBASE_AUTH", error: error.code };
 				}
 			);
+	},
+	/**
+		 * singUp
+		 * @param {*} context 
+		 * @param {*} idとpass
+		 */
+	singUp({ dispatch, rootGetters }, value) {
+
+		let firebase = rootGetters.firebase;
+		let email = value.email;
+		let password = value.password;
+
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(error => {
+			throw { type: "FIREBASE_AUTH", error: error.code };
+		});
 	},
 	/**
 	 * getUserInfo
@@ -80,7 +95,6 @@ const actions = {
 		doc.get().then((doc) => {
 
 			if (doc.exists) {
-
 				let result = doc.data();
 				result.uuid = uid;
 				commit("succsessLogin", result);
@@ -99,7 +113,9 @@ const actions = {
 	logout({ rootGetters }) {
 
 		let firebase = rootGetters.firebase;
-		firebase.auth().signOut();
+		firebase.auth().signOut().catch(error => {
+			throw { type: "FIREBASE_AUTH", error: error.code };
+		});
 	}
 }
 
