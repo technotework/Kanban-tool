@@ -7,20 +7,20 @@
       v-bind="{ menuItems, id }"
       compose="bottom"
     />
-    <Tasks :id="id" />
+    <component :is="taskContainer" :id="id" />
   </div>
 </template>
 
 <script>
 import ClickToEditableInput from "@/components/molecules/click-to-editable-input/";
 import ContextMenu from "@/components/molecules/context-menu/";
-import Tasks from "@/containers/Tasks";
 
 export default {
   name: "BoardListItem",
   props: {
     value: String,
-    id: String
+    id: String,
+    taskContainer: Object
   },
   data: function() {
     return {
@@ -49,8 +49,7 @@ export default {
   },
   components: {
     ClickToEditableInput,
-    ContextMenu,
-    Tasks
+    ContextMenu
   }
 };
 </script>

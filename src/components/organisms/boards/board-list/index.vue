@@ -15,6 +15,7 @@
       <BoardListItem
         v-model="boardItem.board.label"
         :id="boardItem.board.id"
+        :task-container="taskContainer"
         @edited-board-name="onInput"
         @context-menu-click="onClick"
       />
@@ -28,7 +29,8 @@ import BoardListItem from "@/components/organisms/boards/board-list-item/";
 export default {
   name: "BoardList",
   props: {
-    value: Array
+    value: Array,
+    taskContainer: Object
   },
   computed: {
     dragOptions() {

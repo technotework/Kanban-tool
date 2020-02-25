@@ -3,6 +3,7 @@
   <BoardUnit
     v-model="boardList"
     :title.sync="projectName"
+    :task-container="task"
     @edited-board-name="onInput"
     @context-menu-click="onClick"
     @drag-sort-list="onDragSortList"
@@ -12,14 +13,15 @@
 
 <script>
 import BoardUnit from "@/components/organisms/boards/board-unit/";
-
+import Task from "@/containers/Tasks";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   name: "Boards",
   props: {},
   data: () => {
     return {
-      projectId: ""
+      projectId: "",
+      task: Task
     };
   },
   created: function() {
