@@ -1,5 +1,5 @@
 <template>
-  <Message target="boards">
+  <Message target="board">
     <Boards />
   </Message>
 </template>

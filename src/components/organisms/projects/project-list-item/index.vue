@@ -53,6 +53,7 @@ export default {
   components: { ContextMenu, DateTimeText, BaseIcon, ClickToEditableInput },
   methods: {
     onMenuClick: function(value) {
+      value.title = this.title;
       this.$emit("context-menu-click", value);
     }
   }

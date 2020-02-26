@@ -1,5 +1,5 @@
 <template>
-  <Message v-model="disableMessage">
+  <Message target="project" v-model="disableMessage">
     <Projects />
   </Message>
 </template>
@@ -10,12 +10,6 @@ import Projects from "@/containers/Projects";
 export default {
   name: "ProjectListPage",
   props: {},
-  created() {
-    this.disableMessage = false;
-  },
-  destroyed() {
-    this.disableMessage = true;
-  },
   data: () => {
     return {
       disableMessage: false

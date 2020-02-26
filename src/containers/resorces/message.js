@@ -18,8 +18,7 @@ const TYPE = {
 
 }
 
-
-const APP_ERRORS = {
+const APP = {
   DELETE: "app/delete",
   REQUIRE: "app/require",
   WRONG_TEXT: "app/text-violation",
@@ -30,7 +29,7 @@ const APP_ERRORS = {
   LOGOUT: "app/force-logout",
   DISCONNECT: "app/internet-disconnect",
 }
-export { TYPE, APP_ERRORS };
+export { TYPE, APP };
 
 /**
  * メッセージ生成
@@ -47,13 +46,13 @@ const getMessage = (data) => {
       message = firebaseAuthError(data.error);
       break;
     case TYPE.VALIDATION:
-      message = validationError(data.error);
+      message = validationError(data.error, data.arg);
       break;
     case TYPE.NETWORK:
       message = networkError(data.error);
       break;
     case TYPE.CONFIRM:
-      message = confirmMessage(data.normal);
+      message = confirmMessage(data.normal, data.arg);
       break;
     default:
       message = UNEXPECTED;
@@ -145,31 +144,29 @@ function firebaseAuthError(error) {
  * Validation
  * @param {*} error 
  */
-function validationError(error) {
-
-  let arg = error.arg;
+function validationError(error, arg) {
 
   let message;
   switch (error) {
-    case APP_ERRORS.REQUIRE:
+    case APP.REQUIRE:
       message = { text: `${arg.name}は入力必須です。`, type: ERROR_MESSAGE };
       break;
-    case APP_ERRORS.WRONG_TEXT:
+    case APP.WRONG_TEXT:
       message = { text: "不正な文字が含まれています", type: ERROR_MESSAGE };
       break;
-    case APP_ERRORS.WRONG_EMAIL:
+    case APP.WRONG_EMAIL:
       message = { text: "メールアドレスの形式が間違っています。", type: ERROR_MESSAGE };
       break;
-    case APP_ERRORS.WRONG_PASSWORD:
+    case APP.WRONG_PASSWORD:
       message = { text: "パスワードは半角英数字で入力してください。", type: ERROR_MESSAGE };
       break;
-    case APP_ERRORS.LENGTH_MORE:
+    case APP.LENGTH_MORE:
       message = { text: `${arg.name}は、${arg.length}文字以上で入力してください。`, type: ERROR_MESSAGE };
       break;
-    case APP_ERRORS.LENGTH_LESS:
+    case APP.LENGTH_LESS:
       message = { text: `${arg.name}は、${arg.length}文字以内で入力してください。`, type: ERROR_MESSAGE };
       break;
-    case APP_ERRORS.LOGOUT:
+    case APP.LOGOUT:
       message = { text: "予期せぬ問題が発生したためログアウトしました。", type: ERROR_MESSAGE };
       break;
     default:
@@ -184,13 +181,11 @@ function validationError(error) {
  * 確認ダイアログ
  * @param {*} normal 
  */
-function confirmMessage(normal) {
-
-  let arg = normal.arg;
+function confirmMessage(normal, arg) {
 
   let message;
   switch (normal) {
-    case APP_ERRORS.LOGOUT:
+    case APP.DELETE:
       message = { text: `「${arg.name}」を削除します。よろしいですか？`, type: DIALOGUE };
       break;
   }
@@ -207,7 +202,7 @@ function networkError(error) {
 
   let message;
   switch (error) {
-    case APP_ERRORS.DISCONNECT:
+    case APP.DISCONNECT:
       message = { text: "インターネット接続をご確認ください。", type: ERROR_MESSAGE };
       break;
   }

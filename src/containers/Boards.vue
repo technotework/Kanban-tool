@@ -12,9 +12,11 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import BoardUnit from "@/components/organisms/boards/board-unit/";
 import Task from "@/containers/Tasks";
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { getMessage } from "@/containers/resorces/message";
+import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
   props: {},
@@ -67,6 +69,7 @@ export default {
       "updateBoardName",
       "dragSortUpdate"
     ]),
+    ...mapMutations("message", ["setBoardDialogue", "resetBoardDialogue"]),
     ...mapMutations("boards", ["setProjectId"]),
     init() {
       this.projectId = this.$route.params.id;
@@ -78,7 +81,7 @@ export default {
     },
     onClick(value) {
       if (value.name == "delete") {
-        this.delete(value);
+        this.showDeleteDialogue(value);
       }
     },
     onDragSortList(value) {
@@ -86,6 +89,25 @@ export default {
     },
     onCreateBoard() {
       this.create();
+    },
+    showDeleteDialogue(value) {
+      let p = () => {
+        this.delete(value.id);
+        this.resetBoardDialogue();
+      };
+
+      let s = () => {
+        this.resetBoardDialogue();
+      };
+
+      let message = getMessage({
+        type: TYPE.CONFIRM,
+        normal: APP.DELETE,
+        arg: { name: value.title }
+      });
+      let object = { text: message.text, p: p, s: s };
+
+      this.setBoardDialogue(object);
     }
   },
   components: {

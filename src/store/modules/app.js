@@ -2,8 +2,6 @@
 //state
 //--------------
 const state = {
-	message: {},
-	dialogue: {}
 }
 
 //--------------

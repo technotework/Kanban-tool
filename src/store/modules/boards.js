@@ -159,7 +159,7 @@ const actions = {
 
 			//setting
 			let { boardPath } = getters.info;
-			let boardDocId = value.id;
+			let boardDocId = value;
 			let boardDocPath = boardPath + boardDocId;
 			let taskPath = boardDocPath + "/tasks/";
 

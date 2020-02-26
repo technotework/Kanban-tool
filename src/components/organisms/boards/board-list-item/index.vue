@@ -44,6 +44,7 @@ export default {
   },
   methods: {
     onMenuClick: function(value) {
+      value.title = this.titleData;
       this.$emit("context-menu-click", value);
     }
   },

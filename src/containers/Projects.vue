@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import ProjectUnit from "@/components/organisms/projects/project-unit/";
-
+import { getMessage } from "@/containers/resorces/message";
+import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Projects",
   created: function() {
@@ -44,6 +45,7 @@ export default {
       "updateProjectName",
       "dragSortUpdate"
     ]),
+    ...mapMutations("message", ["setProjectDialogue", "resetProjectDialogue"]),
     init() {
       this.initProjectData();
       this.read();
@@ -55,7 +57,8 @@ export default {
     onMenuClick(value) {
       let id = value.id;
       if (value.name == "delete") {
-        this.delete(id);
+        //削除
+        this.showDeleteDialogue(value);
       } else if (value.name == "edit") {
         //画面遷移
         let path = "projects/" + value.id;
@@ -69,6 +72,25 @@ export default {
     },
     onInput: function(value) {
       this.updateProjectName(value);
+    },
+    showDeleteDialogue(value) {
+      let p = () => {
+        this.delete(value.id);
+        this.resetProjectDialogue();
+      };
+
+      let s = () => {
+        this.resetProjectDialogue();
+      };
+
+      let message = getMessage({
+        type: TYPE.CONFIRM,
+        normal: APP.DELETE,
+        arg: { name: value.title }
+      });
+      let object = { text: message.text, p: p, s: s };
+
+      this.setProjectDialogue(object);
     }
   },
   components: { ProjectUnit }

@@ -27,7 +27,7 @@ export default {
   props: {
     text: String,
     pCallback: Function,
-    sCallBack: Function
+    sCallback: Function
   },
   components: {
     FlexLayout,

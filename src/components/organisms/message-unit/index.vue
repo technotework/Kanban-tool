@@ -12,6 +12,9 @@
     </ul>
 
     <slot />
+    <template v-if="dialogue != null">
+      <ConfirmationDialogue :text="dialogue.text" :pCallback="dialogue.p" :sCallback="dialogue.s" />
+    </template>
   </div>
 </template>
 
@@ -19,9 +22,6 @@
 import ConfirmationDialogue from "@/components/molecules/confirmation-dialogue/";
 import FloatMessage from "@/components/molecules/float-message/";
 
-/*<template v-if="dialogue != null">
-      <ConfirmationDialogue :text="dialogue.text" :pCallback="dialogue.p" :sCallback="dialogue.s" />
-    </template>*/
 export default {
   name: "MessageUnit",
   props: {
@@ -34,7 +34,7 @@ export default {
       this.$emit("delete-message", id);
     }
   },
-  components: { FloatMessage }
+  components: { FloatMessage, ConfirmationDialogue }
 };
 </script>
 <style lang="scss" module>

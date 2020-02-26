@@ -1,5 +1,5 @@
 <template>
-  <MessageUnit @delete-message="onDeleteMessage" :errors="errorMessages">
+  <MessageUnit @delete-message="onDeleteMessage" :dialogue="dialogue" :errors="errorMessages">
     <slot />
   </MessageUnit>
 </template>
@@ -12,10 +12,7 @@ import Vue from "vue";
 export default {
   name: "",
   props: {
-    value: Boolean,
-    target: String,
-    dialogue: Object,
-    loader: Boolean
+    target: String
   },
   created() {
     Vue.config.errorHandler = (err, vm, info) => {
@@ -38,6 +35,12 @@ export default {
     return {
       errorMessages: []
     };
+  },
+  computed: {
+    dialogue() {
+      let name = this.target + "Dialogue";
+      return this.$store.getters["message/" + name];
+    }
   },
   methods: {
     createErrorMessage(err) {
