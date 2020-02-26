@@ -1,7 +1,8 @@
 import { db } from "@/store/index"
+import { TYPE, APP_ERRORS } from "@/containers/resorces/message"
 let unit = 10000000;
 
-export default {
+const util = {
 
   /**==================================
    * テンプレート
@@ -98,6 +99,11 @@ export default {
     add: (object) => {
       return new Promise(async (resolve, reject) => {
 
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+        }
+
         let { path, content } = object;
         let collection = db.collection(path);
 
@@ -107,7 +113,7 @@ export default {
 
         }).catch(error => {
 
-          throw { type: "FIREBASE_FIRESTORE", error: error.code };
+          throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
         });
 
       });
@@ -118,6 +124,11 @@ export default {
      */
     get: (object) => {
       return new Promise(async (resolve, reject) => {
+
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+        }
 
         let { path, key } = object;
         let collection = db.collection(path);
@@ -133,7 +144,7 @@ export default {
 
         }).catch(error => {
 
-          throw { type: "FIREBASE_FIRESTORE", error: error.code };
+          throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
         });
 
       });
@@ -143,6 +154,12 @@ export default {
      */
     setDoc: (object) => {
       return new Promise(async (resolve, reject) => {
+
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+        }
+
         let { path, content } = object;
         let doc = db.doc(path);
         await doc.set(content, { merge: true }).then(() => {
@@ -150,7 +167,7 @@ export default {
 
         }).catch(error => {
 
-          throw { type: "FIREBASE_FIRESTORE", error: error.code };
+          throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
         });
 
       });
@@ -161,6 +178,12 @@ export default {
     deleteDoc: (object) => {
 
       return new Promise(async (resolve, reject) => {
+
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+        }
+
         let { path } = object;
         let doc = db.doc(path);
         await doc.delete().then(() => {
@@ -169,15 +192,13 @@ export default {
 
         }).catch(error => {
 
-          throw { type: "FIREBASE_FIRESTORE", error: error.code };
+          throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
         });
 
       });
 
 
     }
-
-
 
   },
   /**==================================
@@ -259,4 +280,6 @@ export default {
 
 
   }
-}
+};
+
+export default util;

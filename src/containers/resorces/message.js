@@ -1,7 +1,4 @@
-const FIREBASE_FIRESTORE = "FIREBASE_FIRESTORE";
-const FIREBASE_AUTH = "FIREBASE_AUTH";
-const VALIDATION = "VALIDATION";
-const CONFIRM = "CONFIRM";
+
 
 const DIALOGUE = "dialogue";
 const ERROR_MESSAGE = "errorMessage";
@@ -11,8 +8,18 @@ const NOT_EXIST = "データが存在しません。"
 const EXIST = "すでにデータが存在します。"
 const PERMISSION = "アクセス権がありません。"
 
-
 const TYPE = {
+
+  FIREBASE_FIRESTORE: "FIREBASE_FIRESTORE",
+  FIREBASE_AUTH: "FIREBASE_AUTH",
+  VALIDATION: "VALIDATION",
+  CONFIRM: "CONFIRM",
+  NETWORK: "NETWORK"
+
+}
+
+
+const APP_ERRORS = {
   DELETE: "app/delete",
   REQUIRE: "app/require",
   WRONG_TEXT: "app/text-violation",
@@ -20,9 +27,10 @@ const TYPE = {
   WRONG_PASSWORD: "app/password-vaiolation",
   LENGTH_MORE: "app/form-length-more",
   LENGTH_LESS: "app/form-length-less",
-  LOGOUT: "app/force-logout"
+  LOGOUT: "app/force-logout",
+  DISCONNECT: "app/internet-disconnect",
 }
-export { TYPE };
+export { TYPE, APP_ERRORS };
 
 /**
  * メッセージ生成
@@ -32,17 +40,23 @@ const getMessage = (data) => {
 
   let message;
   switch (data.type) {
-    case FIREBASE_FIRESTORE:
+    case TYPE.FIREBASE_FIRESTORE:
       message = fireStoreError(data.error);
       break;
-    case FIREBASE_AUTH:
+    case TYPE.FIREBASE_AUTH:
       message = firebaseAuthError(data.error);
       break;
-    case VALIDATION:
+    case TYPE.VALIDATION:
       message = validationError(data.error);
       break;
-    case CONFIRM:
+    case TYPE.NETWORK:
+      message = networkError(data.error);
+      break;
+    case TYPE.CONFIRM:
       message = confirmMessage(data.normal);
+      break;
+    default:
+      message = UNEXPECTED;
       break;
   }
 
@@ -137,25 +151,25 @@ function validationError(error) {
 
   let message;
   switch (error) {
-    case TYPE.REQUIRE:
+    case APP_ERRORS.REQUIRE:
       message = { text: `${arg.name}は入力必須です。`, type: ERROR_MESSAGE };
       break;
-    case TYPE.WRONG_TEXT:
+    case APP_ERRORS.WRONG_TEXT:
       message = { text: "不正な文字が含まれています", type: ERROR_MESSAGE };
       break;
-    case TYPE.WRONG_EMAIL:
+    case APP_ERRORS.WRONG_EMAIL:
       message = { text: "メールアドレスの形式が間違っています。", type: ERROR_MESSAGE };
       break;
-    case TYPE.WRONG_PASSWORD:
+    case APP_ERRORS.WRONG_PASSWORD:
       message = { text: "パスワードは半角英数字で入力してください。", type: ERROR_MESSAGE };
       break;
-    case TYPE.LENGTH_MORE:
+    case APP_ERRORS.LENGTH_MORE:
       message = { text: `${arg.name}は、${arg.length}文字以上で入力してください。`, type: ERROR_MESSAGE };
       break;
-    case TYPE.LENGTH_LESS:
+    case APP_ERRORS.LENGTH_LESS:
       message = { text: `${arg.name}は、${arg.length}文字以内で入力してください。`, type: ERROR_MESSAGE };
       break;
-    case TYPE.LOGOUT:
+    case APP_ERRORS.LOGOUT:
       message = { text: "予期せぬ問題が発生したためログアウトしました。", type: ERROR_MESSAGE };
       break;
     default:
@@ -176,7 +190,7 @@ function confirmMessage(normal) {
 
   let message;
   switch (normal) {
-    case TYPE.LOGOUT:
+    case APP_ERRORS.LOGOUT:
       message = { text: `「${arg.name}」を削除します。よろしいですか？`, type: DIALOGUE };
       break;
   }
@@ -184,4 +198,20 @@ function confirmMessage(normal) {
   return message;
 }
 
+
+/**
+ * networkError
+ * @param {*} normal 
+ */
+function networkError(error) {
+
+  let message;
+  switch (error) {
+    case APP_ERRORS.DISCONNECT:
+      message = { text: "インターネット接続をご確認ください。", type: ERROR_MESSAGE };
+      break;
+  }
+
+  return message;
+}
 

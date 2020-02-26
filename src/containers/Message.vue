@@ -1,7 +1,10 @@
 
 <template>
   <div>
-    <template v-if="isShow">
+    <template>
+      <ul>
+        <li v-for="(item,index) in errorMessages" :key="'error' + index"></li>
+      </ul>
       <ConfirmationDialogue />
     </template>
     <slot />
@@ -19,22 +22,31 @@ export default {
   created() {
     Vue.config.errorHandler = (err, vm, info) => {
       console.log(`Captured in Vue.config.errorHandler: ${info}`, err);
+      this.createErrorMessage(err);
     };
     window.addEventListener("error", event => {
       console.log("Captured in error EventListener", event.error);
+      this.createErrorMessage(event.error);
     });
     window.addEventListener("unhandledrejection", event => {
       console.log("Captured in unhandledrejection EventListener", event.reason);
+      this.createErrorMessage(event.error);
     });
   },
   data: () => {
     return {
-      isShow: false,
-      message: {}
+      showType: "",
+      dialogue: Object,
+      errorMessages: []
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    createErrorMessage(err) {
+      let messageObj = getMessage(err);
+      this.errorMessages.push(messageObj);
+    }
+  },
   components: { ConfirmationDialogue }
 };
 </script>
