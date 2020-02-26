@@ -1,94 +1,62 @@
-
 <template>
-  <div>
-    <template>
-      <ul :class="$style.float">
-        <li v-for="(item,index) in errorMessages" :key="'error' + index">
-          <FloatMessage
-            type="ErrorText"
-            :index="index"
-            :message="item.text"
-            @delete-message="onDeleteMessage"
-          />
-        </li>
-      </ul>
-      <template v-if="dialogue">
-        <ConfirmationDialogue />
-      </template>
-    </template>
+  <MessageUnit @delete-message="onDeleteMessage" :errors="errorMessages">
     <slot />
-  </div>
+  </MessageUnit>
 </template>
 
 <script>
-import ConfirmationDialogue from "@/components/molecules/confirmation-dialogue/";
-import FloatMessage from "@/components/molecules/float-message/";
-
+import MessageUnit from "@/components/organisms/message-unit/";
 import { getMessage } from "@/containers/resorces/message";
-
+import { v4 as uuidv4 } from "uuid";
 import Vue from "vue";
 export default {
   name: "",
   props: {
-    value: Boolean
+    value: Boolean,
+    target: String,
+    dialogue: Object,
+    loader: Boolean
   },
   created() {
     Vue.config.errorHandler = (err, vm, info) => {
-      console.log(`Captured in Vue.config.errorHandler: ${info}`, err);
-      console.log("aa", err);
       this.createErrorMessage(err);
     };
     window.addEventListener("error", event => {
-      //console.log("Captured in error EventListener", event.error);
       this.createErrorMessage(event.error);
     });
     window.addEventListener("unhandledrejection", event => {
-      //console.log("Captured in unhandledrejection EventListener", event.reason);
       this.createErrorMessage(event.reason);
     });
   },
+  destroyed() {
+    window.removeEventListener("error");
+    window.removeEventListener("unhandledrejection");
+    this.dialogue = null;
+    this.errorMessages = [];
+  },
   data: () => {
     return {
-      showType: "",
-      dialogue: null,
       errorMessages: []
     };
-  },
-  computed: {
-    disable: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        if (this.value == false) {
-          this.dialogue = null;
-          this.errorMessages = [];
-        }
-        this.$emit("input");
-      }
-    }
   },
   methods: {
     createErrorMessage(err) {
       if (err != undefined && err.error != undefined) {
         let messageObj = getMessage(err);
+        messageObj.id = uuidv4();
         this.errorMessages.push(messageObj);
       }
     },
-    onDeleteMessage(obj) {
-      this.errorMessages.splice(obj.index, 1);
+    onDeleteMessage(id) {
+      let index;
+      for (let i = 0; i < this.errorMessages.length; i++) {
+        if (this.errorMessages[i].id == id) {
+          index = i;
+        }
+      }
+      this.errorMessages.splice(index, 1);
     }
   },
-  components: { FloatMessage, ConfirmationDialogue }
+  components: { MessageUnit }
 };
 </script>
-<style lang="scss" module>
-.float {
-  position: fixed;
-  width: 95vw;
-  height: auto;
-  bottom: 30px;
-  left: calc(50% - 95vw / 2);
-  z-index: $index_xm;
-}
-</style>

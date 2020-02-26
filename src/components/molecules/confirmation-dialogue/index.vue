@@ -2,9 +2,7 @@
   <div :class="$style.dialogue">
     <BaseModalCover>
       <Dialogue>
-        <BaseText>
-          <slot />
-        </BaseText>
+        <BaseText>{{text}}</BaseText>
         <FlexLayout :class="$style.buttonContainer">
           <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
           <PrimaryButton :class="$style.button" name="ok" @click="onClickPrimary" />
@@ -26,7 +24,11 @@ import FlexLayout from "@/components/templates/flex-layout/";
 
 export default {
   name: "ConfirmationDialogue",
-  props: {},
+  props: {
+    text: String,
+    pCallback: Function,
+    sCallBack: Function
+  },
   components: {
     FlexLayout,
     BaseModalCover,
@@ -37,10 +39,10 @@ export default {
   },
   methods: {
     onClickPrimary: function(e) {
-      this.$emit("clickPrimary");
+      this.pCallback();
     },
     onClickSecondary: function(e) {
-      this.$emit("clickSecondary");
+      this.sCallback();
     }
   }
 };

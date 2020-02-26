@@ -1,5 +1,5 @@
 <template>
-  <Message v-model="disableMessage">
+  <Message target="boards">
     <Boards />
   </Message>
 </template>
@@ -10,16 +10,8 @@ import Message from "@/containers/Message";
 export default {
   name: "ProjectPage",
   props: {},
-  created() {
-    this.disableMessage = false;
-  },
-  destroyed() {
-    this.disableMessage = true;
-  },
   data: () => {
-    return {
-      disableMessage: false
-    };
+    return {};
   },
   components: {
     Message,

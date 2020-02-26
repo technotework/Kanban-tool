@@ -2,7 +2,6 @@
 //state
 //--------------
 const state = {
-	error: {},
 	message: {},
 	dialogue: {}
 }

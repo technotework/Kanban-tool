@@ -1,17 +1,17 @@
 <template v-bind="message,type,index">
-  <component
-    :is="type"
-    :class="[
+  <TransparentButton :class="$style.button" @click="onDeleteMessage">
+    <component
+      :is="type"
+      :class="[
     $style.container,
     {[$style.open]:isShow},
     {[$style.close]:!isShow},
     ]"
-  >
-    {{messageText}}
-    <TransparentButton @click="onDeleteMessage">
+    >
+      {{messageText}}
       <IconM type="close" :class="$style.icon" />
-    </TransparentButton>
-  </component>
+    </component>
+  </TransparentButton>
 </template>
 
 <script>
@@ -31,19 +31,21 @@ export default {
   props: {
     type: String,
     message: String,
-    index: Number
+    id: String
   },
   mounted() {
     this.isShow = false;
     let showTimer = window.setTimeout(() => {
       this.isShow = true;
-      clearTimeout(showTimer);
-    }, 100);
+      window.clearTimeout(showTimer);
+    }, 10);
 
     if (this.autoHide) {
       let autoTimer = window.setTimeout(() => {
-        this.onDeleteMessage();
-        clearTimeout(autoTimer);
+        if (this.isShow) {
+          this.onDeleteMessage();
+        }
+        window.clearTimeout(autoTimer);
       }, 5000);
     }
   },
@@ -62,22 +64,26 @@ export default {
     onDeleteMessage() {
       this.isShow = false;
       let afterAnimeTimer = window.setTimeout(() => {
-        clearTimeout(afterAnimeTimer);
-        this.$emit("delete-message", { index: this.index });
-      }, 1000);
+        this.$emit("delete-message", this.id);
+        window.clearTimeout(afterAnimeTimer);
+      }, 2000);
     }
   },
   components: { TransparentButton, NormalText, ErrorText, WarnText, IconM }
 };
 </script>
 <style lang="scss" module>
-.container {
+.button {
   position: relative;
+  width: 100%;
+}
+.container {
   width: 100%;
   @include p(8px 7px 8px 40px);
   line-height: 2rem;
   opacity: 0;
-  @include tran($ms1000);
+  text-align: left;
+  @include tran(2000ms);
 }
 .icon {
   @include abs($t: 9px, $l: 8px);
