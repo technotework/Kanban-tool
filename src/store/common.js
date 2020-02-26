@@ -108,8 +108,7 @@ const util = {
     add: (object) => {
       return new Promise(async (resolve, reject) => {
 
-        if (navigator.onLine) {
-          reject();
+        if (!navigator.onLine) {
           throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
         }
 
