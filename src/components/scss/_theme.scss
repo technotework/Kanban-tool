@@ -146,7 +146,7 @@ $transparent: transparent;
 $menu: $transparent;
 $mhover: #62cff7;
 
-$error: #f09393;
+$error: rgba(240, 147, 147,0.8);
 $warn: #fcd86b;
 $normal: #62cff7;
 
@@ -316,7 +316,7 @@ $ms200:200ms;
 $ms300:300ms;
 $ms400:400ms;
 $ms500:500ms;
-$sc1:1000ms;
+$ms1000:1000ms;
 
 @mixin tran($ms) {
 
