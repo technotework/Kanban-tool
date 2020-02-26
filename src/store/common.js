@@ -62,7 +62,7 @@ const util = {
         }
       ];
     },
-    task: (uuid, date, order = null) => {
+    task: (uuid, date, order = null, data = null) => {
 
       let ordarData;
       if (order != null) {
@@ -72,10 +72,19 @@ const util = {
         ordarData = unit;
       }
 
+      let content;
+      if (data != null) {
+
+        content = data;
+      } else {
+
+        content = "";
+      }
+
       return {
         task: {
           "id": "",
-          "data": "",
+          "data": content,
           "order": ordarData,
           "labels": [],
           "members": [],
@@ -162,6 +171,7 @@ const util = {
 
         let { path, content } = object;
         let doc = db.doc(path);
+
         await doc.set(content, { merge: true }).then(() => {
           resolve();
 
@@ -241,6 +251,7 @@ const util = {
             myIndex = i;
           }
         }
+        console.log(myIndex);
         //前後のindexを特定
         let prev = myIndex - 1;
         let next = myIndex + 1;

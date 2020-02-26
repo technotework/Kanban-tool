@@ -13,6 +13,7 @@
     <template #article>
       <BoardList
         v-model="items"
+        :task-container="taskContainer"
         @edited-board-name="onInput"
         @context-menu-click="onClick"
         @drag-sort-list="onDragSortList"
@@ -31,7 +32,8 @@ export default {
   name: "BoardUnit",
   props: {
     value: Array,
-    title: String
+    title: String,
+    taskContainer: Object
   },
   computed: {
     items: {

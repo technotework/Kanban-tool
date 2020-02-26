@@ -1,4 +1,4 @@
-import { resolvePreset } from "@babel/core";
+import common from "@/store/common"
 
 //--------------
 //state
@@ -58,6 +58,7 @@ const actions = {
     let info = {
       uuid: rootGetters["auth/user"].uuid,
       projectPath: rootGetters["auth/path"] + rootGetters["boards/projectId"],
+      boardId: value,
       boardPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/",
       boardDocPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/" + value,
       taskPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/" + value + "/tasks/"
@@ -72,33 +73,20 @@ const actions = {
   createTask({ getters, rootGetters }, value) {
     return new Promise(async (resolve, reject) => {
 
+      //setting
       let { uuid, taskPath } = getters.info;
-
       let content = value.value;
       let date = Math.floor(new Date().getTime() / 1000);
+      let order = common.util.getOrder(null, getters.tasks, "task");
+      let template = common.templates.task(uuid, date, order, content);
 
-      let order = getOrder(null, getters.tasks);
-
-      let template = {
-        task: {
-          "id": "",
-          "order": order,
-          "data": content,
-          "labels": [],
-          "members": [],
-          "createUser": `${uuid}`,
-          "create_date": `${date}`,
-          "start_date": null,
-          "end_date": null,
-          "archive_date": null,
-          "comments": []
-        }
+      //作成
+      let object = {
+        path: taskPath,
+        content: template
       };
+      await common.fb.add(object).catch(reject);
 
-      let db = rootGetters.db;
-      //新規タスク追加
-      let collection = db.collection(taskPath);
-      await collection.add(template);
       resolve();
 
     }, (error) => {
@@ -114,18 +102,17 @@ const actions = {
     return new Promise(async (resolve, reject) => {
 
       let { taskPath } = getters.info;
-
-      let template = value.template;
       let id = value.id;
-      let order = getOrder(id, getters.tasks);
+      let template = value.template;
+      let order = common.util.getOrder(id, getters.tasks, "task");
       template.task.order = order;
-
-      //タスク追加
-      let db = rootGetters.db;
-      let doc = db.doc(taskPath + id);
-      await doc.set(template).then(() => {
-        resolve();
-      });
+      //作成
+      let object = {
+        path: taskPath + id,
+        content: template
+      };
+      await common.fb.setDoc(object).catch(reject);
+      resolve();
 
     }, (error) => {
       console.log(error);
@@ -168,18 +155,21 @@ const actions = {
    =============================*/
   updateTask({ getters, rootGetters }, value) {
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
 
+      //setting
       let { taskPath } = getters.info;
-
       let content = value.value;
-      let taskId = value.id;
-      let taskDocPath = taskPath + taskId;
+      let taskDocPath = taskPath + value.id;
 
-      let db = rootGetters.db;
-      db.doc(taskDocPath).set({ task: { "data": content } }, { merge: true }).then(() => {
-        resolve();
-      });
+      //実行
+      let object = {
+        path: taskDocPath,
+        content: { task: { "data": content } }
+      };
+      await common.fb.setDoc(object).catch(reject);
+      resolve();
+
 
     }, (error) => {
       console.log(error);
@@ -196,16 +186,12 @@ const actions = {
 
     return new Promise(async (resolve, reject) => {
 
+      //setting
       let { taskPath } = getters.info;
-
-      let taskId = value.id;
-      let taskDocPath = taskPath + taskId;
-      console.log("delete");
-      //削除
-      let db = rootGetters.db;
-      await db.doc(taskDocPath).delete().then(() => {
-        resolve();
-      });
+      let taskDocPath = taskPath + value.id;
+      //実行
+      common.fb.deleteDoc({ path: taskDocPath }).catch(reject);
+      resolve();
 
     }, (error) => {
       console.log(error);
@@ -222,18 +208,28 @@ const actions = {
   dragSortUpdate({ rootGetters, getters }, value) {
     return new Promise(async (resolve, reject) => {
 
+      //同じボード内でのみ発動させる
       let { taskPath } = getters.info;
-
       let taskId = value.id;
-      let taskDocPath = taskPath + taskId;
+      //判定
+      let isSameBoard = false;
+      for (let i = 0; i < getters.tasks.length; i++) {
 
-      let order = getOrder(taskId, getters.tasks);
-
-      let db = rootGetters.db;
-      db.doc(taskDocPath).set({ task: { "order": order } }, { merge: true }).then(() => {
+        if (getters.tasks[i].task.id == taskId) {
+          isSameBoard = true;
+        }
+      }
+      //実行
+      if (isSameBoard) {
+        let taskDocPath = taskPath + taskId;
+        let order = common.util.getOrder(taskId, getters.tasks, "task");
+        let object = {
+          path: taskDocPath,
+          content: { task: { "order": order } }
+        };
+        await common.fb.setDoc(object).catch(reject);
         resolve();
-      });
-
+      }
 
     }, (error) => {
       console.log(error);
@@ -269,77 +265,6 @@ const actions = {
   }
 }
 
-/**
- * 自分のorderを算出
- * @param {*} id 
- * @param {*} tasksArray 
- */
-function getOrder(id, tasks) {
-
-  let unit = 10000000;
-  let prevOrder, nextOrder, myOrder = null;
-  let tasksArray = tasks;
-
-  //新規
-  //新規で自分しかいない
-  if (id == null && tasksArray.length == 0) {
-
-    myOrder = unit;
-  }
-  //自分が先頭で後ろにいる
-  else if (id == null && tasksArray.length > 0) {
-
-    prevOrder = 0;
-    nextOrder = tasksArray[0].task.order;
-  }
-  //新規じゃない
-  else {
-
-    //indexを特定
-    let myIndex;
-    for (let i = 0; i < tasksArray.length; i++) {
-
-      if (tasksArray[i].task.id == id) {
-
-        myIndex = i;
-      }
-    }
-    //前後のindexを特定
-    let prev = myIndex - 1;
-    let next = myIndex + 1;
-
-
-    //新規じゃないが自分しかいない
-    if (myIndex == 0 && tasksArray.length == 1) {
-
-      myOrder = unit;
-    }
-    //自分が先頭
-    else if (myIndex == 0 && tasksArray.length > 1) {
-
-      prevOrder = 0;
-      nextOrder = tasksArray[next].task.order;
-    }
-    //自分が末端
-    else if (myIndex == tasksArray.length - 1 && tasksArray.length > 1) {
-
-      prevOrder = tasksArray[prev].task.order;
-      myOrder = prevOrder + unit;
-    }
-    //自分の前後にいる
-    else {
-      prevOrder = tasksArray[prev].task.order;
-      nextOrder = tasksArray[next].task.order;
-    }
-
-  }
-
-  if (myOrder == null) {
-    myOrder = prevOrder + (nextOrder - prevOrder) / 2;
-    myOrder = prevOrder + (nextOrder - prevOrder) / 2;
-  }
-  return myOrder;
-}
 
 export { state, mutations, getters, actions }
 export default {
