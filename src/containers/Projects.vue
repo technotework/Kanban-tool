@@ -13,6 +13,7 @@ import { mapActions, mapGetters, mapMutations } from "vuex";
 import ProjectUnit from "@/components/organisms/projects/project-unit/";
 import { getConfirmMessage } from "@/containers/resorces/message";
 import { TYPE, APP } from "@/containers/resorces/message";
+import validate from "@/containers/resorces/validator";
 export default {
   name: "Projects",
   created: function() {
@@ -71,7 +72,15 @@ export default {
       this.dragSortUpdate(value);
     },
     onInput: function(value) {
-      this.updateProjectName(value);
+      let obj = {
+        data: value.name,
+        name: "プロジェクト名",
+        require: true,
+        less: 15
+      };
+      validate(obj, () => {
+        this.updateProjectName(value);
+      });
     },
     showDeleteDialogue(value) {
       let p = () => {

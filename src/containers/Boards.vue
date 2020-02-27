@@ -54,9 +54,17 @@ export default {
         return title;
       },
       set(value) {
-        this.$store.dispatch("projects/updateProjectName", {
-          id: this.projectId,
-          name: value
+        let obj = {
+          data: value,
+          name: "プロジェクト名",
+          require: true,
+          less: 15
+        };
+        validate(obj, () => {
+          this.$store.dispatch("projects/updateProjectName", {
+            id: this.projectId,
+            name: value
+          });
         });
       }
     }
@@ -82,8 +90,7 @@ export default {
         data: value.name,
         name: "ボード名",
         require: true,
-        less: 12,
-        password: true
+        less: 12
       };
       validate(obj, () => {
         this.updateBoardName(value);
