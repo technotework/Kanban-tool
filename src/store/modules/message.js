@@ -4,7 +4,7 @@
 const state = {
   boardsDialogueData: null,
   projectDialogueData: null,
-  authDialogueData: {}
+  authDialogueData: null
 }
 
 //--------------

@@ -23,7 +23,7 @@ const validator = {
 
     let reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
 
-    if (!data.match(reg)) {
+    if (data != "" && !data.match(reg)) {
 
       return { type: TYPE.VALIDATION, error: APP.WRONG_EMAIL, arg: { name: opt.name } }
 
@@ -128,5 +128,26 @@ function validate(obj, callback) {
 
 }
 
+function validateMultiple(objects, callback) {
 
+  let array = [];
+  for (let i = 0; i < objects.length; i++) {
+    let result = createValidation(objects[i]);
+
+    for (let j = 0; j < result.length; j++) {
+      array.push(result[j]);
+    }
+  }
+  console.log(array);
+  if (array.length > 0) {
+
+    throw { type: "VALIDATIONS", error: array }
+  }
+  else {
+    callback();
+  }
+
+}
+
+export { validateMultiple }
 export default validate;

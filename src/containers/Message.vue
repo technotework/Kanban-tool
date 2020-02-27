@@ -46,6 +46,7 @@ export default {
     createErrorMessage(err) {
       if (err != undefined && err.error != undefined) {
         let messageArray = getMessages(err);
+
         for (let i = 0; i < messageArray.length; i++) {
           let messageObj = messageArray[i];
           messageObj.id = uuidv4();

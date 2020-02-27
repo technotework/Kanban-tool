@@ -5,7 +5,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import validate from "@/containers/resorces/validator";
+import { validateMultiple } from "@/containers/resorces/validator";
 import LoginForm from "@/components/organisms/login-form/";
 export default {
   name: "",
@@ -19,18 +19,13 @@ export default {
   methods: {
     ...mapActions("auth", ["login"]),
     onClick(value) {
-      let mailCheck = false;
-      let passCheck = false;
-
+      console.log(value);
       let objMail = {
         data: value.id,
         name: "メールアドレス",
         require: true,
-        mail: true
+        email: true
       };
-      validate(objMail, () => {
-        mailCheck = true;
-      });
 
       let objPass = {
         data: value.pass,
@@ -38,13 +33,10 @@ export default {
         require: true,
         password: true
       };
-      validate(objPass, () => {
-        passCheck = true;
-      });
 
-      if (mailCheck && passCheck) {
+      validateMultiple([objMail, objPass], () => {
         this.login(value);
-      }
+      });
     }
   },
   components: { LoginForm }

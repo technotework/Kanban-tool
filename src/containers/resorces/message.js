@@ -135,7 +135,7 @@ function firebaseAuthError(error) {
       message = { text: "無効なユーザーです。", type: ERROR_MESSAGE };
       break;
     case "auth/user-not-found":
-      message = { text: "指定されたメールアドレスに対応するユーザーはいません。", type: ERROR_MESSAGE };
+      message = { text: "IDが間違っています。", type: ERROR_MESSAGE };
       break;
     case "auth/wrong-password":
       message = { text: "パスワードが間違っています。", type: ERROR_MESSAGE };
