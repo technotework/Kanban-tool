@@ -1,19 +1,17 @@
 
 <template>
-  <LoginForm @login-event="onClick" />
+  <AuthUnit @login-event="onClick" />
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { validateMultiple } from "@/containers/resorces/validator";
-import LoginForm from "@/components/organisms/login-form/";
+import AuthUnit from "@/components/organisms/auth-unit/";
 export default {
   name: "",
   props: {},
   data: () => {
-    return {
-      boardList: []
-    };
+    return {};
   },
   computed: {},
   methods: {
@@ -39,6 +37,6 @@ export default {
       });
     }
   },
-  components: { LoginForm }
+  components: { AuthUnit }
 };
 </script>

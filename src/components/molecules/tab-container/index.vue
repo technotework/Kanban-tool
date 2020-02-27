@@ -8,11 +8,13 @@
         <slot name="tab2" />
       </BaseButtonRadio>
     </div>
-    <div v-if="isActive=='t1'">
-      <slot name="first" />
-    </div>
-    <div v-else-if="isActive=='t2'">
-      <slot name="second" />
+    <div :class="$style.tabContent">
+      <div v-if="isActive=='t1'">
+        <slot name="first" />
+      </div>
+      <div v-else-if="isActive=='t2'">
+        <slot name="second" />
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +42,9 @@ export default {
 }
 .tab:first-child {
   padding-right: $s4;
+}
+.tabContent {
+  padding-top: $s24;
 }
 </style>
 
