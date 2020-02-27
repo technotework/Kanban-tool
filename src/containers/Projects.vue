@@ -11,7 +11,7 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import ProjectUnit from "@/components/organisms/projects/project-unit/";
-import { getMessage } from "@/containers/resorces/message";
+import { getConfirmMessage } from "@/containers/resorces/message";
 import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Projects",
@@ -83,7 +83,7 @@ export default {
         this.resetProjectDialogue();
       };
 
-      let message = getMessage({
+      let message = getConfirmMessage({
         type: TYPE.CONFIRM,
         normal: APP.DELETE,
         arg: { name: value.title }

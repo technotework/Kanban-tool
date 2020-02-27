@@ -1,5 +1,5 @@
 import { db } from "@/store/index"
-import { TYPE, APP_ERRORS } from "@/containers/resorces/message"
+import { TYPE, APP } from "@/containers/resorces/message"
 let unit = 10000000;
 
 const util = {
@@ -109,7 +109,7 @@ const util = {
       return new Promise(async (resolve, reject) => {
 
         if (!navigator.onLine) {
-          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
         }
 
         let { path, content } = object;
@@ -135,7 +135,7 @@ const util = {
 
         if (!navigator.onLine) {
           reject();
-          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
         }
 
         let { path, key } = object;
@@ -165,7 +165,7 @@ const util = {
 
         if (!navigator.onLine) {
           reject();
-          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
         }
 
         let { path, content } = object;
@@ -190,7 +190,7 @@ const util = {
 
         if (!navigator.onLine) {
           reject();
-          throw { type: TYPE.NETWORK, error: APP_ERRORS.DISCONNECT };
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
         }
 
         let { path } = object;

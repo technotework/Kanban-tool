@@ -48,6 +48,9 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.dialogue {
+  @include m(0 0 10rem 0);
+}
 .buttonContainer {
   @include abs($b: $s18, $r: $s18);
 }

@@ -12,6 +12,7 @@ const TYPE = {
 
   FIREBASE_FIRESTORE: "FIREBASE_FIRESTORE",
   FIREBASE_AUTH: "FIREBASE_AUTH",
+  VALIDATIONS: "VALIDATIONS",
   VALIDATION: "VALIDATION",
   CONFIRM: "CONFIRM",
   NETWORK: "NETWORK"
@@ -35,34 +36,41 @@ export { TYPE, APP };
  * メッセージ生成
  * @param {*} error 
  */
-const getMessage = (data) => {
+const getMessages = (data) => {
 
-  let message;
+  let messages;
   switch (data.type) {
     case TYPE.FIREBASE_FIRESTORE:
-      message = fireStoreError(data.error);
+      messages = fireStoreError(data.error);
       break;
     case TYPE.FIREBASE_AUTH:
-      message = firebaseAuthError(data.error);
+      messages = firebaseAuthError(data.error);
       break;
-    case TYPE.VALIDATION:
-      message = validationError(data.error, data.arg);
+    case TYPE.VALIDATIONS:
+      messages = createValidationError(data.error);
       break;
     case TYPE.NETWORK:
-      message = networkError(data.error);
-      break;
-    case TYPE.CONFIRM:
-      message = confirmMessage(data.normal, data.arg);
+      messages = networkError(data.error);
       break;
     default:
-      message = UNEXPECTED;
+      messages = [{ text: UNEXPECTED, type: ERROR_MESSAGE }];
       break;
   }
 
+  return messages;
+}
+
+/**
+ * ダイアログメッセージ生成
+ * @param {*} data 
+ */
+const getConfirmMessage = (data) => {
+
+  let message = confirmMessage(data.normal, data.arg);
   return message;
 }
 
-export { getMessage };
+export { getMessages, getConfirmMessage };
 
 /**
  * firebase error
@@ -100,7 +108,7 @@ function fireStoreError(error) {
       break;
   }
 
-  return message;
+  return [message];
 }
 
 /**
@@ -137,8 +145,24 @@ function firebaseAuthError(error) {
       break;
   }
 
-  return message;
+  return [message];
 }
+
+/**
+ * バリデーションエラーの配列生成
+ * @param {*} obj 
+ */
+function createValidationError(array) {
+
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    let data = array[i];
+    let error = validationError(data.error, data.arg);
+    result.push(error);
+  }
+  return result;
+}
+
 
 /**
  * Validation
@@ -150,9 +174,6 @@ function validationError(error, arg) {
   switch (error) {
     case APP.REQUIRE:
       message = { text: `${arg.name}は入力必須です。`, type: ERROR_MESSAGE };
-      break;
-    case APP.WRONG_TEXT:
-      message = { text: "不正な文字が含まれています", type: ERROR_MESSAGE };
       break;
     case APP.WRONG_EMAIL:
       message = { text: "メールアドレスの形式が間違っています。", type: ERROR_MESSAGE };
@@ -190,7 +211,7 @@ function confirmMessage(normal, arg) {
       break;
   }
 
-  return message;
+  return [message];
 }
 
 
@@ -207,6 +228,6 @@ function networkError(error) {
       break;
   }
 
-  return message;
+  return [message];
 }
 

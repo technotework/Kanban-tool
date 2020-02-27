@@ -15,7 +15,8 @@
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import BoardUnit from "@/components/organisms/boards/board-unit/";
 import Task from "@/containers/Tasks";
-import { getMessage } from "@/containers/resorces/message";
+import { getConfirmMessage } from "@/containers/resorces/message";
+import validate from "@/containers/resorces/validator";
 import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
@@ -77,7 +78,16 @@ export default {
       this.read();
     },
     onInput(value) {
-      this.updateBoardName(value);
+      let obj = {
+        data: value.name,
+        name: "ボード名",
+        require: true,
+        less: 12,
+        password: true
+      };
+      validate(obj, () => {
+        this.updateBoardName(value);
+      });
     },
     onClick(value) {
       if (value.name == "delete") {
@@ -100,7 +110,7 @@ export default {
         this.resetBoardDialogue();
       };
 
-      let message = getMessage({
+      let message = getConfirmMessage({
         type: TYPE.CONFIRM,
         normal: APP.DELETE,
         arg: { name: value.title }

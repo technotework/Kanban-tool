@@ -6,7 +6,7 @@
 
 <script>
 import MessageUnit from "@/components/organisms/message-unit/";
-import { getMessage } from "@/containers/resorces/message";
+import { getMessages } from "@/containers/resorces/message";
 import { v4 as uuidv4 } from "uuid";
 import Vue from "vue";
 export default {
@@ -45,9 +45,12 @@ export default {
   methods: {
     createErrorMessage(err) {
       if (err != undefined && err.error != undefined) {
-        let messageObj = getMessage(err);
-        messageObj.id = uuidv4();
-        this.errorMessages.push(messageObj);
+        let messageArray = getMessages(err);
+        for (let i = 0; i < messageArray.length; i++) {
+          let messageObj = messageArray[i];
+          messageObj.id = uuidv4();
+          this.errorMessages.push(messageObj);
+        }
       }
     },
     onDeleteMessage(id) {
