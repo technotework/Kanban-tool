@@ -1,5 +1,11 @@
 <template>
-  <input type="checkbox" :class="$style.cb" v-bind="{ id, name, value }" @change="onChange" />
+  <input
+    type="checkbox"
+    :class="$style.cb"
+    v-bind="{ id, name,value }"
+    v-model="checked"
+    @change="onCBChange"
+  />
 </template>
 
 <script>
@@ -12,6 +18,16 @@ export default {
     id: { type: String },
     name: { type: String },
     value: { type: String }
+  },
+  data: () => {
+    return {
+      checked: null
+    };
+  },
+  methods: {
+    onCBChange(e) {
+      this.$emit("change", { value: this.value, checked: this.checked, e: e });
+    }
   }
 };
 </script>

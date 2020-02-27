@@ -1,5 +1,5 @@
 <template>
-  <label for="id">
+  <label :for="target">
     <slot />
   </label>
 </template>
@@ -8,7 +8,7 @@
 export default {
   name: "BaseFormLabel",
   props: {
-    for: { type: String }
+    target: String
   }
 };
 </script>

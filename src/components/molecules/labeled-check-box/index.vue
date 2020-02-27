@@ -1,6 +1,6 @@
 <template>
-  <BaseFormLabel :for="id">
-    <BaseCheckBox v-bind="{id,name,value}" @change="onChange" />
+  <BaseFormLabel :target="id">
+    <BaseCheckBox v-bind="{id,name,value}" @change="onCBChange" />
     <slot />
   </BaseFormLabel>
 </template>
@@ -16,6 +16,11 @@ export default {
     id: String,
     name: String,
     value: String
+  },
+  methods: {
+    onCBChange(value) {
+      this.$emit("change", value);
+    }
   },
   components: {
     BaseFormLabel,

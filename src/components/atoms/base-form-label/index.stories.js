@@ -18,7 +18,8 @@ let setting = {
     BaseFormLabel: BaseFormLabel,
     BaseCheckBox: BaseCheckBox
   },
-  props: {},
+  props: {
+  },
   action: {},
   template: tagTemp`<BaseFormLabel for="id" ${"props"} ${"action"}><BaseCheckBox id="id" value="cat" name="cat" /> 猫 </BaseFormLabel>`
 };

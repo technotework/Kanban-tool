@@ -6,7 +6,12 @@
       <span :class="$style.label">パスワード</span>
       <SystemPassword placeholder="パスワードを入力" v-model="pass" required :class="$style.item" />
     </TwoColumnRepeatGrid>
-    <MiniButton :class="$style.button" @click="onLogin">登録</MiniButton>
+    <div :class="$style.bottoms">
+      <LabeledCheckbox id="agreement" value="agreement" :class="$style.agree">
+        <a href="#" target="_blank">利用規約</a>に同意する
+      </LabeledCheckbox>
+      <MiniButton :class="$style.button" @click="onLogin">登録</MiniButton>
+    </div>
   </div>
 </template>
 
@@ -15,6 +20,7 @@ import {
   SystemInput,
   SystemPassword
 } from "@/components/atoms/base-input/compose";
+import LabeledCheckbox from "@/components/molecules/labeled-check-box/";
 import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
 import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/";
 import base from "@/components/utils/base-mixin";
@@ -37,7 +43,8 @@ export default {
     TwoColumnRepeatGrid,
     SystemInput,
     SystemPassword,
-    MiniButton
+    MiniButton,
+    LabeledCheckbox
   }
 };
 </script>
@@ -55,8 +62,16 @@ export default {
   font-weight: bold;
   @include m($s4 $s8 $s8 0);
 }
+.agree {
+  display: inline-block;
+  margin: $s8 $s8 0 0;
+}
 .button {
   display: inline-block;
   width: 200px;
+}
+.bottoms {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

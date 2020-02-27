@@ -1,7 +1,7 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator";
 import LabeledCheckbox from "@/components/molecules/labeled-check-box/"
 
-let description = 'import LabeledCheckbox from "@/components/molecules/LabeledCheckbox-check-box/"';
+let description = 'import LabeledCheckbox from "@/components/molecules/labeled-check-box/"';
 export default createDefStory("molecules/LabeledCheckbox", LabeledCheckbox, description);
 
 let setting = {
