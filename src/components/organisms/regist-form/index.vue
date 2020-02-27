@@ -65,6 +65,7 @@ export default {
 .agree {
   display: inline-block;
   margin: $s8 $s8 0 0;
+  user-select: none;
 }
 .button {
   display: inline-block;

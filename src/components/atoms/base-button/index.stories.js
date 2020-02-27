@@ -1,3 +1,4 @@
+
 import {
     createDefStory,
     createStory,
@@ -29,7 +30,7 @@ let setting = {
     action: {
         event: "click"
     },
-    template: tagTemp `<BaseButton ${'props'} ${'action'} />`
+    template: tagTemp`<BaseButton ${'props'} ${'action'} />`
 };
 
 export const Basic = () => (createStory(setting));
@@ -47,7 +48,7 @@ let settingP = {
     action: {
         event: "click"
     },
-    template: tagTemp `<PrimaryButton ${'props'} ${'action'} />`
+    template: tagTemp`<PrimaryButton ${'props'} ${'action'} />`
 };
 
 export const Primary = () => (createStory(settingP));
@@ -66,7 +67,7 @@ let settingS = {
     action: {
         event: "click"
     },
-    template: tagTemp `<SaveButton ${'props'} ${'action'} />`
+    template: tagTemp`<SaveButton ${'props'} ${'action'} />`
 };
 
 export const Save = () => (createStory(settingS));
@@ -85,7 +86,7 @@ let settingSc = {
     action: {
         event: "click"
     },
-    template: tagTemp `<SecondaryButton ${'props'} ${'action'} />`
+    template: tagTemp`<SecondaryButton ${'props'} ${'action'} />`
 };
 
 export const Secondary = () => (createStory(settingSc));
@@ -105,8 +106,8 @@ let settingM = {
     action: {
         event: "click"
     },
-    template: tagTemp `<MenuButton ${'props'} ${'action'} />`
+    template: tagTemp`<MenuButton ${'props'} ${'action'} />`
 };
 
-let tempMenu = tagTemp `<MenuButton ${'props'} ${'action'} />`
+let tempMenu = tagTemp`<MenuButton ${'props'} ${'action'} />`
 export const Menu = () => (createStory(settingM));
