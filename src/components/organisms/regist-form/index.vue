@@ -1,12 +1,12 @@
 <template>
   <div :class="$style.wrapper">
     <TwoColumnRepeatGrid>
-      <span :class="$style.label">ID</span>
-      <SystemInput placeholder="ログインIDを入力" v-model="id" required :class="$style.item" />
+      <span :class="$style.label">メールアドレス</span>
+      <SystemInput placeholder="メールアドレスを入力" v-model="id" required :class="$style.item" />
       <span :class="$style.label">パスワード</span>
       <SystemPassword placeholder="パスワードを入力" v-model="pass" required :class="$style.item" />
     </TwoColumnRepeatGrid>
-    <MiniButton :class="$style.button" @click="onLogin">ログイン</MiniButton>
+    <MiniButton :class="$style.button" @click="onLogin">登録</MiniButton>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/";
 import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
-  name: "loginForm",
+  name: "registForm",
   data: () => {
     return {
       id: "",
@@ -30,7 +30,7 @@ export default {
   props: {},
   methods: {
     onLogin(e) {
-      this.$emit("login-event", { id: this.id, pass: this.pass, e: e });
+      this.$emit("regist-event", { id: this.id, pass: this.pass, e: e });
     }
   },
   components: {
