@@ -25,6 +25,7 @@ const APP = {
   WRONG_TEXT: "app/text-violation",
   WRONG_EMAIL: "app/email-vaiolation",
   WRONG_PASSWORD: "app/password-vaiolation",
+  FAIL_AGREE: "app/agreement-vaiolation",
   LENGTH_MORE: "app/form-length-more",
   LENGTH_LESS: "app/form-length-less",
   LOGOUT: "app/force-logout",
@@ -180,6 +181,9 @@ function validationError(error, arg) {
       break;
     case APP.WRONG_PASSWORD:
       message = { text: "パスワードは半角英数字で入力してください。", type: ERROR_MESSAGE };
+      break;
+    case APP.FAIL_AGREE:
+      message = { text: "利用規約をご覧いただき同意にチェックしてください。", type: ERROR_MESSAGE };
       break;
     case APP.LENGTH_MORE:
       message = { text: `${arg.name}は、${arg.length}文字以上で入力してください。`, type: ERROR_MESSAGE };

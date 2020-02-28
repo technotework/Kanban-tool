@@ -1,6 +1,6 @@
 
 <template>
-  <AuthUnit @login-event="onClick" />
+  <AuthUnit @login-event="onLogin" @regist-event="onRegist" />
 </template>
 
 <script>
@@ -16,8 +16,7 @@ export default {
   computed: {},
   methods: {
     ...mapActions("auth", ["login"]),
-    onClick(value) {
-      console.log(value);
+    onLogin(value) {
       let objMail = {
         data: value.id,
         name: "メールアドレス",
@@ -33,6 +32,32 @@ export default {
       };
 
       validateMultiple([objMail, objPass], () => {
+        this.login(value);
+      });
+    },
+    onRegist(value) {
+      let objMail = {
+        data: value.id,
+        name: "メールアドレス",
+        require: true,
+        email: true
+      };
+
+      let objPass = {
+        data: value.pass,
+        name: "パスワード",
+        more: 8,
+        require: true,
+        password: true
+      };
+
+      let objAgree = {
+        data: value.agree,
+        name: "利用規約に同意",
+        agree: true
+      };
+
+      validateMultiple([objMail, objPass, objAgree], () => {
         this.login(value);
       });
     }

@@ -1,11 +1,5 @@
 <template>
-  <input
-    type="checkbox"
-    :class="$style.cb"
-    v-bind="{ id, name,value }"
-    v-model="checked"
-    @change="onCBChange"
-  />
+  <input type="checkbox" :class="$style.cb" v-bind="{ id, name,value }" v-model="modelData" />
 </template>
 
 <script>
@@ -13,22 +7,31 @@ import base from "@/components/utils/base-mixin";
 
 export default {
   mixins: [base],
+  model: {
+    prop: "model",
+    event: "change"
+  },
   name: "BaseCheckBox",
   props: {
-    id: { type: String },
-    name: { type: String },
-    value: { type: String }
+    id: String,
+    name: String,
+    value: String,
+    model: Boolean
   },
   data: () => {
-    return {
-      checked: null
-    };
+    return {};
   },
-  methods: {
-    onCBChange(e) {
-      this.$emit("change", { value: this.value, checked: this.checked, e: e });
+  computed: {
+    modelData: {
+      get() {
+        return this.model;
+      },
+      set(value) {
+        this.$emit("change", value);
+      }
     }
-  }
+  },
+  methods: {}
 };
 </script>
 <style lang="scss" module>

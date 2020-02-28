@@ -7,10 +7,10 @@
       <SystemPassword placeholder="パスワードを入力" v-model="pass" required :class="$style.item" />
     </TwoColumnRepeatGrid>
     <div :class="$style.bottoms">
-      <LabeledCheckbox id="agreement" value="agreement" :class="$style.agree">
+      <LabeledCheckbox id="agreement" value="agreement" v-model="modelData" :class="$style.agree">
         <a href="#" target="_blank">利用規約</a>に同意する
       </LabeledCheckbox>
-      <MiniButton :class="$style.button" @click="onLogin">登録</MiniButton>
+      <MiniButton :class="$style.button" @click="onRegist">登録</MiniButton>
     </div>
   </div>
 </template>
@@ -30,13 +30,29 @@ export default {
   data: () => {
     return {
       id: "",
-      pass: ""
+      pass: "",
+      agree: false
     };
   },
   props: {},
+  computed: {
+    modelData: {
+      get() {
+        return this.agree;
+      },
+      set(value) {
+        this.agree = value;
+      }
+    }
+  },
   methods: {
-    onLogin(e) {
-      this.$emit("regist-event", { id: this.id, pass: this.pass, e: e });
+    onRegist(e) {
+      this.$emit("regist-event", {
+        id: this.id,
+        pass: this.pass,
+        agree: this.agree,
+        e: e
+      });
     }
   },
   components: {

@@ -47,6 +47,19 @@ const validator = {
     }
 
   },
+  agree: (obj) => {
+
+    let { data, opt } = obj;
+
+    if (!data) {
+
+      return { type: TYPE.VALIDATION, error: APP.FAIL_AGREE, arg: { name: opt.name } }
+
+    } else {
+      return true;
+    }
+
+  },
   more: (obj) => {
 
     let { data, opt } = obj;
@@ -73,7 +86,7 @@ const validator = {
 
 function createValidation(obj) {
 
-  let { data, name, more, less, require, email, password } = obj;
+  let { data, name, more, less, require, email, password, agree } = obj;
 
   let target = {};
 
@@ -100,6 +113,11 @@ function createValidation(obj) {
   if (password) {
 
     target["password"] = { data: data, opt: { name: name } };
+  }
+
+  if (agree) {
+
+    target["agree"] = { data: data, opt: { name: name } };
   }
 
   let array = [];

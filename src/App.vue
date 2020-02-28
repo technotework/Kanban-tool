@@ -9,7 +9,9 @@ export default {
   name: "App",
   computed: {},
   data: () => {
-    return {};
+    return {
+      cb: false
+    };
   },
   methods: {},
   components: {}

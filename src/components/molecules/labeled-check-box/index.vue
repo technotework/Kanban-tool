@@ -1,6 +1,6 @@
 <template>
   <BaseFormLabel :target="id">
-    <BaseCheckBox v-bind="{id,name,value}" @change="onCBChange" />
+    <BaseCheckBox v-bind="{id,name,value}" v-model="modelData" />
     <slot />
   </BaseFormLabel>
 </template>
@@ -11,17 +11,28 @@ import BaseFormLabel from "@/components/atoms/base-form-label/";
 import BaseCheckBox from "@/components/atoms/base-check-box/";
 export default {
   mixins: [base],
+  model: {
+    prop: "model",
+    event: "change"
+  },
   name: "LabeledCheckbox",
   props: {
     id: String,
     name: String,
-    value: String
+    value: String,
+    model: Boolean
   },
-  methods: {
-    onCBChange(value) {
-      this.$emit("change", value);
+  computed: {
+    modelData: {
+      get() {
+        return this.model;
+      },
+      set(value) {
+        this.$emit("change", value);
+      }
     }
   },
+  methods: {},
   components: {
     BaseFormLabel,
     BaseCheckBox

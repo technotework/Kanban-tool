@@ -7,7 +7,7 @@
       <LoginForm @login-event="onLoginClick" />
     </template>
     <template #second>
-      <RegistForm />
+      <RegistForm @regist-event="onRegistClick" />
     </template>
   </TabContainer>
 </template>
@@ -25,6 +25,9 @@ export default {
   methods: {
     onLoginClick(value) {
       this.$emit("login-event", value);
+    },
+    onRegistClick(value) {
+      this.$emit("regist-event", value);
     }
   },
   components: { TabContainer, RegistForm, LoginForm }
