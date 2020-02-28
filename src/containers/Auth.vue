@@ -15,7 +15,7 @@ export default {
   },
   computed: {},
   methods: {
-    ...mapActions("auth", ["login"]),
+    ...mapActions("auth", ["login", "regist"]),
     onLogin(value) {
       let objMail = {
         data: value.id,
@@ -58,7 +58,7 @@ export default {
       };
 
       validateMultiple([objMail, objPass, objAgree], () => {
-        this.login(value);
+        this.regist(value);
       });
     }
   },

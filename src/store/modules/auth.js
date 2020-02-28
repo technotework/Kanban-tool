@@ -73,13 +73,16 @@ const actions = {
 		 * @param {*} context 
 		 * @param {*} idとpass
 		 */
-	singUp({ dispatch, rootGetters }, value) {
-
+	regist({ dispatch, rootGetters }, value) {
+		console.log(value);
 		let firebase = rootGetters.firebase;
-		let email = value.email;
-		let password = value.password;
+		let email = value.id;
+		let password = value.pass;
 
-		firebase.auth().createUserWithEmailAndPassword(email, password).catch(error => {
+		firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
+
+
+		}).catch(error => {
 			throw { type: "FIREBASE_AUTH", error: error.code };
 		});
 	},
