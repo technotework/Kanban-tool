@@ -9,8 +9,8 @@ import {
 
 import LoginForm from "./index"
 
-let description = 'import LoginForm from "@/components/organisms/login-form/"';
-export default createDefStory("organisms/LoginForm", LoginForm, description);
+let description = 'import LoginForm from "@/components/organisms/auth/login-form/"';
+export default createDefStory("organisms/auth/LoginForm", LoginForm, description);
 
 
 //---------------------

@@ -6,7 +6,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { validateMultiple } from "@/containers/resorces/validator";
-import AuthUnit from "@/components/organisms/auth-unit/";
+import AuthUnit from "@/components/organisms/auth/auth-unit/";
 export default {
   name: "",
   props: {},

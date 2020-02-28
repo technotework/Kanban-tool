@@ -9,8 +9,8 @@ import {
 
 import AuthUnit from "./index"
 
-let description = 'import AuthUnit from "@/components/organisms/auth-unit/"';
-export default createDefStory("organisms/AuthUnit", AuthUnit, description);
+let description = 'import AuthUnit from "@/components/organisms/auth/auth-unit/"';
+export default createDefStory("organisms/auth/AuthUnit", AuthUnit, description);
 
 
 //---------------------

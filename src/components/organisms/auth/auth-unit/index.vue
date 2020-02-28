@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import LoginForm from "@/components/organisms/login-form/";
-import RegistForm from "@/components/organisms/regist-form/";
+import LoginForm from "@/components/organisms/auth/login-form/";
+import RegistForm from "@/components/organisms/auth/regist-form/";
 import TabContainer from "@/components/molecules/tab-container/";
 export default {
   name: "AuthUnit",
