@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import RootPage from '../components/pages/root-page/index.vue'
-import firebase from 'firebase/app'
+import store from "@/store/index";
 
 Vue.use(VueRouter)
 
@@ -109,18 +109,19 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
-
+  let fb = store.getters.firebase;
   // ログインの有無判断
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   if (requiresAuth) {
-    firebase.auth().onAuthStateChanged(function (user) {
+    fb.auth().onAuthStateChanged(function (user) {
+      console.log("change", user);
       if (user) {
         // ログイン時は各ページに移動
         next();
       } else {
         // 未ログイン時はログイン画面にリダイレクト
         next({
-          //path: '/app/login'
+          path: '/app/login'
         })
       }
     });

@@ -1,4 +1,6 @@
 import common from "@/store/common"
+import { TYPE, APP } from "@/containers/resorces/message"
+import router from "@/router/"
 //--------------
 //state
 //--------------
@@ -16,12 +18,18 @@ const state = {
 const mutations = {
 	succsessLogin(state, payload) {
 
-		console.log(payload);
 		state.userData = payload;
 		state.contractData = payload.contracts[0].uuid;
 		state.teamData = payload.contracts[0].teams[0];
 		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`;
 		state.isLogin = true;
+	},
+	succsessLogout(state, payload) {
+		state.userData = null;
+		state.contractData = null;
+		state.teamData = null;
+		state.pathData = null;
+		state.isLogin = false;
 	}
 }
 
@@ -43,6 +51,9 @@ const getters = {
 	path(state) {
 		//return "/workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
 		return state.pathData;
+	},
+	isLogin(state) {
+		return state.isLogin;
 	}
 }
 
@@ -69,7 +80,7 @@ const actions = {
 						if (!auth.user.emailVerified) {
 
 							callback();
-							dispatch("logOut");
+							dispatch("logout");
 
 						} else {
 
@@ -132,7 +143,8 @@ const actions = {
 	 * @param {*} context 
 	 * @param {*} uid 
 	 */
-	getUserInfo({ commit, rootGetters }, uid) {
+	getUserInfo({ commit, dispatch, rootGetters }, uid) {
+
 
 		let db = rootGetters.db;
 		let doc = db.doc(`users/${uid}`);
@@ -142,11 +154,15 @@ const actions = {
 				let result = doc.data();
 				result.uuid = uid;
 				commit("succsessLogin", result);
+
+				router.push('/app/projects')
 			}
 
 		}).catch((error) => {
 
-			console.log(error);
+			dispatch("logout");
+			throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
+
 		})
 
 	},
@@ -154,10 +170,12 @@ const actions = {
 	 * Logout
 	 * @param {*} context 
 	 */
-	logout({ rootGetters }) {
+	logout({ rootGetters, commit }) {
 
 		let firebase = rootGetters.firebase;
-		firebase.auth().signOut().catch(error => {
+		firebase.auth().signOut().then(() => {
+			commit("succsessLogout");
+		}).catch(error => {
 			throw { type: "FIREBASE_AUTH", error: error.code };
 		});
 	}

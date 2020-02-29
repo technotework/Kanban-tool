@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 import validate from "@/containers/resorces/validator";
 import TaskList from "@/components/organisms/boards/task-list/";
 import taskModule from "@/store/modules/tasks";
