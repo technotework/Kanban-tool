@@ -30,6 +30,7 @@ const APP = {
   FAIL_AGREE: "app/agreement-vaiolation",
   LENGTH_MORE: "app/form-length-more",
   LENGTH_LESS: "app/form-length-less",
+  LENGTH_LESS_MB: "app/form-length-less-mb",
   LOGOUT: "app/force-logout",
   DISCONNECT: "app/internet-disconnect",
   SENDMAIL: "app/send-mail",
@@ -194,6 +195,9 @@ function validationError(error, arg) {
       break;
     case APP.LENGTH_LESS:
       message = { text: `${arg.name}は、${arg.length}文字以内で入力してください。`, type: ERROR_MESSAGE };
+      break;
+    case APP.LENGTH_LESS_MB:
+      message = { text: `${arg.name}は、${arg.length}MB以内です。`, type: ERROR_MESSAGE };
       break;
     case APP.LOGOUT:
       message = { text: "予期せぬ問題が発生したためログアウトしました。", type: ERROR_MESSAGE };

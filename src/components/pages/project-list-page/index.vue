@@ -3,7 +3,6 @@
     <Projects />
   </Message>
 </template>
-
 <script>
 import Message from "@/containers/Message";
 import Projects from "@/containers/Projects";

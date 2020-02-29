@@ -7,14 +7,16 @@ import projects from './modules/projects'
 import tasks from './modules/tasks'
 import auth from './modules/auth'
 import message from './modules/message'
+import user from './modules/user'
 
 Vue.use(Vuex);
 Firebase.init();
 
 Vue.config.productionTip = false;
 const db = Firebase.db();
+const st = Firebase.st();
+export { db, st };
 
-export { db };
 
 export default new Vuex.Store({
 	strict: true,
@@ -27,7 +29,10 @@ export default new Vuex.Store({
 		db: (state) => {
 			return Firebase.db();
 		},
+		storage: (state) => {
 
+			return Firebase.st();
+		}
 	},
 	modules: {
 		app,
@@ -35,6 +40,7 @@ export default new Vuex.Store({
 		projects,
 		boards,
 		tasks,
-		message
+		message,
+		user
 	}
 })

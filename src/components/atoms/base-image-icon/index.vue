@@ -28,6 +28,7 @@ export default {
   background-repeat: no-repaet;
   overflow: hidden;
   background-size: cover;
+  display: inline-block;
 }
 </style>
 <style lang="scss" module="$compose">
@@ -36,12 +37,15 @@ export default {
 }
 .l {
   @include s($w: 200px, $h: 200px);
+  @include bgc($lightGray);
 }
 .m {
-  @include s($w: 150px, $h: 150px);
+  @include s($w: 70px, $h: 70px);
+  @include bgc($lightGray);
 }
 .s {
-  @include s($w: 100px, $h: 100px);
+  @include s($w: 40px, $h: 40px);
+  @include bgc($lightGray);
 }
 .w100 {
   @include s($w: 100px, $h: 100px);

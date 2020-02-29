@@ -35,6 +35,7 @@ export default {
       };
 
       validateMultiple([objMail, objPass], () => {
+        //login先にvalueにcallbackを登録して渡す
         value.callback = () => {
           this.onLoginFail();
         };

@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/analytics';
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/storage';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -9,7 +10,7 @@ const firebaseConfig = {
   authDomain: "kanban-c1adc.firebaseapp.com",
   databaseURL: "https://kanban-c1adc.firebaseio.com",
   projectId: "kanban-c1adc",
-  storageBucket: "kanban-c1adc.appspot.com",
+  storageBucket: "gs://kanban-c1adc.appspot.com",
   messagingSenderId: "142124422720",
   appId: "1:142124422720:web:4e6e236029d7330518f1a5",
   measurementId: "G-KY5Y4EB809"
@@ -27,5 +28,8 @@ export default {
   },
   db() {
     return firebase.firestore();
+  },
+  st() {
+    return firebase.storage();
   }
 }

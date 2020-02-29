@@ -8,7 +8,7 @@ const validator = {
 
     let { data, opt } = obj;
 
-    if (data == "") {
+    if (data == null || data == undefined || data == "") {
 
       return { type: TYPE.VALIDATION, error: APP.REQUIRE, arg: { name: opt.name } }
 
@@ -81,12 +81,24 @@ const validator = {
     } else {
       return true;
     }
+  },
+  lessMB: (obj) => {
+
+    let { data, opt } = obj;
+
+    if (data > opt.length * 1000000) {
+
+      return { type: TYPE.VALIDATION, error: APP.LENGTH_LESS_MB, arg: { name: opt.name, length: opt.length } }
+
+    } else {
+      return true;
+    }
   }
 };
 
 function createValidation(obj) {
 
-  let { data, name, more, less, require, email, password, agree } = obj;
+  let { data, name, more, less, lessMB, require, email, password, agree } = obj;
 
   let target = {};
 
@@ -98,6 +110,11 @@ function createValidation(obj) {
   if (less != undefined) {
 
     target["less"] = { data: data, opt: { name: name, length: less } };
+  }
+
+  if ((lessMB != undefined || lessMB != null) && data != null) {
+
+    target["lessMB"] = { data: data, opt: { name: name, length: lessMB } };
   }
 
   if (require) {
@@ -125,11 +142,13 @@ function createValidation(obj) {
     if (validator.hasOwnProperty(key)) {
 
       let validateItem = validator[key](target[key]);
+
       if (validateItem != true) {
         array.push(validateItem);
       }
     }
   }
+
   return array;
 }
 
@@ -148,14 +167,7 @@ function validate(obj, callback) {
 
 function validateMultiple(objects, callback) {
 
-  let array = [];
-  for (let i = 0; i < objects.length; i++) {
-    let result = createValidation(objects[i]);
-
-    for (let j = 0; j < result.length; j++) {
-      array.push(result[j]);
-    }
-  }
+  let array = getErrors(objects);
 
   if (array.length > 0) {
 
@@ -165,6 +177,21 @@ function validateMultiple(objects, callback) {
     callback();
   }
 
+}
+
+function getErrors(objects) {
+
+  let errors = [];
+  for (let i = 0; i < objects.length; i++) {
+    let result = createValidation(objects[i]);
+
+    for (let j = 0; j < result.length; j++) {
+      errors.push(result[j]);
+
+    }
+  }
+
+  return errors
 }
 
 export { validateMultiple }

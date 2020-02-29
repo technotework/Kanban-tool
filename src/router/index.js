@@ -16,6 +16,12 @@ const routes = [
         name: 'login-page',
         component: () => import('../components/pages/login-page/index.vue')
       },
+      {//プロフィール登録
+        path: 'profile',
+        name: 'regist-profile-page',
+        component: () => import('../components/pages/regist-profile-page/index.vue'),
+        meta: { requiresAuth: true }
+      },
       {//プロジェクト一覧画面
         path: 'projects',
         name: 'project-list-page',

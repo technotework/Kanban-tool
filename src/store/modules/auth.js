@@ -156,8 +156,9 @@ const actions = {
 					let result = doc.data();
 					result.uuid = uid;
 					commit("succsessLogin", result);
-
-					router.push('/app' + path);
+					if (router.currentRoute.path != '/app' + path) {
+						router.push('/app' + path);
+					}
 				}
 				resolve();
 
