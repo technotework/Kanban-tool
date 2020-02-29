@@ -54,13 +54,23 @@ const actions = {
 	login({ dispatch, rootGetters }, value) {
 
 		let firebase = rootGetters.firebase;
+		let callback = value.callback;
 
 		firebase.auth().signInWithEmailAndPassword(value.id, value.pass)
 			.then(
-				user => {
+				auth => {
 
-					let userUid = user.user.uid;
-					dispatch("getUserInfo", userUid);
+					if (!auth.user.emailVerified) {
+
+						callback();
+						firebase.auth().signOut();
+
+					} else {
+
+						let userUid = auth.user.uid;
+						dispatch("getUserInfo", userUid);
+
+					}
 
 				},
 				error => {

@@ -35,6 +35,9 @@ export default {
       };
 
       validateMultiple([objMail, objPass], () => {
+        value.callback = () => {
+          this.onLoginFail();
+        };
         this.login(value);
       });
     },
@@ -62,7 +65,6 @@ export default {
       this.onCompleteRegist();
       validateMultiple([objMail, objPass, objAgree], () => {
         value.callback = () => {
-          console.log("hoge");
           this.onCompleteRegist();
         };
         this.regist(value);
@@ -74,8 +76,19 @@ export default {
         normal: APP.SENDMAIL
       });
       let p = () => {
-        console.log(this.$refs.authUnit);
         this.$refs.authUnit.tabReset();
+        this.resetAuthDialogue();
+      };
+      let object = { text: message[0].text, p: p, s: null };
+
+      this.setAuthDialogue(object);
+    },
+    onLoginFail() {
+      let message = getConfirmMessage({
+        type: TYPE.ALERT,
+        normal: APP.NO_AUTH
+      });
+      let p = () => {
         this.resetAuthDialogue();
       };
       console.log(message);

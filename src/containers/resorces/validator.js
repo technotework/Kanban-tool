@@ -156,7 +156,7 @@ function validateMultiple(objects, callback) {
       array.push(result[j]);
     }
   }
-  console.log(array);
+
   if (array.length > 0) {
 
     throw { type: "VALIDATIONS", error: array }

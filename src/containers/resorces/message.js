@@ -33,6 +33,7 @@ const APP = {
   LOGOUT: "app/force-logout",
   DISCONNECT: "app/internet-disconnect",
   SENDMAIL: "app/send-mail",
+  NO_AUTH: "app/no-auth",
 }
 export { TYPE, APP };
 
@@ -217,7 +218,10 @@ function confirmMessage(normal, arg) {
       message = { text: `「${arg.name}」を削除します。よろしいですか？`, type: DIALOGUE };
       break;
     case APP.SENDMAIL:
-      message = { text: "認証メールをご登録のメールアドレスに送信しました。ご確認後、メール内のリンクをクリックすることで会員登録が完了します。", type: ALERT }
+      message = { text: "認証メールをご登録のメールアドレスに送信しました。\nご確認後、メール内のリンクをクリックすることで会員登録が完了します。", type: ALERT }
+      break;
+    case APP.NO_AUTH:
+      message = { text: "会員登録後お送りしたメールをご確認ください。メール内のリンクをクリックすることで会員登録が完了し、ログイン可能になります。", type: ALERT }
       break;
   }
 
