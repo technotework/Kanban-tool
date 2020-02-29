@@ -8,6 +8,20 @@ const util = {
    * テンプレート
    ==================================*/
   templates: {
+    user: (contract, team) => {
+
+      return {
+        "contracts": [
+          {
+            "uuid": `${contract}`,
+            "teams": [`${team}`]
+          }
+        ],
+        "isDeleted": false,
+        "nickname": "",
+        "role": "manager"
+      }
+    },
     project: (date, order) => {
 
       return {

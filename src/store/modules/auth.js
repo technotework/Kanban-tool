@@ -1,3 +1,4 @@
+import common from "@/store/common"
 //--------------
 //state
 //--------------
@@ -5,7 +6,8 @@ const state = {
 	userData: {},
 	contractData: "",
 	teamData: "",
-	pathData: ""
+	pathData: "",
+	isLogin: false
 }
 
 //--------------
@@ -14,10 +16,12 @@ const state = {
 const mutations = {
 	succsessLogin(state, payload) {
 
+		console.log(payload);
 		state.userData = payload;
 		state.contractData = payload.contracts[0].uuid;
 		state.teamData = payload.contracts[0].teams[0];
-		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`
+		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`;
+		state.isLogin = true;
 	}
 }
 
@@ -27,8 +31,8 @@ const mutations = {
 const getters = {
 	user(state) {
 
-		return { uuid: "AzjzROft7NNxQIHgD1YYTVASnnp2" }
-		//return state.userData;
+		//return { uuid: "AzjzROft7NNxQIHgD1YYTVASnnp2" }
+		return state.userData;
 	},
 	contract(state) {
 		return state.contractData;
@@ -37,8 +41,8 @@ const getters = {
 		return state.teamData;
 	},
 	path(state) {
-		return "/workspaces	/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
-		//return state.pathData;
+		//return "/workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
+		return state.pathData;
 	}
 }
 
@@ -53,30 +57,35 @@ const actions = {
 		 */
 	login({ dispatch, rootGetters }, value) {
 
-		let firebase = rootGetters.firebase;
-		let callback = value.callback;
+		return new Promise(async (resolve, reject) => {
 
-		firebase.auth().signInWithEmailAndPassword(value.id, value.pass)
-			.then(
-				auth => {
+			let firebase = rootGetters.firebase;
+			let callback = value.callback;
 
-					if (!auth.user.emailVerified) {
+			firebase.auth().signInWithEmailAndPassword(value.id, value.pass)
+				.then(
+					auth => {
 
-						callback();
-						firebase.auth().signOut();
+						if (!auth.user.emailVerified) {
 
-					} else {
+							callback();
+							dispatch("logOut");
 
-						let userUid = auth.user.uid;
-						dispatch("getUserInfo", userUid);
+						} else {
 
+							let userUid = auth.user.uid;
+							dispatch("getUserInfo", userUid);
+
+						}
+
+					},
+					error => {
+						throw { type: "FIREBASE_AUTH", error: error.code };
 					}
-
-				},
-				error => {
-					throw { type: "FIREBASE_AUTH", error: error.code };
-				}
-			);
+				);
+		}, (error) => {
+			console.log(error);
+		});
 	},
 	/**
 		 * singUp
@@ -85,21 +94,38 @@ const actions = {
 		 */
 	regist({ dispatch, rootGetters }, value) {
 
-		let firebase = rootGetters.firebase;
-		let email = value.id;
-		let password = value.pass;
-		let callback = value.callback;
+		return new Promise(async (resolve, reject) => {
 
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-			.then(auth => {
-				auth.user.sendEmailVerification();
-			})
-			.then(() => {
-				callback();
-			})
-			.catch(error => {
-				throw { type: "FIREBASE_AUTH", error: error.code };
-			});
+			let firebase = rootGetters.firebase;
+			let email = value.id;
+			let password = value.pass;
+			let callback = value.callback;
+
+			firebase.auth().createUserWithEmailAndPassword(email, password)
+				.then(auth => {
+					auth.user.sendEmailVerification();
+					callback();
+
+					//初期データ作成
+					let uid = auth.user.uid;
+					let contract = "C1s25ymrqZUpS0WzqqoU";
+					let team = "6snw7RU3yAYjYeHU4p2A";
+					let userTemplate = common.templates.user(contract, team);
+
+					let object = {
+						path: "/users/" + uid,
+						content: userTemplate
+					}
+					common.fb.setDoc(object).catch(reject);
+
+				})
+				.catch(error => {
+					throw { type: "FIREBASE_AUTH", error: error.code };
+				});
+
+		}, (error) => {
+			console.log(error);
+		});
 	},
 	/**
 	 * getUserInfo
