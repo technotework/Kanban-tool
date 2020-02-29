@@ -9,7 +9,8 @@ const state = {
 	contractData: "",
 	teamData: "",
 	pathData: "",
-	isLogin: false
+	isLogin: false,
+	imgData: null
 }
 
 //--------------
@@ -30,6 +31,9 @@ const mutations = {
 		state.teamData = null;
 		state.pathData = null;
 		state.isLogin = false;
+	},
+	setImage(state, payload) {
+		state.imgData = payload;
 	}
 }
 
@@ -54,6 +58,9 @@ const getters = {
 	},
 	isLogin(state) {
 		return state.isLogin;
+	},
+	icon(state) {
+		return state.imgData;
 	}
 }
 
@@ -163,6 +170,10 @@ const actions = {
 				result.uuid = uid;
 				result.path = uid + "/icon";
 				commit("succsessLogin", result);
+
+				if (result.img == true && result.nickname != "") {
+					dispatch("user/downloadFile", null, { root: true });
+				}
 
 				checkToGo(result, path)
 			}

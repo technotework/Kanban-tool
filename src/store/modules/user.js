@@ -25,27 +25,54 @@ const getters = {
 //actions
 //--------------
 const actions = {
+  /**
+   * アイコンアップロード
+   * @param {*} param0 
+   * @param {*} value 
+   */
   uploadFile({ rootGetters, getters, dispatch }, value) {
 
     return new Promise(async (resolve, reject) => {
 
-
       let data = value.data.data;
       let uuid = rootGetters["auth/user"].uuid;
-      //パスの設定
-      let strorage = rootGetters.storage.ref().child(uuid + "/icon");
-      //アップロード
-      await strorage.put(data).catch(error => {
-        throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
-      });
+
+      //upload
+      let upload = {
+        path: uuid + "/icon",
+        content: data
+      };
+      await common.fb.upload(upload);
+
       //ニックネームと画像アップロードフラグをusersに書き込み
-      let object = {
+      let userData = {
         path: "users/" + uuid,
         content: { img: true, nickname: value.nickname }
       };
-      await common.fb.setDoc(object).catch(reject);
+      await common.fb.setDoc(userData).catch(reject);
+
       //できたら再格納
       dispatch("auth/getUserInfo", { uid: uuid, path: "app/projects" }, { root: true });
+      dispatch("downloadFile");
+
+      resolve();
+
+    }, (error) => {
+      console.log(error);
+    });
+  },
+  /**
+   * アイコンダウンロード
+   * @param {*} param0 
+   */
+  downloadFile({ rootGetters, commit }) {
+    return new Promise(async (resolve, reject) => {
+
+      let uid = rootGetters["auth/user"].uuid;
+      let ref = rootGetters.storage.ref(uid + '/icon');
+      let url = await ref.getDownloadURL();
+      let response = await fetch(url);
+      commit("auth/setImage", response.url, { root: true });
 
     }, (error) => {
       console.log(error);

@@ -1,4 +1,4 @@
-import { db } from "@/store/index"
+import { db, st } from "@/store/index"
 import { TYPE, APP } from "@/containers/resorces/message"
 let unit = 10000000;
 
@@ -196,6 +196,9 @@ const util = {
 
       });
     },
+    /**
+     * getDoc
+     */
     getDoc: (object) => {
       return new Promise(async (resolve, reject) => {
 
@@ -240,9 +243,30 @@ const util = {
         });
 
       });
+    },
+    /**
+     * upload
+     */
+    upload: (object) => {
 
+      return new Promise(async (resolve, reject) => {
 
-    }
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+        }
+        let { path, content } = object;
+
+        let strorage = st.ref().child(path);
+        //アップロード
+        await strorage.put(content).then(() => {
+          resolve();
+        }).catch(error => {
+          throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
+        });
+
+      });
+    },
 
   },
   /**==================================
