@@ -147,27 +147,44 @@ const actions = {
 	getUserInfo({ commit, dispatch, rootGetters }, obj) {
 
 		return new Promise(async (resolve, reject) => {
-			let { uid, path } = obj
-			let db = rootGetters.db;
-			let doc = db.doc(`users/${uid}`);
-			await doc.get().then((doc) => {
 
-				if (doc.exists) {
-					let result = doc.data();
-					result.uuid = uid;
-					commit("succsessLogin", result);
+			let { uid, path } = obj
+
+			//ユーザーデータの取得
+			let object = {
+				path: `users/${uid}`
+			};
+			let doc = await common.fb.getDoc(object).catch(reject);
+
+
+			if (doc.exists) {
+				//存在すればデータ格納
+				let result = doc.data();
+				result.uuid = uid;
+				result.path = uid + "/icon";
+				commit("succsessLogin", result);
+
+				//プロフィールが入ってなければログイン後プロフィールへ
+				if (result.img == false || result.nickname == "") {
+
+					if (router.currentRoute.path != '/app/profile') {
+						router.push('/app/profile');
+					}
+
+				} else if (router.currentRoute.path == '/app/profile'
+					&& result.img == true
+					&& result.nickname != "") {
+					//プロフィールが入っている場合はプロフィールにアクセスできない
+					router.push('/app/projects');
+				}
+				else {
+					//同じページにいる場合は重複して遷移しない
 					if (router.currentRoute.path != '/app' + path) {
 						router.push('/app' + path);
 					}
 				}
-				resolve();
-
-			}).catch((error) => {
-
-				dispatch("logout");
-				throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
-
-			})
+			}
+			resolve();
 
 		}, (error) => {
 			console.log(error);

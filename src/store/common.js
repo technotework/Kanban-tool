@@ -196,6 +196,26 @@ const util = {
 
       });
     },
+    getDoc: (object) => {
+      return new Promise(async (resolve, reject) => {
+
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+        }
+        let { path } = object;
+        let doc = db.doc(path);
+        await doc.get().then((doc) => {
+
+          resolve(doc);
+
+        }).catch(error => {
+
+          throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
+        });
+
+      });
+    },
     /**
      * documentDelete
      */
