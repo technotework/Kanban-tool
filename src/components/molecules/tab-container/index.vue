@@ -29,6 +29,11 @@ export default {
       isActive: "t1"
     };
   },
+  methods: {
+    tabReset() {
+      this.isActive = "t1";
+    }
+  },
   components: { BaseButtonRadio }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <TabContainer :class="$style.wrapper">
+  <TabContainer :class="$style.wrapper" ref="tab">
     <template #tab1>ログイン</template>
     <template #tab2>会員登録</template>
 
@@ -28,6 +28,9 @@ export default {
     },
     onRegistClick(value) {
       this.$emit("regist-event", value);
+    },
+    tabReset() {
+      this.$refs.tab.tabReset();
     }
   },
   components: { TabContainer, RegistForm, LoginForm }

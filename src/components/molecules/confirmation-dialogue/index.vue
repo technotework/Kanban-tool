@@ -4,7 +4,9 @@
       <Dialogue>
         <BaseText>{{text}}</BaseText>
         <FlexLayout :class="$style.buttonContainer">
-          <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
+          <template v-if="sCallback!=null">
+            <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
+          </template>
           <PrimaryButton :class="$style.button" name="ok" @click="onClickPrimary" />
         </FlexLayout>
       </Dialogue>

@@ -1,6 +1,7 @@
 
 
 const DIALOGUE = "dialogue";
+const ALERT = "alert";
 const ERROR_MESSAGE = "errorMessage";
 
 const UNEXPECTED = "予期せぬエラーが起きました。"
@@ -15,6 +16,7 @@ const TYPE = {
   VALIDATIONS: "VALIDATIONS",
   VALIDATION: "VALIDATION",
   CONFIRM: "CONFIRM",
+  ALERT: "ALERT",
   NETWORK: "NETWORK"
 
 }
@@ -30,6 +32,7 @@ const APP = {
   LENGTH_LESS: "app/form-length-less",
   LOGOUT: "app/force-logout",
   DISCONNECT: "app/internet-disconnect",
+  SENDMAIL: "app/send-mail",
 }
 export { TYPE, APP };
 
@@ -212,6 +215,9 @@ function confirmMessage(normal, arg) {
   switch (normal) {
     case APP.DELETE:
       message = { text: `「${arg.name}」を削除します。よろしいですか？`, type: DIALOGUE };
+      break;
+    case APP.SENDMAIL:
+      message = { text: "認証メールをご登録のメールアドレスに送信しました。ご確認後、メール内のリンクをクリックすることで会員登録が完了します。", type: ALERT }
       break;
   }
 

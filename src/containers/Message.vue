@@ -39,7 +39,8 @@ export default {
   computed: {
     dialogue() {
       let name = this.target + "Dialogue";
-      return this.$store.getters["message/" + name];
+      let getData = this.$store.getters["message/" + name];
+      return getData;
     }
   },
   methods: {

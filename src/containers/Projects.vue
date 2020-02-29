@@ -97,7 +97,7 @@ export default {
         normal: APP.DELETE,
         arg: { name: value.title }
       });
-      let object = { text: message.text, p: p, s: s };
+      let object = { text: message[0].text, p: p, s: s };
 
       this.setProjectDialogue(object);
     }

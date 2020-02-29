@@ -58,7 +58,7 @@ const actions = {
 		firebase.auth().signInWithEmailAndPassword(value.id, value.pass)
 			.then(
 				user => {
-					console.log(this);
+
 					let userUid = user.user.uid;
 					dispatch("getUserInfo", userUid);
 
@@ -74,17 +74,22 @@ const actions = {
 		 * @param {*} idとpass
 		 */
 	regist({ dispatch, rootGetters }, value) {
-		console.log(value);
+
 		let firebase = rootGetters.firebase;
 		let email = value.id;
 		let password = value.pass;
+		let callback = value.callback;
 
-		firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
-
-
-		}).catch(error => {
-			throw { type: "FIREBASE_AUTH", error: error.code };
-		});
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+			.then(auth => {
+				auth.user.sendEmailVerification();
+			})
+			.then(() => {
+				callback();
+			})
+			.catch(error => {
+				throw { type: "FIREBASE_AUTH", error: error.code };
+			});
 	},
 	/**
 	 * getUserInfo
