@@ -12,6 +12,7 @@ const PERMISSION = "アクセス権がありません。"
 const TYPE = {
 
   FIREBASE_FIRESTORE: "FIREBASE_FIRESTORE",
+  FIREBASE_STORAGE: "FIREBASE_STORAGE",
   FIREBASE_AUTH: "FIREBASE_AUTH",
   VALIDATIONS: "VALIDATIONS",
   VALIDATION: "VALIDATION",
@@ -48,6 +49,9 @@ const getMessages = (data) => {
   switch (data.type) {
     case TYPE.FIREBASE_FIRESTORE:
       messages = fireStoreError(data.error);
+      break;
+    case TYPE.FIREBASE_STORAGE:
+      messages = storageError(data.error);
       break;
     case TYPE.FIREBASE_AUTH:
       messages = firebaseAuthError(data.error);
@@ -111,6 +115,43 @@ function fireStoreError(error) {
       break;
     default:
       message = { text: UNEXPECTED, type: ERROR_MESSAGE };
+      break;
+  }
+
+  return [message];
+}
+
+/**
+ * storage error
+ * @param {*} error 
+ */
+function storageError(error) {
+
+  let message;
+  switch (error) {
+    case "storage/unknown":
+    case "storage/object-not-found":
+    case "storage/bucket-not-found":
+    case "storage/project-not-found":
+    case "storage/quota-exceeded":
+    case "storage/invalid-checksum":
+    case "storage/invalid-event-name":
+    case "storage/invalid-url":
+    case "storage/invalid-argument":
+    case "storage/no-default-bucket":
+    case "storage/cannot-slice-blob":
+    case "storage/server-file-wrong-size":
+      message = { text: UNEXPECTED, type: ERROR_MESSAGE };
+      break;
+    case "storage/canceled":
+      message = { text: "ユーザーが操作をキャンセルしました。", type: ERROR_MESSAGE };
+      break;
+    case "storage/unauthenticated":
+    case "storage/unauthorized":
+      message = { text: "ユーザーに権限がありません。", type: ERROR_MESSAGE };
+      break;
+    case "storage/retry-limit-exceeded":
+      message = { text: "処理時間制限を超えました。", type: ERROR_MESSAGE };
       break;
   }
 

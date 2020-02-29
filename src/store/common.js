@@ -19,6 +19,7 @@ const util = {
         ],
         "isDeleted": false,
         "nickname": "",
+        "img": false,
         "role": "manager"
       }
     },

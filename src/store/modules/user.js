@@ -1,4 +1,5 @@
 import router from "@/router/"
+import { TYPE, APP } from "@/containers/resorces/message"
 //--------------
 //state
 //--------------
@@ -25,19 +26,25 @@ const getters = {
 const actions = {
   uploadFile({ rootGetters, getters }, value) {
 
-    let data = value.data.data;
-    let uuid = rootGetters["auth/user"].uuid;
+    return new Promise(async (resolve, reject) => {
 
-    let strorage = rootGetters.storage.ref().child(uuid + "/icon");
 
-    strorage.put(data).then(function (snapshot) {
+      let data = value.data.data;
+      let uuid = rootGetters["auth/user"].uuid;
 
-      router.push('/app/projects');
+      let strorage = rootGetters.storage.ref().child(uuid + "/icon");
 
-    }).catch(error => {
+      strorage.put(data).then(function (snapshot) {
+
+        router.push('/app/projects');
+
+      }).catch(error => {
+        throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
+      });
+
+    }, (error) => {
       console.log(error);
     });
-
   }
 }
 
