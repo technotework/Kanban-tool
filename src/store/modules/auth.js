@@ -164,25 +164,7 @@ const actions = {
 				result.path = uid + "/icon";
 				commit("succsessLogin", result);
 
-				//プロフィールが入ってなければログイン後プロフィールへ
-				if (result.img == false || result.nickname == "") {
-
-					if (router.currentRoute.path != '/app/profile') {
-						router.push('/app/profile');
-					}
-
-				} else if (router.currentRoute.path == '/app/profile'
-					&& result.img == true
-					&& result.nickname != "") {
-					//プロフィールが入っている場合はプロフィールにアクセスできない
-					router.push('/app/projects');
-				}
-				else {
-					//同じページにいる場合は重複して遷移しない
-					if (router.currentRoute.path != '/app' + path) {
-						router.push('/app' + path);
-					}
-				}
+				checkToGo(result, path)
 			}
 			resolve();
 
@@ -205,6 +187,33 @@ const actions = {
 	}
 }
 
+/**
+ * チェックして遷移
+ * @param {*} data 
+ * @param {*} path 
+ */
+function checkToGo(data, path) {
+
+	//プロフィールが入ってなければログイン後プロフィールへ
+	if (data.img == false || data.nickname == "") {
+		if (router.currentRoute.path != '/app/profile') {
+			router.push('/app/profile')
+		}
+	}
+	else if (router.currentRoute.path == '/app/profile'
+		&& data.img == true
+		&& data.nickname != "") {
+		//プロフィールが入っている場合はプロフィールにアクセスできない
+		router.push('/app/projects')
+	}
+	else {
+		//同じページにいる場合は重複して遷移しない
+		if (router.currentRoute.path != '/app' + path) {
+			router.push('/app' + path)
+		}
+	}
+}
+
 export { state, mutations, getters, actions }
 export default {
 	namespaced: true,
@@ -214,3 +223,4 @@ export default {
 	getters,
 	actions
 }
+
