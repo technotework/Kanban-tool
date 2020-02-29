@@ -84,8 +84,9 @@ const actions = {
 
 						} else {
 
-							let userUid = auth.user.uid;
-							dispatch("getUserInfo", userUid);
+							let uid = auth.user.uid;
+							let path = "/projects";
+							dispatch("getUserInfo", { uid: uid, path: path });
 
 						}
 
@@ -143,28 +144,33 @@ const actions = {
 	 * @param {*} context 
 	 * @param {*} uid 
 	 */
-	getUserInfo({ commit, dispatch, rootGetters }, uid) {
+	getUserInfo({ commit, dispatch, rootGetters }, obj) {
 
+		return new Promise(async (resolve, reject) => {
+			let { uid, path } = obj
+			let db = rootGetters.db;
+			let doc = db.doc(`users/${uid}`);
+			await doc.get().then((doc) => {
 
-		let db = rootGetters.db;
-		let doc = db.doc(`users/${uid}`);
-		doc.get().then((doc) => {
+				if (doc.exists) {
+					let result = doc.data();
+					result.uuid = uid;
+					commit("succsessLogin", result);
 
-			if (doc.exists) {
-				let result = doc.data();
-				result.uuid = uid;
-				commit("succsessLogin", result);
+					router.push('/app' + path);
+				}
+				resolve();
 
-				router.push('/app/projects')
-			}
+			}).catch((error) => {
 
-		}).catch((error) => {
+				dispatch("logout");
+				throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
 
-			dispatch("logout");
-			throw { type: TYPE.FIREBASE_FIRESTORE, error: error.code };
+			})
 
-		})
-
+		}, (error) => {
+			console.log(error);
+		});
 	},
 	/**
 	 * Logout

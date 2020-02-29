@@ -28,7 +28,17 @@ export default {
     };
   },
   created: function() {
-    this.init();
+    this.$store.getters.firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        let uid = user.uid;
+        let path = "/projects/" + this.$route.params.id;
+        this.$store
+          .dispatch("auth/getUserInfo", { uid: uid, path: path })
+          .then(() => {
+            this.init();
+          });
+      }
+    });
   },
   computed: {
     ...mapGetters("boards", ["boards"]),

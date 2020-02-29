@@ -114,7 +114,7 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   if (requiresAuth) {
     fb.auth().onAuthStateChanged(function (user) {
-      console.log("change", user);
+
       if (user) {
         // ログイン時は各ページに移動
         next();

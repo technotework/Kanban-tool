@@ -23,7 +23,6 @@ export default {
   init() {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    //セッション保持形式
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
   },
   db() {

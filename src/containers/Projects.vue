@@ -18,7 +18,17 @@ export default {
   name: "Projects",
   created: function() {
     //初期化時プロジェクトを読み込む
-    this.init();
+    this.$store.getters.firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        let uid = user.uid;
+        let path = "/projects";
+        this.$store
+          .dispatch("auth/getUserInfo", { uid: uid, path: path })
+          .then(() => {
+            this.init();
+          });
+      }
+    });
   },
   props: {},
   data: () => {
