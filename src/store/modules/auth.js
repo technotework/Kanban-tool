@@ -1,6 +1,7 @@
 import common from "@/store/common"
 import { TYPE, APP } from "@/containers/resorces/message"
 import router from "@/router/"
+import { v4 as uuidv4 } from "uuid";
 //--------------
 //state
 //--------------
@@ -127,9 +128,10 @@ const actions = {
 
 					//初期データ作成
 					let uid = auth.user.uid;
+					let altId = uuidv4();
 					let contract = "C1s25ymrqZUpS0WzqqoU";
 					let team = "6snw7RU3yAYjYeHU4p2A";
-					let userTemplate = common.templates.user(contract, team);
+					let userTemplate = common.templates.user(contract, team, altId);
 
 					let object = {
 						path: "/users/" + uid,
@@ -168,7 +170,7 @@ const actions = {
 				//存在すればデータ格納
 				let result = doc.data();
 				result.uuid = uid;
-				result.path = uid + "/icon";
+				result.path = result.altId + "/icon";
 				commit("succsessLogin", result);
 
 				if (result.img == true && result.nickname != "") {

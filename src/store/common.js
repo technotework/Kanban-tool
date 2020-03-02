@@ -8,7 +8,7 @@ const util = {
    * テンプレート
    ==================================*/
   templates: {
-    user: (contract, team) => {
+    user: (contract, team, altId) => {
 
       return {
         "contracts": [
@@ -17,6 +17,7 @@ const util = {
             "teams": [`${team}`]
           }
         ],
+        "altId": `${altId}`,
         "isDeleted": false,
         "nickname": "",
         "img": false,

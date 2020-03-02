@@ -36,10 +36,11 @@ const actions = {
 
       let data = value.data.data;
       let uuid = rootGetters["auth/user"].uuid;
+      let id = rootGetters["auth/user"].altId;
 
       //upload
       let upload = {
-        path: uuid + "/icon",
+        path: id + "/icon",
         content: data
       };
       await common.fb.upload(upload);
@@ -68,8 +69,8 @@ const actions = {
   downloadFile({ rootGetters, commit }) {
     return new Promise(async (resolve, reject) => {
 
-      let uid = rootGetters["auth/user"].uuid;
-      let ref = rootGetters.storage.ref(uid + '/icon');
+      let id = rootGetters["auth/user"].altId;
+      let ref = rootGetters.storage.ref(id + '/icon');
       let url = await ref.getDownloadURL();
       let response = await fetch(url);
       commit("auth/setImage", response.url, { root: true });
