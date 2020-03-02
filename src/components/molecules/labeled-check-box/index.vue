@@ -1,5 +1,5 @@
 <template>
-  <BaseFormLabel :target="id">
+  <BaseFormLabel :target="id" :class="$style.label">
     <BaseCheckBox v-bind="{id,name,value}" v-model="modelData" />
     <slot />
   </BaseFormLabel>
@@ -40,4 +40,8 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.label {
+  display: flex;
+  flex-direction: column;
+}
 </style>

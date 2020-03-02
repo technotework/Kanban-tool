@@ -173,6 +173,10 @@ let maps = {
     val: "title",
     type: text
   },
+  size: {
+    val: "size",
+    type: text
+  },
   contenteditable: {
     val: "contenteditable",
     type: boolean
@@ -180,6 +184,10 @@ let maps = {
   readonly: {
     val: "readonly",
     type: boolean
+  },
+  members: {
+    val: "members",
+    type: object
   }
 };
 

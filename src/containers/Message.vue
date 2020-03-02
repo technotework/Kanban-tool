@@ -10,7 +10,7 @@ import { getMessages } from "@/containers/resorces/message";
 import { v4 as uuidv4 } from "uuid";
 import Vue from "vue";
 export default {
-  name: "",
+  name: "Message",
   props: {
     target: String
   },

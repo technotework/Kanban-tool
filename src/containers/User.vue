@@ -9,7 +9,7 @@ import { TYPE, APP } from "@/containers/resorces/message";
 import { getConfirmMessage } from "@/containers/resorces/message";
 import UserInfoForm from "@/components/organisms/user/user-info-form";
 export default {
-  name: "",
+  name: "User",
   props: {},
   data: () => {
     return {};

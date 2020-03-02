@@ -23,7 +23,7 @@ const mutations = {
 //getters
 //--------------
 const getters = {
-  users(state) {
+  members(state) {
     return state.membersData;
   }
 }
@@ -48,22 +48,20 @@ const actions = {
       collection.orderBy("nickname").onSnapshot(async (querySnapshot) => {
 
         let docs = querySnapshot.docs;
-        let array = [];
+        let obj = {};
         for (let i = 0; i < docs.length; i++) {
 
           let result = docs[i].data();
           let id = result.altId;
           let response = await common.fb.execDownloadIcon(id);
           let url = response.url;
-          let obj = {
-            altId: id,
+          obj[id] = {
             img: url,
             nickname: result.nickname
           };
-          array.push(obj);
         }
 
-        commit("setMembersData", array);
+        commit("setMembersData", obj);
         resolve();
       });
 

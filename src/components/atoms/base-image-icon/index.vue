@@ -40,7 +40,7 @@ export default {
   @include bgc($lightGray);
 }
 .m {
-  @include s($w: 70px, $h: 70px);
+  @include s($w: 50px, $h: 50px);
   @include bgc($lightGray);
 }
 .s {
