@@ -1,9 +1,9 @@
 <template>
-  <div @click.stop="onMenuTriggerClick" :class="$style.wrapper">
-    <TransparentButton>
+  <ContextMenuContainer>
+    <template #button>
       <BaseIcon compose="m" type="context" :class="$style.contextMenu" />
-    </TransparentButton>
-    <template v-if="showContext">
+    </template>
+    <template #menu>
       <ContextMenuList
         v-bind="{ id, menuItems }"
         ref="menuElement"
@@ -12,14 +12,14 @@
         @close="onClose"
       />
     </template>
-  </div>
+  </ContextMenuContainer>
 </template>
 
 <script>
 import Vue from "vue";
 import BaseIcon from "@/components/atoms/base-icon/";
+import ContextMenuContainer from "@/components/molecules/context-menu-container/";
 import ContextMenuList from "@/components/molecules/context-menu-list/";
-import { TransparentButton } from "@/components/atoms/base-no-link-button/compose";
 import base from "@/components/utils/base-mixin";
 
 export default {
@@ -36,8 +36,8 @@ export default {
   },
   components: {
     BaseIcon,
-    ContextMenuList,
-    TransparentButton
+    ContextMenuContainer,
+    ContextMenuList
   },
   methods: {
     onMenuTriggerClick(e) {
@@ -63,8 +63,6 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.wrapper {
-}
 .contextMenu {
   fill: $darkGray;
   display: block;
