@@ -13,14 +13,14 @@ export default {
   mixins: [base],
   model: {
     prop: "model",
-    event: "change"
+    event: "input"
   },
   name: "LabeledCheckbox",
   props: {
     id: String,
     name: String,
     value: String,
-    model: Boolean
+    model: Array
   },
   computed: {
     modelData: {
@@ -28,7 +28,7 @@ export default {
         return this.model;
       },
       set(value) {
-        this.$emit("change", value);
+        this.$emit("input", value);
       }
     }
   },

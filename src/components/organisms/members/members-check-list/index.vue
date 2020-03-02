@@ -2,7 +2,7 @@
   <BaseModelessContainer :class="$style.menu">
     <ul>
       <li v-for="(item,key) in members" :key="key" :class="$style.list">
-        <LabeledCheckbox :id="key" :value="item.nickname" name="members">
+        <LabeledCheckbox :id="key" :value="key" :name="key" v-model="myData">
           <ImageIconedText
             :img="item.img"
             size="M"
@@ -22,7 +22,18 @@ import LabeledCheckbox from "@/components/molecules/labeled-check-box/";
 export default {
   name: "MembersCheckList",
   props: {
-    members: Object
+    members: Object,
+    value: Array
+  },
+  computed: {
+    myData: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
+    }
   },
   methods: {},
   components: { ImageIconedText, LabeledCheckbox, BaseModelessContainer }
