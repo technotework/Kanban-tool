@@ -94,7 +94,7 @@ const actions = {
 
 							let uid = auth.user.uid;
 							let path = "/projects";
-							dispatch("getUserInfo", { uid: uid, path: path });
+							dispatch("setUserInfo", { uid: uid, path: path });
 
 						}
 
@@ -149,36 +149,32 @@ const actions = {
 		});
 	},
 	/**
-	 * getUserInfo
+	 * setUserInfo
 	 * @param {*} context 
 	 * @param {*} uid 
 	 */
-	getUserInfo({ commit, dispatch, rootGetters }, obj) {
+	setUserInfo({ commit, rootGetters, dispatch }, obj) {
 
 		return new Promise(async (resolve, reject) => {
 
 			let { uid, path } = obj
 
-			//ユーザーデータの取得
-			let object = {
-				path: `users/${uid}`
-			};
-			let doc = await common.fb.getDoc(object).catch(reject);
+			//取得を別モジュールに依頼
+			await dispatch("user/getUserInfo", obj, { root: true });
+			console.log(getters);
+			//格納
+			let result = rootGetters["user/userData"];
+			console.log(result);
+			result.uuid = uid;
+			result.path = result.altId + "/icon";
+			commit("succsessLogin", result);
 
-
-			if (doc.exists) {
-				//存在すればデータ格納
-				let result = doc.data();
-				result.uuid = uid;
-				result.path = result.altId + "/icon";
-				commit("succsessLogin", result);
-
-				if (result.img == true && result.nickname != "") {
-					dispatch("user/downloadFile", null, { root: true });
-				}
-
-				checkToGo(result, path)
+			if (result.img == true && result.nickname != "") {
+				dispatch("user/downloadFile", null, { root: true });
 			}
+
+			checkToGo(result, path)
+
 			resolve();
 
 		}, (error) => {

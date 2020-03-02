@@ -5,26 +5,48 @@ import { TYPE, APP } from "@/containers/resorces/message"
 //state
 //--------------
 const state = {
+  userDataObject: {}
 }
 
 //--------------
 //mutations
 //--------------
 const mutations = {
-
+  setUserData(state, payload) {
+    state.userDataObject = payload;
+  }
 }
 
 //--------------
 //getters
 //--------------
 const getters = {
-
+  userData(state) {
+    return state.userDataObject;
+  }
 }
 
 //--------------
 //actions
 //--------------
 const actions = {
+
+  getUserInfo({ commit, dispatch }, obj) {
+    return new Promise(async (resolve, reject) => {
+
+      let { uid } = obj
+      let object = {
+        path: `users/${uid}`
+      };
+      let doc = await common.fb.getDoc(object).catch(reject);
+
+      commit("setUserData", doc.data());
+      resolve();
+      console.log(doc.data());
+    }, (error) => {
+      console.log(error);
+    });
+  },
   /**
    * アイコンアップロード
    * @param {*} param0 
@@ -53,7 +75,7 @@ const actions = {
       await common.fb.setDoc(userData).catch(reject);
 
       //できたら再格納
-      dispatch("auth/getUserInfo", { uid: uuid, path: "app/projects" }, { root: true });
+      dispatch("auth/setUserInfo", { uid: uuid, path: "app/projects" }, { root: true });
       dispatch("downloadFile");
 
       resolve();

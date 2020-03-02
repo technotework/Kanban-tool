@@ -23,7 +23,7 @@ export default {
         let uid = user.uid;
         let path = "/projects";
         this.$store
-          .dispatch("auth/getUserInfo", { uid: uid, path: path })
+          .dispatch("auth/setUserInfo", { uid: uid, path: path })
           .then(() => {
             this.init();
           });
