@@ -40,13 +40,11 @@ export default {
 .iconText {
   @include flex;
 }
-.icon {
-  fill: $theme;
-}
 .text {
-  display: inline-block;
-  @include p(1rem);
   @include text($f16);
+  display: inline-block;
+  padding: 1rem;
+  margin-top: 2px;
   min-width: auto;
   user-select: none;
 }

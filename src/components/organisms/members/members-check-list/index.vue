@@ -1,8 +1,13 @@
 <template>
   <ul>
-    <li v-for="(item,key) in members" :key="key">
+    <li v-for="(item,key) in members" :key="key" :class="$style.list">
       <LabeledCheckbox :id="key" :value="item.nickname" name="members">
-        <ImageIconedText :img="item.img" size="M" compose="left">{{item.nickname}}</ImageIconedText>
+        <ImageIconedText
+          :img="item.img"
+          size="M"
+          compose="left"
+          :class="$style.icon"
+        >{{item.nickname}}</ImageIconedText>
       </LabeledCheckbox>
     </li>
   </ul>
@@ -21,4 +26,13 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.list {
+  padding-bottom: $s16;
+}
+.list input[type="checkbox"] {
+  margin-top: 7px;
+}
+.icon {
+  padding-left: $s4;
+}
 </style>
