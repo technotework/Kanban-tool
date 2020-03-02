@@ -45,14 +45,20 @@ const getters = {
 //actions
 //--------------
 const actions = {
-	initBoardData({ commit, rootGetters }, value) {
+	initBoardData({ commit, dispatch, rootGetters }, value) {
 
-		let info = {
-			projectId: value,
-			projectDocPath: rootGetters["auth/path"] + value,
-			boardPath: rootGetters["auth/path"] + value + "/boards/"
-		}
-		commit("setAppInfo", info);
+		return new Promise(async (resolve, reject) => {
+
+			let info = {
+				projectId: value,
+				projectDocPath: rootGetters["auth/path"] + value,
+				boardPath: rootGetters["auth/path"] + value + "/boards/"
+			}
+			commit("setAppInfo", info);
+
+		}, (error) => {
+			console.log(error);
+		});
 	},
 	/**========================
 	 * ボード作成

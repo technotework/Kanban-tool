@@ -104,6 +104,7 @@ const util = {
           "order": ordarData,
           "labels": [],
           "members": [],
+          "editing": "",
           "createUser": `${uuid}`,
           "create_date": `${date}`,
           "start_date": null,
@@ -268,7 +269,28 @@ const util = {
 
       });
     },
+    /**
+     * ダウンロード実行
+     * @param {*} id 
+     */
+    execDownloadIcon: (id) => {
 
+      return new Promise(async (resolve, reject) => {
+
+        if (!navigator.onLine) {
+          reject();
+          throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+        }
+
+        let ref = st.ref(id + '/icon');
+        let url = await ref.getDownloadURL();
+        let response = await fetch(url);
+        resolve(response);
+
+      }, (error) => {
+        throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
+      });
+    }
   },
   /**==================================
    * util

@@ -161,10 +161,10 @@ const actions = {
 
 			//取得を別モジュールに依頼
 			await dispatch("user/getUserInfo", obj, { root: true });
-			console.log(getters);
+
 			//格納
 			let result = rootGetters["user/userData"];
-			console.log(result);
+
 			result.uuid = uid;
 			result.path = result.altId + "/icon";
 			commit("succsessLogin", result);

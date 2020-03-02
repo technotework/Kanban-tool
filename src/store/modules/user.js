@@ -31,6 +31,11 @@ const getters = {
 //--------------
 const actions = {
 
+  /**
+   * 自分のユーザー情報取得
+   * @param {*} param0 
+   * @param {*} obj 
+   */
   getUserInfo({ commit, dispatch }, obj) {
     return new Promise(async (resolve, reject) => {
 
@@ -42,7 +47,7 @@ const actions = {
 
       commit("setUserData", doc.data());
       resolve();
-      console.log(doc.data());
+
     }, (error) => {
       console.log(error);
     });
@@ -92,9 +97,7 @@ const actions = {
     return new Promise(async (resolve, reject) => {
 
       let id = rootGetters["auth/user"].altId;
-      let ref = rootGetters.storage.ref(id + '/icon');
-      let url = await ref.getDownloadURL();
-      let response = await fetch(url);
+      let response = await common.fb.execDownload(id);
       commit("auth/setImage", response.url, { root: true });
 
     }, (error) => {
@@ -102,6 +105,7 @@ const actions = {
     });
   }
 }
+
 
 export { state, mutations, getters, actions }
 export default {

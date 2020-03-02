@@ -88,12 +88,14 @@ export default {
       "updateBoardName",
       "dragSortUpdate"
     ]),
+    ...mapActions("members", ["getMembers"]),
     ...mapMutations("message", ["setBoardDialogue", "resetBoardDialogue"]),
     ...mapMutations("boards", ["setProjectId"]),
     init() {
       this.projectId = this.$route.params.id;
       this.initBoardData(this.$route.params.id);
-      this.read();
+      this.read(); //BoardData読み込み
+      this.getMembers(); //メンバーデータ読み込み
     },
     onInput(value) {
       let obj = {
