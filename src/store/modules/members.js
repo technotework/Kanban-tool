@@ -14,7 +14,7 @@ const state = {
 //--------------
 const mutations = {
   setMembersData(state, payload) {
-    console.log(payload, payload.length);
+
     state.membersData = payload;
   }
 }
@@ -53,7 +53,7 @@ const actions = {
 
           let result = docs[i].data();
           let id = result.altId;
-          let response = await common.fb.execDownload(id);
+          let response = await common.fb.execDownloadIcon(id);
           let url = response.url;
           let obj = {
             altId: id,
@@ -63,7 +63,7 @@ const actions = {
           array.push(obj);
         }
 
-        commit("setmembersData", array);
+        commit("setMembersData", array);
         resolve();
       });
 

@@ -8,6 +8,7 @@ import tasks from './modules/tasks'
 import auth from './modules/auth'
 import message from './modules/message'
 import user from './modules/user'
+import members from './modules/members'
 
 Vue.use(Vuex);
 Firebase.init();
@@ -41,6 +42,7 @@ export default new Vuex.Store({
 		boards,
 		tasks,
 		message,
-		user
+		user,
+		members
 	}
 })

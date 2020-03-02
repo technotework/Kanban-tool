@@ -97,7 +97,7 @@ const actions = {
     return new Promise(async (resolve, reject) => {
 
       let id = rootGetters["auth/user"].altId;
-      let response = await common.fb.execDownload(id);
+      let response = await common.fb.execDownloadIcon(id);
       commit("auth/setImage", response.url, { root: true });
 
     }, (error) => {
