@@ -5,6 +5,7 @@
 <script>
 export default {
   name: "MembersUnit",
+  data: () => {},
   props: {},
   methods: {},
   components: {}

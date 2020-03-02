@@ -188,6 +188,10 @@ let maps = {
   members: {
     val: "members",
     type: object
+  },
+  assigned: {
+    val: "assigned",
+    type: array
   }
 };
 
