@@ -29,6 +29,30 @@ let setting = {
             "c": {
                 "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
                 "nickname": "jiro"
+            },
+            "d": {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+                "nickname": "tarou"
+            },
+            "e": {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+                "nickname": "hanako"
+            },
+            "f": {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+                "nickname": "jiro"
+            },
+            "g": {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+                "nickname": "tarou"
+            },
+            "h": {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+                "nickname": "hanako"
+            },
+            "i": {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+                "nickname": "jiro"
             }
         }
     },

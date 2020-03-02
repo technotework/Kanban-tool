@@ -36,21 +36,21 @@ export const Basic = () => ({
         },
         menuItems: {
             default: object("menuItems", [{
-                    value: "編集",
-                    name: "edit"
-                },
-                {
-                    value: "削除",
-                    name: "delete"
-                },
-                {
-                    value: "複製",
-                    name: "duplicate"
-                }
+                value: "編集",
+                name: "edit"
+            },
+            {
+                value: "削除",
+                name: "delete"
+            },
+            {
+                value: "複製",
+                name: "duplicate"
+            }
             ])
         }
     },
-    template: `<div style="margin:200px;"><ContextMenu v-bind={id,menuItems,compose} @context-menu-click="action" @close="close" /></div>`,
+    template: `<div style="margin:200px; position:relative;"><ContextMenu v-bind={id,menuItems,compose} @context-menu-click="action" @close="close" /></div>`,
     methods: {
         action: action('context-menu-click'),
         close: action('close'),

@@ -48,9 +48,9 @@ export default {
 <style lang="scss" module>
 .menu {
   @include shadow;
-  @include p($s4);
   @include bdc($gray);
   @include bgc($white);
   @include r($round);
+  padding: $s4;
 }
 </style>
