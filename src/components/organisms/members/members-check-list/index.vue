@@ -64,16 +64,6 @@ export default {
   padding: $s16 $s16 $s8 $s16;
 }
 
-.menu:before {
-  content: "";
-  position: absolute;
-  top: 300px;
-  left: 130px;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top: 15px solid $theme;
-}
-
 .list {
   padding-bottom: $s16;
 }

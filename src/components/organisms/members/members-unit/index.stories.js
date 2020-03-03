@@ -7,7 +7,7 @@ import {
 import MembersUnit from "./index.vue";
 
 let description = 'import MembersUnit from "@/components/organisms/members/members-unit/"';
-export default createDefStory("organisms/members/members-unit/MembersUnit", MembersUnit, description);
+export default createDefStory("organisms/members/MembersUnit", MembersUnit, description);
 
 
 //---------------------
@@ -61,6 +61,6 @@ export const Basic = () => ({
             default: array("assigned", ["a", "c", "d"])
         }
     },
-    template: `<MembersUnit  v-model="assigned" :members="members" />`,
+    template: `<div style="margin:200px 50px"><MembersUnit v-model="assigned" :members="members" /></div>`,
 
 });
