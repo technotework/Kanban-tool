@@ -25,9 +25,11 @@
         :data-board-id="dataBoardId"
       >
         <TaskListItem
+          :members-container="membersContainer"
           :id="item.task.id"
           :content="item.task.data"
           :class="$style.listItem"
+          v-model="item.task.members"
           @md-save-event="onSave"
           @md-delete-event="onDelete"
         />
@@ -44,6 +46,7 @@ import TaskListItem from "@/components/organisms/boards/task-list-item/";
 export default {
   name: "TaskList",
   props: {
+    membersContainer: Object,
     value: Array,
     open: Boolean,
     dataBoardId: String

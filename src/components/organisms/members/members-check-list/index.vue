@@ -1,5 +1,5 @@
 <template>
-  <BaseModelessContainer :class="$style.menu">
+  <BaseModelessContainer ref="container" :class="$style.menu">
     <ul>
       <li v-for="(item,key) in members" :key="key" :class="$style.list">
         <LabeledCheckbox :id="key" :value="key" :name="key" v-model="myData">
@@ -34,9 +34,17 @@ export default {
       }.bind(this)
     );
   },
+  mounted: function() {
+    let parent = document.getElementById(this.parentId);
+    let rect = parent.getBoundingClientRect();
+    let element = this.$refs.container;
+    console.log(element);
+    element.style.top = rect.x;
+  },
   props: {
     members: Object,
-    value: Array
+    value: Array,
+    parentId: String
   },
   computed: {
     myData: {
@@ -54,6 +62,8 @@ export default {
 </script>
 <style lang="scss" module>
 .menu {
+  position: absolute;
+  z-index: 90000000;
   @include shadow;
   width: 250px;
   height: 300px;

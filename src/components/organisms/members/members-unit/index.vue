@@ -1,15 +1,11 @@
 <template>
   <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick" :class="$style.container">
     <template #button>
+      aaa
       <MembersIconList :members="members" :assigned="value" />
     </template>
     <template #menu>
-      <MembersCheckList
-        v-model="myData"
-        :members="members"
-        @close="onClose"
-        :class="$compose[compose]"
-      />
+      <MembersCheckList v-model="myData" :members="members" @close="onClose" :parent-id="parentId" />
     </template>
   </ContextMenuContainer>
 </template>
@@ -22,8 +18,8 @@ export default {
   name: "MembersUnit",
   props: {
     members: Object,
-    value: Array,
-    compose: { type: String, default: "top" }
+    parentId: String,
+    value: Array
   },
   computed: {
     myData: {
@@ -49,13 +45,5 @@ export default {
 <style lang="scss" module>
 .container {
   position: relative;
-}
-</style>
-<style lang="scss" module="$compose">
-.top {
-  @include abs($t: -135px, $l: 172px);
-}
-.bottom {
-  @include abs($t: 55px, $l: 0);
 }
 </style>

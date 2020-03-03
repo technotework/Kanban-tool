@@ -1,6 +1,7 @@
 <template>
-  <div :class="$style.item">
+  <div :class="$style.item" :id="id">
     <PostedMD :content="content" @md-save-event="onSave" @md-delete-event="onDelete" />
+    <component :is="membersContainer" :parent-id="id" v-model="members" />
   </div>
 </template>
 
@@ -10,7 +11,9 @@ export default {
   name: "TaskListItem",
   props: {
     content: String,
-    id: String
+    id: String,
+    membersContainer: Object,
+    value: Array
   },
   methods: {
     onSave(value) {
@@ -21,7 +24,16 @@ export default {
       this.$emit("md-delete-event", { id: this.id });
     }
   },
-  computed: {},
+  computed: {
+    members: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
+    }
+  },
   components: { PostedMD }
 };
 </script>

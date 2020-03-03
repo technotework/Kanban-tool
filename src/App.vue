@@ -1,13 +1,12 @@
 <template>
   <div id="app">
     <router-view />
-
-    <MembersUnit v-model="assigned" :members="members" />
+    <Members />
   </div>
 </template>
 
 <script>
-import MembersUnit from "@/components/organisms/members/members-unit/";
+import Members from "@/containers/Members";
 export default {
   name: "App",
   computed: {},
@@ -64,6 +63,6 @@ export default {
     };
   },
   methods: {},
-  components: { MembersUnit }
+  components: { Members }
 };
 </script>

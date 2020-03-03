@@ -1,6 +1,7 @@
 <template  >
   <TaskList
     v-model="taskList"
+    :members-container="members"
     :open.sync="isOpen"
     :data-board-id="id"
     @md-save-event="onSave"
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+import Members from "@/containers/Members";
 import validate from "@/containers/resorces/validator";
 import TaskList from "@/components/organisms/boards/task-list/";
 import taskModule from "@/store/modules/tasks";
@@ -25,7 +27,8 @@ export default {
   },
   data: () => {
     return {
-      storeModuleName: ""
+      storeModuleName: "",
+      members: Members
     };
   },
   watch: {
