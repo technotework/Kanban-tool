@@ -1,5 +1,5 @@
 <template>
-  <ContextMenuContainer>
+  <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
     <template #button>
       <BaseIcon compose="m" type="context" :class="$style.contextMenu" />
     </template>
@@ -27,12 +27,8 @@ export default {
   name: "ContextMenu",
   props: {
     id: String,
+    compose: String,
     menuItems: { type: Array }
-  },
-  data: function() {
-    return {
-      showContext: false
-    };
   },
   components: {
     BaseIcon,
@@ -41,10 +37,8 @@ export default {
   },
   methods: {
     onMenuTriggerClick(e) {
-      this.showContext = !this.showContext;
-
       //クリックした時あとのnextTickで位置のスタイルを動的に付与
-      if (this.showContext && this.compose == "top") {
+      if (this.compose == "top") {
         Vue.nextTick(() => {
           let height = this.$refs.menuElement.$el.clientHeight;
           let className = this.$style.contextMenuBody;
@@ -53,11 +47,12 @@ export default {
         });
       }
     },
-    onClose: function(e) {
-      this.showContext = !this.showContext;
+    onClose() {
+      this.$refs.container.onClose();
     },
     onMenuItemClick: function(...args) {
       this.$emit("context-menu-click", ...args);
+      this.$refs.container.onClose();
     }
   }
 };

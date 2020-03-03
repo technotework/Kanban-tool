@@ -1,10 +1,10 @@
 <template>
-  <ContextMenuContainer>
+  <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
     <template #button>
       <MembersIconList :members="members" :assigned="value" />
     </template>
     <template #menu>
-      <MembersCheckList v-model="myData" :members="members" />
+      <MembersCheckList v-model="myData" :members="members" @close="onClose" />
     </template>
   </ContextMenuContainer>
 </template>
@@ -29,7 +29,12 @@ export default {
       }
     }
   },
-  methods: {},
+  methods: {
+    onMenuTriggerClick(e) {},
+    onClose() {
+      this.$refs.container.onClose();
+    }
+  },
   components: { ContextMenuContainer, MembersIconList, MembersCheckList }
 };
 </script>

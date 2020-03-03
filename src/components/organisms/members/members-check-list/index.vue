@@ -19,8 +19,21 @@
 import BaseModelessContainer from "@/components/atoms/base-modeless-container/";
 import ImageIconedText from "@/components/molecules/image-iconed-text/";
 import LabeledCheckbox from "@/components/molecules/labeled-check-box/";
+import listener from "@/components/utils/listener-mixin";
 export default {
   name: "MembersCheckList",
+  mixins: [listener],
+  created: function() {
+    this.listen(
+      window,
+      "click",
+      function(e) {
+        if (!this.$el.contains(e.target)) {
+          this.$emit("close");
+        }
+      }.bind(this)
+    );
+  },
   props: {
     members: Object,
     value: Array
