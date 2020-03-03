@@ -1,7 +1,6 @@
 <template>
-  <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick" :class="$style.container">
+  <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
     <template #button>
-      aaa
       <MembersIconList :members="members" :assigned="value" />
     </template>
     <template #menu>
@@ -43,7 +42,4 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.container {
-  position: relative;
-}
 </style>

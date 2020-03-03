@@ -44,7 +44,7 @@ export default {
   @include bgc($lightGray);
 }
 .s {
-  @include s($w: 40px, $h: 40px);
+  @include s($w: 27px, $h: 27px);
   @include bgc($lightGray);
 }
 .w100 {

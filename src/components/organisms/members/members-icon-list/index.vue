@@ -1,17 +1,25 @@
 <template>
-  <ul :class="$style.wapper">
-    <li
-      v-for="member in myData"
-      :key="member.key"
-      :data-tooltip="member.nickname"
-      :class="$style.tooltip"
-    >
-      <MemberIcon size="S" :img="member.img" />
-    </li>
-  </ul>
+  <div>
+    <template v-if="myData.length == 0">
+      <BaseIcon type="member" :class="$style.icon" />
+    </template>
+    <template v-else>
+      <ul :class="$style.wapper">
+        <li
+          v-for="member in myData"
+          :key="member.key"
+          :data-tooltip="member.nickname"
+          :class="$style.tooltip"
+        >
+          <MemberIcon size="S" :img="member.img" />
+        </li>
+      </ul>
+    </template>
+  </div>
 </template>
 
 <script>
+import BaseIcon from "@/components/atoms/base-icon/";
 import MemberIcon from "@/components/organisms/members/member-icon/";
 export default {
   name: "MembersIconList",
@@ -36,15 +44,21 @@ export default {
     }
   },
   methods: {},
-  components: { MemberIcon }
+  components: { MemberIcon, BaseIcon }
 };
 </script>
 <style lang="scss" module>
+.icon {
+  width: 27px;
+  height: 27px;
+  padding: 4px 2px;
+  fill: $theme;
+}
 .wapper {
   display: flex;
 }
 .wapper li {
-  padding-right: $s8;
+  padding-right: 3px;
 }
 .tooltip {
   position: relative;

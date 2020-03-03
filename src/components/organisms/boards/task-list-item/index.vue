@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.item" :id="id">
+  <div :class="$style.item">
     <PostedMD :content="content" @md-save-event="onSave" @md-delete-event="onDelete" />
     <component :is="membersContainer" :parent-id="id" v-model="members" />
   </div>
@@ -39,7 +39,6 @@ export default {
 </script>
 <style lang="scss" module>
 .item {
-  position: relative;
   @include spr($w: 100%, $mh: 100px, $p: 0, $r: 0);
   @include bgc($white);
 }

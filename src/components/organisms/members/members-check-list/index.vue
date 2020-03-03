@@ -1,18 +1,20 @@
 <template>
-  <BaseModelessContainer ref="container" :class="$style.menu">
-    <ul>
-      <li v-for="(item,key) in members" :key="key" :class="$style.list">
-        <LabeledCheckbox :id="key" :value="key" :name="key" v-model="myData">
-          <ImageIconedText
-            :img="item.img"
-            size="M"
-            compose="left"
-            :class="$style.icon"
-          >{{item.nickname}}</ImageIconedText>
-        </LabeledCheckbox>
-      </li>
-    </ul>
-  </BaseModelessContainer>
+  <div ref="wrapper" :class="$style.wrapper">
+    <BaseModelessContainer :class="$style.menu">
+      <ul>
+        <li v-for="(item,key) in members" :key="key" :class="$style.list">
+          <LabeledCheckbox :id="key" :value="key" :name="key" v-model="myData">
+            <ImageIconedText
+              :img="item.img"
+              size="M"
+              compose="left"
+              :class="$style.icon"
+            >{{item.nickname}}</ImageIconedText>
+          </LabeledCheckbox>
+        </li>
+      </ul>
+    </BaseModelessContainer>
+  </div>
 </template>
 
 <script>
@@ -34,13 +36,6 @@ export default {
       }.bind(this)
     );
   },
-  mounted: function() {
-    let parent = document.getElementById(this.parentId);
-    let rect = parent.getBoundingClientRect();
-    let element = this.$refs.container;
-    console.log(element);
-    element.style.top = rect.x;
-  },
   props: {
     members: Object,
     value: Array,
@@ -61,9 +56,15 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.wrapper {
+  margin: -170px 0 0 100px;
+  position: absolute;
+  left: 15px;
+}
+
 .menu {
   position: absolute;
-  z-index: 90000000;
+  z-index: $index_m;
   @include shadow;
   width: 250px;
   height: 300px;
