@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.item">
     <PostedMD :content="content" @md-save-event="onSave" @md-delete-event="onDelete" />
-    <component :is="membersContainer" :parent-id="id" v-model="members" />
+    <component :is="membersContainer" :id="id" :parent-id="boardId" v-model="members" />
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
     content: String,
     id: String,
     membersContainer: Object,
+    boardId: String,
     value: Array
   },
   methods: {

@@ -176,7 +176,33 @@ const actions = {
     });
 
   },
+  /**==============================
+ * メンバー情報のアップデート
+ * 
+ ==============================*/
+  updateMember({ getters, rootGetters }, value) {
 
+    return new Promise(async (resolve, reject) => {
+
+      //setting
+      let { id, data } = value;
+      let { taskPath } = getters.info;
+      let taskDocPath = taskPath + id;
+      let content = data;
+      //実行
+      let object = {
+        path: taskDocPath,
+        content: { task: { "members": content } }
+      };
+      await common.fb.setDoc(object).catch(reject);
+      resolve();
+
+
+    }, (error) => {
+      console.log(error);
+    });
+
+  },
   /**=============================
    * タスクを削除
    * @param {*} param0 

@@ -27,6 +27,7 @@ export default {
   methods: {
     onMenuTriggerClick(e) {
       this.showContext = !this.showContext;
+      e.status = this.showContext;
       this.$emit("click", e);
     },
     onClose() {

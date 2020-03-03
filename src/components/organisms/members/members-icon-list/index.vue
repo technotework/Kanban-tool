@@ -6,8 +6,8 @@
     <template v-else>
       <ul :class="$style.wapper">
         <li
-          v-for="member in myData"
-          :key="member.key"
+          v-for="(member,index) in myData"
+          :key="index"
           :data-tooltip="member.nickname"
           :class="$style.tooltip"
         >
@@ -25,21 +25,24 @@ export default {
   name: "MembersIconList",
   props: {
     members: Object,
-    assigned: Array
+    value: Array
   },
   computed: {
-    myData() {
-      let array = [];
-      if (this.assigned != undefined) {
-        for (let i = 0; i < this.assigned.length; i++) {
-          let key = this.assigned[i];
-          let member = this.members[key];
-          member.altId = key;
-          array.push(member);
+    myData: {
+      get() {
+        let array = [];
+        if (this.value != undefined) {
+          for (let i = 0; i < this.value.length; i++) {
+            let key = this.value[i];
+            let member = this.members[key];
+            member.altId = key;
+            array.push(member);
+          }
         }
         return array;
-      } else {
-        return [];
+      },
+      set(value) {
+        this.$emit("input", value);
       }
     }
   },

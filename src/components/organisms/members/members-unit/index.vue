@@ -1,7 +1,7 @@
 <template>
   <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
     <template #button>
-      <MembersIconList :members="members" :assigned="value" />
+      <MembersIconList :members="members" v-model="myData" />
     </template>
     <template #menu>
       <MembersCheckList v-model="myData" :members="members" @close="onClose" :parent-id="parentId" />
@@ -17,8 +17,9 @@ export default {
   name: "MembersUnit",
   props: {
     members: Object,
-    parentId: String,
-    value: Array
+    value: Array,
+    id: String,
+    parentId: String
   },
   computed: {
     myData: {
@@ -32,10 +33,20 @@ export default {
   },
   methods: {
     onMenuTriggerClick(e) {
-      //bubbling stop
+      if (!e.status) {
+        this.update();
+      }
     },
     onClose() {
       this.$refs.container.onClose();
+      this.update();
+    },
+    update() {
+      this.$emit("update-member", {
+        data: this.myData,
+        id: this.id,
+        parentId: this.parentId
+      });
     }
   },
   components: { ContextMenuContainer, MembersIconList, MembersCheckList }

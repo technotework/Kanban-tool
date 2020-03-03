@@ -27,6 +27,7 @@
         <TaskListItem
           :members-container="membersContainer"
           :id="item.task.id"
+          :board-id="dataBoardId"
           :content="item.task.data"
           :class="$style.listItem"
           v-model="item.task.members"

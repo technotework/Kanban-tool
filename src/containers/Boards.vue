@@ -91,11 +91,12 @@ export default {
     ...mapActions("members", ["getMembers"]),
     ...mapMutations("message", ["setBoardDialogue", "resetBoardDialogue"]),
     ...mapMutations("boards", ["setProjectId"]),
-    init() {
+    async init() {
       this.projectId = this.$route.params.id;
+      await this.getMembers(); //メンバーデータ読み込み
+
       this.initBoardData(this.$route.params.id);
       this.read(); //BoardData読み込み
-      this.getMembers(); //メンバーデータ読み込み
     },
     onInput(value) {
       let obj = {
