@@ -21,8 +21,7 @@ new Vue({
     script: [
       {
         type: 'text/javascript',
-        inner: font,
-
+        inner: font
       }
     ]
   },

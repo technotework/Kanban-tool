@@ -9,7 +9,7 @@
     ]"
     >
       {{messageText}}
-      <IconM type="close" :class="$style.icon" />
+      <BaseIcon type="close" :class="$style.icon" />
     </component>
   </TransparentButton>
 </template>
@@ -17,12 +17,8 @@
 <script>
 import Vue from "vue";
 import base from "@/components/utils/base-mixin";
-import {
-  ErrorText,
-  WarnText,
-  NormalText
-} from "@/components/atoms/base-text/compose";
-import { IconM } from "@/components/atoms/base-icon/compose";
+import { ErrorText } from "@/components/atoms/base-text/compose";
+import BaseIcon from "@/components/atoms/base-icon/";
 import { TransparentButton } from "@/components/atoms/base-no-link-button/compose";
 
 export default {
@@ -69,7 +65,7 @@ export default {
       }, 2000);
     }
   },
-  components: { TransparentButton, NormalText, ErrorText, WarnText, IconM }
+  components: { ErrorText }
 };
 </script>
 <style lang="scss" module>
@@ -86,6 +82,8 @@ export default {
   @include tran(2000ms);
 }
 .icon {
+  width: 6px;
+  height: 6px;
   @include abs($t: 9px, $l: 8px);
   fill: $white;
 }

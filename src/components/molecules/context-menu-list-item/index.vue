@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { MenuButton } from "@/components/atoms/base-button/compose";
+import { MenuButton } from "@/components/atoms/base-no-link-button/compose";
 import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],

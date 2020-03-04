@@ -14,8 +14,7 @@ export default {
 </script>
 <style lang="scss" module>
 .modeless {
-  @include s($w: 150px, $h: "auto");
-  @include bgc($lightGray);
+  @include context;
 }
 </style>
 

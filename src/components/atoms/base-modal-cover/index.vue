@@ -18,14 +18,6 @@ export default {
 </script>
 <style lang="scss" module>
 .cover {
-  width: 100vw;
-  height: 100vh;
-  @include bgc($coverbg);
-  @include fix($t: 0, $l: 0, $index: $index_h);
-  /*子要素をセンターにする*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include cover;
 }
 </style>

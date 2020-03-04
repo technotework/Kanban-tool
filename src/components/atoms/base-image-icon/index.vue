@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.icon,$compose[compose],$shape[shape]]" :img="img" :style="backgroundImage">
+  <div :class="[$style.icon,$compose[compose]]" :img="img" :style="backgroundImage">
     <slot />
   </div>
 </template>
@@ -12,8 +12,7 @@ export default {
   mixins: [base],
   props: {
     img: String,
-    compose: String,
-    shape: String
+    compose: String
   },
   computed: {
     backgroundImage: function() {
@@ -32,31 +31,17 @@ export default {
 }
 </style>
 <style lang="scss" module="$compose">
-.normal {
-  @include s($w: 300px, $h: 300px);
+.xl {
+  @include imageIcon("XL");
 }
 .l {
-  @include s($w: 200px, $h: 200px);
-  @include bgc($lightGray);
+  @include imageIcon("L");
 }
 .m {
-  @include s($w: 50px, $h: 50px);
-  @include bgc($lightGray);
+  @include imageIcon("M");
 }
 .s {
-  @include s($w: 27px, $h: 27px);
-  @include bgc($lightGray);
-}
-.w100 {
-  @include s($w: 100px, $h: 100px);
+  @include imageIcon("S");
 }
 </style>
 
-<style lang="scss" module="$shape">
-.round {
-  @include r(300px);
-}
-.square {
-  @include r(0);
-}
-</style>

@@ -1,5 +1,7 @@
 <template>
-  <span :date="date" :class="$style.date"><slot /></span>
+  <span :date="date" :class="$style.date">
+    <slot />
+  </span>
 </template>
 
 <script>
@@ -14,9 +16,9 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.date{
+.date {
   display: block;
-  @include text($f14);
+  @include dateText;
 }
 </style>
 

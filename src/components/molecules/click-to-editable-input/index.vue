@@ -8,7 +8,7 @@
         @keyup-enter="onClickCompleteEdit"
       />
       <template v-if="isDisable">
-        <IconM type="edit" :class="$style.icon" />
+        <BaseIcon type="edit" :class="$style.icon" />
       </template>
     </div>
     <template v-if="!isDisable">
@@ -19,7 +19,7 @@
 
 <script>
 import Vue from "vue";
-import { IconM } from "@/components/atoms/base-icon/compose";
+import BaseIcon from "@/components/atoms/base-icon/";
 import base from "@/components/utils/base-mixin";
 import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
 import { EditInput } from "@/components/atoms/base-input/compose";
@@ -57,7 +57,7 @@ export default {
       }
     }
   },
-  components: { EditInput, MiniButton, IconM }
+  components: { EditInput, MiniButton, BaseIcon }
 };
 </script>
 <style lang="scss" module>

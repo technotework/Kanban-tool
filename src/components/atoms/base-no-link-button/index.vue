@@ -19,55 +19,29 @@ export default {
   overflow: hidden;
   text-decoration: none;
   text-align: center;
-  @include text($f16);
-  @include p($s8 $s16);
-  @include r($s32);
   border: none;
   cursor: pointer;
-  @include bgc($gray);
-  color: $black;
-  &:active {
-    @include bgc($lightGray);
-  }
   user-select: none;
 }
 </style>
 
 <style lang="scss" module="$compose">
 .primary {
-  @include bgc($primary);
-  &:active {
-    @include bgc($phover);
-  }
+  @include primaryButton;
 }
 .secondary {
-  @include bgc($secondary);
-  &:active {
-    @include bgc($shover);
-  }
+  @include secondaryButton;
 }
-.mini {
-  font-size: $f14;
-  line-height: 3.4rem;
-  line-height: 3.7rem;
-  @include p(0.2rem 1.6rem 0 1.6rem);
-  @include bgc($primary);
-  @include r($s4);
+.mprimary {
+  @include primaryMiniButton;
+}
+.msecondary {
+  @include secondaryMiniButton;
+}
+.menu {
+  @include menuButton;
 }
 .transparent {
-  display: inline-block;
-  @include r(0);
-  @include p(0);
-  @include bgc($transparent);
-  &:active {
-    @include bgc($transparent);
-  }
-}
-.text {
-  @extend .transparent;
-  @include p($s8);
-  &:active {
-    @include c($primary);
-  }
+  @include transparentButton;
 }
 </style>

@@ -21,10 +21,6 @@ export default {
   @include bgc($white);
 }
 .dialogue {
-  @include r($round);
-  @include s($w: 320px, $mh: 200px);
-  @include bgc($white);
-  @include p($s18);
-  @include shadow;
+  @include alert;
 }
 </style>

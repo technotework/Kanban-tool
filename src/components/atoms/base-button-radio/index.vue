@@ -10,7 +10,9 @@
         :checked="value == model"
         @change="$emit('change',value)"
       />
-      <slot />
+      <span :class="$style.label">
+        <slot />
+      </span>
     </label>
   </div>
 </template>
@@ -40,18 +42,14 @@ export default {
   display: none;
 }
 .label {
-  display: block;
-  width: 100%;
-  height: 35px;
-  padding: $s4;
-  text-align: center;
-  border-radius: $round $round 0 0;
+  display: inline-block;
+  margin: 0 22px;
 }
 .active {
-  @include bgc($primary);
+  @include primaryTab;
 }
 .deactive {
-  @include bgc($secondary);
+  @include secondaryTab;
 }
 </style>
 

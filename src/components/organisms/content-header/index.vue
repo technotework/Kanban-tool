@@ -1,9 +1,8 @@
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.firstContent">
-      <H2 :class="$style.h1Header">
-        <slot name="first" />
-      </H2>
+      <slot name="first" />
+
       <slot name="option" />
     </div>
     <nav :class="$style.secondContent">
@@ -18,7 +17,7 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import { H2 } from "@/components/atoms/base-heading/compose";
+
 import IconedTextButton from "@/components/molecules/iconed-text-button/";
 export default {
   mixins: [base],
@@ -27,7 +26,7 @@ export default {
     return {};
   },
   props: {},
-  components: { H2, IconedTextButton }
+  components: { IconedTextButton }
 };
 </script>
 <style lang="scss" module>

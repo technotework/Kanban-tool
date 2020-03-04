@@ -1,5 +1,5 @@
 <template>
-  <svg :type="type" :class="[$style.icon, $compose[compose]]">
+  <svg :type="type" :class="$style.icon">
     <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="icon" />
   </svg>
 </template>
@@ -10,7 +10,7 @@ import { getIcon } from "./icons";
 import IconSprite from "@/assets/svg/sprite.svg";
 
 export default {
-  name: "BaseImageIcon",
+  name: "BaseIcon",
   mixins: [base],
   props: {
     type: String
@@ -24,21 +24,7 @@ export default {
 </script>
 <style lang="scss" module>
 .icon {
-  @include r(0);
   fill: #ddd;
 }
 </style>
-<style lang="scss" module="$compose">
-.normal {
-  @include s($w: 200px, $h: 200px);
-}
-.l {
-  @include s($w: 35px, $h: 35px);
-}
-.m {
-  @include s($w: 20px, $h: 20px);
-}
-.s {
-  @include s($w: 15px, $h: 15px);
-}
-</style>
+

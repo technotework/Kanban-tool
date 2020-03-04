@@ -1,4 +1,4 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+/*import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseLinkButton from "./index.vue";
 import { PrimaryButton, SecondaryButton } from "./compose";
 
@@ -57,3 +57,4 @@ let settingS = {
 export const Secondary = () => (createStory(settingS));
 
 
+*/

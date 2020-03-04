@@ -21,34 +21,42 @@ function getMixin(compose) {
 const PrimaryButton = Vue.component("primary-button", {
   mixins: [getMixin("primary"), base]
 });
-export {
-  PrimaryButton
-};
+
 
 const SecondaryButton = Vue.component("secondary-button", {
   mixins: [getMixin("secondary"), base]
 });
-export {
-  SecondaryButton
-};
 
-const MiniButton = Vue.component("mini-button", {
-  mixins: [getMixin("mini"), base]
+
+const PrimaryMiniButton = Vue.component("primary-mini-button", {
+  mixins: [getMixin("mprimary"), base]
 });
-export {
-  MiniButton
-};
+
+
+const SecondaryMiniButton = Vue.component("secondary-mini-button", {
+  mixins: [getMixin("msecondary"), base]
+});
 
 const TransparentButton = Vue.component("transparent-button", {
   mixins: [getMixin("transparent"), base]
 });
-export {
-  TransparentButton
-};
+
+const MenuButton = Vue.component("menu-button", {
+  mixins: [getMixin("menu"), base]
+});
+
+//fixme
+const MiniButton = Vue.component("mini-button", {
+  mixins: [getMixin("mini"), base]
+});
+
 
 const TextButton = Vue.component("text-button", {
   mixins: [getMixin("text"), base]
 });
+
+
 export {
+  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton,
   TextButton
 };

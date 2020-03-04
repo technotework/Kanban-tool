@@ -49,18 +49,13 @@ export default {
 
 <style lang="scss" module="$compose">
 .system {
-  @include p($s8);
-  @include r($round);
+  @include inputForm;
 }
 .editable {
-  border: solid 1px $gray;
-  @include bgc($white);
-  @include p($s8);
-  @include r(2px);
+  @include editableInputForm;
 }
 .editable:disable {
-  @include bgc($transparent);
-  border: solid 1px $white;
-  border-bottom: solid 1px $gray;
+  @include editableInputForm;
+  background-color: $transparent;
 }
 </style>

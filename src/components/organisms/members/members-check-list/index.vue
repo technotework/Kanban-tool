@@ -63,16 +63,9 @@ export default {
 }
 
 .menu {
-  position: absolute;
-  z-index: $index_m;
-  @include shadow;
   width: 250px;
   height: 300px;
   overflow-y: auto;
-  border-radius: $round;
-  border: solid 1px $gray;
-  background-color: $white;
-  padding: $s16 $s16 $s8 $s16;
 }
 
 .list {

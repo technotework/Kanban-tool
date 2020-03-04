@@ -1,6 +1,6 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import BaseImageIcon from "./index.vue"
-import { IconL, IconM, IconS, IconSquare} from "./compose"
+import { IconXL, IconL, IconM, IconS } from "./compose"
 
 
 let description = 'import BaseImageIcon from "@/components/atoms/base-image-icon/"';
@@ -14,14 +14,27 @@ let setting = {
     compos: { BaseImageIcon: BaseImageIcon },
     props: {
         img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg",
-        compose: "normal",
-        shape: "round"
+        compose: "xl"
     },
     action: {},
     template: tagTemp`<BaseImageIcon ${'props'} ${'action'} />`
 };
 
 export const Basic = () => (createStory(setting));
+
+//---------------------
+//XL
+let settingXL = {
+    name: "IconXL",
+    compos: { IconXL: IconXL },
+    props: {
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg",
+    },
+    action: {},
+    template: tagTemp`<IconXL ${'props'} ${'action'} />`
+};
+
+export const XL = () => (createStory(settingXL));
 
 
 //---------------------
@@ -69,17 +82,3 @@ let settingS = {
 export const S = () => (createStory(settingS));
 
 
-
-//---------------------
-//S
-let settingIconSquare = {
-    name: "IconSquare",
-    compos: { IconSquare: IconSquare },
-    props: {
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Doll_face_silver_Persian_2.jpg/1024px-Doll_face_silver_Persian_2.jpg",
-    },
-    action: {},
-    template: tagTemp`<IconSquare ${'props'} ${'action'} />`
-};
-
-export const Square = () => (createStory(settingIconSquare));

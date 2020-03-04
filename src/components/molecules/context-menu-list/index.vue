@@ -1,5 +1,5 @@
 <template>
-  <BaseModelessContainer :id="id" :items="menuItems" :class="$style.menu">
+  <BaseModelessContainer :id="id" :items="menuItems">
     <ul>
       <li v-for="item in menuItems" :key="item.name" :class="$style.menuItem">
         <BaseModelessItem
@@ -45,12 +45,4 @@ export default {
   }
 };
 </script>
-<style lang="scss" module>
-.menu {
-  @include shadow;
-  @include bdc($gray);
-  @include bgc($white);
-  @include r($round);
-  padding: $s4;
-}
-</style>
+

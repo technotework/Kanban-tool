@@ -2,7 +2,7 @@
   <div :class="$style.dialogue">
     <BaseModalCover>
       <Dialogue>
-        <BaseText>{{text}}</BaseText>
+        {{text}}
         <FlexLayout :class="$style.buttonContainer">
           <template v-if="sCallback!=null">
             <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
@@ -20,8 +20,7 @@ import { Dialogue } from "@/components/atoms/base-modal-container/compose";
 import {
   PrimaryButton,
   SecondaryButton
-} from "@/components/atoms/base-button/compose";
-import BaseText from "@/components/atoms/base-text";
+} from "@/components/atoms/base-no-link-button/compose";
 import FlexLayout from "@/components/templates/flex-layout/";
 
 export default {
@@ -36,8 +35,7 @@ export default {
     BaseModalCover,
     Dialogue,
     PrimaryButton,
-    SecondaryButton,
-    BaseText
+    SecondaryButton
   },
   methods: {
     onClickPrimary: function(e) {

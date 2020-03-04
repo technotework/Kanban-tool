@@ -26,10 +26,6 @@ export default {
 <style lang="scss" module>
 .text {
   width: 100%;
-  @include bdc($white);
-  @include p($s16);
-  font-size: $f16;
-  line-height: 2.4rem;
-  resize: none;
+  @include taskText;
 }
 </style>

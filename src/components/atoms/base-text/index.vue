@@ -14,34 +14,14 @@ export default {
 
 <style lang="scss" module>
 .text {
-  @include s($mw: 300px);
   word-wrap: break-word;
   vertical-align: top;
 }
 </style>
 
 <style lang="scss" module="$compose">
-.contents {
-  @include text($f16);
-}
-.caption {
-  @include text($f14);
-  @include c($darkGray);
-}
 .error {
-  display: inline-block;
-  @include p($s4);
-  @include bgc($error);
-}
-.warn {
-  display: inline-block;
-  @include p($s4);
-  @include bgc($warn);
-}
-.normal {
-  display: inline-block;
-  @include p($s4);
-  @include bgc($normal);
+  @include error;
 }
 </style>
 

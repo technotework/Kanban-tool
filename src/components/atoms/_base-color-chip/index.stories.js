@@ -1,4 +1,4 @@
-import {
+/*import {
   createDefStory,
   createStory,
   tagTemp
@@ -23,3 +23,4 @@ let setting = {
 
 export const Basic = () => (createStory(setting));
 
+*/

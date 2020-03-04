@@ -19,9 +19,8 @@ Base Text Vars
 //font-size vars
 $base-fsize: 62.5%;
 $f10: 1rem;
-$f12: 1.2rem;
 $f13: 1.3rem;
-$f14: 1.4rem;
+$f15: 1.5rem;
 $f16: 1.6rem;
 $f18: 1.8rem;
 $f20: 2rem;
@@ -69,11 +68,11 @@ Colors Vars
 =================================*/
 
 //colors
-$theme: #2c3641;
+$theme: #262c33;
 $primary: #25C722;
-$primarySub: #25C722;
+$primarySub: #3ed83c;
 $secondary: #848484;
-$secondarySub: #848484;
+$secondarySub: #9a9a9a;
 $general:#fff;
 
 $transparent: transparent;
@@ -106,6 +105,7 @@ $primaryTabText: $general;
 $primaryTabBar: $primary;
 $secondaryTabText:#b0b1b2;
 $secondaryTabBar:#393e44;
+$formLabelText: $general;
 
 //タイトル
 $titleText:$general;
@@ -176,10 +176,10 @@ $vw100: 100vw;
 $vh100: 100vh;
 
 //radius
-$r3: 0.3rem;
-$r6: 0.6rem;
-$r8: 0.8rem;
-$r16: 1.6rem;
+$r3: 0.15rem;
+$r6: 0.3rem;
+$r8: 0.4rem;
+$r16: 0.8rem;
 
 //background-image
 @mixin bgi($src) {
@@ -275,16 +275,36 @@ Compose
 
 
 //ログイン・登録系 ===================
+@mixin tab($textc,$c){
+  @include textFactory($f16,$textc,"medium");
+  display: inline-block;
+  letter-spacing: 0.3rem;
+
+  &::after{
+    display: block;
+    content:"";
+    background-color: $c;
+    width: 100%;
+    height: 6px;
+    border-radius: $r3;
+    margin:10px 0;
+  }
+}
+
 @mixin primaryTab{
-  @include textFactory($f16,$primaryTabText,"bold");
+  @include tab($primaryTabText,$primaryTabBar);
 }
 
 @mixin secondaryTab{
-  @include textFactory($f16,$secondaryTabText,"bold");
+  @include tab($secondaryTabText,$secondaryTabBar);
 }
 
 @mixin previewUserNameText{
   @include textFactory($f18,$userNameText,"bold");
+}
+
+@mixin formLabel{
+  @include textFactory($f13,$formLabelText,"bold");
 }
 
 //ヘッダ ===================
@@ -292,6 +312,7 @@ Compose
   @include textFactory($f18,$primaryButtonText,"bold");
   @include containerFactory($primaryButton, 200px, 20px 40px 0 85px);
   height: 68px;
+  line-height: 1rem;
 }
 
 @mixin titleText{
@@ -300,16 +321,15 @@ Compose
 }
 
 @mixin nav{
-  @include textFactory($f12,$navText,"en");
+  @include textFactory($f13,$navText,"en");
 }
 
 @mixin userNameText{
-  @include textFactory($f14,$userNameText,"bold");
+  @include textFactory($f15,$userNameText,"bold");
 }
 
-@mixin imageIcon($src,$style){
+@mixin imageIcon($style){
   
-  @include bgi($src);
   overflow: hidden;
 
   @if $style == "XL" {
@@ -338,40 +358,91 @@ Compose
 
 //フッタ ===================
 @mixin footerText{
-  @include textFactory($f14,$footerText,"en");
+  @include textFactory($f15,$footerText,"en");
 }
 
 //ボタン類 ===================
-@mixin primaryButton{
-  @include textFactory($f14,$primaryButtonText,"bold");
-  @include containerFactory($primaryButton, $r8, 10px 16px 0 16px);
-  height: 68px;
+
+@mixin button($c,$hoverc){
+  @include textFactory($f15,$primaryButtonText,"bold");
+  @include containerFactory($c, $r8, 11px 32px);
+  height: 34px;
+  line-height: 1rem;
 
   &:hover{
-    background-color: $pHoverButton;
+    background-color: $hoverc;
   }
 }
 
-@mixin secondaryButton{
-  @include textFactory($f14,$secondaryButtonText,"bold");
-  @include containerFactory($secondaryButton, $r8, 10px 16px 0 16px);
-  height: 68px;
+@mixin primaryButton{
+  
+  @include button($primaryButton,$pHoverButton);
+}
 
+@mixin secondaryButton{
+  
+  @include button($secondaryButton,$sHoverButton);
+}
+
+@mixin transparentButton{
+  
+  background-color: $transparent;
+}
+
+@mixin miniButton($c,$hoverc){
+
+  @include textFactory($f13,$primaryButtonText,"bold");
+  @include containerFactory($c, $r6, 6px 10px 0 10px);
+  height: 23px;
+  line-height: 1rem;
   &:hover{
-    background-color: $sHoverButton;
+    background-color: $hoverc;
   }
 }
 
 @mixin primaryMiniButton{
-  @include textFactory($f12,$primaryButtonText,"bold");
-  @include containerFactory($primaryButton, $r6, 6px 10px 0 10px);
-  height: 23px;
+  @include miniButton($primaryButton,$pHoverButton);
 }
 
 @mixin secondaryMiniButton{
-  @include textFactory($f12,$secondaryButtonText,"bold");
-  @include containerFactory($secondaryButton, $r6, 6px 10px 0 10px);
-  height: 23px;
+  @include miniButton($secondaryButton,$sHoverButton);
+}
+
+//input button
+@mixin input($c,$hoverc){
+  @include textFactory($f15,$primaryButtonText,"bold");
+  @include containerFactory($c, $r8, 5px 32px 7px 32px);
+
+  line-height: 1rem;
+
+  &:hover{
+    background-color: $hoverc;
+  }
+}
+
+@mixin secondaryInput{
+  
+  @include input($secondaryButton,$sHoverButton);
+}
+
+@mixin secondaryInputSideText{
+  @include textFactory($f13,$primaryButtonText,"regular");
+}
+
+//フォーム類 ===================
+
+@mixin inputForm{
+  font-size: $f16;
+  padding: $s8;
+  border-radius: $s8;
+  background-color: $general;
+}
+
+@mixin editableInputForm{
+  font-size: $f16;
+  padding: $s8;
+  border-radius: $r3;
+  background-color: $general;
 }
 
 //プロジェクト画面 ===================
@@ -382,26 +453,36 @@ Compose
 }
 
 @mixin projectText{
-  @include textFactory($f14,$projectText,"bold");
+  @include textFactory($f15,$projectText,"bold");
 }
 
 @mixin dateText{
-  @include textFactory($f12,$projectText,"bold");
+  @include textFactory($f13,$projectText,"bold");
 }
 
 //コンテキストメニュー ===================
-@mixin menuText{
-  @include textFactory($f12,$menuText,"medium");
+@mixin menuButton{
+  @include textFactory($f15,$menuText,"regular");
+  @include containerFactory($menu, 0, 6px);
+  width: 100%;
+  line-height: 1rem;
+  &:active{
+    background-color: $primary;
+  }
 }
 
-@mixin menu{
-  @include containerFactory($menuBase, $r8, 7px);
+@mixin context{
+  @include containerFactory($menuBase, $r16, 7px);
+  @include shadow;
   border: solid 1px $border;
+  position: absolute;
+  z-index: $index_m;
 }
+
 
 //ボード ===================
 @mixin boardText{
-  @include textFactory($f14,$boardText,"bold");
+  @include textFactory($f15,$boardText,"bold");
 }
 
 @mixin board{
@@ -413,6 +494,9 @@ Compose
 //タスク ===================
 @mixin taskText{
   @include textFactory($f16,$taskText,"bold");
+  @include containerFactory($task, 0, $s16);
+  line-height: 2.4rem;
+  resize: none;
 }
 
 @mixin task{
@@ -428,8 +512,9 @@ Compose
 
 //メッセージ ===================
 @mixin error{
+  display: block;
   @include textFactory($f16,$messageText,"bold");
-  @include containerFactory($error, $r8, 42px 8px 20px 8px);
+  @include containerFactory($error, $r8,8px 20px 11px 42px);
   width: 100%;
 }
 
@@ -439,10 +524,23 @@ Compose
   @include containerFactory($alert, $r16, 34px 18px 20px 18px);
   width: 370px;
   min-height: 232px;
+  @include shadow;
 }
 
 @mixin cover{
   @include containerFactory($coverbg, 0, 0);
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  position: flex;
+  top:0;
+  left:0;
+  z-index:$index_h;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin global{
+  @include containerFactory($theme, 0, 26px 45px 20px 45px);
 }

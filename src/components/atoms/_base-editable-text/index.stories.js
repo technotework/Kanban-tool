@@ -1,4 +1,4 @@
-import {
+/*import {
   createDefStory,
   createStory,
   tagTemp
@@ -23,4 +23,4 @@ let setting = {
   template: tagTemp `<BaseEditableText ${'props'} ${'action'} />`
 };
 
-export const Basic = () => (createStory(setting));
+export const Basic = () => (createStory(setting));*/

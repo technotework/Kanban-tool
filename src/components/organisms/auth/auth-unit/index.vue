@@ -1,7 +1,7 @@
 <template>
   <TabContainer :class="$style.wrapper" ref="tab">
     <template #tab1>ログイン</template>
-    <template #tab2>会員登録</template>
+    <template #tab2>新規登録</template>
 
     <template #first>
       <LoginForm @login-event="onLoginClick" />

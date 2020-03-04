@@ -5,11 +5,12 @@
 */
 html {
     font-size: $base-fsize;
+    font-feature-settings: "palt" 1;
 }
 
 body {
-    @include text($f16);
-    @include ff;
+   @include ff;
+   @include global;
 }
 
 * {
@@ -24,6 +25,7 @@ body {
     outline: none;
 }
 
-textarea {
+textarea,input {
     @include ff;
+    box-sizing: border-box;
 }
