@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Firebase from "@/firebase"
+import Firebase from "@/vender/firebase"
 import app from './modules/app'
 import boards from './modules/boards'
 import projects from './modules/projects'

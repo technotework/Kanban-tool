@@ -1,0 +1,448 @@
+@charset "utf-8";
+
+/*
+* theme/_theme.scss
+*/
+
+/*=================================
+Base Layout Vars
+=================================*/
+
+$body-margin: 30px;
+$responsive-min: 559px;
+$responsive-max: 1180px;
+
+/*=================================
+Base Text Vars
+=================================*/
+
+//font-size vars
+$base-fsize: 62.5%;
+$f10: 1rem;
+$f12: 1.2rem;
+$f13: 1.3rem;
+$f14: 1.4rem;
+$f16: 1.6rem;
+$f18: 1.8rem;
+$f20: 2rem;
+$f24: 2.4rem;
+$f22: 2.2rem;
+$f72: 7.2rem;
+
+//font-family
+@mixin ff {
+  font-family: source-han-sans-cjk-ja,"HiraginoSans-W3", "Hiragino Kaku Gothic ProN",
+    "Hiragino Kaku Gothic Pro", "游ゴシック Medium", YuGothic, YuGothicM,
+    メイリオ, Meiryo, sans-serif;
+}
+
+@mixin heavy{
+  font-weight: 900;
+  font-style: normal;
+}
+
+@mixin bold{
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin medium{
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin regular{
+ 
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin en {
+  font-family: jaf-mashine, sans-serif; 
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+/*=================================
+Colors Vars
+=================================*/
+
+//colors
+$theme: #2c3641;
+$primary: #25C722;
+$primarySub: #25C722;
+$secondary: #848484;
+$secondarySub: #848484;
+$general:#fff;
+
+$transparent: transparent;
+
+$blue:#62cff7;
+$yellow:#fcd86b;
+$black:#000;
+
+/*=================================
+Color Compose
+=================================*/
+
+$systemBG: $theme;
+
+//リンク
+$link: $primary;
+$lhover: $primarySub;
+
+//ボタンテキスト
+$primaryButtonText: $general;
+$secondaryButtonText: $general;
+//ボタン本体
+$primaryButton: $primary;
+$pHoverButton: $primarySub;
+$secondaryButton: $secondary;
+$sHoverButton: $secondarySub;
+
+//タブ
+$primaryTabText: $general;
+$primaryTabBar: $primary;
+$secondaryTabText:#b0b1b2;
+$secondaryTabBar:#393e44;
+
+//タイトル
+$titleText:$general;
+
+//プロジェクト
+$project:$general;
+$projectIcon:$theme;
+$projectText:$general;
+
+//ユーザーネーム
+$userNameText:$general;
+
+//nav
+$navText:$general;
+
+//footer
+$footerText:$general;
+
+//メニュー
+$menuText:$black;
+$menuBase:$general;
+$menu: $transparent;
+$mhover: $primary;
+
+//警告
+$error: rgba(255, 82, 82,0.74);
+$warn: $yellow;
+$normal: $blue;
+$messageText:$general;
+$alertText:$black;
+$alert:$general;
+
+//ボード
+$boardText:$theme;
+$board:$general;
+$boardMenu:$theme;
+
+//タスク
+$taskText:$black;
+$task:#ececec;
+$postTask:$theme;
+$taskMenu:#9d9fa2;
+
+//汎用ボーダーcolor
+$border: #464646;
+
+//coverBG
+$coverbg: rgba(38, 44, 51, 0.47);
+
+
+/*=================================
+desigin Vars
+=================================*/
+
+//space
+$s4: 0.4rem;
+$s8: 0.8rem;
+$s12: 1.2rem;
+$s14: 1.4rem;
+$s16: 1.6rem;
+$s18: 1.8rem;
+$s20: 2rem;
+$s24: 2.4rem;
+$s28: 2.8rem;
+$s32: 3.2rem;
+$s40: 4rem;
+$vw100: 100vw;
+$vh100: 100vh;
+
+//radius
+$r3: 0.3rem;
+$r6: 0.6rem;
+$r8: 0.8rem;
+$r16: 1.6rem;
+
+//background-image
+@mixin bgi($src) {
+  background-image: $src;
+  background-position: center center;
+  background-repeat: no-repaet;
+  overflow: hidden;
+  background-size: cover;
+}
+
+//box-shadow
+@mixin shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+/*=================================
+layout Vars
+=================================*/
+
+//indexs
+$index_xh: 90001;
+$index_h: 90000;
+$index_xm: 80001;
+$index_m: 8000;
+$index_xl: 70001;
+$index_l: 70000;
+
+//flex
+@mixin flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+//grid
+@mixin grid($row, $col, $area) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+  grid-template-areas: $area;
+}
+
+
+/*=================================
+Animation Vars
+=================================*/
+
+$ms100:100ms;
+$ms200:200ms;
+$ms300:300ms;
+$ms400:400ms;
+$ms500:500ms;
+$ms1000:1000ms;
+
+@mixin tran($ms) {
+
+  transition: all $ms 0s ease;
+}
+
+
+/*=================================
+Compose
+=================================*/
+
+@mixin textFactory($f,$c,$style){
+
+  font-size: $f;
+  color:$c;
+
+  @if $style == "heavy" {
+    @include heavy;  
+  }
+  @if $style == "bold" {
+    @include bold;  
+  }
+  @if $style == "medium" {
+    @include medium;  
+  }
+  @if $style == "regular" {
+    @include regular;  
+  }
+  @if $style == "en" {
+    @include en;  
+  }
+}
+
+@mixin containerFactory($c,$r,$p){
+
+  background-color: $c;
+  border-radius: $r;
+  padding: $p;
+}
+
+
+//ログイン・登録系 ===================
+@mixin primaryTab{
+  @include textFactory($f16,$primaryTabText,"bold");
+}
+
+@mixin secondaryTab{
+  @include textFactory($f16,$secondaryTabText,"bold");
+}
+
+@mixin previewUserNameText{
+  @include textFactory($f18,$userNameText,"bold");
+}
+
+//ヘッダ ===================
+@mixin newButton{
+  @include textFactory($f18,$primaryButtonText,"bold");
+  @include containerFactory($primaryButton, 200px, 20px 40px 0 85px);
+  height: 68px;
+}
+
+@mixin titleText{
+  @include textFactory($f22,$titleText,"bold");
+  letter-spacing: 5px;
+}
+
+@mixin nav{
+  @include textFactory($f12,$navText,"en");
+}
+
+@mixin userNameText{
+  @include textFactory($f14,$userNameText,"bold");
+}
+
+@mixin imageIcon($src,$style){
+  
+  @include bgi($src);
+  overflow: hidden;
+
+  @if $style == "XL" {
+    width:192px;
+    height:192px;
+    border-radius: 200px;
+  }
+  @if $style == "L" {
+    width:136px;
+    height:136px;
+    border-radius: 200px;
+  }
+  @if $style == "M" {
+    width:90px;
+    height:90px;
+    border-radius: 100px;
+  }
+  @if $style == "S" {
+    width:54px;
+    height:54px;
+    padding-right: 6px;
+    border-radius: 60px;
+  }
+}
+
+
+//フッタ ===================
+@mixin footerText{
+  @include textFactory($f14,$footerText,"en");
+}
+
+//ボタン類 ===================
+@mixin primaryButton{
+  @include textFactory($f14,$primaryButtonText,"bold");
+  @include containerFactory($primaryButton, $r8, 10px 16px 0 16px);
+  height: 68px;
+
+  &:hover{
+    background-color: $pHoverButton;
+  }
+}
+
+@mixin secondaryButton{
+  @include textFactory($f14,$secondaryButtonText,"bold");
+  @include containerFactory($secondaryButton, $r8, 10px 16px 0 16px);
+  height: 68px;
+
+  &:hover{
+    background-color: $sHoverButton;
+  }
+}
+
+@mixin primaryMiniButton{
+  @include textFactory($f12,$primaryButtonText,"bold");
+  @include containerFactory($primaryButton, $r6, 6px 10px 0 10px);
+  height: 23px;
+}
+
+@mixin secondaryMiniButton{
+  @include textFactory($f12,$secondaryButtonText,"bold");
+  @include containerFactory($secondaryButton, $r6, 6px 10px 0 10px);
+  height: 23px;
+}
+
+//プロジェクト画面 ===================
+@mixin project{
+  @include containerFactory($project, $r16, 0);
+  width: 190px;
+  height: 136px;
+}
+
+@mixin projectText{
+  @include textFactory($f14,$projectText,"bold");
+}
+
+@mixin dateText{
+  @include textFactory($f12,$projectText,"bold");
+}
+
+//コンテキストメニュー ===================
+@mixin menuText{
+  @include textFactory($f12,$menuText,"medium");
+}
+
+@mixin menu{
+  @include containerFactory($menuBase, $r8, 7px);
+  border: solid 1px $border;
+}
+
+//ボード ===================
+@mixin boardText{
+  @include textFactory($f14,$boardText,"bold");
+}
+
+@mixin board{
+  @include containerFactory($board, $r16, 0);
+  width: 266px;
+}
+
+
+//タスク ===================
+@mixin taskText{
+  @include textFactory($f16,$taskText,"bold");
+}
+
+@mixin task{
+  @include containerFactory($task, $r6, 8px);
+  width: 266px;
+}
+
+@mixin postTask{
+  @include containerFactory($postTask, $r6, 4px);
+  width: 100%;
+  height: 22px;
+}
+
+//メッセージ ===================
+@mixin error{
+  @include textFactory($f16,$messageText,"bold");
+  @include containerFactory($error, $r8, 42px 8px 20px 8px);
+  width: 100%;
+}
+
+@mixin alert{
+  @include textFactory($f16,$alertText,"bold");
+  line-height: $f24;
+  @include containerFactory($alert, $r16, 34px 18px 20px 18px);
+  width: 370px;
+  min-height: 232px;
+}
+
+@mixin cover{
+  @include containerFactory($coverbg, 0, 0);
+  width: 100%;
+  height: 100%;
+}
