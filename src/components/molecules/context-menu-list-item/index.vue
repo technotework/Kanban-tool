@@ -1,5 +1,5 @@
 <template>
-  <MenuButton v-bind="{ name, value }" @click="onClick" />
+  <MenuButton v-bind="{ name }" @click="onClick">{{value}}</MenuButton>
 </template>
 
 <script>
