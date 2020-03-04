@@ -384,6 +384,15 @@ Compose
   @include button($secondaryButton,$sHoverButton);
 }
 
+@mixin primarySideButton{
+  
+  @include button($primaryButton,$pHoverButton);
+  width: auto;
+  height: auto;
+  padding:14px 0 0 0;
+  margin: 0 0 0 $s8;
+}
+
 @mixin transparentButton{
   
   background-color: $transparent;

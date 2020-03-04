@@ -6,10 +6,10 @@ import {
 import {
   boolean,
 } from "@/components/utils/story-export"
-import BaseEditableMD from "./index.vue";
+import EditableMD from "./index.vue";
 
-let description = 'import BaseEditableMD from "@/components/atoms/base-editable-md/"';
-export default createDefStory("atoms/BaseEditableMD", BaseEditableMD, description);
+let description = 'import EditableMD from "@/components/molecules/editable-md/"';
+export default createDefStory("molecules/EditableMD", EditableMD, description);
 
 
 
@@ -18,7 +18,7 @@ export default createDefStory("atoms/BaseEditableMD", BaseEditableMD, descriptio
 
 export const Basic = () => ({
   components: {
-    BaseEditableMD
+    EditableMD
   },
   data: function () {
     return {
@@ -30,6 +30,6 @@ export const Basic = () => ({
       default: boolean("isedit", false)
     }
   },
-  template: `<BaseEditableMD v-bind={isedit} v-model.lazy="myValue" />`,
+  template: `<EditableMD v-bind={isedit} v-model.lazy="myValue" />`,
   methods: {}
 });

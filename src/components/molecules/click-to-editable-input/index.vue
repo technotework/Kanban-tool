@@ -12,7 +12,7 @@
       </template>
     </div>
     <template v-if="!isDisable">
-      <MiniButton @click="onClickCompleteEdit" :class="$style.button">OK</MiniButton>
+      <MiniButton @click="onClickCompleteEdit">OK</MiniButton>
     </template>
   </div>
 </template>
@@ -21,7 +21,10 @@
 import Vue from "vue";
 import BaseIcon from "@/components/atoms/base-icon/";
 import base from "@/components/utils/base-mixin";
-import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
+import {
+  PrimaryButton,
+  MiniButton
+} from "@/components/atoms/base-no-link-button/compose";
 import { EditInput } from "@/components/atoms/base-input/compose";
 export default {
   mixins: [base],
@@ -76,31 +79,33 @@ export default {
   overflow: hidden;
 }
 .editableInput {
-  @include bdc($transparent);
-  @include p($s8 38px $s8 $s8);
-  @include s($h: 100%);
+  background-color: $transparent;
+  padding: $s8 38px $s8 $s8;
+  height: 100%;
   cursor: text;
+  border: none;
 }
-.button {
-  @include m(0 0 0 $s8);
-}
+
 .icon {
-  fill: $darkGray;
-  @include s($w: 18px, $h: 18px);
-  @include abs($t: 10px, $r: 4px);
+  fill: $white;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 10px;
+  right: 4px;
 }
 </style>
 
 <style lang="scss" module="$compose">
 .editable {
   .editableInput {
-    @include bgc($white);
-    @include p($s8);
+    background-color: $white;
+    padding: $s8;
   }
 }
 .uneditable {
   .editableInput {
-    @include bgc($transparent);
+    background-color: $transparent;
   }
 }
 </style>
@@ -113,7 +118,9 @@ export default {
     font-weight: bold;
   }
   .icon {
-    @include abs($t: 13px, $r: 4px);
+    position: absolute;
+    top: 13px;
+    right: 4px;
   }
 }
 .h2Header {
@@ -123,7 +130,9 @@ export default {
     font-weight: bold;
   }
   .icon {
-    @include abs($t: 13px, $r: 4px);
+    position: absolute;
+    top: 13px;
+    right: 4px;
   }
 }
 

@@ -16,7 +16,7 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import BaseEditableMD from "@/components/atoms/base-editable-md/";
+import BaseEditableMD from "@/components/molecules/editable-md/";
 import { TextButton } from "@/components/atoms/base-no-link-button/compose";
 
 export default {

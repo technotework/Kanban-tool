@@ -44,4 +44,7 @@ export default {
 .transparent {
   @include transparentButton;
 }
+.mini {
+  @include primarySideButton;
+}
 </style>
