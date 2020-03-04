@@ -1,7 +1,7 @@
 <template>
   <BaseModelessContainer :id="id" :items="menuItems">
     <ul>
-      <li v-for="item in menuItems" :key="item.name" :class="$style.menuItem">
+      <li v-for="item in menuItems" :key="item.name">
         <BaseModelessItem
           :value="item.value"
           :name="item.name"

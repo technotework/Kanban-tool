@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { PostedMD } from "@/components/molecules/click-to-editable-md/compose";
+import { PostedMD } from "@/components/molecules/click-to-editable-textarea/compose";
 export default {
   name: "TaskListItem",
   props: {

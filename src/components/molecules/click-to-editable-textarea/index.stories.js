@@ -8,13 +8,13 @@ import {
   boolean,
   action
 } from "@/components/utils/story-export"
-import ClickToEditableMD from "./index.vue";
+import ClickToEditableTextarea from "./index.vue";
 import {
   PostedMD
 } from "./compose";
 
-let description = 'import ClickToEditableMD from "@/components/molecules/click-to-editable-md/"<br>import {PostedMD, SubmitMD} from "@/components/molecules/click-to-editable-md/compose"';
-export default createDefStory("molecules/ClickToEditableMD", ClickToEditableMD, description);
+let description = 'import ClickToEditableTextarea from "@/components/molecules/click-to-editable-textarea/"<br>import {PostedMD, SubmitMD} from "@/components/molecules/click-to-editable-textarea/compose"';
+export default createDefStory("molecules/ClickToEditableTextarea", ClickToEditableTextarea, description);
 
 
 //---------------------
@@ -22,7 +22,7 @@ export default createDefStory("molecules/ClickToEditableMD", ClickToEditableMD, 
 
 export const Basic = () => ({
   components: {
-    ClickToEditableMD
+    ClickToEditableTextarea
   },
   data: function () {
     return {
@@ -34,7 +34,7 @@ export const Basic = () => ({
       default: boolean("isinitial", false)
     }
   },
-  template: `<ClickToEditableMD v-bind={isinitial} v-model.lazy="myValue" />`
+  template: `<ClickToEditableTextarea v-bind={isinitial} v-model.lazy="myValue" />`
 });
 
 

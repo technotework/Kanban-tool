@@ -6,10 +6,10 @@ import {
 import {
   boolean,
 } from "@/components/utils/story-export"
-import EditableMD from "./index.vue";
+import BaseEditableTextarea from "./index.vue";
 
-let description = 'import EditableMD from "@/components/molecules/editable-md/"';
-export default createDefStory("molecules/EditableMD", EditableMD, description);
+let description = 'import BaseEditableTextarea from "@/components/atoms/base-editable-textarea/"';
+export default createDefStory("atoms/BaseEditableTextarea", BaseEditableTextarea, description);
 
 
 
@@ -18,7 +18,7 @@ export default createDefStory("molecules/EditableMD", EditableMD, description);
 
 export const Basic = () => ({
   components: {
-    EditableMD
+    BaseEditableTextarea
   },
   data: function () {
     return {
@@ -30,6 +30,6 @@ export const Basic = () => ({
       default: boolean("isedit", false)
     }
   },
-  template: `<EditableMD v-bind={isedit} v-model.lazy="myValue" />`,
+  template: `<BaseEditableTextarea v-bind={isedit} v-model.lazy="myValue" />`,
   methods: {}
 });

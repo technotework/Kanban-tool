@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <BaseEditableMD v-model.lazy="mdContent" :class="$style.md" :isedit="status" ref="md" />
+    <BaseEditableTextarea v-model.lazy="mdContent" :class="$style.md" :isedit="status" ref="md" />
     <div :class="$style.buttons">
       <template v-if="!status">
         <TextButton :class="$style.button" @click="onDeleteMD">削除</TextButton>
@@ -16,12 +16,12 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import BaseEditableMD from "@/components/molecules/editable-md/";
+import BaseEditableTextarea from "@/components/atoms/base-editable-textarea/";
 import { TextButton } from "@/components/atoms/base-no-link-button/compose";
 
 export default {
   mixins: [base],
-  name: "ClickToEditableMD",
+  name: "ClickToEditableTextarea",
   props: {
     content: String
   },
@@ -58,7 +58,7 @@ export default {
       this.status = false;
     }
   },
-  components: { BaseEditableMD, TextButton }
+  components: { BaseEditableTextarea, TextButton }
 };
 </script>
 <style lang="scss" module>

@@ -1,19 +1,19 @@
 import Vue from "vue"
-import ClickToEditableMD from "./index.vue"
+import ClickToEditableTextarea from "./index.vue"
 import base from "@/components/utils/base-mixin";
 
 function getMixin() {
 
   let mixin = {
     components: {
-      ClickToEditableMD
+      ClickToEditableTextarea
     },
-    template: `<ClickToEditableMD :content="content" @md-save-event="onSave" @md-delete-event="onDeleteMD" />`,
+    template: `<ClickToEditableTextarea :content="content" @md-save-event="onSave" @md-delete-event="onDeleteMD" />`,
     props: {
-      ...ClickToEditableMD.props
+      ...ClickToEditableTextarea.props
     },
     methods: {
-      ...ClickToEditableMD.methods,
+      ...ClickToEditableTextarea.methods,
       onSave(value) {
         this.$emit("md-save-event", value)
       }

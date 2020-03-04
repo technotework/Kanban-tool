@@ -11,7 +11,7 @@ import base from "@/components/utils/base-mixin";
 
 export default {
   mixins: [base],
-  name: "EditableMD",
+  name: "BaseEditableTextArea",
   props: {
     isedit: Boolean,
     value: String
