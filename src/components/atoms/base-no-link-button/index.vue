@@ -47,6 +47,9 @@ export default {
 .mini {
   @include primarySideButton;
 }
+.add {
+  @include addMiniButton;
+}
 .big {
   @include newButton;
 }

@@ -1,6 +1,6 @@
 <template>
   <div :class="[$style.iconText,$compose[compose]]">
-    <components :is="type" :img="img" :class="$style.icon" />
+    <components :is="icon" :img="img" :class="$style.icon" />
     <span :class="$style.text">
       <slot />
     </span>
@@ -9,7 +9,7 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import { IconM } from "@/components/atoms/base-image-icon/compose";
+import { IconS, IconM } from "@/components/atoms/base-image-icon/compose";
 export default {
   mixins: [base],
   name: "ImageIconedText",

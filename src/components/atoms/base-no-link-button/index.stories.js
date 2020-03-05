@@ -5,11 +5,11 @@ import {
 } from "@/components/utils/story-creator";
 import BaseNoLinkButton from "./index.vue";
 import {
-  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton, BigButton, TextButton
+  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, AddMiniButton, TransparentButton, MenuButton, MiniButton, BigButton, TextButton
 } from "./compose";
 
 let description =
-  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton,BigButton,TextButton} from "@/components/atoms/base-no-link-button/compose"';
+  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, AddMiniButton, TransparentButton, MenuButton, MiniButton,BigButton,TextButton} from "@/components/atoms/base-no-link-button/compose"';
 export default createDefStory(
   "atoms/BaseNoLinkButton",
   BaseNoLinkButton,
@@ -71,7 +71,7 @@ export const Secondary = () => createStory(settingS);
 //PrimaryMiniButton
 
 let settingMP = {
-  name: "PrimaryButton",
+  name: "PrimaryMiniButton",
   compos: {
     PrimaryMiniButton: PrimaryMiniButton
   },
@@ -87,7 +87,7 @@ export const PrimaryMini = () => createStory(settingMP);
 //SecondaryMiniButton
 
 let settingMS = {
-  name: "SecondaryButton",
+  name: "SecondaryMiniButton",
   compos: {
     SecondaryMiniButton: SecondaryMiniButton
   },
@@ -98,6 +98,22 @@ let settingMS = {
 };
 
 export const SecondaryMini = () => createStory(settingMS);
+
+//---------------------
+//AddMiniButton
+
+let settingMA = {
+  name: "AddMiniButton",
+  compos: {
+    AddMiniButton: AddMiniButton
+  },
+  action: {
+    event: "click"
+  },
+  template: tagTemp`<div style="background-color:#fff; padding:30px;"><AddMiniButton ${"props"} ${"action"}>Button</AddMiniButton></div>`
+};
+
+export const AddMini = () => createStory(settingMA);
 
 
 //---------------------

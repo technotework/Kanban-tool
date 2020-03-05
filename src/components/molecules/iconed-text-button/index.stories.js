@@ -11,7 +11,7 @@ let setting = {
     name: "IconedTextButton",
     compos: { IconedTextButton: IconedTextButton },
     props: {
-        type: "new",
+        type: "plus",
         compose: "left"
     },
     action: { event: "click" },

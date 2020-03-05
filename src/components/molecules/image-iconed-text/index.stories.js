@@ -14,7 +14,8 @@ let setting = {
     compos: { ImageIconedText: ImageIconedText },
     props: {
         img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
-        compose: "left"
+        compose: "left",
+        size: "M"
     },
     action: {},
     template: tagTemp`<ImageIconedText ${'props'} ${'action'}>ユーザー名</ImageIconedText>`

@@ -420,6 +420,12 @@ Compose
   @include miniButton($secondaryButton,$sHoverButton);
 }
 
+@mixin addMiniButton{
+  @include miniButton($theme,$theme);
+  padding-top: 0;
+  height: 23px;
+}
+
 //input button
 @mixin input($c,$hoverc){
   @include textFactory($f14,$primaryButtonText,"bold");

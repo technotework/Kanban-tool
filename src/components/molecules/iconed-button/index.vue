@@ -1,35 +1,36 @@
 <template>
-  <BigButton @click="onClick">
-    <slot />
+  <AddMiniButton @click="onClick" :class="$style.button">
     <BaseIcon :type="type" :class="$style.icon" />
-  </BigButton>
+  </AddMiniButton>
 </template>
 
 <script>
 import BaseIcon from "@/components/atoms/base-icon/";
-import { BigButton } from "@/components/atoms/base-no-link-button/compose";
+import { AddMiniButton } from "@/components/atoms/base-no-link-button/compose";
 import base from "@/components/utils/base-mixin";
 export default {
-  name: "IconedTextButton",
+  name: "IconedButton",
   mixins: [base],
   props: {
     type: { type: String },
     compose: String
   },
   components: {
-    BigButton,
+    AddMiniButton,
     BaseIcon
   }
 };
 </script>
 <style lang="scss" module>
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .icon {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   fill: $white;
-  position: absolute;
-  top: 8px;
-  left: 13px;
 }
 </style>
 
