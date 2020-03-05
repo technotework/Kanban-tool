@@ -453,6 +453,7 @@ Compose
   @include textFactory($f14,$menuText,"regular");
   @include containerFactory($menu, $r6, 10px 6px );
   width: 100%;
+  white-space: nowrap;
   text-align: left;
   line-height: 1rem;
   &:active{
@@ -514,10 +515,13 @@ Compose
 
 //タスク ===================
 @mixin taskText{
-  @include textFactory($f16,$taskText,"bold");
-  @include containerFactory($task, 0, $s16);
-  line-height: 2.4rem;
+  @include textFactory($f16,$taskText,"medium");
+  @include containerFactory($task, 0, 5px $s8);
+  line-height: 2.8rem;
+  letter-spacing: 0.1rem;
   resize: none;
+  background-color: $white;
+  border: none;
 }
 
 @mixin task{
@@ -526,9 +530,9 @@ Compose
 }
 
 @mixin postTask{
-  @include containerFactory($postTask, $r6, 4px);
+  @include containerFactory($postTask, $r6,8px 8px 39px 8px);
   width: 100%;
-  height: 22px;
+  height: 170px;
 }
 
 //メッセージ ===================

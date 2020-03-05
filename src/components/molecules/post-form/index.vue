@@ -2,8 +2,8 @@
   <div :class="$style.wrapper">
     <BaseTextArea v-model.lazy="content" :class="$style.text" />
     <div :class="$style.buttons">
-      <TextButton :class="$style.button" @click="onCancelSubmit">キャンセル</TextButton>
-      <TextButton :class="$style.button" @click="onSubmit">送信</TextButton>
+      <SecondaryMiniButton :class="$style.button" @click="onCancelSubmit">キャンセル</SecondaryMiniButton>
+      <PrimaryMiniButton :class="$style.button" @click="onSubmit">送信</PrimaryMiniButton>
     </div>
   </div>
 </template>
@@ -11,7 +11,10 @@
 <script>
 import base from "@/components/utils/base-mixin";
 import BaseTextArea from "@/components/atoms/base-textarea/";
-import { TextButton } from "@/components/atoms/base-no-link-button/compose";
+import {
+  PrimaryMiniButton,
+  SecondaryMiniButton
+} from "@/components/atoms/base-no-link-button/compose";
 
 export default {
   mixins: [base],
@@ -36,30 +39,24 @@ export default {
     }
   },
   computed: {},
-  components: { BaseTextArea, TextButton }
+  components: { BaseTextArea, PrimaryMiniButton, SecondaryMiniButton }
 };
 </script>
 <style lang="scss" module>
 .wrapper {
   position: relative;
-  @include p(0 0 3.6rem 0);
+  @include postTask;
 }
 .text {
-  @include s($mh: 100px);
-  @include r($round);
-  @include bdc($primary);
+  height: 121px;
 }
 .buttons {
   @include flex;
-  @include abs($b: 5px, $r: 0);
+  position: absolute;
+  bottom: 10px;
+  right: 8px;
 }
 .button {
-  display: block;
-  @include text($f12);
-  text-decoration: underline;
-  @include c($primary);
-  :focus {
-    @include c($phover);
-  }
+  margin-left: 6px;
 }
 </style>

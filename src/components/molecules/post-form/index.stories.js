@@ -25,7 +25,7 @@ export const Basic = () => ({
     }
   },
   props: {},
-  template: `<PostForm v-model.lazy="myValue" @form-add="add" @form-cancel="cancel" />`,
+  template: `<div style="padding:30px; background-color:#fff"><PostForm v-model.lazy="myValue" @form-add="add" @form-cancel="cancel" /></div>`,
   methods: {
     add: action('form-add'),
     cancel: action('form-cancel')
