@@ -14,11 +14,10 @@ let setting = {
     compos: { ImageIconedText: ImageIconedText },
     props: {
         img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
-        size: "S",
         compose: "left"
     },
     action: {},
-    template: tagTemp`<ImageIconedText ${'props'} ${'action'}>新規作成</ImageIconedText>`
+    template: tagTemp`<ImageIconedText ${'props'} ${'action'}>ユーザー名</ImageIconedText>`
 };
 
 export const Basic = () => (createStory(setting));

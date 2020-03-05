@@ -328,7 +328,7 @@ Compose
 }
 
 @mixin userNameText{
-  @include textFactory($f14,$userNameText,"bold");
+  @include textFactory($f14,$userNameText,"medium");
 }
 
 @mixin imageIcon($style){

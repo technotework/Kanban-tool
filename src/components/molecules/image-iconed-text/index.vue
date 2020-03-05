@@ -1,6 +1,6 @@
 <template>
   <div :class="[$style.iconText,$compose[compose]]">
-    <components :is="icon" :img="img" :class="$style.icon" />
+    <components :is="type" :img="img" :class="$style.icon" />
     <span :class="$style.text">
       <slot />
     </span>
@@ -9,11 +9,7 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
-import {
-  IconL,
-  IconM,
-  IconS
-} from "@/components/atoms/base-image-icon/compose";
+import { IconM } from "@/components/atoms/base-image-icon/compose";
 export default {
   mixins: [base],
   name: "ImageIconedText",
@@ -28,8 +24,6 @@ export default {
     }
   },
   components: {
-    IconS,
-    IconL,
     IconM
   }
 };
@@ -37,14 +31,11 @@ export default {
 <style lang="scss" module>
 .iconText {
   @include flex;
+  align-items: center;
 }
 .text {
-  @include text($f16);
-  display: inline-block;
-  padding: 1rem;
-  margin-top: 2px;
-  min-width: auto;
-  user-select: none;
+  @include userNameText;
+  margin-left: $s14;
 }
 </style>
 <style lang="scss" module="$compose">
