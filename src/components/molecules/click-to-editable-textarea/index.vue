@@ -1,14 +1,19 @@
 <template>
   <div :class="$style.wrapper">
-    <BaseEditableTextarea v-model.lazy="mdContent" :class="$style.md" :isedit="status" ref="md" />
+    <BaseEditableTextarea
+      v-model.lazy="textareaContent"
+      :class="$style.textarea"
+      :isedit="status"
+      ref="textarea"
+    />
     <div :class="$style.buttons">
       <template v-if="!status">
-        <TextButton :class="$style.button" @click="onDeleteMD">削除</TextButton>
-        <TextButton :class="$style.button" @click="onEditMD">編集</TextButton>
+        <SecondaryMiniButton :class="$style.button" @click="onDelete">削除</SecondaryMiniButton>
+        <PrimaryMiniButton :class="$style.button" @click="onEdit">編集</PrimaryMiniButton>
       </template>
       <template v-else>
-        <TextButton :class="$style.button" @click="onCancelMD">キャンセル</TextButton>
-        <TextButton :class="$style.button" @click="onSaveMD">保存</TextButton>
+        <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
+        <PrimaryMiniButton :class="$style.button" @click="onSave">保存</PrimaryMiniButton>
       </template>
     </div>
   </div>
@@ -17,7 +22,10 @@
 <script>
 import base from "@/components/utils/base-mixin";
 import BaseEditableTextarea from "@/components/atoms/base-editable-textarea/";
-import { TextButton } from "@/components/atoms/base-no-link-button/compose";
+import {
+  PrimaryMiniButton,
+  SecondaryMiniButton
+} from "@/components/atoms/base-no-link-button/compose";
 
 export default {
   mixins: [base],
@@ -27,7 +35,7 @@ export default {
   },
   data: function() {
     return {
-      mdContent: "",
+      textareaContent: "",
       temp: "",
       status: false
     };
@@ -36,50 +44,46 @@ export default {
     content: {
       immediate: true,
       handler(value) {
-        this.mdContent = value;
+        this.textareaContent = value;
       }
     }
   },
   methods: {
-    onEditMD: function() {
-      this.temp = this.$refs.md.getContent();
+    onEdit: function() {
+      this.temp = this.$refs.textarea.getContent();
       this.status = true;
     },
-    onDeleteMD: function() {
-      this.$emit("md-delete-event");
+    onDelete: function() {
+      this.$emit("delete-event");
     },
-    onSaveMD: function() {
+    onSave: function() {
       this.status = false;
-      let value = this.$refs.md.getContent();
-      this.$emit("md-save-event", { value: value });
+      let value = this.$refs.textarea.getContent();
+      this.$emit("save-event", { value: value });
     },
-    onCancelMD: function() {
-      this.mdContent = this.temp;
+    onCancel: function() {
+      this.textareaContent = this.temp;
       this.status = false;
     }
   },
-  components: { BaseEditableTextarea, TextButton }
+  components: { BaseEditableTextarea, PrimaryMiniButton, SecondaryMiniButton }
 };
 </script>
 <style lang="scss" module>
 .wrapper {
   position: relative;
-  @include p(0 0 3.2rem 0);
+  padding: 0 0 3.2rem 0;
 }
-.md {
-  @include s($mh: 100px);
+.textarea {
+  min-height: 100px;
 }
 .buttons {
   @include flex;
-  @include abs($b: 0, $r: $s8);
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .button {
-  display: block;
-  @include text($f12);
-  text-decoration: underline;
-  @include c($primary);
-  :focus {
-    @include c($phover);
-  }
+  margin-left: 6px;
 }
 </style>

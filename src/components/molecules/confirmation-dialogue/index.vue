@@ -1,13 +1,13 @@
 <template>
-  <div :class="$style.dialogue">
+  <div>
     <BaseModalCover>
       <Dialogue>
         {{text}}
         <FlexLayout :class="$style.buttonContainer">
           <template v-if="sCallback!=null">
-            <SecondaryButton :class="$style.button" name="cancel" @click="onClickSecondary" />
+            <SecondaryButton :class="$style.button" @click="onClickSecondary">キャンセル</SecondaryButton>
           </template>
-          <PrimaryButton :class="$style.button" name="ok" @click="onClickPrimary" />
+          <PrimaryButton :class="$style.button" @click="onClickPrimary">OK</PrimaryButton>
         </FlexLayout>
       </Dialogue>
     </BaseModalCover>
@@ -48,14 +48,12 @@ export default {
 };
 </script>
 <style lang="scss" module>
-.dialogue {
-  @include m(0 0 10rem 0);
-}
 .buttonContainer {
-  @include abs($b: $s18, $r: $s18);
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
 }
-
 .button {
-  @include m(0 0 0 $s8);
+  margin-right: $s8;
 }
 </style>

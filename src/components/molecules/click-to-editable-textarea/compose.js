@@ -8,14 +8,14 @@ function getMixin() {
     components: {
       ClickToEditableTextarea
     },
-    template: `<ClickToEditableTextarea :content="content" @md-save-event="onSave" @md-delete-event="onDeleteMD" />`,
+    template: `<ClickToEditableTextarea :content="content" @save-event="onSave" @delete-event="onDelete" />`,
     props: {
       ...ClickToEditableTextarea.props
     },
     methods: {
       ...ClickToEditableTextarea.methods,
       onSave(value) {
-        this.$emit("md-save-event", value)
+        this.$emit("save-event", value)
       }
     }
   }
@@ -25,9 +25,9 @@ function getMixin() {
 //--------
 //Posted
 
-const PostedMD = Vue.component("posted-md", {
+const PostedTextarea = Vue.component("posted-textarea", {
   mixins: [base, getMixin()],
 });
 export {
-  PostedMD
+  PostedTextarea
 }

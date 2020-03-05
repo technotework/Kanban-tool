@@ -1,12 +1,12 @@
 <template>
   <div :class="$style.item">
-    <PostedMD :content="content" @md-save-event="onSave" @md-delete-event="onDelete" />
+    <PostedTextarea :content="content" @save-event="onSave" @delete-event="onDelete" />
     <component :is="membersContainer" :id="id" :parent-id="boardId" v-model="members" />
   </div>
 </template>
 
 <script>
-import { PostedMD } from "@/components/molecules/click-to-editable-textarea/compose";
+import { PostedTextarea } from "@/components/molecules/click-to-editable-textarea/compose";
 export default {
   name: "TaskListItem",
   props: {
@@ -19,10 +19,10 @@ export default {
   methods: {
     onSave(value) {
       value.id = this.id;
-      this.$emit("md-save-event", value);
+      this.$emit("save-event", value);
     },
     onDelete(value) {
-      this.$emit("md-delete-event", { id: this.id });
+      this.$emit("delete-event", { id: this.id });
     }
   },
   computed: {
@@ -35,7 +35,7 @@ export default {
       }
     }
   },
-  components: { PostedMD }
+  components: { PostedTextarea }
 };
 </script>
 <style lang="scss" module>

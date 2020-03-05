@@ -10,10 +10,10 @@ import {
 } from "@/components/utils/story-export"
 import ClickToEditableTextarea from "./index.vue";
 import {
-  PostedMD
+  PostedTextarea
 } from "./compose";
 
-let description = 'import ClickToEditableTextarea from "@/components/molecules/click-to-editable-textarea/"<br>import {PostedMD, SubmitMD} from "@/components/molecules/click-to-editable-textarea/compose"';
+let description = 'import ClickToEditableTextarea from "@/components/molecules/click-to-editable-textarea/"<br>import {PostedTextarea} from "@/components/molecules/click-to-editable-textarea/compose"';
 export default createDefStory("molecules/ClickToEditableTextarea", ClickToEditableTextarea, description);
 
 
@@ -43,12 +43,12 @@ export const Basic = () => ({
 
 export const Posted = () => ({
   components: {
-    PostedMD
+    PostedTextarea
   },
   data: function () {
     return {
       myValue: "",
     }
   },
-  template: `<PostedMD v-model.lazy="myValue" />`
+  template: `<PostedTextarea v-model.lazy="myValue" />`
 });

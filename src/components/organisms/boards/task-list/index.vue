@@ -31,8 +31,8 @@
           :content="item.task.data"
           :class="$style.listItem"
           v-model="item.task.members"
-          @md-save-event="onSave"
-          @md-delete-event="onDelete"
+          @save-event="onSave"
+          @delete-event="onDelete"
         />
       </li>
     </draggable>
@@ -85,10 +85,10 @@ export default {
       this.changeOpen(false);
     },
     onSave(value) {
-      this.$emit("md-save-event", value);
+      this.$emit("save-event", value);
     },
     onDelete: function(value) {
-      this.$emit("md-delete-event", value);
+      this.$emit("delete-event", value);
     },
     changeOpen(value) {
       this.$emit("update:open", value);

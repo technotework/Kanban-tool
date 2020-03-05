@@ -8,10 +8,15 @@ export default createDefStory("molecules/ConfirmationDialogue", ConfirmationDial
 
 export const Basic = () => ({
     components: { ConfirmationDialogue },
-    props: {
+    data: () => {
+        return {
+            p: () => { alert("p"); },
+            s: () => { alert("s"); }
+        }
     },
-    template: `<ConfirmationDialogue @clickPrimary="primary"  @clickSecondary="secondary">
-    メッセージ
-    </ConfirmationDialogue>`,
+    template: `<ConfirmationDialogue 
+    :pCallback="p" :sCallback="s" text="メッセージ"
+    @clickPrimary="alert('primary')"
+    @clickSecondary="alert('Secondary')" />`,
     methods: { primary: action('clickPrimary'), secondary: action('clickSecondary') }
 });

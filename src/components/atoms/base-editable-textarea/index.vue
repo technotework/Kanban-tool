@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.wrapper">
-    <textarea v-model.lazy="myValue" :class="$style.text" v-show="isedit" ref="textArea"></textarea>
-    <div :class="$style.md" v-show="!isedit">{{myValue}}</div>
+    <textarea v-model.lazy="myValue" :class="$style.text" v-show="isedit" ref="textarea"></textarea>
+    <div :class="$style.content" v-show="!isedit">{{myValue}}</div>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     getContent: function() {
-      return this.$refs.textArea.value;
+      return this.$refs.textarea.value;
     }
   }
 };
@@ -37,7 +37,7 @@ export default {
 .wrapper {
   display: flex;
 }
-.md {
+.content {
   width: 100%;
   line-height: 2.4rem;
   background-color: $white;

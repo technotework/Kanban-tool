@@ -1,4 +1,4 @@
-@charset "utf-8";
+  @charset "utf-8";
 
 /*
 * theme/_theme.scss
@@ -19,7 +19,7 @@ Base Text Vars
 //font-size vars
 $base-fsize: 62.5%;
 $f10: 1rem;
-$f13: 1.3rem;
+$f12: 1.2rem;
 $f15: 1.5rem;
 $f16: 1.6rem;
 $f18: 1.8rem;
@@ -304,7 +304,7 @@ Compose
 }
 
 @mixin formLabel{
-  @include textFactory($f13,$formLabelText,"bold");
+  @include textFactory($f12,$formLabelText,"bold");
 }
 
 //ヘッダ ===================
@@ -321,7 +321,7 @@ Compose
 }
 
 @mixin nav{
-  @include textFactory($f13,$navText,"en");
+  @include textFactory($f12,$navText,"en");
 }
 
 @mixin userNameText{
@@ -333,25 +333,25 @@ Compose
   overflow: hidden;
 
   @if $style == "XL" {
-    width:192px;
-    height:192px;
-    border-radius: 200px;
-  }
-  @if $style == "L" {
-    width:136px;
-    height:136px;
-    border-radius: 200px;
-  }
-  @if $style == "M" {
-    width:90px;
-    height:90px;
+    width:96px;
+    height:96px;
     border-radius: 100px;
   }
+  @if $style == "L" {
+    width:68px;
+    height:68px;
+    border-radius: 70px;
+  }
+  @if $style == "M" {
+    width:45px;
+    height:45px;
+    border-radius: 50px;
+  }
   @if $style == "S" {
-    width:54px;
-    height:54px;
-    padding-right: 6px;
-    border-radius: 60px;
+    width:27px;
+    height:27px;
+    padding-right: 3px;
+    border-radius: 30px;
   }
 }
 
@@ -389,7 +389,7 @@ Compose
   @include button($primaryButton,$pHoverButton);
   width: auto;
   height: auto;
-  padding:14px 0 0 0;
+  padding:14px 0 ;
   margin: 0 0 0 $s8;
 }
 
@@ -400,7 +400,7 @@ Compose
 
 @mixin miniButton($c,$hoverc){
 
-  @include textFactory($f13,$primaryButtonText,"bold");
+  @include textFactory($f12,$primaryButtonText,"medium");
   @include containerFactory($c, $r6, 6px 10px 0 10px);
   height: 23px;
   line-height: 1rem;
@@ -435,7 +435,7 @@ Compose
 }
 
 @mixin secondaryInputSideText{
-  @include textFactory($f13,$primaryButtonText,"regular");
+  @include textFactory($f12,$primaryButtonText,"regular");
 }
 
 //フォーム類 ===================
@@ -443,7 +443,7 @@ Compose
 @mixin inputForm{
   font-size: $f16;
   padding: $s8;
-  border-radius: $s8;
+  border-radius: $r3;
   background-color: $general;
 }
 
@@ -466,14 +466,15 @@ Compose
 }
 
 @mixin dateText{
-  @include textFactory($f13,$projectText,"bold");
+  @include textFactory($f12,$projectText,"bold");
 }
 
 //コンテキストメニュー ===================
 @mixin menuButton{
   @include textFactory($f15,$menuText,"regular");
-  @include containerFactory($menu, 0, 6px);
+  @include containerFactory($menu, $r6, 10px 6px );
   width: 100%;
+  text-align: left;
   line-height: 1rem;
   &:active{
     background-color: $primary;
@@ -483,6 +484,7 @@ Compose
 @mixin context{
   @include containerFactory($menuBase, $r16, 7px);
   @include shadow;
+  min-width: 75px;
   border: solid 1px $border;
   position: absolute;
   z-index: $index_m;
@@ -530,7 +532,7 @@ Compose
 @mixin alert{
   @include textFactory($f16,$alertText,"bold");
   line-height: $f24;
-  @include containerFactory($alert, $r16, 34px 18px 20px 18px);
+  @include containerFactory($alert, $r16, 30px 26px 73px 26px);
   width: 370px;
   min-height: 232px;
   @include shadow;

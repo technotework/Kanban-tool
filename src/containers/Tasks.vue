@@ -4,9 +4,9 @@
     :members-container="members"
     :open.sync="isOpen"
     :data-board-id="id"
-    @md-save-event="onSave"
+    @save-event="onSave"
     @form-add="onCreate"
-    @md-delete-event="onDelete"
+    @delete-event="onDelete"
     @drag-sort-list="onDragSortList"
     @drag-add-list="onDragAddList"
   />
