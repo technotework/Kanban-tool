@@ -50,7 +50,7 @@ export const Basic = () => ({
             ])
         }
     },
-    template: `<div style="margin:200px; position:relative;"><ContextMenu v-bind={id,menuItems,compose} @context-menu-click="action" @close="close" /></div>`,
+    template: `<div style="background-color:#fff; margin:200px; width:30px; padding:5px; position:relative;"><ContextMenu v-bind={id,menuItems,compose} @context-menu-click="action" @close="close" /></div>`,
     methods: {
         action: action('context-menu-click'),
         close: action('close'),

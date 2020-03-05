@@ -3,7 +3,6 @@
     <component
       :is="type"
       :class="[
-    $style.container,
     {[$style.open]:isShow},
     {[$style.close]:!isShow},
     ]"
@@ -65,7 +64,7 @@ export default {
       }, 2000);
     }
   },
-  components: { ErrorText }
+  components: { ErrorText, BaseIcon, TransparentButton }
 };
 </script>
 <style lang="scss" module>
@@ -73,18 +72,12 @@ export default {
   position: relative;
   width: 100%;
 }
-.container {
-  width: 100%;
-  @include p(8px 7px 8px 40px);
-  line-height: 2rem;
-  opacity: 0;
-  text-align: left;
-  @include tran(2000ms);
-}
 .icon {
-  width: 6px;
-  height: 6px;
-  @include abs($t: 9px, $l: 8px);
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  top: 11px;
+  left: 11px;
   fill: $white;
 }
 .open {

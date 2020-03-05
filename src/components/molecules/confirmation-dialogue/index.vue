@@ -2,7 +2,7 @@
   <div>
     <BaseModalCover>
       <Dialogue>
-        {{text}}
+        <span :class="$style.text">{{text}}</span>
         <FlexLayout :class="$style.buttonContainer">
           <template v-if="sCallback!=null">
             <SecondaryButton :class="$style.button" @click="onClickSecondary">キャンセル</SecondaryButton>
@@ -48,6 +48,10 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.text {
+  letter-spacing: 0.2rem;
+  line-height: $f24;
+}
 .buttonContainer {
   position: absolute;
   bottom: 18px;

@@ -8,8 +8,7 @@
     />
     <div :class="$style.buttons">
       <template v-if="!status">
-        <SecondaryMiniButton :class="$style.button" @click="onDelete">削除</SecondaryMiniButton>
-        <PrimaryMiniButton :class="$style.button" @click="onEdit">編集</PrimaryMiniButton>
+        <ContextMenu @context-menu-click="onMenuClick" v-bind="{ menuItems }" compose="top" />
       </template>
       <template v-else>
         <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
@@ -20,6 +19,7 @@
 </template>
 
 <script>
+import ContextMenu from "@/components/molecules/context-menu/";
 import base from "@/components/utils/base-mixin";
 import BaseEditableTextarea from "@/components/atoms/base-editable-textarea/";
 import {
@@ -37,7 +37,17 @@ export default {
     return {
       textareaContent: "",
       temp: "",
-      status: false
+      status: false,
+      menuItems: [
+        {
+          value: "編集",
+          name: "edit"
+        },
+        {
+          value: "削除",
+          name: "delete"
+        }
+      ]
     };
   },
   watch: {
@@ -49,6 +59,13 @@ export default {
     }
   },
   methods: {
+    onMenuClick: function(value) {
+      if (value.name == "delete") {
+        this.onDelete();
+      } else if (value.name == "edit") {
+        this.onEdit();
+      }
+    },
     onEdit: function() {
       this.temp = this.$refs.textarea.getContent();
       this.status = true;
@@ -66,7 +83,12 @@ export default {
       this.status = false;
     }
   },
-  components: { BaseEditableTextarea, PrimaryMiniButton, SecondaryMiniButton }
+  components: {
+    BaseEditableTextarea,
+    PrimaryMiniButton,
+    SecondaryMiniButton,
+    ContextMenu
+  }
 };
 </script>
 <style lang="scss" module>
@@ -80,7 +102,7 @@ export default {
 .buttons {
   @include flex;
   position: absolute;
-  bottom: 0;
+  bottom: 6px;
   right: 0;
 }
 .button {

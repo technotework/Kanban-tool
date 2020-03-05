@@ -21,13 +21,13 @@ let setting = {
         FloatMessage: FloatMessage
     },
     props: {
-        type: "NormalText",
+        type: "ErrorText",
         message: "メッセージメッセージメッセージメッセージメッセージメッセージメッセージメッセージ"
     },
     action: {
         event: "click"
     },
-    template: tagTemp `<FloatMessage ${'props'} ${'action'}>MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</FloatMessage>`
+    template: tagTemp`<FloatMessage ${'props'} ${'action'}>MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</FloatMessage>`
 };
 
 export const Basic = () => (createStory(setting));

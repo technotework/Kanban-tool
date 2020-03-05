@@ -1,13 +1,13 @@
 <template>
   <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
     <template #button>
-      <BaseIcon compose="m" type="context" :class="$style.contextMenu" />
+      <BaseIcon type="menu" :class="$style.contextMenu" />
     </template>
     <template #menu>
       <ContextMenuList
         v-bind="{ id, menuItems }"
         ref="menuElement"
-        :class="[$style.contextMenuBody, $compose[compose]]"
+        :class="[$style.jContextMenuBody, $compose[compose]]"
         @context-menu-click="onMenuItemClick"
         @close="onClose"
       />
@@ -40,10 +40,12 @@ export default {
       //クリックした時あとのnextTickで位置のスタイルを動的に付与
       if (this.compose == "top") {
         Vue.nextTick(() => {
-          let height = this.$refs.menuElement.$el.clientHeight;
-          let className = this.$style.contextMenuBody;
-          let element = document.getElementsByClassName(className);
-          element[0].style.top = `-${height}px`;
+          if (this.$refs.menuElement != undefined) {
+            let height = this.$refs.menuElement.$el.clientHeight + 23;
+            let className = this.$style.jContextMenuBody;
+            let element = document.getElementsByClassName(className);
+            element[0].style.marginTop = `-${height}px`;
+          }
         });
       }
     },
@@ -59,16 +61,17 @@ export default {
 </script>
 <style lang="scss" module>
 .contextMenu {
-  fill: $darkGray;
+  fill: #9d9fa2;
   display: block;
   width: 20px;
   height: 20px;
   &:hover {
-    fill: $gray;
+    fill: #9d9fa2;
   }
 }
-.contextMenuBody {
-  color: red;
+.jContextMenuBody {
+  /*js参照用*/
+  display: block;
 }
 </style>
 
@@ -77,6 +80,7 @@ export default {
   @include abs($t: 30px, $l: 0);
 }
 .top {
-  @include abs($l: -116px);
+  position: absolute;
+  margin-left: -48px;
 }
 </style>

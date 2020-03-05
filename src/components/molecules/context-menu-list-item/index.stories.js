@@ -15,7 +15,7 @@ let setting = {
         name: "menu",
     },
     action: { event: "click" },
-    template: tagTemp`<ContextMenuListItem ${'props'} ${'action'} />`
+    template: tagTemp`<div style="background-color:#fff;padding:30px"><ContextMenuListItem ${'props'} ${'action'} /></div>`
 };
 
 export const Basic = () => (createStory(setting));

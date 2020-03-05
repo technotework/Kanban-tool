@@ -20,7 +20,7 @@ Base Text Vars
 $base-fsize: 62.5%;
 $f10: 1rem;
 $f12: 1.2rem;
-$f15: 1.5rem;
+$f14: 1.4rem;
 $f16: 1.6rem;
 $f18: 1.8rem;
 $f20: 2rem;
@@ -125,7 +125,7 @@ $navText:$general;
 $footerText:$general;
 
 //メニュー
-$menuText:$black;
+$menuText:$theme;
 $menuBase:$general;
 $menu: $transparent;
 $mhover: $primary;
@@ -150,7 +150,7 @@ $postTask:$theme;
 $taskMenu:#9d9fa2;
 
 //汎用ボーダーcolor
-$border: #464646;
+$border: #b2b2b2;
 
 //coverBG
 $coverbg: rgba(38, 44, 51, 0.47);
@@ -325,7 +325,7 @@ Compose
 }
 
 @mixin userNameText{
-  @include textFactory($f15,$userNameText,"bold");
+  @include textFactory($f14,$userNameText,"bold");
 }
 
 @mixin imageIcon($style){
@@ -358,13 +358,13 @@ Compose
 
 //フッタ ===================
 @mixin footerText{
-  @include textFactory($f15,$footerText,"en");
+  @include textFactory($f14,$footerText,"en");
 }
 
 //ボタン類 ===================
 
 @mixin button($c,$hoverc){
-  @include textFactory($f15,$primaryButtonText,"bold");
+  @include textFactory($f14,$primaryButtonText,"bold");
   @include containerFactory($c, $r8, 11px 32px);
   height: 34px;
   line-height: 1rem;
@@ -419,7 +419,7 @@ Compose
 
 //input button
 @mixin input($c,$hoverc){
-  @include textFactory($f15,$primaryButtonText,"bold");
+  @include textFactory($f14,$primaryButtonText,"bold");
   @include containerFactory($c, $r8, 5px 32px 7px 32px);
 
   line-height: 1rem;
@@ -436,6 +436,28 @@ Compose
 
 @mixin secondaryInputSideText{
   @include textFactory($f12,$primaryButtonText,"regular");
+}
+
+
+//コンテキストメニュー ===================
+@mixin menuButton{
+  @include textFactory($f14,$menuText,"regular");
+  @include containerFactory($menu, $r6, 10px 6px );
+  width: 100%;
+  text-align: left;
+  line-height: 1rem;
+  &:active{
+    background-color: $primary;
+  }
+}
+
+@mixin context{
+  @include containerFactory($menuBase, $r16, 7px);
+  @include shadow;
+  min-width: 75px;
+  border: solid 1px $border;
+  position: absolute;
+  z-index: $index_m;
 }
 
 //フォーム類 ===================
@@ -462,38 +484,17 @@ Compose
 }
 
 @mixin projectText{
-  @include textFactory($f15,$projectText,"bold");
+  @include textFactory($f14,$projectText,"bold");
 }
 
 @mixin dateText{
   @include textFactory($f12,$projectText,"bold");
 }
 
-//コンテキストメニュー ===================
-@mixin menuButton{
-  @include textFactory($f15,$menuText,"regular");
-  @include containerFactory($menu, $r6, 10px 6px );
-  width: 100%;
-  text-align: left;
-  line-height: 1rem;
-  &:active{
-    background-color: $primary;
-  }
-}
-
-@mixin context{
-  @include containerFactory($menuBase, $r16, 7px);
-  @include shadow;
-  min-width: 75px;
-  border: solid 1px $border;
-  position: absolute;
-  z-index: $index_m;
-}
-
 
 //ボード ===================
 @mixin boardText{
-  @include textFactory($f15,$boardText,"bold");
+  @include textFactory($f14,$boardText,"bold");
 }
 
 @mixin board{
@@ -524,14 +525,15 @@ Compose
 //メッセージ ===================
 @mixin error{
   display: block;
-  @include textFactory($f16,$messageText,"bold");
-  @include containerFactory($error, $r8,8px 20px 11px 42px);
+  @include textFactory($f16,$messageText,"medium");
+  @include containerFactory($error, $r8,4px 20px 10px 42px);
   width: 100%;
+  text-align: left;
+  line-height: 2.4rem;
 }
 
 @mixin alert{
-  @include textFactory($f16,$alertText,"bold");
-  line-height: $f24;
+  @include textFactory($f16,$alertText,"medium");
   @include containerFactory($alert, $r16, 30px 26px 73px 26px);
   width: 370px;
   min-height: 232px;
