@@ -45,18 +45,22 @@ const MenuButton = Vue.component("menu-button", {
   mixins: [getMixin("menu"), base]
 });
 
-//fixme
+
 const MiniButton = Vue.component("mini-button", {
   mixins: [getMixin("mini"), base]
 });
 
+const BigButton = Vue.component("big-button", {
+  mixins: [getMixin("big"), base]
+});
 
+//fixme
 const TextButton = Vue.component("text-button", {
   mixins: [getMixin("text"), base]
 });
 
 
 export {
-  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton,
+  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton, BigButton,
   TextButton
 };

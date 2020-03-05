@@ -93,6 +93,7 @@ $lhover: $primarySub;
 
 //ボタンテキスト
 $primaryButtonText: $general;
+$newButtonText: $black;
 $secondaryButtonText: $general;
 //ボタン本体
 $primaryButton: $primary;
@@ -309,10 +310,12 @@ Compose
 
 //ヘッダ ===================
 @mixin newButton{
-  @include textFactory($f18,$primaryButtonText,"bold");
-  @include containerFactory($primaryButton, 200px, 20px 40px 0 85px);
-  height: 68px;
+  @include textFactory($f18,$newButtonText,"medium");
+  @include containerFactory($primaryButton, 200px, 11px 20px 14px 42px);
   line-height: 1rem;
+  text-align: left;
+  position: relative;
+  display: inline-block;
 }
 
 @mixin titleText{

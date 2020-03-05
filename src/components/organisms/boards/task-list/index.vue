@@ -1,6 +1,6 @@
 <template>
   <div>
-    <IconedButton @click="onAddClick" type="add" :class="$style.add" />
+    <div @click="onAddClick" type="add" :class="$style.add">a</div>
     <div
       :class="[
         $style.postForm,
@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import IconedButton from "@/components/molecules/iconed-button/";
 import PostForm from "@/components/molecules/post-form/";
 import draggable from "vuedraggable";
 import TaskListItem from "@/components/organisms/boards/task-list-item/";
@@ -102,7 +101,7 @@ export default {
       this.$emit("drag-add-list", dataSet);
     }
   },
-  components: { PostForm, IconedButton, TaskListItem, draggable }
+  components: { PostForm, TaskListItem, draggable }
 };
 </script>
 <style lang="scss" module>

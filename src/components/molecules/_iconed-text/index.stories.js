@@ -1,4 +1,4 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+/*import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
 import IconedText from "./index.vue";
 
 
@@ -22,3 +22,4 @@ let setting = {
 
 export const Basic = () => (createStory(setting));
 
+*/

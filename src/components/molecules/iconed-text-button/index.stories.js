@@ -12,10 +12,10 @@ let setting = {
     compos: { IconedTextButton: IconedTextButton },
     props: {
         type: "new",
-        compose:"left"
+        compose: "left"
     },
     action: { event: "click" },
-    template: tagTemp`<IconedTextButton ${'props'} ${'action'}>新規作成</IconedTextButton>`
+    template: tagTemp`<IconedTextButton ${'props'} ${'action'}>NewBoard</IconedTextButton>`
 };
 
 export const Basic = () => (createStory(setting));

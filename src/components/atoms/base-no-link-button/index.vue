@@ -47,4 +47,7 @@ export default {
 .mini {
   @include primarySideButton;
 }
+.big {
+  @include newButton;
+}
 </style>

@@ -5,12 +5,11 @@ import {
 } from "@/components/utils/story-creator";
 import BaseNoLinkButton from "./index.vue";
 import {
-  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton,
-  TextButton
+  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton, BigButton, TextButton
 } from "./compose";
 
 let description =
-  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton,TextButton} from "@/components/atoms/base-no-link-button/compose"';
+  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, TransparentButton, MenuButton, MiniButton,BigButton,TextButton} from "@/components/atoms/base-no-link-button/compose"';
 export default createDefStory(
   "atoms/BaseNoLinkButton",
   BaseNoLinkButton,
@@ -153,6 +152,23 @@ let settingM = {
 };
 
 export const Mini = () => createStory(settingM);
+
+
+//---------------------
+//BigButton
+
+let settingBG = {
+  name: "BigButton",
+  compos: {
+    BigButton: BigButton
+  },
+  action: {
+    event: "click"
+  },
+  template: tagTemp`<BigButton ${"props"} ${"action"}>Button</BigButton>`
+};
+
+export const Big = () => createStory(settingBG);
 
 
 //---------------------
