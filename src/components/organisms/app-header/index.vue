@@ -35,11 +35,11 @@ export default {
     navname: String,
     value: String
   },
-  metnods: {
-    onAddClick() {
+  methods: {
+    onAddClick(e) {
       this.$emit("add-event");
     },
-    onNavClick() {
+    onNavClick(e) {
       this.$emit("nav-event");
     },
     onEditedTitle(value) {

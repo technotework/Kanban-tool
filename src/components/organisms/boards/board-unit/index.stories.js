@@ -1,5 +1,5 @@
 import {
-    action, object
+    action, object, text
 } from "@/components/utils/story-export"
 import {
     createDefStory,
@@ -17,9 +17,9 @@ export const Basic = () => ({
     components: {
         BoardUnit
     },
-    props: {
-        boardList: {
-            default: object("boardList", [
+    data: () => {
+        return {
+            boardList: [
                 {
                     "board": {
                         "id": "a",
@@ -41,13 +41,35 @@ export const Basic = () => ({
                         "order": 300
                     }
                 },
-            ])
-        },
+            ]
+        }
+    },
+    props: {
+        projectName: { default: text("projectName", "Project") },
+        userData: { default: object("userData", { username: "John Smith", img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg" }) }
 
     },
+    template: `<BoardUnit
+    v-model="boardList"
+    :title.sync="projectName"
+
+    :user-data="userData"
+    
+    @edited-board-name="onInput"
+    @context-menu-click="onClick"
+    @drag-sort-list="onDragSortList"
+    
+    @update:title="onEditedProjectName"
+    @add-event="onCreateBoard"
+    @nav-event="onNavClick"
+  />`,
     methods: {
-        action: action('click'),
-        change: action('input')
-    },
-    template: `<BoardUnit v-bind="{boardList}" v-model.lazy="text" @input="change" @click="action" />`
+        onInput: action('edited-board-name'),
+        onClick: action('context-menu-click'),
+        onDragSortList: action('drag-sort-list'),
+
+        onEditedProjectName: action('update:title'),
+        onCreateBoard: action('add-event'),
+        onNavClick: action('nav-event'),
+    }
 });

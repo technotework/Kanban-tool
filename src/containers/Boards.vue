@@ -4,6 +4,7 @@
     v-model="boardList"
     :title.sync="projectName"
     :task-container="task"
+    :user-data="userData"
     @edited-board-name="onInput"
     @context-menu-click="onClick"
     @drag-sort-list="onDragSortList"

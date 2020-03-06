@@ -1,6 +1,5 @@
 import {
-  text,
-  object,
+  action
 } from "@/components/utils/story-export"
 import {
   createDefStory,
@@ -20,25 +19,20 @@ export const Basic = () => ({
     BoardListItem
   },
   data: () => ({
-    title: "boardName",
+    label: "boardName",
+    id: "id",
   }),
   props: {
-    taskList: {
-      default: object("taskList", [{
-        id: "t1",
-        data: "todo:あいうえおあいうえお"
-      },
-      {
-        id: "t2",
-        data: "todo:あいうえおあいうえお"
-      },
-      {
-        id: "t3",
-        data: "todo:あいうえおあいうえお"
-      }
-      ])
-    }
+
   },
-  template: `<BoardListItem v-model.lazy="myValue" v-bind="{taskList}" />`,
-  methods: {}
+  template: `<BoardListItem
+  v-model="label"
+  :id="id"
+  @edited-board-name="onInput"
+  @context-menu-click="onClick"
+  />`,
+  methods: {
+    onInput: action("edited-board-name"),
+    onClick: action("context-menu-click")
+  }
 });

@@ -1,11 +1,9 @@
 <template>
   <div :class="$style.grid">
-    <nav :class="$style.nav">
-      <slot name="nav" />
-    </nav>
-    <article :class="$style.article">
+    <slot name="nav" />
+    <div :class="$style.contents">
       <slot name="article" />
-    </article>
+    </div>
   </div>
 </template>
 
@@ -18,14 +16,12 @@ export default {
 </script>
 <style lang="scss" module>
 .grid {
-  @include s($w: 100%, $h: 100%);
-  @include grid($col: none, $row: 85px 1fr, $area: "nav" "article");
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 45px 1fr;
 }
-.header {
-  grid-area: nav;
-}
-.main {
-  grid-area: article;
+.contents {
+  padding-top: 50px;
 }
 </style>
 

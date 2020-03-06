@@ -1,5 +1,5 @@
 import {
-  object,
+  action
 } from "@/components/utils/story-export"
 import {
   createDefStory,
@@ -17,69 +17,43 @@ export const Basic = () => ({
     BoardList
   },
   props: {
-    boardList: {
-      default: object("boardList", [
-
-        {
-          id: "b1",
-          title: "backlog",
-          taskList: [{
-            id: "t1",
-            data: "todo:あいうえおあいうえお"
-          },
-          {
-            id: "t2",
-            data: "todo:あいうえおあいうえお"
-          },
-          {
-            id: "t3",
-            data: "todo:あいうえおあいうえお"
-          }
-          ]
-        },
-        {
-          id: "b2",
-          title: "todo",
-          taskList: [{
-            id: "t4",
-            data: "todo:あいうえおあいうえお"
-          },
-          {
-            id: "t5",
-            data: "todo:あいうえおあいうえお"
-          },
-          {
-            id: "t6",
-            data: "todo:あいうえおあいうえお"
-          }
-          ]
-        },
-        {
-          id: "b3",
-          title: "debug",
-          taskList: [{
-            id: "t7",
-            data: "todo:あいうえおあいうえお"
-          },
-          {
-            id: "t8",
-            data: "todo:あいうえおあいうえお"
-          },
-          {
-            id: "t9",
-            data: "todo:あいうえおあいうえお"
-          }
-          ]
-        },
-
-      ])
-    }
   },
-  data: function () {
+  data: () => {
     return {
-      myValue: "",
+      items: [
+        {
+          "board": {
+            "id": "a",
+            "label": "Backlog",
+            "order": 100
+          }
+        },
+        {
+          "board": {
+            "id": "b",
+            "label": "Todo",
+            "order": 200
+          }
+        },
+        {
+          "board": {
+            "id": "c",
+            "label": "Complete",
+            "order": 300
+          }
+        },
+      ]
     }
   },
-  template: `<BoardList v-bind="{boardList}" />`,
-  methods: {}
+  template: `<BoardList
+  v-model="items"
+  @edited-board-name="onInput"
+  @context-menu-click="onClick"
+  @drag-sort-list="onDragSortList"
+/>`,
+  methods: {
+    onInput: action("edited-board-name"),
+    onClick: action("context-menu-click"),
+    onDragSortList: action("drag-sort-list"),
+  }
 });

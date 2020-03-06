@@ -2,9 +2,9 @@
   <ContentAreaLayout>
     <template #nav>
       <AppHeader
-        :username="username"
-        :img="img"
         navname="back"
+        :username="userData.username"
+        :img="userData.img"
         :title="title"
         @update:title="onEditedProjectName"
         @add-event="onCreateBoard"
@@ -33,8 +33,7 @@ export default {
   name: "BoardUnit",
   props: {
     value: Array,
-    img: String,
-    username: String,
+    userData: Object,
     title: String,
     taskContainer: Object
   },
