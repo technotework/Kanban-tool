@@ -215,12 +215,7 @@ $index_m: 8000;
 $index_xl: 70001;
 $index_l: 70000;
 
-//responsive
-@mixin res {
-  @media screen and (max-width: $responsive-min) {
-    @content;
-  }
-}
+
 
 //container
 @mixin container {

@@ -8,9 +8,21 @@
 Base Layout Vars
 =================================*/
 
-$body-margin: 30px;
 $responsive-min: 559px;
 $responsive-max: 1180px;
+
+//responsive
+@mixin responsive($w) {
+  @media screen and (max-width: $w) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $responsive-min) {
+    @content;
+  }
+}
 
 /*=================================
 Base Text Vars
