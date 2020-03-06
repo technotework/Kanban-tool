@@ -581,4 +581,8 @@ Compose
 
 @mixin global{
   @include containerFactory($theme, 0, 26px 45px 20px 45px);
+
+  @include mobile{
+    @include containerFactory($theme, 0, 5px);
+  }
 }

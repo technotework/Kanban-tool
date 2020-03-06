@@ -192,6 +192,14 @@ let maps = {
   assigned: {
     val: "assigned",
     type: array
+  },
+  username: {
+    val: "username",
+    type: text
+  },
+  navname: {
+    val: "navname",
+    type: text
   }
 };
 

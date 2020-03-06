@@ -2,7 +2,7 @@ import { createDefStory, createStory, tagTemp } from "@/components/utils/story-c
 import ImageIconedText from "./index.vue";
 
 
-let description = 'import ImageIconedText from "@/components/molecules/iconed-text/"';
+let description = 'import ImageIconedText from "@/components/molecules/image-iconed-text/"';
 
 export default createDefStory("molecules/ImageIconedText", ImageIconedText, description);
 

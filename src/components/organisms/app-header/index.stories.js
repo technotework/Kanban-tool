@@ -1,11 +1,6 @@
-import {
-  createDefStory
-} from "@/components/utils/story-creator";
+import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator";
 import { action } from "@/components/utils/story-export"
 import AppHeader from "./index.vue";
-import {
-  TextButton
-} from "@/components/atoms/base-no-link-button/compose"
 
 let description = 'import AppHeader from "@/components/organisms/app-header/"';
 export default createDefStory("organisms/AppHeader", AppHeader, description);
@@ -14,24 +9,17 @@ export default createDefStory("organisms/AppHeader", AppHeader, description);
 
 //---------------------
 //Basic
-export const Basic = () => ({
-  components: {
-    AppHeader, TextButton
-  },
-  data: () => ({
-    text: "MyTeamName"
-  }),
+
+let setting = {
+  name: "AppHeader",
+  compos: { AppHeader: AppHeader },
   props: {
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
+    username: "technotework",
+    navname: "logout"
   },
-  template: `<AppHeader v-model.lazy="text" @input="action"> 
-    <template #first>
-      
-    </template>
-    <template #second>
-      <TextButton>button1</TextButton>
-      <TextButton>button2</TextButton>
-      <TextButton>button3</TextButton>
-    </template>
-  </AppHeader>`,
-  methods: { action: action('input') }
-});
+  action: { event: "input" },
+  template: tagTemp`<AppHeader ${"props"} ${"action"} />`
+};
+
+export const Basic = () => createStory(setting);
