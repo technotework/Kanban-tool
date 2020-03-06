@@ -1,7 +1,7 @@
 import {
-    createDefStory,
-    createStory,
-    tagTemp
+  createDefStory,
+  createStory,
+  tagTemp
 } from "@/components/utils/story-creator";
 import TaskListItem from "./index.vue";
 
@@ -13,13 +13,30 @@ export default createDefStory("organisms/boards/TaskListItem", TaskListItem, des
 //Basic
 
 export const Basic = () => ({
-    components: {
-        TaskListItem
-    },
-    data: function () {
-        return {
-            taskContent: "content",
+  components: {
+    TaskListItem
+  },
+  data: function () {
+    return {
+      dataBoardId: "boardId",
+      item: {
+        task: {
+          id: "t1",
+          data: "あいうえおあいうえお",
+          members: ["a", "b"]
         }
-    },
-    template: `<TaskListItem v-model.lazy="taskContent" />`
+      }
+    }
+  },
+  template: `<TaskListItem 
+    :id="item.task.id"
+    :board-id="dataBoardId"
+    :content="item.task.data"
+    v-model="item.task.members"
+    @save-event="onSave"
+    @delete-event="onDelete" />`,
+  methods: {
+    onSave: action('save-event'),
+    onDelete: action('delete-event')
+  }
 });

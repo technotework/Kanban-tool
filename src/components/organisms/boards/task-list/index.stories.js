@@ -1,9 +1,9 @@
 import {
-    action,
-    object,
+  action,
+  object,
 } from "@/components/utils/story-export"
 import {
-    createDefStory,
+  createDefStory,
 } from "@/components/utils/story-creator"
 import TaskList from "./index.vue";
 
@@ -14,54 +14,51 @@ export default createDefStory("organisms/boards/TaskList", TaskList, description
 //---------------------
 //Basic
 export const Basic = () => ({
-    components: {
-        TaskList
-    },
-    props: {
-        taskList: {
-            default: object("taskList", [{
-                id: "t1",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t2",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t3",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t4",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t5",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t6",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t7",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t8",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t9",
-                data: "todo:あいうえおあいうえお"
-            },
-            {
-                id: "t10",
-                data: "todo:あいうえおあいうえお"
-            }
-            ])
+  components: {
+    TaskList
+  },
+  props: {
+    taskList: {
+      default: object("taskList", [
+        {
+          task: {
+            id: "t1",
+            data: "あいうえおあいうえお",
+            members: ["a", "b"]
+          }
+        },
+        {
+          task: {
+            id: "t2",
+            data: "かきくけこかきくけこ",
+            members: ["a", "b"]
+          }
+        },
+        {
+          task: {
+            id: "t3",
+            data: "さしすせそさしすせそ",
+            members: ["a", "b"]
+          }
         }
+      ])
     },
-    template: `<TaskList v-bind="{taskList}" />`,
-    methods: {}
+    isOpen: false,
+    dataBoardId: "abc"
+  },
+  template: `<TaskList v-model="taskList"
+    :open.sync="isOpen"
+    :data-board-id="id"
+    @save-event="onSave"
+    @form-add="onCreate"
+    @delete-event="onDelete"
+    @drag-sort-list="onDragSortList"
+    @drag-add-list="onDragAddList" />`,
+  methods: {
+    onSave: action('save-event'),
+    onCreate: action('form-add'),
+    onDelete: action('delete-event'),
+    onDragSortList: action('drag-sort-list'),
+    onDragAddList: action('drag-add-list'),
+  }
 });
