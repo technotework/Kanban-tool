@@ -1,10 +1,15 @@
 <template>
   <ContentAreaLayout>
     <template #nav>
-      <ContentHeader @click="onClick">
-        <template #first>Projects</template>
-        <template #second>新規作成</template>
-      </ContentHeader>
+      <AppHeader
+        navname="logout"
+        :username="userData.username"
+        :img="userData.img"
+        :title="title"
+        @update:title="onEditedTeamName"
+        @add-event="onCreateProject"
+        @nav-event="onNavClick"
+      />
     </template>
     <template #article>
       <ProjectList
@@ -20,13 +25,15 @@
 <script>
 import base from "@/components/utils/base-mixin";
 import ProjectList from "@/components/organisms/projects/project-list/";
-import ContentHeader from "@/components/organisms/content-header/";
+import AppHeader from "@/components/organisms/app-header/";
 import ContentAreaLayout from "@/components/templates/content-area-layout/";
 export default {
   mixins: [base],
   name: "ProjectUnit",
   props: {
-    value: Array
+    value: Array,
+    title: String,
+    userData: Object
   },
   computed: {
     items: {
@@ -47,11 +54,20 @@ export default {
     },
     onDragSortList(value) {
       this.$emit("drag-sort-list", value);
+    },
+    onCreateProject() {
+      this.$emit("add-event");
+    },
+    onNavClick() {
+      this.$emit("nav-event");
+    },
+    onEditedTeamName(value) {
+      this.$emit("update:title", value);
     }
   },
   components: {
     ContentAreaLayout,
-    ContentHeader,
+    AppHeader,
     ProjectList
   }
 };

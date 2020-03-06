@@ -1,10 +1,14 @@
 <template>
   <ProjectUnit
     v-model="projectItems"
-    @click="onClick"
+    :title.sync="teamName"
+    :user-data="userData"
+    @add-event="onClick"
     @context-menu-click="onMenuClick"
     @edited-project-name="onInput"
     @drag-sort-list="onDragSortList"
+    @nav-event="onLogout"
+    @update:title="onUpdateTeamName"
   />
 </template>
 
@@ -33,7 +37,9 @@ export default {
   props: {},
   data: () => {
     return {
-      value: Array
+      value: Array,
+      teamName: "aa",
+      userData: { username: "a", img: "" }
     };
   },
   computed: {
@@ -110,6 +116,12 @@ export default {
       let object = { text: message[0].text, p: p, s: s };
 
       this.setProjectDialogue(object);
+    },
+    onLogout() {
+      //logout
+    },
+    onUpdateTeamName() {
+      //update team name
     }
   },
   components: { ProjectUnit }

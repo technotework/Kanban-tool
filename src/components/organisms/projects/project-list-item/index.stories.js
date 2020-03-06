@@ -17,12 +17,25 @@ export const Basic = () => ({
         ProjectListItem
     },
     data: () => ({
-        text: "ProjectName"
+        item: {
+            project: {
+                id: "a",
+                label: "project",
+                update_date: "1583492128"
+            }
+        }
     }),
     props: {
-        id: { default: text("id", "abcde") },
-        date: { default: text("date", "1581915376") },
     },
-    template: `<ProjectListItem v-bind="{date,id}" @edited-project-name="action" v-model.lazy="text" />`,
-    methods: { action: action('edited-project-name') }
+    template: `<ProjectListItem
+    :id="item.project.id"
+    v-model="item.project.label"
+    :date="item.project.update_date"
+    @context-menu-click="onMenuClick"
+    @edited-project-name="onInput"
+  />`,
+    methods: {
+        onMenuClick: action('context-menu-click'),
+        onInput: action('edited-project-name')
+    }
 });

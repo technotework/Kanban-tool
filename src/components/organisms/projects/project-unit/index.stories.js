@@ -1,5 +1,5 @@
 import {
-    action, object
+    action, object, text
 } from "@/components/utils/story-export"
 import {
     createDefStory,
@@ -17,8 +17,10 @@ export const Basic = () => ({
         ProjectUnit
     },
     props: {
-        items: {
-            default: object("items", [
+    },
+    data: () => {
+        return {
+            projectItems: [
                 {
                     project: {
                         id: "p1",
@@ -33,15 +35,30 @@ export const Basic = () => ({
                         update_date: "1560000000"
                     }
                 }
-            ])
+            ],
         }
     },
-    methods: {
-        action: action('click'),
-        change: action('edited-project-name'),
+    props: {
+        teamName: { default: text("teamName", "MyTeam") },
+        userData: { default: object("userData", { username: "John Smith", img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg" }) }
     },
-    template: `<ProjectUnit v-model="items" @click="action" @edited-project-name="change">
-    <template #first>aa</template>
-    <template #second>aaa</template>
-    </ProjectUnit>`
+    template: `<ProjectUnit
+    v-model="projectItems"
+    :title.sync="teamName"
+    :user-data="userData"
+    @add-event="onClick"
+    @context-menu-click="onMenuClick"
+    @edited-project-name="onInput"
+    @drag-sort-list="onDragSortList"
+    @nav-event="onLogout"
+    @update:title="onUpdateTeamName"
+  />`,
+    methods: {
+        onClick: action('add-event'),
+        onMenuClick: action('context-menu-click'),
+        onInput: action('edited-project-name'),
+        onDragSortList: action('drag-sort-list'),
+        onLogout: action('nav-event'),
+        onUpdateTeamName: action('update:title'),
+    }
 });

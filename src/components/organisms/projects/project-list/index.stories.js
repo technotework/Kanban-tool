@@ -27,9 +27,9 @@ export const Basic = () => ({
     components: {
         ProjectList
     },
-    props: {
-        items: {
-            default: object("items", [
+    data: () => {
+        return {
+            items: [
                 {
                     project: {
                         id: "p1",
@@ -44,11 +44,18 @@ export const Basic = () => ({
                         update_date: "1560000000"
                     }
                 }
-            ])
+            ]
         }
     },
-    template: `<ProjectList :items.sync="items" @edited-project-name="action" />`,
+    template: `<ProjectList
+    v-model="items"
+    @context-menu-click="onMenuClick"
+    @edited-project-name="onInput"
+    @drag-sort-list="onDragSortList"
+  />`,
     methods: {
-        action: action('edited-project-name')
+        onMenuClick: action('context-menu-click'),
+        onInput: action('edited-project-name'),
+        onDragSortList: action('drag-sort-list')
     }
 });
