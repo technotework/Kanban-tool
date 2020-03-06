@@ -5,7 +5,7 @@
     </template>
 
     <template #unit2>
-      <ClickToEditableInput role="h1Header" v-model.lazy="title" />
+      <ClickToEditableInput role="h1Header" :value="title" @input="onEditedTitle" />
     </template>
 
     <template #unit3>
@@ -30,19 +30,10 @@ export default {
   name: "AppHeader",
   props: {
     img: String,
+    title: String,
     username: String,
     navname: String,
     value: String
-  },
-  computed: {
-    title: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
-    }
   },
   metnods: {
     onAddClick() {
@@ -50,6 +41,9 @@ export default {
     },
     onNavClick() {
       this.$emit("nav-event");
+    },
+    onEditedTitle(value) {
+      this.$emit("update:title", value);
     }
   },
   components: {

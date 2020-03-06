@@ -20,61 +20,30 @@ export const Basic = () => ({
     props: {
         boardList: {
             default: object("boardList", [
-
                 {
-                    id: "b1",
-                    title: "backlog",
-                    taskList: [{
-                        id: "t1",
-                        data: "todo:あいうえおあいうえお"
-                    },
-                    {
-                        id: "t2",
-                        data: "todo:あいうえおあいうえお"
-                    },
-                    {
-                        id: "t3",
-                        data: "todo:あいうえおあいうえお"
+                    "board": {
+                        "id": "a",
+                        "label": "Backlog",
+                        "order": 100
                     }
-                    ]
                 },
                 {
-                    id: "b2",
-                    title: "todo",
-                    taskList: [{
-                        id: "t4",
-                        data: "todo:あいうえおあいうえお"
-                    },
-                    {
-                        id: "t5",
-                        data: "todo:あいうえおあいうえお"
-                    },
-                    {
-                        id: "t6",
-                        data: "todo:あいうえおあいうえお"
+                    "board": {
+                        "id": "b",
+                        "label": "Todo",
+                        "order": 200
                     }
-                    ]
                 },
                 {
-                    id: "b3",
-                    title: "debug",
-                    taskList: [{
-                        id: "t7",
-                        data: "todo:あいうえおあいうえお"
-                    },
-                    {
-                        id: "t8",
-                        data: "todo:あいうえおあいうえお"
-                    },
-                    {
-                        id: "t9",
-                        data: "todo:あいうえおあいうえお"
+                    "board": {
+                        "id": "c",
+                        "label": "Complete",
+                        "order": 300
                     }
-                    ]
                 },
-
             ])
-        }
+        },
+
     },
     methods: {
         action: action('click'),

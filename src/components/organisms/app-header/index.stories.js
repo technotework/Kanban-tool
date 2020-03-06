@@ -16,7 +16,8 @@ let setting = {
   props: {
     img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg",
     username: "technotework",
-    navname: "logout"
+    navname: "logout",
+    title: "project"
   },
   action: { event: "input" },
   template: tagTemp`<AppHeader ${"props"} ${"action"} />`

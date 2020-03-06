@@ -1,14 +1,15 @@
 <template>
   <ContentAreaLayout>
     <template #nav>
-      <EditableContentHeader
+      <AppHeader
+        :username="username"
+        :img="img"
+        navname="back"
         :title="title"
         @update:title="onEditedProjectName"
-        @click="onCreateBoard"
-      >
-        <template #first></template>
-        <template #second>新規作成</template>
-      </EditableContentHeader>
+        @add-event="onCreateBoard"
+        @nav-event="onNavClick"
+      />
     </template>
     <template #article>
       <BoardList
@@ -24,14 +25,16 @@
 
 <script>
 import base from "@/components/utils/base-mixin";
+import AppHeader from "@/components/organisms/app-header/";
 import BoardList from "@/components/organisms/boards/board-list/";
-import EditableContentHeader from "@/components/organisms/editable-content-header/";
 import ContentAreaLayout from "@/components/templates/content-area-layout/";
 export default {
   mixins: [base],
   name: "BoardUnit",
   props: {
     value: Array,
+    img: String,
+    username: String,
     title: String,
     taskContainer: Object
   },
@@ -60,12 +63,15 @@ export default {
     },
     onCreateBoard() {
       this.$emit("create-board");
+    },
+    onNavClick() {
+      this.$emit("nav-event");
     }
   },
   components: {
     ContentAreaLayout,
-    EditableContentHeader,
-    BoardList
+    BoardList,
+    AppHeader
   }
 };
 </script>
