@@ -3,12 +3,12 @@
     <BaseModalCover>
       <Dialogue>
         <span :class="$style.text">{{text}}</span>
-        <FlexLayout :class="$style.buttonContainer">
+        <div :class="$style.buttonContainer">
           <template v-if="sCallback!=null">
             <SecondaryButton :class="$style.button" @click="onClickSecondary">キャンセル</SecondaryButton>
           </template>
           <PrimaryButton :class="$style.button" @click="onClickPrimary">OK</PrimaryButton>
-        </FlexLayout>
+        </div>
       </Dialogue>
     </BaseModalCover>
   </div>
@@ -21,7 +21,6 @@ import {
   PrimaryButton,
   SecondaryButton
 } from "@/components/atoms/base-no-link-button/compose";
-import FlexLayout from "@/components/templates/flex-layout/";
 
 export default {
   name: "ConfirmationDialogue",
@@ -31,7 +30,6 @@ export default {
     sCallback: Function
   },
   components: {
-    FlexLayout,
     BaseModalCover,
     Dialogue,
     PrimaryButton,
@@ -53,6 +51,7 @@ export default {
   line-height: $f24;
 }
 .buttonContainer {
+  display: flex;
   position: absolute;
   bottom: 18px;
   right: 18px;
