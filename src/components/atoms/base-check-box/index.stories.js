@@ -1,8 +1,8 @@
 import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator";
-import BaseCheckBox from "./index.vue";
+import { BaseCheckBox, BaseCheckBoxVModel } from "./compose";
 import BaseFormLabel from "@/components/atoms/base-form-label";
 
-let description = 'import BaseCheckBox from "@/components/atoms/base-check-box/"';
+let description = 'import { BaseCheckBox, BaseCheckboxVModel } from "@/components/atoms/base-check-box/compose"';
 export default createDefStory("atoms/BaseCheckBox", BaseCheckBox, description);
 
 let setting = {

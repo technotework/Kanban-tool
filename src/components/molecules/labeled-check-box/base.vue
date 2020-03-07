@@ -4,39 +4,18 @@
     <slot />
   </BaseFormLabel>
 </template>
-
 <script>
-import base from "@/components/utils/base-mixin";
+import { BaseCheckBox } from "@/components/atoms/base-check-box/compose";
 import BaseFormLabel from "@/components/atoms/base-form-label/";
-import BaseCheckBox from "@/components/atoms/base-check-box/";
+import base from "@/components/utils/base-mixin";
+import mixin from "./mixin";
 export default {
-  mixins: [base],
-  model: {
-    prop: "model",
-    event: "input"
-  },
+  mixins: [mixin, base],
   name: "LabeledCheckbox",
   props: {
-    id: String,
-    name: String,
-    value: String,
     model: Boolean
   },
-  computed: {
-    modelData: {
-      get() {
-        return this.model;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
-    }
-  },
-  methods: {},
-  components: {
-    BaseFormLabel,
-    BaseCheckBox
-  }
+  components: { BaseFormLabel, BaseCheckBox }
 };
 </script>
 <style lang="scss" module>

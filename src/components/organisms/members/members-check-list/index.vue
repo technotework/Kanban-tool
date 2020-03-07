@@ -1,16 +1,17 @@
 <template>
   <div ref="wrapper" :class="$style.wrapper">
     <BaseModelessContainer :class="$style.menu">
+      {{myData}}
       <ul>
         <li v-for="(item,key) in members" :key="key" :class="$style.list">
-          <LabeledCheckbox :id="key" :value="key" :name="key" v-model="myData">
+          <LabeledCheckboxVmodel :id="key" :value="key" :name="key" v-model="myData">
             <ImageIconedText
               :img="item.img"
               size="M"
               compose="left"
               :class="$style.icon"
             >{{item.nickname}}</ImageIconedText>
-          </LabeledCheckbox>
+          </LabeledCheckboxVmodel>
         </li>
       </ul>
     </BaseModelessContainer>
@@ -20,7 +21,7 @@
 <script>
 import BaseModelessContainer from "@/components/atoms/base-modeless-container/";
 import ImageIconedText from "@/components/molecules/image-iconed-text/";
-import LabeledCheckbox from "@/components/molecules/labeled-check-box/";
+import LabeledCheckboxVmodel from "@/components/molecules/labeled-check-box/model";
 import listener from "@/components/utils/listener-mixin";
 export default {
   name: "MembersCheckList",
@@ -52,7 +53,7 @@ export default {
     }
   },
   methods: {},
-  components: { ImageIconedText, LabeledCheckbox, BaseModelessContainer }
+  components: { ImageIconedText, LabeledCheckboxVmodel, BaseModelessContainer }
 };
 </script>
 <style lang="scss" module>

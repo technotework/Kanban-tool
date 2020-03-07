@@ -20,7 +20,7 @@ import {
   SystemInput,
   SystemPassword
 } from "@/components/atoms/base-input/compose";
-import LabeledCheckbox from "@/components/molecules/labeled-check-box/";
+import LabeledCheckbox from "@/components/molecules/labeled-check-box/base";
 import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
 import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/";
 import base from "@/components/utils/base-mixin";
