@@ -12,7 +12,8 @@ import BaseInput from "./index.vue";
 import {
     SystemInput,
     SystemPassword,
-    EditInput
+    EditInput,
+    EditInputTitle
 } from "./compose";
 
 let description = 'import BaseInput from "@/components/atoms/base-input/"<br>import { SystemInput,SystemPassword, EditInput } from "@/components/atoms/base-input/compose"';
@@ -177,5 +178,45 @@ export const Edit = () => ({
         },
     },
     template: `<EditInput v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
+    methods: {}
+});
+
+
+//---------------------
+//Edit
+
+export const EditTitle = () => ({
+    components: {
+        EditInputTitle
+    },
+    data: function () {
+        return {
+            myValue: "",
+        }
+    },
+    props: {
+        placeholder: {
+            default: text("placeholder", "TextInput")
+        },
+        required: {
+            default: boolean("required", false)
+        },
+        maxlength: {
+            default: text("maxlength", "100")
+        },
+        name: {
+            default: text("name", "input")
+        },
+        compose: {
+            default: text("compose", "normal")
+        },
+        type: {
+            default: text("type", "text")
+        },
+        readonly: {
+            default: boolean("readonly", false)
+        },
+    },
+    template: `<EditInputTitle v-bind={placeholder,required,maxlength,name,compose,type,readonly} v-model.lazy="myValue" />`,
     methods: {}
 });

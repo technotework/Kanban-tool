@@ -56,6 +56,16 @@ export default {
 }
 .editable:disable {
   @include editableInputForm;
-  background-color: $transparent;
+}
+
+.editableTitle {
+  @include editableInputFormTitle;
+  background-color: #3a424b;
+}
+.editableTitle:read-only:hover {
+  background-color: #3a424b;
+}
+.editableTitle:read-only {
+  @include editableInputFormTitle;
 }
 </style>

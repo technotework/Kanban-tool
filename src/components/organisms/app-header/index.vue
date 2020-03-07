@@ -1,11 +1,16 @@
 <template>
   <HeaderGrid>
     <template #unit1>
-      <IconedTextButton type="plus" compose="left" @click="onAddClick">NewBoard</IconedTextButton>
+      <IconedTextButton
+        type="plus"
+        compose="left"
+        :class="$style.button"
+        @click="onAddClick"
+      >NewBoard</IconedTextButton>
     </template>
 
     <template #unit2>
-      <ClickToEditableInput role="h1Header" :value="title" @input="onEditedTitle" />
+      <ClickToEditableInput is-title role="header" :value="title" @input="onEditedTitle" />
     </template>
 
     <template #unit3>
@@ -55,3 +60,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" module>
+.button {
+  margin-top: 10px;
+}
+</style>

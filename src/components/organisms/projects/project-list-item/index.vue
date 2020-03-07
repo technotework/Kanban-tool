@@ -84,10 +84,6 @@ export default {
   }
 }
 
-.projectName {
-  font-weight: bold;
-  font-size: $f16;
-}
 .date:before {
   content: "Update:";
 }

@@ -42,3 +42,10 @@ const EditInput = Vue.component("edit-input", {
 export {
   EditInput
 }
+
+const EditInputTitle = Vue.component("edit-input-title", {
+  mixins: [base, getMixin("editableTitle", "text")],
+});
+export {
+  EditInputTitle
+}

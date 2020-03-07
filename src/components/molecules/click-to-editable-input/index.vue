@@ -1,8 +1,8 @@
   <template>
   <div :class="[isDisable ? $style.wrapper : $style.wrapper2col,$role[role]]">
-    <div @click="onClickEdit" :class="[$style.editableInputContainer, $compose[status]]">
-      <EditInput
-        :class="$style.editableInput"
+    <div @click="onClickEdit" :class="$style.editableInputContainer">
+      <component
+        :is="isTitle ? title : noTitle"
         :readonly="isDisable"
         v-model.lazy="myValue"
         @keyup-enter="onClickCompleteEdit"
@@ -25,17 +25,23 @@ import {
   PrimaryButton,
   MiniButton
 } from "@/components/atoms/base-no-link-button/compose";
-import { EditInput } from "@/components/atoms/base-input/compose";
+import {
+  EditInput,
+  EditInputTitle
+} from "@/components/atoms/base-input/compose";
 export default {
   mixins: [base],
   name: "ClickToEditableInput",
   data: function() {
     return {
       isDisable: true,
-      status: "uneditable"
+      status: "uneditable",
+      title: EditInputTitle,
+      noTitle: EditInput
     };
   },
   props: {
+    isTitle: { type: Boolean, default: false },
     value: String,
     role: String
   },
@@ -60,7 +66,7 @@ export default {
       }
     }
   },
-  components: { EditInput, MiniButton, BaseIcon }
+  components: { EditInputTitle, EditInput, MiniButton, BaseIcon }
 };
 </script>
 <style lang="scss" module>
@@ -78,13 +84,6 @@ export default {
   position: relative;
   overflow: hidden;
 }
-.editableInput {
-  background-color: $transparent;
-  padding: $s8 38px $s8 $s8;
-  height: 100%;
-  cursor: text;
-  border: none;
-}
 
 .icon {
   fill: $white;
@@ -96,52 +95,11 @@ export default {
 }
 </style>
 
-<style lang="scss" module="$compose">
-.editable {
-  .editableInput {
-    background-color: $white;
-    padding: $s8;
-  }
-}
-.uneditable {
-  .editableInput {
-    background-color: $transparent;
-  }
-}
-</style>
-
 <style lang="scss" module="$role">
-.h1Header {
+.header {
   grid-template-rows: 39px;
-  .editableInput {
-    font-size: $f36;
-    font-weight: bold;
-  }
   .icon {
-    position: absolute;
-    top: 13px;
-    right: 4px;
-  }
-}
-.h2Header {
-  grid-template-rows: 39px;
-  .editableInput {
-    font-size: $f32;
-    font-weight: bold;
-  }
-  .icon {
-    position: absolute;
-    top: 13px;
-    right: 4px;
-  }
-}
-
-.label {
-  grid-template-rows: 39px;
-  .editableInput {
-    font-size: $f20;
-    font-weight: bold;
-    padding: 0;
+    display: none;
   }
 }
 

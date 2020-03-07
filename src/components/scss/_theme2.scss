@@ -330,11 +330,6 @@ Compose
   display: inline-block;
 }
 
-@mixin titleText{
-  @include textFactory($f22,$titleText,"bold");
-  letter-spacing: 5px;
-}
-
 @mixin nav{
   @include textFactory($f12,$navText,"en");
 }
@@ -492,10 +487,20 @@ Compose
 }
 
 @mixin editableInputForm{
-  font-size: $f16;
-  padding: $s8;
-  border-radius: $r3;
-  background-color: $general;
+  @include textFactory($f16,$white,"medium");
+  @include containerFactory($transparent, $r3, $s8);
+  border:none;
+}
+
+
+@mixin editableInputFormTitle{
+  @include textFactory($f22,$titleText,"bold");
+  @include containerFactory($transparent, $r6, 0);
+  letter-spacing: 5px;
+  border: none;
+  height:39px;
+  text-align: center;
+  line-height: 1rem;
 }
 
 //プロジェクト画面 ===================
