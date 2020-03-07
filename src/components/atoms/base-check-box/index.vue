@@ -16,7 +16,7 @@ export default {
     id: String,
     name: String,
     value: String,
-    model: Array
+    model: Boolean
   },
   computed: {
     modelData: {
