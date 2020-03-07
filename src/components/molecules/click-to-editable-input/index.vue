@@ -12,7 +12,10 @@
       </template>
     </div>
     <template v-if="!isDisable">
-      <MiniButton @click="onClickCompleteEdit">OK</MiniButton>
+      <MiniButton
+        @click="onClickCompleteEdit"
+        :class="[isTitle ? $style.titleMiniButton : $style.miniButton]"
+      >OK</MiniButton>
     </template>
   </div>
 </template>
@@ -93,11 +96,19 @@ export default {
   top: 10px;
   right: 4px;
 }
+
+.titleMiniButton {
+  padding: 16px 0 12px 0;
+}
+
+.miniButton {
+  padding: 14px 0;
+}
 </style>
 
 <style lang="scss" module="$role">
 .header {
-  grid-template-rows: 39px;
+  grid-template-rows: 42px;
   .icon {
     display: none;
   }

@@ -495,10 +495,10 @@ Compose
 
 @mixin editableInputFormTitle{
   @include textFactory($f22,$titleText,"bold");
-  @include containerFactory($transparent, $r6, 0);
+  @include containerFactory($transparent, $r6, 0 0 3px 0);
   letter-spacing: 5px;
   border: none;
-  height:39px;
+  height:42px;
   text-align: center;
   line-height: 1rem;
 }
