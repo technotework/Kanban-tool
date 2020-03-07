@@ -8,6 +8,7 @@ const state = {
 //mutations
 //--------------
 const mutations = {
+
 }
 
 //--------------
@@ -20,6 +21,17 @@ const getters = {
 //actions
 //--------------
 const actions = {
+	remove({ commit }) {
+		console.log("abc");
+		commit("auth/remove", null, { root: true });
+		commit("boards/remove", null, { root: true });
+		commit("members/remove", null, { root: true });
+		commit("message/remove", null, { root: true });
+		commit("projects/remove", null, { root: true });
+		commit("tasks/remove", null, { root: true });
+		commit("user/remove", null, { root: true });
+
+	}
 }
 
 

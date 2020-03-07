@@ -7,7 +7,8 @@ import common from "@/store/common"
 const state = {
 	appInfo: null,
 	boardsData: [],
-	projectId: ""
+	projectId: "",
+	unsnapshots: []
 }
 
 //--------------
@@ -23,6 +24,19 @@ const mutations = {
 	},
 	setProjectId(state, payload) {
 		state.projectId = payload;
+	},
+	setUnsnap(state, payload) {
+		state.unsnapshots.push(payload);
+	},
+	remove(state) {
+
+		for (let i = 0; i < state.unsnapshots.length; i++) {
+			state.unsnapshots[i]();
+		}
+		state.unsnapshots = [];
+		state.appInfo = null;
+		state.boardsData = [];
+		state.projectId = "";
 	}
 }
 
@@ -103,7 +117,7 @@ const actions = {
 			let collection = db.collection(boardPath);
 
 			//読み込み&listen
-			collection.orderBy("board.order").onSnapshot(function (querySnapshot) {
+			let unsnap = collection.orderBy("board.order").onSnapshot(function (querySnapshot) {
 
 				let array = [];
 				querySnapshot.forEach(function (doc) {
@@ -125,6 +139,8 @@ const actions = {
 				commit("setBoardsData", array);
 
 			});
+
+			commit("setUnsnap", unsnap);
 
 		}, (error) => {
 			console.log(error);

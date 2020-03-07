@@ -38,12 +38,12 @@ export default {
   data: () => {
     return {
       value: Array,
-      teamName: "aa",
-      userData: { username: "a", img: "" }
+      teamName: "aa"
     };
   },
   computed: {
     ...mapGetters("projects", ["projects"]),
+    ...mapGetters("auth", ["user", "icon"]),
     projectItems: {
       get() {
         return this.projects;
@@ -51,6 +51,9 @@ export default {
       set(value) {
         this.$store.commit("projects/setData", value);
       }
+    },
+    userData() {
+      return { username: this.user.nickname, img: this.icon };
     }
   },
   methods: {
@@ -62,6 +65,7 @@ export default {
       "updateProjectName",
       "dragSortUpdate"
     ]),
+    ...mapActions("auth", ["logout"]),
     ...mapMutations("message", ["setProjectDialogue", "resetProjectDialogue"]),
     init() {
       this.initProjectData();
@@ -118,7 +122,7 @@ export default {
       this.setProjectDialogue(object);
     },
     onLogout() {
-      //logout
+      this.logout();
     },
     onUpdateTeamName() {
       //update team name

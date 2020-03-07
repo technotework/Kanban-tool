@@ -6,7 +6,8 @@ import { TYPE, APP } from "@/containers/resorces/message"
 //state
 //--------------
 const state = {
-  membersData: null
+  membersData: null,
+  unsnapshots: []
 }
 
 //--------------
@@ -16,6 +17,17 @@ const mutations = {
   setMembersData(state, payload) {
 
     state.membersData = payload;
+  },
+  setUnsnap(state, payload) {
+    state.unsnapshots.push(payload);
+  },
+  remove(state) {
+
+    for (let i = 0; i < state.unsnapshots.length; i++) {
+      state.unsnapshots[i]();
+    }
+    state.unsnapshots = [];
+    state.membersData = null;
   }
 }
 
@@ -45,7 +57,7 @@ const actions = {
       let collection = db.collection("users");
 
 
-      collection.orderBy("nickname").onSnapshot(async (querySnapshot) => {
+      let unsnap = collection.orderBy("nickname").onSnapshot(async (querySnapshot) => {
 
         let docs = querySnapshot.docs;
         let obj = {};
@@ -64,6 +76,8 @@ const actions = {
         commit("setMembersData", obj);
         resolve();
       });
+
+      commit("setUnsnap", unsnap);
 
     }, (error) => {
       console.log(error);

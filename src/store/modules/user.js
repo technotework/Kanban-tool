@@ -14,6 +14,9 @@ const state = {
 const mutations = {
   setUserData(state, payload) {
     state.userDataObject = payload;
+  },
+  remove(state, payload) {
+    state.userDataObject = {};
   }
 }
 

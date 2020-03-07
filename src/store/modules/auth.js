@@ -27,12 +27,13 @@ const mutations = {
 		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`;
 		state.isLogin = true;
 	},
-	succsessLogout(state, payload) {
+	remove(state, payload) {
 		state.userData = null;
 		state.contractData = null;
 		state.teamData = null;
 		state.pathData = null;
 		state.isLogin = false;
+		state.imgData = null;
 	},
 	setImage(state, payload) {
 		state.imgData = payload;
@@ -184,11 +185,12 @@ const actions = {
 	 * Logout
 	 * @param {*} context 
 	 */
-	logout({ rootGetters, commit }) {
+	logout({ rootGetters, dispatch }) {
 
+		dispatch("app/remove", null, { root: true });
 		let firebase = rootGetters.firebase;
 		firebase.auth().signOut().then(() => {
-			commit("succsessLogout");
+
 		}).catch(error => {
 			throw { type: "FIREBASE_AUTH", error: error.code };
 		});

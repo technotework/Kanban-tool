@@ -5,7 +5,8 @@ import common from "@/store/common"
 //--------------
 const state = {
 	appInfo: {},
-	projectsData: []
+	projectsData: [],
+	unsnapshots: []
 }
 
 //--------------
@@ -18,6 +19,18 @@ const mutations = {
 	},
 	setAppInfo(state, payload) {
 		state.appInfo = payload;
+	},
+	setUnsnap(state, payload) {
+		state.unsnapshots.push(payload);
+	},
+	remove(state) {
+
+		for (let i = 0; i < state.unsnapshots.length; i++) {
+			state.unsnapshots[i]();
+		}
+		state.unsnapshots = [];
+		state.appInfo = {};
+		state.projectsData = [];
 	}
 
 }
@@ -88,7 +101,7 @@ const actions = {
 			let db = rootGetters.db;
 			//ProjectをRead&Listen
 			let collection = db.collection(projectPath);
-			collection.orderBy("project.order").onSnapshot(function (querySnapshot) {
+			let unsnap = collection.orderBy("project.order").onSnapshot(function (querySnapshot) {
 
 				let array = [];
 				//Projectデータ取得してArrayにつめこむ
@@ -101,6 +114,7 @@ const actions = {
 				//完了
 				commit("setData", array);
 			});
+			commit("setUnsnap", unsnap);
 
 		}, (error) => {
 			console.log(error);

@@ -28,6 +28,11 @@ const mutations = {
   },
   resetAuthDialogue(state, payload) {
     state.authDialogueData = null;
+  },
+  remove(state, payload) {
+    state.boardsDialogueDat = null;
+    state.projectDialogueData = null;
+    state.authDialogueData = null;
   }
 }
 

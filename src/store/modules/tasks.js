@@ -8,7 +8,8 @@ function state() {
     appInfo: {},
     tasksData: [],
     isOpenEditor: false,
-    parentBoardId: ""
+    parentBoardId: "",
+    unsnapshots: []
   };
 }
 
@@ -29,6 +30,20 @@ const mutations = {
   setEditorOpen(state, payload) {
     state.isOpenEditor = payload;
   },
+  setUnsnap(state, payload) {
+    state.unsnapshots.push(payload);
+  },
+  remove(state) {
+
+    for (let i = 0; i < state.unsnapshots.length; i++) {
+      state.unsnapshots[i]();
+    }
+    state.unsnapshots = [];
+    state.appInfo = {};
+    state.tasksData = [];
+    state.isOpenEditor = false
+    state.parentBoardId = "";
+  }
 }
 
 //--------------
@@ -131,7 +146,7 @@ const actions = {
       //読み込み&Listen
       let db = rootGetters.db;
       let collection = db.collection(taskPath);
-      collection.orderBy("task.order").onSnapshot(function (querySnapshot) {
+      let unsnap = collection.orderBy("task.order").onSnapshot(function (querySnapshot) {
 
         let array = [];
         querySnapshot.forEach(function (doc) {
@@ -141,7 +156,7 @@ const actions = {
         });
         commit("setTasksData", array);
       });
-
+      commit("setUnsnap", unsnap);
     }, (error) => {
       console.log(error);
     });
