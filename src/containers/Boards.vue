@@ -9,6 +9,7 @@
     @context-menu-click="onClick"
     @drag-sort-list="onDragSortList"
     @create-board="onCreateBoard"
+    @nav-event="onClickBack"
   />
 </template>
 
@@ -41,8 +42,13 @@ export default {
       }
     });
   },
+  destroyed: function() {
+    this.$store.commit("boards/remove");
+    this.$store.commit("members/remove");
+  },
   computed: {
     ...mapGetters("boards", ["boards"]),
+    ...mapGetters("auth", ["user", "icon"]),
     boardList: {
       get() {
         return this.boards;
@@ -78,6 +84,9 @@ export default {
           });
         });
       }
+    },
+    userData() {
+      return { username: this.user.nickname, img: this.icon };
     }
   },
   methods: {
@@ -139,6 +148,9 @@ export default {
       let object = { text: message[0].text, p: p, s: s };
 
       this.setBoardDialogue(object);
+    },
+    onClickBack() {
+      this.$router.back();
     }
   },
   components: {

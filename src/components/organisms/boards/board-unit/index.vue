@@ -9,7 +9,7 @@
         @update:title="onEditedProjectName"
         @add-event="onCreateBoard"
         @nav-event="onNavClick"
-      />
+      >NEW BOARD</AppHeader>
     </template>
     <template #article>
       <BoardList

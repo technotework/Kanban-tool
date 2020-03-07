@@ -25,6 +25,12 @@ export default {
   created: function() {
     this.init();
   },
+  destroyed: function() {
+    console.log(this.storeModuleName);
+    this.$store.commit(this.storeModuleName + "/remove");
+
+    this.$store.unregisterModule(this.storeModuleName);
+  },
   data: () => {
     return {
       storeModuleName: "",
