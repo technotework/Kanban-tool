@@ -30,12 +30,15 @@ export default {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  height: 24px;
+  height: 25px;
 }
 .label {
   display: inline-block;
-  padding: 0 5px 5px 5px;
+  padding: 0 6px 8px 4px;
   @include nav;
+}
+.label:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 .icon {
   position: absolute;

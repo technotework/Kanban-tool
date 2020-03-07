@@ -35,7 +35,7 @@ export default {
 }
 .text {
   @include userNameText;
-  margin-left: $s14;
+  margin: 0 0 1px $s12;
 }
 </style>
 <style lang="scss" module="$compose">

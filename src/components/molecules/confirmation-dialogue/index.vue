@@ -47,7 +47,7 @@ export default {
 </script>
 <style lang="scss" module>
 .text {
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.15rem;
   line-height: $f24;
 }
 .buttonContainer {

@@ -90,8 +90,8 @@ export default {
 
 .icon {
   fill: $white;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   position: absolute;
   top: 10px;
   right: 4px;
@@ -114,10 +114,7 @@ export default {
   }
 }
 
-.text {
-  grid-template-rows: 39px;
-  .editableInput {
-    font-size: $f16;
-  }
+.label {
+  grid-template-rows: 37px;
 }
 </style>

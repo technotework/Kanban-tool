@@ -335,7 +335,8 @@ Compose
 }
 
 @mixin userNameText{
-  @include textFactory($f14,$userNameText,"medium");
+  @include textFactory($f16,$userNameText,"medium");
+  letter-spacing: 0.04rem;
 }
 
 @mixin imageIcon($style){
@@ -487,8 +488,8 @@ Compose
 }
 
 @mixin editableInputForm{
-  @include textFactory($f16,$white,"medium");
-  @include containerFactory($transparent, $r3, $s8);
+  @include textFactory($f16,$white,"regular");
+  @include containerFactory($transparent, $r3, $s8 0);
   border:none;
 }
 
@@ -515,7 +516,8 @@ Compose
 }
 
 @mixin dateText{
-  @include textFactory($f12,$projectText,"bold");
+  @include textFactory($f12,$projectText,"regular");
+  letter-spacing: 0.08rem;
 }
 
 
@@ -574,7 +576,7 @@ Compose
   @include containerFactory($coverbg, 0, 0);
   width: 100vw;
   height: 100vh;
-  position: flex;
+  position: absolute;
   top:0;
   left:0;
   z-index:$index_h;
@@ -588,6 +590,6 @@ Compose
   @include containerFactory($theme, 0, 26px 45px 20px 45px);
 
   @include mobile{
-    @include containerFactory($theme, 0, 5px);
+    @include containerFactory($theme, 0, 15px);
   }
 }

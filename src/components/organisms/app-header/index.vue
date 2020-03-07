@@ -1,12 +1,9 @@
 <template>
   <HeaderGrid>
     <template #unit1>
-      <IconedTextButton
-        type="plus"
-        compose="left"
-        :class="$style.button"
-        @click="onAddClick"
-      >NewBoard</IconedTextButton>
+      <IconedTextButton type="plus" compose="left" :class="$style.button" @click="onAddClick">
+        <slot />
+      </IconedTextButton>
     </template>
 
     <template #unit2>
@@ -18,7 +15,7 @@
     </template>
 
     <template #unit4>
-      <NavButton @click="onNavClick">{{navname}}</NavButton>>
+      <NavButton @click="onNavClick">{{navname}}</NavButton>
     </template>
   </HeaderGrid>
 </template>

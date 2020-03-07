@@ -75,15 +75,28 @@ export default {
   display: inline-block;
 }
 .list {
-  @include flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 14vh 75px 70px 75px;
 
   .listItem {
-    @include m(0 $s18 4rem $s18);
+    margin: 0 30px 4rem 30px;
     cursor: move;
   }
 }
 .ghost {
   opacity: 0.3;
   cursor: move;
+}
+
+@include mobile {
+  .list {
+    margin: 20px 5px 10px 5px;
+    .listItem {
+      margin: 0 20px 4rem 20px;
+      cursor: move;
+    }
+  }
 }
 </style>

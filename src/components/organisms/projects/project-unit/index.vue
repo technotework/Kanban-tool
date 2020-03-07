@@ -9,7 +9,7 @@
         @update:title="onEditedTeamName"
         @add-event="onCreateProject"
         @nav-event="onNavClick"
-      />
+      >New Project</AppHeader>
     </template>
     <template #article>
       <ProjectList

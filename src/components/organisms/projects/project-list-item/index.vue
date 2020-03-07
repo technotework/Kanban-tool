@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.projectListItem">
     <div :class="$style.thumb">
-      <BaseIcon compose="normal" type="project" :class="$style.thumbIcon" />
+      <BaseIcon compose="normal" type="logo" :class="$style.thumbIcon" />
       <ContextMenu
         :class="$style.contextMenu"
         @context-menu-click="onMenuClick"
@@ -62,26 +62,33 @@ export default {
 <style lang="scss" module>
 .projectListItem {
   position: relative;
-  width: 270px;
+  width: 190px;
 }
 .thumb {
   position: relative;
-  @include s($w: 270px, $h: 178px);
-  @include r($round);
-  @include bgc($lightGray);
-  @include m(0 0 2px 0);
+  @include project;
+  margin-bottom: 2px;
 
   .thumbIcon {
-    fill: rgba(255, 255, 255, 0.4);
+    fill: $theme;
     display: block;
-    width: 142px;
-    height: auto;
-    @include m(0 auto);
-    @include p(12px 0 0 0);
+    width: 94px;
+    height: 126px;
+    margin: 0 auto;
   }
   .contextMenu {
-    @include abs($b: 0, $r: $s16);
+    position: absolute;
+    bottom: 7px;
+    right: 15px;
   }
+  .contextMenu svg {
+    fill: $theme;
+  }
+}
+
+.date {
+  @include dateText;
+  margin-top: 2px;
 }
 
 .date:before {
