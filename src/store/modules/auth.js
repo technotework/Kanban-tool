@@ -10,6 +10,7 @@ const state = {
 	contractData: "",
 	teamData: "",
 	pathData: "",
+	teamPathData: "",
 	isLogin: false,
 	imgData: null
 }
@@ -24,7 +25,8 @@ const mutations = {
 		//DEMOのため現状契約IDとチームIDは固定にしておく
 		state.contractData = "C1s25ymrqZUpS0WzqqoU";
 		state.teamData = payload.contracts.C1s25ymrqZUpS0WzqqoU[0];
-		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`;
+		state.teamPathData = `workspace/${state.contractData}/teams/${state.teamData}`;
+		state.pathData = state.teamPathData + `/projects/`;
 		state.isLogin = true;
 	},
 	remove(state, payload) {
@@ -32,6 +34,7 @@ const mutations = {
 		state.contractData = null;
 		state.teamData = null;
 		state.pathData = null;
+		state.teamPathData = null;
 		state.isLogin = false;
 		state.imgData = null;
 	},
@@ -56,6 +59,9 @@ const getters = {
 	},
 	path(state) {
 		return state.pathData;
+	},
+	teamPath(state) {
+		return state.teamPathData;
 	},
 	isLogin(state) {
 		return state.isLogin;

@@ -8,7 +8,6 @@
     @edited-project-name="onInput"
     @drag-sort-list="onDragSortList"
     @nav-event="onLogout"
-    @update:title="onUpdateTeamName"
   />
 </template>
 
@@ -37,13 +36,13 @@ export default {
   props: {},
   data: () => {
     return {
-      value: Array,
-      teamName: "aa"
+      value: Array
     };
   },
   computed: {
     ...mapGetters("projects", ["projects"]),
     ...mapGetters("auth", ["user", "icon"]),
+    ...mapGetters("team", ["team"]),
     projectItems: {
       get() {
         return this.projects;
@@ -54,6 +53,22 @@ export default {
     },
     userData() {
       return { username: this.user.nickname, img: this.icon };
+    },
+    teamName: {
+      get() {
+        return this.team;
+      },
+      set(value) {
+        let obj = {
+          data: value,
+          name: "チーム名",
+          require: true,
+          less: 15
+        };
+        validate(obj, () => {
+          this.$store.dispatch("team/updateTeamName", value);
+        });
+      }
     }
   },
   methods: {
@@ -69,7 +84,9 @@ export default {
     ...mapMutations("message", ["setProjectDialogue", "resetProjectDialogue"]),
     init() {
       this.initProjectData();
-      this.read();
+
+      this.$store.dispatch("projects/read");
+      this.$store.dispatch("team/read");
     },
     onClick() {
       this.initProjectData();
@@ -123,9 +140,6 @@ export default {
     },
     onLogout() {
       this.logout();
-    },
-    onUpdateTeamName() {
-      //update team name
     }
   },
   components: { ProjectUnit }

@@ -34,6 +34,7 @@ export default {
 }
 .unit2 {
   align-self: center;
+  padding: 0 25px;
 }
 .unit3 {
   justify-self: right;

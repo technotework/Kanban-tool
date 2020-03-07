@@ -29,6 +29,7 @@ const actions = {
 		commit("projects/remove", null, { root: true });
 		commit("tasks/remove", null, { root: true });
 		commit("user/remove", null, { root: true });
+		commit("team/remove", null, { root: true });
 	}
 }
 

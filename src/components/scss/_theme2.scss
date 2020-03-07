@@ -33,11 +33,13 @@ $base-fsize: 62.5%;
 $f10: 1rem;
 $f12: 1.2rem;
 $f14: 1.4rem;
+$f15: 1.5rem;
 $f16: 1.6rem;
 $f18: 1.8rem;
 $f20: 2rem;
 $f24: 2.4rem;
 $f22: 2.2rem;
+$f29: 2.9rem;
 $f72: 7.2rem;
 
 //font-family
@@ -335,8 +337,8 @@ Compose
 }
 
 @mixin userNameText{
-  @include textFactory($f16,$userNameText,"medium");
-  letter-spacing: 0.04rem;
+  @include textFactory($f15,$userNameText,"medium");
+  letter-spacing: 0.05rem;
 }
 
 @mixin imageIcon($style){
@@ -490,12 +492,13 @@ Compose
 @mixin editableInputForm{
   @include textFactory($f16,$white,"regular");
   @include containerFactory($transparent, $r3, $s8 0);
+  letter-spacing: 0.1rem;
   border:none;
 }
 
 
 @mixin editableInputFormTitle{
-  @include textFactory($f22,$titleText,"bold");
+  @include textFactory($f29,$titleText,"bold");
   @include containerFactory($transparent, $r6, 0 0 3px 0);
   letter-spacing: 5px;
   border: none;

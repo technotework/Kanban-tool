@@ -59,6 +59,6 @@ export default {
 </script>
 <style lang="scss" module>
 .button {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 </style>
