@@ -21,8 +21,9 @@ const mutations = {
 	succsessLogin(state, payload) {
 
 		state.userData = payload;
-		state.contractData = payload.contracts[0].uuid;
-		state.teamData = payload.contracts[0].teams[0];
+		//DEMOのため現状契約IDとチームIDは固定にしておく
+		state.contractData = "C1s25ymrqZUpS0WzqqoU";
+		state.teamData = payload.contracts.C1s25ymrqZUpS0WzqqoU[0];
 		state.pathData = `workspace/${state.contractData}/teams/${state.teamData}/projects/`;
 		state.isLogin = true;
 	},
@@ -44,7 +45,6 @@ const mutations = {
 const getters = {
 	user(state) {
 
-		//return { uuid: "AzjzROft7NNxQIHgD1YYTVASnnp2" }
 		return state.userData;
 	},
 	contract(state) {
@@ -54,7 +54,6 @@ const getters = {
 		return state.teamData;
 	},
 	path(state) {
-		//return "/workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/";
 		return state.pathData;
 	},
 	isLogin(state) {

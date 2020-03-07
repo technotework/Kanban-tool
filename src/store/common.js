@@ -10,19 +10,18 @@ const util = {
   templates: {
     user: (contract, team, altId) => {
 
-      return {
-        "contracts": [
-          {
-            "uuid": `${contract}`,
-            "teams": [`${team}`]
-          }
-        ],
+      let obj = {
+        "contracts": {
+        },
         "altId": `${altId}`,
         "isDeleted": false,
         "nickname": "",
         "img": false,
         "role": "manager"
       }
+
+      obj.contracts[contract] = [team];
+      return obj;
     },
     project: (date, order) => {
 
