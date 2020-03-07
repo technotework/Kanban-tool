@@ -1,6 +1,14 @@
 <template>
   <div>
-    <div @click="onAddClick" type="add" :class="$style.add">a</div>
+    <div
+      :class="[
+        $style.postButton,
+        { [$style.open]: open },
+        { [$style.close]: !open }
+      ]"
+    >
+      <IconedButton type="plusmini" :class="$style.add" @click="onAddClick" />
+    </div>
     <div
       :class="[
         $style.postForm,
@@ -40,6 +48,7 @@
 </template>
 
 <script>
+import IconedButton from "@/components/molecules/iconed-button/";
 import PostForm from "@/components/molecules/post-form/";
 import draggable from "vuedraggable";
 import TaskListItem from "@/components/organisms/boards/task-list-item/";
@@ -101,28 +110,46 @@ export default {
       this.$emit("drag-add-list", dataSet);
     }
   },
-  components: { PostForm, TaskListItem, draggable }
+  components: { PostForm, TaskListItem, IconedButton, draggable }
 };
 </script>
 <style lang="scss" module>
 .postForm {
   overflow: hidden;
-  @include m(0 1.6rem 0.4rem 1.6rem);
+  margin: 0 14px 15px 14px;
   height: 0px;
-  @include tran($ms300);
+  @include transiton($ms200);
 }
 
-.open {
-  height: 143px;
+.postForm.open {
+  height: 170px;
+  margin-bottom: 15px;
 }
 
-.close {
+.postForm.close {
   height: 0px;
+  margin-bottom: 0;
+}
+
+.postButton {
+  overflow: hidden;
+  height: 26px;
+  margin-bottom: 15px;
+  @include transiton($ms300);
+}
+
+.postButton.open {
+  height: 0px;
+  margin-bottom: 0;
+}
+
+.postButton.close {
+  height: 26px;
+  margin-bottom: 15px;
 }
 
 .add {
-  width: 77px;
-  @include abs($t: 12px, $l: 19px);
+  margin: 3px 14px 21px 14px;
 }
 
 .list {

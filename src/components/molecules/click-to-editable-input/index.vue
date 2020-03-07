@@ -90,11 +90,12 @@ export default {
 
 .icon {
   fill: $white;
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   position: absolute;
-  top: 10px;
+  top: 14px;
   right: 4px;
+  opacity: 0.4;
 }
 
 .titleMiniButton {

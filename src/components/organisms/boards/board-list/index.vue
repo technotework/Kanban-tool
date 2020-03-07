@@ -67,12 +67,13 @@ export default {
 .list {
   display: flex;
   flex-wrap: nowrap;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   overflow-x: auto;
-  @include p(0 0 $s16 0);
 }
 .listItem {
-  @include m(0 $s32 0 0);
+  margin: 0 32px 0 0;
+  padding-bottom: 85px;
   cursor: move;
 }
 .ghost {

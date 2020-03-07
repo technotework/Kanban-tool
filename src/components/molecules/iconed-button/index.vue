@@ -12,8 +12,7 @@ export default {
   name: "IconedButton",
   mixins: [base],
   props: {
-    type: { type: String },
-    compose: String
+    type: { type: String }
   },
   components: {
     AddMiniButton,

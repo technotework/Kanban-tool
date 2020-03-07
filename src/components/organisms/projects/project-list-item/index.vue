@@ -9,7 +9,7 @@
         compose="top"
       />
     </div>
-    <ClickToEditableInput role="label" v-model.lazy="title" />
+    <ClickToEditableInput role="label" v-model.lazy="title" :class="$style.input" />
     <DateTimeText :date="date" :class="$style.date" />
   </div>
 </template>
@@ -84,6 +84,11 @@ export default {
   .contextMenu svg {
     fill: $theme;
   }
+}
+
+.input a {
+  padding: 8px 0 0 0;
+  margin: 5px 0 4px 0;
 }
 
 .date {

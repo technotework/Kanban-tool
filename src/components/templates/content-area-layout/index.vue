@@ -22,6 +22,7 @@ export default {
 }
 .contents {
   padding-top: 50px;
+  height: calc(100vh - 72px);
 }
 </style>
 

@@ -37,9 +37,11 @@ export default {
   padding: 0 6px 8px 4px;
   @include nav;
 }
-.label:hover {
-  color: rgba(255, 255, 255, 0.6);
+
+.container:hover {
+  opacity: 0.8;
 }
+
 .icon {
   position: absolute;
   bottom: 0px;
@@ -48,6 +50,7 @@ export default {
   width: 91px;
   height: 10px;
   fill: $white;
+  opacity: 0.4;
 }
 </style>
 

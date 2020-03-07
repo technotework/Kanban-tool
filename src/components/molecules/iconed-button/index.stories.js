@@ -11,8 +11,7 @@ let setting = {
     name: "IconedButton",
     compos: { IconedButton: IconedButton },
     props: {
-        type: "plusmini",
-        compose: "left"
+        type: "plusmini"
     },
     action: { event: "click" },
     template: tagTemp`<div style="background-color:#fff; padding:100px"><IconedButton ${'props'} ${'action'} /></div>`

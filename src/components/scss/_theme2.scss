@@ -31,14 +31,17 @@ Base Text Vars
 //font-size vars
 $base-fsize: 62.5%;
 $f10: 1rem;
+$f11: 1.1rem;
 $f12: 1.2rem;
 $f14: 1.4rem;
 $f15: 1.5rem;
 $f16: 1.6rem;
+$f17: 1.7rem;
 $f18: 1.8rem;
 $f20: 2rem;
-$f24: 2.4rem;
 $f22: 2.2rem;
+$f24: 2.4rem;
+$f25: 2.5rem;
 $f29: 2.9rem;
 $f72: 7.2rem;
 
@@ -247,9 +250,10 @@ $ms200:200ms;
 $ms300:300ms;
 $ms400:400ms;
 $ms500:500ms;
+$ms800:800ms;
 $ms1000:1000ms;
 
-@mixin tran($ms) {
+@mixin transiton($ms) {
 
   transition: all $ms 0s ease;
 }
@@ -324,8 +328,8 @@ Compose
 
 //ヘッダ ===================
 @mixin newButton{
-  @include textFactory($f18,$newButtonText,"medium");
-  @include containerFactory($primaryButton, 200px, 11px 20px 14px 42px);
+  @include textFactory($f17,$newButtonText,"medium");
+  @include containerFactory($primaryButton, 200px, 11px 20px 14px 39px);
   line-height: 1rem;
   text-align: left;
   position: relative;
@@ -333,7 +337,7 @@ Compose
 }
 
 @mixin nav{
-  @include textFactory($f12,$navText,"en");
+  @include textFactory($f11,$navText,"en");
 }
 
 @mixin userNameText{
@@ -498,7 +502,7 @@ Compose
 
 
 @mixin editableInputFormTitle{
-  @include textFactory($f29,$titleText,"bold");
+  @include textFactory($f25,$titleText,"bold");
   @include containerFactory($transparent, $r6, 0 0 3px 0);
   letter-spacing: 5px;
   border: none;
@@ -590,7 +594,7 @@ Compose
 }
 
 @mixin global{
-  @include containerFactory($theme, 0, 26px 45px 20px 45px);
+  @include containerFactory($theme, 0, 26px 45px 0 45px);
 
   @include mobile{
     @include containerFactory($theme, 0, 15px);

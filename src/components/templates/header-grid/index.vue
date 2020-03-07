@@ -26,7 +26,7 @@ export default {
 <style lang="scss" module>
 .grid {
   display: grid;
-  grid-template-columns: 310px 1fr 180px 130px;
+  grid-template-columns: 295px 1fr 180px 115px;
   grid-template-rows: auto;
 }
 .unit1 {

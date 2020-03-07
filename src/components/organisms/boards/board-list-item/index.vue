@@ -57,17 +57,38 @@ export default {
 <style lang="scss" module>
 .board {
   position: relative;
-  @include spr($w: 270px, $h: auto, $p: $s16 0, $r: $round);
-  @include bgc($lightGray);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  @include board;
 }
+
+.board > div {
+  grid-template-columns: 1fr 48px;
+}
+
 .input {
-  @include m(2.4rem 1.6rem 1.2rem 1.6rem);
+  padding: 0 45px 0 16px;
+  height: 35px;
+}
+
+.input input {
+  @include boardText;
+}
+
+.input a {
+  margin-top: 5px;
+  padding-top: 8px;
+  width: 40px;
+  height: 27px;
 }
 
 .contextMenu {
-  @include abs($t: $s12, $r: 2.2rem);
-  flex: 1;
+  position: absolute;
+  top: 9px;
+  right: 14px;
+}
+.contextMenu svg {
+  fill: $theme;
 }
 </style>

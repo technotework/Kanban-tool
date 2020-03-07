@@ -1,7 +1,6 @@
 <template>
   <div ref="wrapper" :class="$style.wrapper">
     <BaseModelessContainer :class="$style.menu">
-      {{myData}}
       <ul>
         <li v-for="(item,key) in members" :key="key" :class="$style.list">
           <LabeledCheckboxVmodel :id="key" :value="key" :name="key" v-model="myData">

@@ -64,7 +64,7 @@ export default {
   fill: #9d9fa2;
   display: block;
   width: 20px;
-  height: 20px;
+  height: 21px;
   &:hover {
     fill: #9d9fa2;
   }
@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss" module="$compose">
 .bottom {
-  @include abs($t: 30px, $l: 0);
+  position: absolute;
 }
 .top {
   position: absolute;
