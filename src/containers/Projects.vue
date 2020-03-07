@@ -21,22 +21,30 @@ export default {
   name: "Projects",
   created: function() {
     //初期化時プロジェクトを読み込む
-    this.$store.getters.firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        let uid = user.uid;
-        let path = "/projects";
-        this.$store
-          .dispatch("auth/setUserInfo", { uid: uid, path: path })
-          .then(() => {
-            this.init();
-          });
-      }
-    });
+    this.unlisten = this.$store.getters.firebase
+      .auth()
+      .onAuthStateChanged(user => {
+        if (user) {
+          let uid = user.uid;
+          let path = "/projects";
+
+          this.$store
+            .dispatch("auth/setUserInfo", { uid: uid, path: path })
+            .then(() => {
+              this.isCreated = true;
+              this.init();
+            });
+        }
+      });
+  },
+  destroyed: function() {
+    this.unlisten();
   },
   props: {},
   data: () => {
     return {
-      value: Array
+      unlisten: null,
+      value: null
     };
   },
   computed: {

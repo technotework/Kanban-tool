@@ -5,7 +5,7 @@ import { TYPE, APP } from "@/containers/resorces/message"
 //state
 //--------------
 const state = {
-  userDataObject: {}
+  userDataObject: null
 }
 
 //--------------
@@ -16,7 +16,7 @@ const mutations = {
     state.userDataObject = payload;
   },
   remove(state, payload) {
-    state.userDataObject = {};
+    state.userDataObject = null;
   }
 }
 

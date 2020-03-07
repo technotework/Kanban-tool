@@ -22,29 +22,33 @@ import validate from "@/containers/resorces/validator";
 import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
+  created: function() {
+    this.unlisten = this.$store.getters.firebase
+      .auth()
+      .onAuthStateChanged(user => {
+        if (user) {
+          let uid = user.uid;
+          let path = "/projects/" + this.$route.params.id;
+          this.$store
+            .dispatch("auth/setUserInfo", { uid: uid, path: path })
+            .then(() => {
+              this.init();
+            });
+        }
+      });
+  },
+  destroyed: function() {
+    this.unlisten();
+    this.$store.commit("boards/remove");
+    this.$store.commit("members/remove");
+  },
   props: {},
   data: () => {
     return {
+      unlisten: null,
       projectId: "",
       task: Task
     };
-  },
-  created: function() {
-    this.$store.getters.firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        let uid = user.uid;
-        let path = "/projects/" + this.$route.params.id;
-        this.$store
-          .dispatch("auth/setUserInfo", { uid: uid, path: path })
-          .then(() => {
-            this.init();
-          });
-      }
-    });
-  },
-  destroyed: function() {
-    this.$store.commit("boards/remove");
-    this.$store.commit("members/remove");
   },
   computed: {
     ...mapGetters("boards", ["boards"]),
@@ -150,7 +154,7 @@ export default {
       this.setBoardDialogue(object);
     },
     onClickBack() {
-      this.$router.back();
+      this.$router.go(-1);
     }
   },
   components: {

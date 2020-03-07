@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 //state
 //--------------
 const state = {
-	userData: {},
+	userData: null,
 	contractData: "",
 	teamData: "",
 	pathData: "",
@@ -159,33 +159,36 @@ const actions = {
 	 * @param {*} context 
 	 * @param {*} uid 
 	 */
-	setUserInfo({ commit, rootGetters, dispatch }, obj) {
+	setUserInfo({ commit, getters, rootGetters, dispatch }, obj) {
 
 		return new Promise(async (resolve, reject) => {
 
 			let { uid, path } = obj
 
-			//取得を別モジュールに依頼
-			await dispatch("user/getUserInfo", obj, { root: true });
+			if (rootGetters["user/userData"] == null) {
+				//取得を別モジュールに依頼
+				await dispatch("user/getUserInfo", obj, { root: true });
+				//格納
+				let result = rootGetters["user/userData"];
+				result.uuid = uid;
+				result.path = result.altId + "/icon";
+				commit("succsessLogin", result);
 
-			//格納
-			let result = rootGetters["user/userData"];
+				if (result.img == true && result.nickname != "") {
+					dispatch("user/downloadFile", null, { root: true });
+				}
 
-			result.uuid = uid;
-			result.path = result.altId + "/icon";
-			commit("succsessLogin", result);
+				checkToGo(result, path)
 
-			if (result.img == true && result.nickname != "") {
-				dispatch("user/downloadFile", null, { root: true });
+				resolve();
 			}
-
-			checkToGo(result, path)
-
-			resolve();
-
+			else {
+				resolve();
+			}
 		}, (error) => {
 			console.log(error);
 		});
+
 	},
 	/**
 	 * Logout
@@ -209,23 +212,27 @@ const actions = {
  * @param {*} path 
  */
 function checkToGo(data, path) {
-
+	console.log("a");
 	//プロフィールが入ってなければログイン後プロフィールへ
 	if (data.img == false || data.nickname == "") {
 		if (router.currentRoute.path != '/app/profile') {
-			router.push('/app/profile')
+			console.log("b");
+			router.push('/app/profile');
 		}
 	}
 	else if (router.currentRoute.path == '/app/profile'
 		&& data.img == true
 		&& data.nickname != "") {
+		console.log("c");
 		//プロフィールが入っている場合はプロフィールにアクセスできない
-		router.push('/app/projects')
+		router.push('/app/projects');
 	}
 	else {
 		//同じページにいる場合は重複して遷移しない
+
 		if (router.currentRoute.path != '/app' + path) {
-			router.push('/app' + path)
+			console.log("d", router.currentRoute.path, '/app' + path);
+			router.push('/app' + path);
 		}
 	}
 }

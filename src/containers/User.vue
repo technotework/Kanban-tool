@@ -10,22 +10,31 @@ import { getConfirmMessage } from "@/containers/resorces/message";
 import UserInfoForm from "@/components/organisms/user/user-info-form";
 export default {
   name: "User",
+  created: function() {
+    this.unlisten = this.$store.getters.firebase
+      .auth()
+      .onAuthStateChanged(user => {
+        if (user) {
+          let uid = user.uid;
+          let path = "/profile";
+          console.log("user!");
+          this.$store
+            .dispatch("auth/setUserInfo", { uid: uid, path: path })
+            .then(() => {
+              //this.init();
+            });
+        }
+      });
+  },
+  destroyed: function() {
+    this.unlisten();
+  },
   props: {},
   data: () => {
-    return {};
-  },
-  created: function() {
-    this.$store.getters.firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        let uid = user.uid;
-        let path = "/profile";
-        this.$store
-          .dispatch("auth/setUserInfo", { uid: uid, path: path })
-          .then(() => {
-            //this.init();
-          });
-      }
-    });
+    return {
+      unlisten: null,
+      isCreated: false
+    };
   },
   computed: {},
   methods: {
