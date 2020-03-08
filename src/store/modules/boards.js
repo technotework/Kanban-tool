@@ -29,9 +29,7 @@ const mutations = {
 		state.unsnapshots.push(payload);
 	},
 	remove(state) {
-		console.log(state.unsnapshots);
 		for (let i = 0; i < state.unsnapshots.length; i++) {
-
 			state.unsnapshots[i]();
 		}
 		state.unsnapshots = [];
