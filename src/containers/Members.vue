@@ -3,6 +3,7 @@
     :members="members"
     :id="id"
     :parent-id="parentId"
+    :is-editing="isEditing"
     v-model="assigned"
     @update-member="onUpdateMember"
   />
@@ -17,6 +18,7 @@ export default {
   props: {
     value: Array,
     id: String,
+    editing: String,
     parentId: String
   },
   data: () => {
@@ -33,6 +35,11 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
+    },
+    isEditing() {
+      let myAltId = this.$store.getters["auth/user"].altId;
+      console.log(this.editing == myAltId);
+      return this.editing == myAltId;
     }
   },
   methods: {

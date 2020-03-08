@@ -69,6 +69,7 @@ export default {
         this.onDelete();
       } else if (value.name == "edit") {
         this.onEdit();
+        this.$emit("start-edit-task");
       }
     },
     onEdit: function() {
@@ -82,10 +83,12 @@ export default {
       this.status = false;
       let value = this.$refs.textarea.getContent();
       this.$emit("save-event", { value: value });
+      this.$emit("complete-edit-task");
     },
     onCancel: function() {
       this.textareaContent = this.temp;
       this.status = false;
+      this.$emit("complete-edit-task");
     }
   },
   components: {

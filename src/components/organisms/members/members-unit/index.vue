@@ -18,6 +18,7 @@ export default {
   props: {
     members: Object,
     value: Array,
+    isEditing: Boolean,
     id: String,
     parentId: String
   },

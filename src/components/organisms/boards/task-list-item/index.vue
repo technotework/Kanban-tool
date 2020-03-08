@@ -1,11 +1,19 @@
 <template>
   <div :class="$style.item">
-    <PostedTextarea :content="content" @save-event="onSave" @delete-event="onDelete" />
+    <PostedTextarea
+      :content="content"
+      @save-event="onSave"
+      @delete-event="onDelete"
+      @start-edit-task="onStartEdit"
+      @complete-edit-task="onCompleteEdit"
+    />
     <component
       :is="membersContainer"
       :id="id"
       :parent-id="boardId"
+      :editing="editing"
       v-model="members"
+      ref="members"
       :class="$style.member"
     />
   </div>
@@ -18,6 +26,7 @@ export default {
   props: {
     content: String,
     id: String,
+    editing: String,
     membersContainer: Object,
     boardId: String,
     value: Array
@@ -29,6 +38,12 @@ export default {
     },
     onDelete(value) {
       this.$emit("delete-event", { id: this.id });
+    },
+    onStartEdit() {
+      this.$emit("start-edit-task", { id: this.id });
+    },
+    onCompleteEdit() {
+      this.$emit("complete-edit-task", { id: this.id });
     }
   },
   computed: {

@@ -1,12 +1,7 @@
   <template>
   <div :class="[isDisable ? $style.wrapper : $style.wrapper2col,$role[role]]">
     <div @click="onClickEdit" :class="$style.editableInputContainer">
-      <component
-        :is="isTitle ? title : noTitle"
-        :readonly="isDisable"
-        v-model.lazy="myValue"
-        @keyup-enter="onClickCompleteEdit"
-      />
+      <component :is="isTitle ? title : noTitle" :readonly="isDisable" v-model.lazy="myValue" />
       <template v-if="isDisable">
         <BaseIcon type="edit" :class="$style.icon" />
       </template>

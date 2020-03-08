@@ -9,6 +9,8 @@
     @delete-event="onDelete"
     @drag-sort-list="onDragSortList"
     @drag-add-list="onDragAddList"
+    @start-edit-task="onStartEdit"
+    @complete-edit-task="onCompleteEdit"
   />
 </template>
 
@@ -81,6 +83,13 @@ export default {
     },
     onDragAddList(value) {
       this.$store.dispatch(this.storeModuleName + "/dragAdded", value);
+    },
+    onStartEdit(value) {
+      console.log("a");
+      this.$store.dispatch(this.storeModuleName + "/lockTask", value);
+    },
+    onCompleteEdit(value) {
+      this.$store.dispatch(this.storeModuleName + "/unlockTask", value);
     }
   },
   components: { TaskList }

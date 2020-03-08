@@ -138,7 +138,7 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  read({ commit, getters, rootGetters }) {
+  read({ commit, getters, dispatch, rootGetters }) {
     return new Promise(async (resolve, reject) => {
 
       let { taskPath } = getters.info;
@@ -152,6 +152,15 @@ const actions = {
         querySnapshot.forEach(function (doc) {
           let result = doc.data();
           result.task.id = doc.id;
+
+          //予期せずロックしっぱなしだった場合、30分たっていたらロック解除する
+          if (result.task.editing != "") {
+            let now = Math.floor(new Date().getTime() / 1000);
+            if (result.task.editing_date != null && (now - result.task.editing_date > 1800)) {
+              dispatch("unlockTask", { id: result.task.id });
+            }
+          }
+
           array.push(result);
         });
         commit("setTasksData", array);
@@ -233,6 +242,59 @@ const actions = {
       //実行
       common.fb.deleteDoc({ path: taskDocPath }).catch(reject);
       resolve();
+
+    }, (error) => {
+      console.log(error);
+    });
+  },
+  /**
+   * 現在の編集者を追加
+   * @param {*} param0 
+   * @param {*} value 
+   */
+  lockTask({ getters, rootGetters, commit }, value) {
+
+    return new Promise(async (resolve, reject) => {
+
+      //setting
+      let { taskPath } = getters.info;
+      let taskDocPath = taskPath + value.id;
+      let date = Math.floor(new Date().getTime() / 1000);
+      let userId = rootGetters["auth/user"].altId;
+      //実行
+      let object = {
+        path: taskDocPath,
+        content: { task: { "editing": userId, "editing_date": date } }
+      };
+      await common.fb.setDoc(object).catch(reject);
+      resolve();
+
+    }, (error) => {
+      console.log(error);
+    });
+  },
+  /**
+   * 現在の編集者を解除
+   * @param {*} param0 
+   * @param {*} value 
+   */
+  unlockTask({ getters, rootGetters, commit }, value) {
+
+    return new Promise(async (resolve, reject) => {
+
+      //setting
+      let { taskPath } = getters.info;
+      let taskDocPath = taskPath + value.id;
+      let date = null;
+      let userId = "";
+      //実行
+      let object = {
+        path: taskDocPath,
+        content: { task: { "editing": userId, "editing_date": date } }
+      };
+      await common.fb.setDoc(object).catch(reject);
+      resolve();
+
 
     }, (error) => {
       console.log(error);

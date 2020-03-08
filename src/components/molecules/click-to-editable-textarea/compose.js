@@ -8,14 +8,21 @@ function getMixin() {
     components: {
       ClickToEditableTextarea
     },
-    template: `<ClickToEditableTextarea :content="content" @save-event="onSave" @delete-event="onDelete" />`,
+    template: `<ClickToEditableTextarea :content="content" @save-event="onSave" 
+    @delete-event="onDelete" @start-edit-task="onStartEdit" @complete-edit-task="onCompleteEdit" />`,
     props: {
       ...ClickToEditableTextarea.props
     },
     methods: {
       ...ClickToEditableTextarea.methods,
       onSave(value) {
-        this.$emit("save-event", value)
+        this.$emit("save-event", value);
+      },
+      onStartEdit() {
+        this.$emit("start-edit-task");
+      },
+      onCompleteEdit() {
+        this.$emit("complete-edit-task");
       }
     }
   }

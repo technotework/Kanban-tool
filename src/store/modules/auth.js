@@ -212,26 +212,25 @@ const actions = {
  * @param {*} path 
  */
 function checkToGo(data, path) {
-	console.log("a");
+
 	//プロフィールが入ってなければログイン後プロフィールへ
 	if (data.img == false || data.nickname == "") {
 		if (router.currentRoute.path != '/app/profile') {
-			console.log("b");
+
 			router.push('/app/profile');
 		}
 	}
 	else if (router.currentRoute.path == '/app/profile'
 		&& data.img == true
 		&& data.nickname != "") {
-		console.log("c");
+
 		//プロフィールが入っている場合はプロフィールにアクセスできない
 		router.push('/app/projects');
 	}
 	else {
 		//同じページにいる場合は重複して遷移しない
-
 		if (router.currentRoute.path != '/app' + path) {
-			console.log("d", router.currentRoute.path, '/app' + path);
+
 			router.push('/app' + path);
 		}
 	}

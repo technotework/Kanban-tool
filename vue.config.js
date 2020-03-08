@@ -21,7 +21,6 @@ module.exports = {
       },
       sass: {
         prependData: `
-          
           @import "~@/components/scss/_theme.scss";
         `,
         sourceMap: true,

@@ -40,9 +40,12 @@
           :board-id="dataBoardId"
           :content="item.task.data"
           :class="$style.listItem"
+          :editing="item.task.editing"
           v-model="item.task.members"
           @save-event="onSave"
           @delete-event="onDelete"
+          @start-edit-task="onStartEdit"
+          @complete-edit-task="onCompleteEdit"
         />
       </li>
     </draggable>
@@ -110,6 +113,12 @@ export default {
     onDragAdd(e) {
       let dataSet = e.item.dataset;
       this.$emit("drag-add-list", dataSet);
+    },
+    onStartEdit(value) {
+      this.$emit("start-edit-task", value);
+    },
+    onCompleteEdit(value) {
+      this.$emit("complete-edit-task", value);
     }
   },
   components: { PostForm, TaskListItem, IconedButton, draggable }
