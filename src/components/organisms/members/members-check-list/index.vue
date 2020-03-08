@@ -58,9 +58,9 @@ export default {
 </script>
 <style lang="scss" module>
 .wrapper {
-  margin: -170px 0 0 100px;
   position: absolute;
-  left: 15px;
+  top: 31px;
+  left: 9px;
 }
 
 .title {

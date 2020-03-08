@@ -59,6 +59,7 @@ export default {
 .board {
   position: relative;
   height: 100%;
+  overflow: hidden;
   @include board;
 }
 
