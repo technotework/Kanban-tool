@@ -48,12 +48,12 @@ export default {
   text-align: right;
 }
 .item {
-  @include m(0 0 $s8 0);
+  margin: 0 0 $s8 0;
 }
 .label {
   text-align: right;
   font-weight: bold;
-  @include m($s4 $s8 $s8 0);
+  margin: $s4 $s8 $s8 0;
 }
 .button {
   display: inline-block;

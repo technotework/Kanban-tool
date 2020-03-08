@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss" module="$compose">
 .none {
-  @include bgc($white);
+  background-color: $white;
 }
 .dialogue {
   @include alert;

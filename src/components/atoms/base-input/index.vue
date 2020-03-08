@@ -43,7 +43,6 @@ export default {
 <style lang="scss" module>
 .basicInput {
   width: 100%;
-  @include bdc($gray);
 }
 </style>
 
