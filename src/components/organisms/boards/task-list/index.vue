@@ -118,34 +118,40 @@ export default {
   overflow: hidden;
   margin: 0 14px 15px 14px;
   height: 0px;
+  opacity: 0;
   @include transiton($ms200);
 }
 
 .postForm.open {
   height: 170px;
   margin-bottom: 15px;
+  opacity: 1;
 }
 
 .postForm.close {
   height: 0px;
   margin-bottom: 0;
+  opacity: 0;
 }
 
 .postButton {
   overflow: hidden;
   height: 26px;
   margin-bottom: 15px;
+  opacity: 1;
   @include transiton($ms300);
 }
 
 .postButton.open {
   height: 0px;
   margin-bottom: 0;
+  opacity: 0;
 }
 
 .postButton.close {
   height: 26px;
   margin-bottom: 15px;
+  opacity: 1;
 }
 
 .add {
@@ -156,11 +162,11 @@ export default {
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  @include p(0 16px);
+  padding: 0 14px;
 }
 .listItem {
-  @include m(0 0 16px 0);
-  @include s($mxw: 238px);
+  margin: 0 0 16px 0;
+  max-width: 238px;
   cursor: move;
 }
 .ghost {

@@ -39,16 +39,12 @@ export default {
 }
 .content {
   width: 100%;
-  line-height: 2.4rem;
-  background-color: $white;
-  padding: $s16;
+  @include taskText;
+  background-color: $transparent;
 }
 .text {
   width: 100%;
-  background-color: $white;
-  padding: $s16;
-  font-size: $f16;
-  line-height: 2.4rem;
+  @include taskText;
   resize: none;
 }
 </style>

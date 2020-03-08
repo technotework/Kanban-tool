@@ -59,7 +59,7 @@ let setting = {
     action: {
 
     },
-    template: tagTemp`<MembersCheckList ${'props'} ${'action'} />`
+    template: tagTemp`<div style="margin-top:200px;"><MembersCheckList ${'props'} ${'action'} /></div>`
 };
 
 export const Basic = () => (createStory(setting));

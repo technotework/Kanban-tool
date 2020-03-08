@@ -7,6 +7,7 @@
       v-bind="{ menuItems, id }"
       compose="bottom"
     />
+
     <component :is="taskContainer" :id="id" />
   </div>
 </template>
@@ -65,6 +66,7 @@ export default {
 
 .board > div {
   grid-template-columns: 1fr 48px;
+  height: 32px;
 }
 
 .input {

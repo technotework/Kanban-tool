@@ -54,7 +54,7 @@ export default {
 .icon {
   width: 27px;
   height: 27px;
-  padding: 4px 2px;
+  padding: 5px 1px 3px 2px;
   fill: $theme;
 }
 .wapper {

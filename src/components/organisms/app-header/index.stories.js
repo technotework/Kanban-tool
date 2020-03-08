@@ -20,7 +20,7 @@ let setting = {
     title: "project"
   },
   action: { event: "input" },
-  template: tagTemp`<AppHeader ${"props"} ${"action"} />`
+  template: tagTemp`<AppHeader ${"props"} ${"action"} >NewButton</AppHeader>`
 };
 
 export const Basic = () => createStory(setting);

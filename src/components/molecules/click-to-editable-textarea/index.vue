@@ -8,7 +8,12 @@
     />
     <div :class="$style.buttons">
       <template v-if="!status">
-        <ContextMenu @context-menu-click="onMenuClick" v-bind="{ menuItems }" compose="top" />
+        <ContextMenu
+          @context-menu-click="onMenuClick"
+          v-bind="{ menuItems }"
+          compose="top"
+          :class="$style.menu"
+        />
       </template>
       <template v-else>
         <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
@@ -94,15 +99,18 @@ export default {
 <style lang="scss" module>
 .wrapper {
   position: relative;
-  padding: 0 0 3.2rem 0;
+  padding: 0 0 32px 0;
 }
 .textarea {
   min-height: 100px;
 }
+.menu {
+  padding: 1px 8px 0 0;
+}
 .buttons {
-  @include flex;
+  display: flex;
   position: absolute;
-  bottom: 6px;
+  bottom: 1px;
   right: 0;
 }
 .button {

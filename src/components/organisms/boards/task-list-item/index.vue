@@ -1,7 +1,13 @@
 <template>
   <div :class="$style.item">
     <PostedTextarea :content="content" @save-event="onSave" @delete-event="onDelete" />
-    <component :is="membersContainer" :id="id" :parent-id="boardId" v-model="members" />
+    <component
+      :is="membersContainer"
+      :id="id"
+      :parent-id="boardId"
+      v-model="members"
+      :class="$style.member"
+    />
   </div>
 </template>
 
@@ -40,7 +46,10 @@ export default {
 </script>
 <style lang="scss" module>
 .item {
-  @include spr($w: 100%, $mh: 100px, $p: 0, $r: 0);
-  @include bgc($white);
+  @include task;
+}
+
+.member a {
+  text-align: left;
 }
 </style>

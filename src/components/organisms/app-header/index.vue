@@ -11,7 +11,7 @@
     </template>
 
     <template #unit3>
-      <ImageIconedText :img="img" compose="left" size="M">{{username}}</ImageIconedText>
+      <ImageIconedText :class="$style.name" :img="img" compose="left" size="M">{{username}}</ImageIconedText>
     </template>
 
     <template #unit4>
@@ -58,6 +58,9 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.name {
+  color: $white;
+}
 .button {
   margin-top: 5px;
 }

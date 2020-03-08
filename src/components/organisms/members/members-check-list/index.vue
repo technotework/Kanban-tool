@@ -1,7 +1,8 @@
 <template>
   <div ref="wrapper" :class="$style.wrapper">
     <BaseModelessContainer :class="$style.menu">
-      <ul>
+      <div :class="$style.title">Assign Member</div>
+      <ul :class="$style.listContainer">
         <li v-for="(item,key) in members" :key="key" :class="$style.list">
           <LabeledCheckboxVmodel :id="key" :value="key" :name="key" v-model="myData">
             <ImageIconedText
@@ -62,17 +63,29 @@ export default {
   left: 15px;
 }
 
+.title {
+  width: 100%;
+  margin-bottom: $s16;
+  @include memberTitle;
+}
+
 .menu {
   width: 250px;
   height: 300px;
+}
+
+.listContainer {
+  width: 100%;
+  height: calc(100% - 48px);
   overflow-y: auto;
 }
 
 .list {
   padding-bottom: $s16;
+  @include memberList;
 }
 .list input[type="checkbox"] {
-  margin-top: 7px;
+  margin-top: 1px;
 }
 .icon {
   padding-left: $s4;
