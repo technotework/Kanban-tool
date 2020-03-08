@@ -160,6 +160,7 @@ export default {
 
 .list {
   width: 100%;
+  max-height: calc(100vh - 296px);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0 14px;

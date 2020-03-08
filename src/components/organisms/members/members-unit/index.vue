@@ -52,5 +52,3 @@ export default {
   components: { ContextMenuContainer, MembersIconList, MembersCheckList }
 };
 </script>
-<style lang="scss" module>
-</style>

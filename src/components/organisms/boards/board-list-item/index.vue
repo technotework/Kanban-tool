@@ -58,13 +58,11 @@ export default {
 <style lang="scss" module>
 .board {
   position: relative;
-  display: flex;
-  flex-direction: column;
   height: 100%;
   @include board;
 }
 
-.board > div {
+.board > div:first-child {
   grid-template-columns: 1fr 48px;
   height: 32px;
 }

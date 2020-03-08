@@ -52,6 +52,7 @@ export default {
 </script>
 <style lang="scss" module>
 .icon {
+  position: relative;
   width: 27px;
   height: 27px;
   padding: 5px 1px 3px 2px;
