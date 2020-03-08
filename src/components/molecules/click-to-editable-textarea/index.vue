@@ -102,7 +102,7 @@ export default {
   padding: 0 0 32px 0;
 }
 .textarea {
-  min-height: 100px;
+  min-height: 57px;
 }
 .menu {
   padding: 1px 8px 0 0;
