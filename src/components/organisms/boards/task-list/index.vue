@@ -1,22 +1,24 @@
 <template>
-  <div>
-    <div
-      :class="[
+  <div :class="$style.container">
+    <div>
+      <div
+        :class="[
         $style.postButton,
         { [$style.open]: open },
         { [$style.close]: !open }
       ]"
-    >
-      <IconedButton type="plusmini" :class="$style.add" @click="onAddClick" />
-    </div>
-    <div
-      :class="[
+      >
+        <IconedButton type="plusmini" :class="$style.add" @click="onAddClick" />
+      </div>
+      <div
+        :class="[
         $style.postForm,
         { [$style.open]: open },
         { [$style.close]: !open }
       ]"
-    >
-      <PostForm @form-cancel="onCancelAddTask" @form-add="onAddTask" />
+      >
+        <PostForm @form-cancel="onCancelAddTask" @form-add="onAddTask" />
+      </div>
     </div>
     <draggable
       v-model="taskList"
@@ -114,6 +116,11 @@ export default {
 };
 </script>
 <style lang="scss" module>
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 255px);
+}
 .postForm {
   overflow: hidden;
   margin: 0 14px 15px 14px;
@@ -160,7 +167,7 @@ export default {
 
 .list {
   width: 100%;
-  max-height: calc(100vh - 296px);
+  height: calc(100vh - 296px);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0 14px;
