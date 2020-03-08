@@ -1,7 +1,7 @@
 <template>
   <div ref="wrapper" :class="$style.wrapper">
     <BaseModelessContainer :class="$style.menu">
-      <div :class="$style.title">Assign Member</div>
+      <div :class="$style.title">参加メンバー</div>
       <ul :class="$style.listContainer">
         <li v-for="(item,key) in members" :key="key" :class="$style.list">
           <LabeledCheckboxVmodel :id="key" :value="key" :name="key" v-model="myData">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 import BaseModelessContainer from "@/components/atoms/base-modeless-container/";
 import ImageIconedText from "@/components/molecules/image-iconed-text/";
 import LabeledCheckboxVmodel from "@/components/molecules/labeled-check-box/model";
@@ -36,6 +37,36 @@ export default {
         }
       }.bind(this)
     );
+  },
+  mounted: function() {
+    Vue.nextTick(() => {
+      let ww = document.documentElement.clientWidth;
+      let wh = document.documentElement.clientHeight;
+
+      let x = this.$refs.wrapper.getBoundingClientRect().x;
+      let y = this.$refs.wrapper.getBoundingClientRect().y;
+      let menuW = 250 + x;
+      let menuH = 300 + y;
+
+      //現在のスタイルの取得
+      let el = this.$refs.wrapper;
+      let currentMT = Number(
+        getComputedStyle(el, "").marginTop.replace("px", "")
+      );
+      let currentML = Number(
+        getComputedStyle(el, "").marginLeft.replace("px", "")
+      );
+
+      //差分とゲタ分で位置調整
+      if (menuW > ww) {
+        var diffW = menuW - ww + 70;
+        el.style.marginLeft = currentML - diffW + "px";
+      }
+      if (menuH > wh) {
+        var diffH = menuH - wh + 30;
+        el.style.marginTop = currentMT - diffH + "px";
+      }
+    });
   },
   props: {
     members: Object,
@@ -59,8 +90,7 @@ export default {
 <style lang="scss" module>
 .wrapper {
   position: absolute;
-  top: 31px;
-  left: 9px;
+  margin: -100px 0 0 151px;
 }
 
 .title {

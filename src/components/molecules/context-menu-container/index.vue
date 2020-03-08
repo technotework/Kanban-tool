@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     onMenuTriggerClick(e) {
-      console.log("c");
       this.showContext = !this.showContext;
       e.status = this.showContext;
       this.$emit("click", e);

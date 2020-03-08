@@ -51,7 +51,7 @@ export default {
 
 .member a {
   display: block;
-  margin: -27px 0 0 0;
+  margin: -21px 0 3px 5px;
   width: 188px;
   text-align: left;
 }

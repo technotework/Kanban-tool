@@ -331,7 +331,6 @@ const util = {
             myIndex = i;
           }
         }
-        console.log(myIndex);
         //前後のindexを特定
         let prev = myIndex - 1;
         let next = myIndex + 1;

@@ -119,7 +119,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 255px);
+  height: calc(100vh - 263px);
 }
 .postForm {
   overflow: hidden;

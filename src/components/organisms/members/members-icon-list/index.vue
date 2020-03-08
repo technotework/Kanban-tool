@@ -60,6 +60,7 @@ export default {
 }
 .wapper {
   display: flex;
+  flex-wrap: wrap;
 }
 .wapper li {
   padding-right: 3px;
