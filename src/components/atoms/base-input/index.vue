@@ -2,6 +2,7 @@
   <input
     :type="type"
     :class="[$style.basicInput, $compose[compose]]"
+    class="ignore"
     v-bind="{ placeholder, required, maxlength, name, readonly }"
     v-model.lazy="myValue"
     @keyup.enter="onKeyup"

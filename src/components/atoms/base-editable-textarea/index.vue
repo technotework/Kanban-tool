@@ -1,6 +1,12 @@
 <template>
   <div :class="$style.wrapper">
-    <textarea v-model.lazy="myValue" :class="$style.text" v-show="isedit" ref="textarea"></textarea>
+    <textarea
+      v-model.lazy="myValue"
+      :class="$style.text"
+      class="ignore"
+      v-show="isedit"
+      ref="textarea"
+    ></textarea>
     <div :class="$style.content" v-show="!isedit">{{myValue}}</div>
   </div>
 </template>

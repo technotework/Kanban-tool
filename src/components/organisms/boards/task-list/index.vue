@@ -23,6 +23,7 @@
     <draggable
       v-model="taskList"
       :class="$style.list"
+      filter=".ignore"
       tag="ul"
       v-bind="dragOptions"
       @end="onDragUpdeteList"
@@ -75,6 +76,7 @@ export default {
       return {
         animation: 200,
         group: "tasks",
+        preventOnFilter: false,
         ghostClass: this.$style.ghost
       };
     },

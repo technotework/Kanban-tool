@@ -4,6 +4,7 @@
       v-model="items"
       :class="$style.list"
       tag="ul"
+      filter=".ignore"
       v-bind="dragOptions"
       @end="onDragSortList"
     >
@@ -52,6 +53,7 @@ export default {
     dragOptions() {
       return {
         animation: 200,
+        preventOnFilter: false,
         ghostClass: this.$style.ghost
       };
     },

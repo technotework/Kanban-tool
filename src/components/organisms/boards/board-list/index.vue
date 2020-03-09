@@ -2,6 +2,7 @@
   <draggable
     v-model="boardList"
     :class="$style.list"
+    filter=".ignore"
     tag="ul"
     v-bind="dragOptions"
     @end="onDragSortList"
@@ -36,6 +37,7 @@ export default {
     dragOptions() {
       return {
         animation: 200,
+        preventOnFilter: false,
         ghostClass: this.$style.ghost
       };
     },
