@@ -20,6 +20,11 @@ export default {
         this.$emit("input", value);
       }
     }
+  },
+  methods: {
+    onEnter() {
+      this.$emit("enter-textarea-event");
+    }
   }
 };
 </script>

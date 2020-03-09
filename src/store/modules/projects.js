@@ -293,7 +293,9 @@ function createTasks(uuid, date, boardDocumentPath) {
 	return new Promise(async (resolve, reject) => {
 
 		//テンプレ取得
-		let initialTaskTemplate = common.templates.task(uuid, date);
+		let text = "Wクリックで編集";
+
+		let initialTaskTemplate = common.templates.task(uuid, date, null, text);
 		//作成
 		let object = {
 			path: boardDocumentPath + "/tasks/",

@@ -94,6 +94,7 @@ export default {
       this.changeOpen(!this.open);
     },
     onAddTask(value) {
+      this.changeOpen(false);
       this.$emit("form-add", value);
     },
     onCancelAddTask: function(value) {
