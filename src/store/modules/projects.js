@@ -117,7 +117,7 @@ const actions = {
 			commit("setUnsnap", unsnap);
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 
 	},
@@ -139,7 +139,7 @@ const actions = {
 			resolve();
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 
 	},
@@ -196,7 +196,7 @@ const actions = {
 			resolve();
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	},
 	/**=========================================================
@@ -222,7 +222,7 @@ const actions = {
 			resolve();
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	}
 }
@@ -252,7 +252,7 @@ function createProject(path, date, projects) {
 		resolve(data);
 
 	}, (error) => {
-		console.log(error);
+		//console.log(error);
 	});
 }
 
@@ -278,7 +278,7 @@ function createBoards(path, projectDoc) {
 		}
 
 	}, (error) => {
-		console.log(error);
+		//console.log(error);
 	});
 }
 
@@ -305,7 +305,7 @@ function createTasks(uuid, date, boardDocumentPath) {
 		resolve(data);
 
 	}, (error) => {
-		console.log(error);
+		//console.log(error);
 	});
 }
 

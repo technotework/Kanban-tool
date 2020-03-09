@@ -105,7 +105,7 @@ const actions = {
       resolve();
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**==============================
@@ -130,7 +130,7 @@ const actions = {
       resolve();
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**=============================
@@ -167,7 +167,7 @@ const actions = {
       });
       commit("setUnsnap", unsnap);
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
 
@@ -196,7 +196,7 @@ const actions = {
 
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
 
   },
@@ -223,7 +223,7 @@ const actions = {
 
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
 
   },
@@ -244,7 +244,7 @@ const actions = {
       resolve();
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**
@@ -270,7 +270,7 @@ const actions = {
       resolve();
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**
@@ -297,7 +297,7 @@ const actions = {
 
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
 
@@ -335,7 +335,7 @@ const actions = {
       }
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**===========================
@@ -363,7 +363,7 @@ const actions = {
       await dispatch("insertTask", { template: data, id: taskId });
       resolve();
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   }
 }

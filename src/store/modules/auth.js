@@ -110,7 +110,7 @@ const actions = {
 					}
 				);
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	},
 	/**
@@ -151,7 +151,7 @@ const actions = {
 				});
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	},
 	/**
@@ -189,7 +189,7 @@ const actions = {
 					resolve();
 				}*/
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 
 	},
@@ -218,23 +218,23 @@ function checkToGo(data, path) {
 
 	//プロフィールが入ってなければログイン後プロフィールへ
 	if (data.img == false || data.nickname == "") {
-		if (router.currentRoute.path != '/app/profile') {
+		if (router.currentRoute.path != '/profile') {
 
-			router.push('/app/profile');
+			router.push('/profile');
 		}
 	}
-	else if (router.currentRoute.path == '/app/profile'
+	else if (router.currentRoute.path == '/profile'
 		&& data.img == true
 		&& data.nickname != "") {
 
 		//プロフィールが入っている場合はプロフィールにアクセスできない
-		router.push('/app/projects');
+		router.push('/projects');
 	}
 	else {
 		//同じページにいる場合は重複して遷移しない
-		if (router.currentRoute.path != '/app' + path) {
+		if (router.currentRoute.path != path) {
 			console.log(path);
-			router.push('/app' + path);
+			router.push(path);
 		}
 	}
 }

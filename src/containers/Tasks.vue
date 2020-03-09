@@ -85,7 +85,6 @@ export default {
       this.$store.dispatch(this.storeModuleName + "/dragAdded", value);
     },
     onStartEdit(value) {
-      console.log("a");
       this.$store.dispatch(this.storeModuleName + "/lockTask", value);
     },
     onCompleteEdit(value) {

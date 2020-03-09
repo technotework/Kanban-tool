@@ -52,7 +52,7 @@ const actions = {
       resolve();
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**
@@ -89,7 +89,7 @@ const actions = {
       resolve();
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   },
   /**
@@ -104,7 +104,7 @@ const actions = {
       commit("auth/setImage", response.url, { root: true });
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   }
 }

@@ -80,7 +80,7 @@ const actions = {
       commit("setUnsnap", unsnap);
 
     }, (error) => {
-      console.log(error);
+      //console.log(error);
     });
   }
 }

@@ -57,6 +57,6 @@ export default {
   width: 114px;
   height: 139px;
   fill: $white;
-  margin-left: -3px;
+  margin-left: -1px;
 }
 </style>

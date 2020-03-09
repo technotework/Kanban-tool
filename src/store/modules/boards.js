@@ -70,7 +70,7 @@ const actions = {
 			commit("setAppInfo", info);
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	},
 	/**========================
@@ -95,7 +95,7 @@ const actions = {
 			resolve();
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	},
 	/**========================
@@ -142,7 +142,7 @@ const actions = {
 			commit("setUnsnap", unsnap);
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 
 	},
@@ -166,7 +166,7 @@ const actions = {
 			common.fb.setDoc(object).catch(reject);
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 
 	},
@@ -202,7 +202,7 @@ const actions = {
 			resolve();
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	},
 	/**=========================================================
@@ -229,7 +229,7 @@ const actions = {
 			resolve();
 
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 	}
 
