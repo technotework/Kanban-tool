@@ -105,10 +105,12 @@ export default {
   padding: 0 0 32px 0;
 }
 .textarea {
-  min-height: 57px;
+  min-height: 80px;
 }
 .menu {
-  padding: 1px 8px 0 0;
+  position: absolute;
+  top: -14px;
+  right: 9px;
 }
 .buttons {
   display: flex;

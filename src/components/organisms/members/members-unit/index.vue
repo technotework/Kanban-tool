@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$style.container">
     <template v-if="editStatus == 'NO_ONE'">
       <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
         <template #button>
@@ -16,7 +16,10 @@
       </ContextMenuContainer>
     </template>
     <template v-if="editStatus == 'OTHER'">
-      <MemberIcon size="L" :img="editorImgSrc" />
+      <div :class="$style.other">
+        <MemberIcon size="L" :img="editorImgSrc" :class="$style.icon" />
+        <div :class="$style.line">EDITING...</div>
+      </div>
     </template>
   </div>
 </template>
@@ -86,3 +89,18 @@ export default {
   }
 };
 </script>
+<style lang="scss" module>
+.other {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  margin: -50px 0px 0px 170px;
+  z-index: 1000;
+}
+.line {
+  @include editing;
+  position: absolute;
+  margin: -25px 0 0 0;
+}
+</style>
