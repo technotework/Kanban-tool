@@ -1,6 +1,8 @@
 <template>
   <div class="root-page">
-    <router-view />
+    <transition mode="out-in">
+      <router-view />
+    </transition>
     <a href="https://github.com/technotework/Kanban-tool" target="_blank" :class="$style.link">
       <div :class="$style.footer">
         <span :class="$style.copy">BY TECHNOTEWORK</span>

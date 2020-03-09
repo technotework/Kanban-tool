@@ -38,3 +38,10 @@ textarea,input {
     @include ff;
     box-sizing: border-box;
 }
+
+.v-enter-active, .v-leave-active {
+transition: opacity .2s;
+}
+.v-enter, .v-leave-to {
+opacity: 0;
+}
