@@ -95,7 +95,7 @@ export default {
 }
 .icon {
   position: absolute;
-  margin: -50px 0px 0px 170px;
+  margin: -44px 0px 0px 178px;
   z-index: 1000;
 }
 .line {
