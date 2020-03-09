@@ -15,11 +15,14 @@
         </template>
       </ContextMenuContainer>
     </template>
-    <template v-if="editStatus == 'OTHER'">a</template>
+    <template v-if="editStatus == 'OTHER'">
+      <MemberIcon size="L" :img="editorImgSrc" />
+    </template>
   </div>
 </template>
 
 <script>
+import MemberIcon from "@/components/organisms/members/member-icon/";
 import MembersIconList from "@/components/organisms/members/members-icon-list/";
 import MembersCheckList from "@/components/organisms/members/members-check-list/";
 import ContextMenuContainer from "@/components/molecules/context-menu-container/";
@@ -52,6 +55,9 @@ export default {
         status = "OTHER";
       }
       return status;
+    },
+    editorImgSrc() {
+      return this.members[this.editor].img;
     }
   },
   methods: {
@@ -72,6 +78,11 @@ export default {
       });
     }
   },
-  components: { ContextMenuContainer, MembersIconList, MembersCheckList }
+  components: {
+    MemberIcon,
+    ContextMenuContainer,
+    MembersIconList,
+    MembersCheckList
+  }
 };
 </script>
