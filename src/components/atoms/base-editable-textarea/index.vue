@@ -6,8 +6,10 @@
       class="ignore"
       v-show="isedit"
       ref="textarea"
+      v-shortkey="shortcut"
+      @shortkey="onEnter"
     ></textarea>
-    <div :class="$style.content" v-show="!isedit">{{myValue}}</div>
+    <div :class="$style.content" v-show="!isedit" @dblclick="onDClick">{{myValue}}</div>
   </div>
 </template>
 
@@ -23,6 +25,17 @@ export default {
     value: String
   },
   computed: {
+    shortcut() {
+      let shortcut = [];
+      let ua = window.navigator.userAgent.toLowerCase();
+
+      if (ua.indexOf("mac") != -1) {
+        shortcut = ["meta", "enter"];
+      } else {
+        shortcut = ["ctrl", "enter"];
+      }
+      return shortcut;
+    },
     myValue: {
       get() {
         return this.value;
@@ -35,6 +48,12 @@ export default {
   methods: {
     getContent: function() {
       return this.$refs.textarea.value;
+    },
+    onDClick: function() {
+      this.$emit("dblclick");
+    },
+    onEnter: function() {
+      this.$emit("enter-event");
     }
   }
 };

@@ -5,6 +5,8 @@
       :class="$style.textarea"
       :isedit="status"
       ref="textarea"
+      @dblclick="onDClick"
+      @enter-event="onEnter"
     />
     <div :class="$style.buttons">
       <template v-if="!status">
@@ -71,6 +73,13 @@ export default {
         this.onEdit();
         this.$emit("start-edit-task");
       }
+    },
+    onDClick: function() {
+      this.onEdit();
+      this.$emit("start-edit-task");
+    },
+    onEnter: function() {
+      this.onSave();
     },
     onEdit: function() {
       this.temp = this.$refs.textarea.getContent();

@@ -7,6 +7,7 @@ import font from "@/vender/font"
 import './components/scss/global.scss'
 
 Vue.use(VueHead);
+Vue.use(require('vue-shortkey'));
 
 Vue.config.productionTip = false
 
