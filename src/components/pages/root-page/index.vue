@@ -32,6 +32,7 @@ export default {
   left: calc(50% - 235px / 2);
   display: flex;
   align-items: center;
+  z-index: 810001;
 }
 
 .copy {

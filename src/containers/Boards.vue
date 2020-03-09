@@ -23,6 +23,7 @@ import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
   created: function() {
+    this.showLoad(true);
     this.unlisten = this.$store.getters.firebase
       .auth()
       .onAuthStateChanged(user => {
@@ -47,7 +48,8 @@ export default {
     return {
       unlisten: null,
       projectId: "",
-      task: Task
+      task: Task,
+      isShowLoad: false
     };
   },
   computed: {
@@ -111,6 +113,7 @@ export default {
 
       this.initBoardData(this.$route.params.id);
       this.read(); //BoardData読み込み
+      this.showLoad(false);
     },
     onInput(value) {
       let obj = {
@@ -155,6 +158,9 @@ export default {
     },
     onClickBack() {
       this.$router.go(-1);
+    },
+    showLoad(value) {
+      this.$emit("show-load", value);
     }
   },
   components: {

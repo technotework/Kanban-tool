@@ -12,13 +12,13 @@ export default {
 .loader {
   font-size: 10px;
   text-indent: -9999em;
-  width: 7em;
-  height: 7em;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: #7a7a7a;
+  background: $loader;
   background: linear-gradient(
     to right,
-    #7a7a7a 10%,
+    $loader 10%,
     rgba(122, 122, 122, 0) 42%
   );
   position: relative;
@@ -28,7 +28,7 @@ export default {
 .loader:before {
   width: 50%;
   height: 50%;
-  background: #7a7a7a;
+  background: $loader;
   border-radius: 100% 0 0 0;
   position: absolute;
   top: 0;
@@ -36,9 +36,9 @@ export default {
   content: "";
 }
 .loader:after {
-  background: #fff;
-  width: 70%;
-  height: 70%;
+  background: $theme;
+  width: 88%;
+  height: 88%;
   border-radius: 50%;
   content: "";
   margin: auto;

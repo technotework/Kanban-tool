@@ -15,10 +15,15 @@
     <template v-if="dialogue != null">
       <ConfirmationDialogue :text="dialogue.text" :pCallback="dialogue.p" :sCallback="dialogue.s" />
     </template>
+
+    <template v-if="isShowLoad">
+      <OverlayLoader />
+    </template>
   </div>
 </template>
 
 <script>
+import OverlayLoader from "@/components/molecules/overlay-loader/";
 import ConfirmationDialogue from "@/components/molecules/confirmation-dialogue/";
 import FloatMessage from "@/components/molecules/float-message/";
 
@@ -27,7 +32,7 @@ export default {
   props: {
     value: Boolean,
     dialogue: Object,
-    showLoad: Boolean,
+    isShowLoad: Boolean,
     errors: Array
   },
   methods: {
@@ -35,7 +40,7 @@ export default {
       this.$emit("delete-message", id);
     }
   },
-  components: { FloatMessage, ConfirmationDialogue }
+  components: { FloatMessage, ConfirmationDialogue, OverlayLoader }
 };
 </script>
 <style lang="scss" module>

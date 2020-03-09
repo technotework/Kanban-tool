@@ -134,7 +134,7 @@ export default {
 }
 .postForm {
   overflow: hidden;
-  margin: 0 14px 15px 14px;
+  margin: 3px 14px 15px 14px;
   height: 0px;
   opacity: 0;
   @include transiton($ms200);

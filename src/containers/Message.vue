@@ -1,5 +1,10 @@
 <template>
-  <MessageUnit @delete-message="onDeleteMessage" :dialogue="dialogue" :errors="errorMessages">
+  <MessageUnit
+    @delete-message="onDeleteMessage"
+    :dialogue="dialogue"
+    :errors="errorMessages"
+    :is-show-load="isShowLoad"
+  >
     <slot />
   </MessageUnit>
 </template>
@@ -12,7 +17,8 @@ import Vue from "vue";
 export default {
   name: "Message",
   props: {
-    target: String
+    target: String,
+    isShowLoad: Boolean
   },
   created() {
     Vue.config.errorHandler = (err, vm, info) => {
@@ -29,6 +35,7 @@ export default {
     window.removeEventListener("error");
     window.removeEventListener("unhandledrejection");
     this.dialogue = null;
+    this.isShowLoad = false;
     this.errorMessages = [];
   },
   data: () => {

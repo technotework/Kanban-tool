@@ -1,6 +1,6 @@
 <template>
-  <Message target="board">
-    <Boards />
+  <Message target="board" :is-show-load="isShowLoad">
+    <Boards @show-load="onShowLoad" />
   </Message>
 </template>
 
@@ -11,7 +11,14 @@ export default {
   name: "ProjectPage",
   props: {},
   data: () => {
-    return {};
+    return {
+      isShowLoad: false
+    };
+  },
+  methods: {
+    onShowLoad(value) {
+      this.isShowLoad = value;
+    }
   },
   components: {
     Message,
