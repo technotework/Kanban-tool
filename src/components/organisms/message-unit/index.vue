@@ -27,6 +27,7 @@ export default {
   props: {
     value: Boolean,
     dialogue: Object,
+    showLoad: Boolean,
     errors: Array
   },
   methods: {
