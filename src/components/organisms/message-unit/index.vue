@@ -48,7 +48,7 @@ export default {
   position: fixed;
   width: 95vw;
   height: auto;
-  bottom: 0.8rem;
+  bottom: 73px;
   left: calc(50% - 95vw / 2);
   z-index: $index_xm;
 }

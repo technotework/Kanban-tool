@@ -41,15 +41,10 @@ export default {
 .tabContainer {
   display: flex;
   width: 100%;
-}
-.tab {
-  flex-grow: 1;
-}
-.tab:first-child {
-  padding-right: $s4;
+  justify-content: space-between;
 }
 .tabContent {
-  padding-top: $s24;
+  padding-top: 33px;
 }
 </style>
 

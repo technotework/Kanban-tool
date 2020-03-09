@@ -63,7 +63,7 @@ export default {
         name: "利用規約に同意",
         agree: true
       };
-      this.onCompleteRegist();
+
       validateMultiple([objMail, objPass, objAgree], () => {
         value.callback = () => {
           this.onCompleteRegist();
@@ -92,7 +92,6 @@ export default {
       let p = () => {
         this.resetAuthDialogue();
       };
-      console.log(message);
       let object = { text: message[0].text, p: p, s: null };
 
       this.setAuthDialogue(object);

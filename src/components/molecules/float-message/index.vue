@@ -2,7 +2,7 @@
   <TransparentButton :class="$style.button" @click="onDeleteMessage">
     <component
       :is="type"
-      :class="[
+      :class="[$style.float,
     {[$style.open]:isShow},
     {[$style.close]:!isShow},
     ]"
@@ -76,9 +76,12 @@ export default {
   width: 11px;
   height: 11px;
   position: absolute;
-  top: 11px;
-  left: 11px;
+  top: 14px;
+  left: 14px;
   fill: $white;
+}
+.float {
+  @include transiton($ms300);
 }
 .open {
   opacity: 1;

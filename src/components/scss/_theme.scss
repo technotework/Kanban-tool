@@ -33,6 +33,7 @@ $base-fsize: 62.5%;
 $f10: 1rem;
 $f11: 1.1rem;
 $f12: 1.2rem;
+$f13: 1.3rem;
 $f14: 1.4rem;
 $f15: 1.5rem;
 $f16: 1.6rem;
@@ -302,6 +303,17 @@ Compose
   padding: $p;
 }
 
+//ロゴ ===================
+
+@mixin logoText {
+  display: block;
+  @include textFactory(23px,$white,"en");
+}
+
+@mixin previewNickName {
+  @include textFactory($f20,$white,"medium");
+  padding-left: 12px;
+}
 
 //ログイン・登録系 ===================
 @mixin tab($textc,$c){
@@ -496,11 +508,29 @@ Compose
 
 //フォーム類 ===================
 
+@mixin authLabel{
+  display: block;
+  @include textFactory($f14,$white,"medium");
+  margin: 0 0 10px 0;
+}
+
+@mixin agree{
+  display: inline-block;
+  @include textFactory($f14,$white,"medium");
+  margin: 13px $s8 0 0;
+  user-select: none;
+  a,a:hover,a:focus {
+    @include textFactory($f14,$white,"medium");
+    text-decoration: underline;
+  }
+}
+
 @mixin inputForm{
   font-size: $f16;
   padding: $s8;
   border-radius: $r3;
   background-color: $general;
+  border: none;
 }
 
 @mixin editableInputForm{
@@ -509,7 +539,6 @@ Compose
   letter-spacing: 0.1rem;
   border:none;
 }
-
 
 @mixin editableInputFormTitle{
   @include textFactory($f25,$titleText,"bold");
@@ -599,7 +628,7 @@ Compose
 @mixin error{
   display: block;
   @include textFactory($f16,$messageText,"medium");
-  @include containerFactory($error, $r8,4px 20px 10px 42px);
+  @include containerFactory($error, $r8,6px 20px 10px 42px);
   width: 100%;
   text-align: left;
   line-height: 2.4rem;

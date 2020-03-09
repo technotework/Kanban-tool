@@ -165,26 +165,29 @@ const actions = {
 
 			let { uid, path } = obj
 
-			if (rootGetters["user/userData"] == null) {
-				//取得を別モジュールに依頼
-				await dispatch("user/getUserInfo", obj, { root: true });
-				//格納
-				let result = rootGetters["user/userData"];
-				result.uuid = uid;
-				result.path = result.altId + "/icon";
-				commit("succsessLogin", result);
+			//ログイン後やリロード後なにもユーザーデータがない
+			//if (rootGetters["user/userData"] == null) {
+			//ユーザーデータ取得を別モジュールに依頼
+			await dispatch("user/getUserInfo", obj, { root: true });
 
-				if (result.img == true && result.nickname != "") {
-					dispatch("user/downloadFile", null, { root: true });
-				}
+			let result = rootGetters["user/userData"];
+			result.uuid = uid;
+			result.path = result.altId + "/icon";
+			//ユーザーデータを格納
+			commit("succsessLogin", result);
 
-				checkToGo(result, path)
-
-				resolve();
+			//すでにアイコンとニックネームがあれば格納する
+			if (result.img == true && result.nickname != "") {
+				dispatch("user/downloadFile", null, { root: true });
 			}
-			else {
-				resolve();
-			}
+			//遷移
+			checkToGo(result, path);
+			resolve();
+			/*}
+				else {
+	
+					resolve();
+				}*/
 		}, (error) => {
 			console.log(error);
 		});
@@ -230,7 +233,7 @@ function checkToGo(data, path) {
 	else {
 		//同じページにいる場合は重複して遷移しない
 		if (router.currentRoute.path != '/app' + path) {
-
+			console.log(path);
 			router.push('/app' + path);
 		}
 	}

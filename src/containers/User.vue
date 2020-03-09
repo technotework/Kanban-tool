@@ -17,7 +17,6 @@ export default {
         if (user) {
           let uid = user.uid;
           let path = "/profile";
-          console.log("user!");
           this.$store
             .dispatch("auth/setUserInfo", { uid: uid, path: path })
             .then(() => {

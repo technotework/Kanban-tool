@@ -32,16 +32,16 @@ export default {
   overflow: hidden;
   height: 25px;
 }
-.label {
-  display: inline-block;
-  padding: 0 6px 8px 4px;
-  @include nav;
-}
 
 .container:hover {
   opacity: 0.8;
 }
 
+.label {
+  display: inline-block;
+  padding: 0 6px 8px 4px;
+  @include nav;
+}
 .icon {
   position: absolute;
   bottom: 0px;

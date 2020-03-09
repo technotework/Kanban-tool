@@ -28,6 +28,7 @@ export default {
   overflow: hidden;
   background-size: cover;
   display: inline-block;
+  background-color: #3f4247;
 }
 </style>
 <style lang="scss" module="$compose">

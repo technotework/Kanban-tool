@@ -1,12 +1,12 @@
 <template>
   <div :class="$style.wrapper">
-    <TwoColumnRepeatGrid>
-      <span :class="$style.label">ID</span>
-      <SystemInput placeholder="ログインIDを入力" v-model="id" required :class="$style.item" />
-      <span :class="$style.label">パスワード</span>
-      <SystemPassword placeholder="パスワードを入力" v-model="pass" required :class="$style.item" />
-    </TwoColumnRepeatGrid>
-    <MiniButton :class="$style.button" @click="onLogin">ログイン</MiniButton>
+    <span :class="$style.label">ID</span>
+    <SystemInput v-model="id" required :class="$style.item" />
+    <span :class="$style.label">パスワード</span>
+    <SystemPassword v-model="pass" required :class="$style.item" />
+    <div :class="$style.submit">
+      <MiniButton :class="$style.button" @click="onLogin">ログイン</MiniButton>
+    </div>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import {
   SystemPassword
 } from "@/components/atoms/base-input/compose";
 import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
-import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/";
+
 import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
@@ -34,7 +34,6 @@ export default {
     }
   },
   components: {
-    TwoColumnRepeatGrid,
     SystemInput,
     SystemPassword,
     MiniButton
@@ -44,19 +43,20 @@ export default {
 
 <style lang="scss" module>
 .wrapper {
-  max-width: 500px;
-  text-align: right;
+  max-width: 350px;
 }
 .item {
-  margin: 0 0 $s8 0;
+  margin: 0 0 19px 0;
 }
 .label {
+  @include authLabel;
+}
+.submit {
+  width: 100%;
   text-align: right;
-  font-weight: bold;
-  margin: $s4 $s8 $s8 0;
 }
 .button {
   display: inline-block;
-  width: 200px;
+  width: 86px;
 }
 </style>

@@ -56,6 +56,7 @@ const actions = {
     });
   },
   /**
+   * プロフィール入力後の処理
    * アイコンアップロード
    * @param {*} param0 
    * @param {*} value 
@@ -82,10 +83,9 @@ const actions = {
       };
       await common.fb.setDoc(userData).catch(reject);
 
-      //できたら再格納
+      //できたら再取得
       dispatch("auth/setUserInfo", { uid: uuid, path: "app/projects" }, { root: true });
       dispatch("downloadFile");
-
       resolve();
 
     }, (error) => {

@@ -1,28 +1,37 @@
 <template>
   <div :class="$style.wrapper">
-    <TwoColumnRepeatGrid>
-      <div :class="$style.icon">
-        <IconM :img="src" />
-      </div>
-      <div :class="$style.name">{{(nickname == "")?temp:nickname }}</div>
-      <span :class="$style.label">ニックネーム</span>
-      <SystemInput placeholder="ニックネームを入力" v-model="nickname" required :class="$style.item" />
-      <span :class="$style.label">アイコン</span>
-      <div :class="$style.files">
-        <BaseFileSelect @change="onFileSelect" />
-      </div>
-    </TwoColumnRepeatGrid>
+    <div :class="$style.navContainer">
+      <div :class="$style.navLabel">Preview</div>
+      <BaseIcon type="dot" :class="$style.navIcon" />
+    </div>
 
-    <MiniButton :class="$style.button" @click="onSubmit">登録</MiniButton>
+    <div :class="$style.preview">
+      <IconXL :img="src" />
+      <div :class="$style.name">{{(nickname == "")?temp:nickname }}</div>
+    </div>
+
+    <span :class="$style.title">
+      <span :class="$style.titleInner">プロフィール入力</span>
+    </span>
+
+    <span :class="$style.label">ニックネーム</span>
+    <SystemInput v-model="nickname" required :class="$style.item" />
+
+    <span :class="$style.label">アイコン</span>
+    <BaseFileSelect @change="onFileSelect" :class="$style.file" />
+    <div :class="$style.bottoms">
+      <MiniButton :class="$style.button" @click="onSubmit">登録</MiniButton>
+    </div>
   </div>
 </template>
 
 <script>
 import { SystemInput } from "@/components/atoms/base-input/compose";
 import BaseFileSelect from "@/components/atoms/base-file-select/";
-import { IconM } from "@/components/atoms/base-image-icon/compose";
+import { IconXL } from "@/components/atoms/base-image-icon/compose";
 import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
-import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/";
+import BaseIcon from "@/components/atoms/base-icon/";
+
 import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
@@ -58,44 +67,93 @@ export default {
     }
   },
   components: {
-    TwoColumnRepeatGrid,
     SystemInput,
     BaseFileSelect,
-    IconM,
-    MiniButton
+    IconXL,
+    MiniButton,
+    BaseIcon
   }
 };
 </script>
 
 <style lang="scss" module>
+.wrapper {
+  position: relative;
+  max-width: 350px;
+  margin: 66px auto 0 auto;
+}
+
+.preview {
+  width: 350px;
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 54px;
+}
+
 .icon {
   margin-bottom: $s4;
   text-align: right;
 }
+
+.title {
+  @include primaryTab;
+  margin-bottom: 14px;
+}
+
+.titleInner {
+  margin: 0 20px;
+}
+
 .name {
-  display: inline-block;
-  text-align: left;
-  font-size: $f18;
-  padding-top: $s20;
-  padding-left: $s8;
+  @include previewNickName;
 }
-.wrapper {
-  max-width: 500px;
-  text-align: right;
-}
+
 .item {
-  margin: 0 0 $s8 0;
+  margin: 0 0 19px 0;
 }
+
 .label {
-  text-align: right;
-  font-weight: bold;
-  margin: $s4 $s8 $s8 0;
+  @include authLabel;
 }
+
+.file {
+  padding-top: 10px;
+  height: 54px;
+}
+
 .button {
   display: inline-block;
-  width: 200px;
+  width: 86px;
 }
-.files {
-  text-align: left;
+
+.bottoms {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  height: 25px;
+}
+
+.navLabel {
+  display: inline-block;
+  padding: 0 6px 8px 4px;
+  @include nav;
+}
+
+.navIcon {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: block;
+  width: 91px;
+  height: 10px;
+  fill: $white;
+  opacity: 0.4;
 }
 </style>

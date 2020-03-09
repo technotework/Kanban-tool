@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label :for="target" :class="[$style.label,(value == model)?$style.active:$style.deactive]">
+    <label :for="target" :class="[(value == model)?$style.active:$style.deactive]">
       <input
         :class="$style.radio"
         type="radio"
