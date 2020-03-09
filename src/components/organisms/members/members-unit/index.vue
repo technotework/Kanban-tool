@@ -1,12 +1,22 @@
 <template>
-  <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
-    <template #button>
-      <MembersIconList :members="members" v-model="myData" />
+  <div>
+    <template v-if="editStatus == 'NO_ONE'">
+      <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
+        <template #button>
+          <MembersIconList :members="members" v-model="myData" />
+        </template>
+        <template #menu>
+          <MembersCheckList
+            v-model="myData"
+            :members="members"
+            @close="onClose"
+            :parent-id="parentId"
+          />
+        </template>
+      </ContextMenuContainer>
     </template>
-    <template #menu>
-      <MembersCheckList v-model="myData" :members="members" @close="onClose" :parent-id="parentId" />
-    </template>
-  </ContextMenuContainer>
+    <template v-if="editStatus == 'OTHER'">a</template>
+  </div>
 </template>
 
 <script>
@@ -18,7 +28,8 @@ export default {
   props: {
     members: Object,
     value: Array,
-    isEditing: Boolean,
+    myEditorId: String,
+    editor: String,
     id: String,
     parentId: String
   },
@@ -30,6 +41,17 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
+    },
+    editStatus() {
+      let status;
+      if (this.editor == "") {
+        status = "NO_ONE";
+      } else if (this.editor == this.myEditorId) {
+        status = "ME";
+      } else if (this.editor != this.myEditorId) {
+        status = "OTHER";
+      }
+      return status;
     }
   },
   methods: {

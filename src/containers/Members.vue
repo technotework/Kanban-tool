@@ -2,8 +2,9 @@
   <MembersUnit
     :members="members"
     :id="id"
+    :my-editor-id="myEditorId"
     :parent-id="parentId"
-    :is-editing="isEditing"
+    :editor="editor"
     v-model="assigned"
     @update-member="onUpdateMember"
   />
@@ -18,7 +19,7 @@ export default {
   props: {
     value: Array,
     id: String,
-    editing: String,
+    editor: String,
     parentId: String
   },
   data: () => {
@@ -36,10 +37,8 @@ export default {
         this.$emit("input", value);
       }
     },
-    isEditing() {
-      let myAltId = this.$store.getters["auth/user"].altId;
-      console.log(this.editing == myAltId);
-      return this.editing == myAltId;
+    myEditorId() {
+      return this.$store.getters["auth/user"].altId;
     }
   },
   methods: {

@@ -11,7 +11,7 @@
       :is="membersContainer"
       :id="id"
       :parent-id="boardId"
-      :editing="editing"
+      :editor="editor"
       v-model="members"
       ref="members"
       :class="$style.member"
@@ -26,7 +26,7 @@ export default {
   props: {
     content: String,
     id: String,
-    editing: String,
+    editor: String,
     membersContainer: Object,
     boardId: String,
     value: Array

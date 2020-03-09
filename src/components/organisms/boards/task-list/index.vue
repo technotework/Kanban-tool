@@ -40,7 +40,7 @@
           :board-id="dataBoardId"
           :content="item.task.data"
           :class="$style.listItem"
-          :editing="item.task.editing"
+          :editor="item.task.editing"
           v-model="item.task.members"
           @save-event="onSave"
           @delete-event="onDelete"
