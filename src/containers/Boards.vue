@@ -23,11 +23,7 @@ import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
   created: function() {
-    window.addEventListener("beforeunload", e => {
-      e.preventDefault();
-      this.$store.dispatch("boards/postProcess");
-      e.returnValue = "未保存のデータがありますが、本当に閉じますか？";
-    });
+    window.addEventListener("beforeunload", this.unload);
     this.showLoad(true);
     this.unlisten = this.$store.getters.firebase
       .auth()
@@ -44,7 +40,7 @@ export default {
       });
   },
   destroyed: function() {
-    window.removeEventListener("beforeunload");
+    window.removeEventListener("beforeunload", this.unload);
     this.unlisten();
     this.$store.commit("boards/remove");
     this.$store.commit("members/remove");
@@ -164,13 +160,16 @@ export default {
       this.setBoardDialogue(object);
     },
     onClickBack() {
-      this.postProcess({
-        callback: () => {}
-      });
+      this.postProcess();
       this.$router.go(-1);
     },
     showLoad(value) {
       this.$emit("show-load", value);
+    },
+    unload(e) {
+      e.preventDefault();
+      this.postProcess();
+      e.returnValue = "このアプリを離れますか？";
     }
   },
   components: {

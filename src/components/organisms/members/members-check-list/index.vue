@@ -1,5 +1,5 @@
 <template>
-  <div ref="wrapper" :class="$style.wrapper">
+  <div ref="wrapper" :class="$style.wrapper" class="ignore">
     <BaseModelessContainer :class="$style.menu">
       <div :class="$style.title">参加メンバー</div>
       <ul :class="$style.listContainer">

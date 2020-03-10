@@ -1,5 +1,5 @@
 <template>
-  <a :class="[$style.button, $compose[compose]]" @click.prevent="onClick">
+  <a :class="[$style.button, $compose[compose]]" class="ignore" @click.prevent="onClick">
     <slot />
   </a>
 </template>

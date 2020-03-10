@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.item">
+  <div :class="[$style.item,{['ignore']:(editor!='')},(editor!='')?$style.noDrag:$style.drag]">
     <PostedTextarea
       :content="content"
       @save-event="onSave"
@@ -63,11 +63,16 @@ export default {
 .item {
   @include task;
 }
-
 .member a {
   display: block;
   margin: -21px 0 3px 5px;
   width: 188px;
   text-align: left;
+}
+.noDrag {
+  cursor: default;
+}
+.drag {
+  cursor: move;
 }
 </style>

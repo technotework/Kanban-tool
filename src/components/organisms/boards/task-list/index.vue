@@ -187,7 +187,6 @@ export default {
 .listItem {
   margin: 0 0 16px 0;
   max-width: 238px;
-  cursor: move;
 }
 .ghost {
   opacity: 0.3;
