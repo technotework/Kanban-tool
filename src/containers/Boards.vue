@@ -44,6 +44,7 @@ export default {
       });
   },
   destroyed: function() {
+    window.removeEventListener("beforeunload");
     this.unlisten();
     this.$store.commit("boards/remove");
     this.$store.commit("members/remove");
