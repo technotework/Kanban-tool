@@ -1,16 +1,18 @@
 <template>
   <div :class="$style.wrapper">
-    <span :class="$style.label">メールアドレス</span>
-    <SystemInput v-model="id" required :class="$style.item" />
-    <span :class="$style.label">パスワード</span>
-    <SystemPassword v-model="pass" required :class="$style.item" />
+    <form @submit.prevent>
+      <span :class="$style.label">メールアドレス</span>
+      <SystemInput v-model="id" required :class="$style.item" />
+      <span :class="$style.label">パスワード</span>
+      <SystemPassword v-model="pass" required :class="$style.item" />
 
-    <div :class="$style.bottoms">
-      <LabeledCheckbox id="agreement" value="agreement" v-model="modelData" :class="$style.agree">
-        <a href="#" target="_blank">デモのご注意</a>に同意する
-      </LabeledCheckbox>
-      <MiniButton :class="$style.button" @click="onRegist">登録</MiniButton>
-    </div>
+      <div :class="$style.bottoms">
+        <LabeledCheckbox id="agreement" value="agreement" v-model="modelData" :class="$style.agree">
+          <a href="#" target="_blank">デモのご注意</a>に同意する
+        </LabeledCheckbox>
+        <BaseSubmitButton @click="onRegist" value="登録" :class="$style.button" />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -20,7 +22,7 @@ import {
   SystemPassword
 } from "@/components/atoms/base-input/compose";
 import LabeledCheckbox from "@/components/molecules/labeled-check-box/base";
-import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
+import BaseSubmitButton from "@/components/atoms/base-submit-button/";
 import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
@@ -56,7 +58,7 @@ export default {
   components: {
     SystemInput,
     SystemPassword,
-    MiniButton,
+    BaseSubmitButton,
     LabeledCheckbox
   }
 };

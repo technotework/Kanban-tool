@@ -1,12 +1,14 @@
 <template>
   <div :class="$style.wrapper">
-    <span :class="$style.label">ID</span>
-    <SystemInput v-model="id" required :class="$style.item" />
-    <span :class="$style.label">パスワード</span>
-    <SystemPassword v-model="pass" required :class="$style.item" />
-    <div :class="$style.submit">
-      <MiniButton :class="$style.button" @click="onLogin">ログイン</MiniButton>
-    </div>
+    <form @submit.prevent>
+      <span :class="$style.label">ID</span>
+      <SystemInput v-model="id" required :class="$style.item" />
+      <span :class="$style.label">パスワード</span>
+      <SystemPassword v-model="pass" required :class="$style.item" />
+      <div :class="$style.submit">
+        <BaseSubmitButton @click="onLogin" value="ログイン" :class="$style.button" />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -15,8 +17,7 @@ import {
   SystemInput,
   SystemPassword
 } from "@/components/atoms/base-input/compose";
-import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
-
+import BaseSubmitButton from "@/components/atoms/base-submit-button/";
 import base from "@/components/utils/base-mixin";
 export default {
   mixins: [base],
@@ -36,7 +37,7 @@ export default {
   components: {
     SystemInput,
     SystemPassword,
-    MiniButton
+    BaseSubmitButton
   }
 };
 </script>
@@ -56,7 +57,6 @@ export default {
   text-align: right;
 }
 .button {
-  display: inline-block;
   width: 86px;
 }
 </style>

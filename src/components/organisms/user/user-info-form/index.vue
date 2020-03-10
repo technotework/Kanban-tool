@@ -1,27 +1,29 @@
 <template>
   <div :class="$style.wrapper">
-    <div :class="$style.navContainer">
-      <div :class="$style.navLabel">Preview</div>
-      <BaseIcon type="dot" :class="$style.navIcon" />
-    </div>
+    <form @submit.prevent>
+      <div :class="$style.navContainer">
+        <div :class="$style.navLabel">Preview</div>
+        <BaseIcon type="dot" :class="$style.navIcon" />
+      </div>
 
-    <div :class="$style.preview">
-      <IconXL :img="src" />
-      <div :class="$style.name">{{(nickname == "")?temp:nickname }}</div>
-    </div>
+      <div :class="$style.preview">
+        <IconXL :img="src" />
+        <div :class="$style.name">{{(nickname == "")?temp:nickname }}</div>
+      </div>
 
-    <span :class="$style.title">
-      <span :class="$style.titleInner">プロフィール入力</span>
-    </span>
+      <span :class="$style.title">
+        <span :class="$style.titleInner">プロフィール入力</span>
+      </span>
 
-    <span :class="$style.label">ニックネーム</span>
-    <SystemInput v-model="nickname" required :class="$style.item" />
+      <span :class="$style.label">ニックネーム</span>
+      <SystemInput v-model="nickname" required :class="$style.item" />
 
-    <span :class="$style.label">アイコン</span>
-    <BaseFileSelect @change="onFileSelect" :class="$style.file" />
-    <div :class="$style.bottoms">
-      <MiniButton :class="$style.button" @click="onSubmit">登録</MiniButton>
-    </div>
+      <span :class="$style.label">アイコン</span>
+      <BaseFileSelect @change="onFileSelect" :class="$style.file" />
+      <div :class="$style.bottoms">
+        <BaseSubmitButton @click="onSubmit" value="登録" :class="$style.button" />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -29,7 +31,7 @@
 import { SystemInput } from "@/components/atoms/base-input/compose";
 import BaseFileSelect from "@/components/atoms/base-file-select/";
 import { IconXL } from "@/components/atoms/base-image-icon/compose";
-import { MiniButton } from "@/components/atoms/base-no-link-button/compose";
+import BaseSubmitButton from "@/components/atoms/base-submit-button/";
 import BaseIcon from "@/components/atoms/base-icon/";
 
 import base from "@/components/utils/base-mixin";
@@ -70,7 +72,7 @@ export default {
     SystemInput,
     BaseFileSelect,
     IconXL,
-    MiniButton,
+    BaseSubmitButton,
     BaseIcon
   }
 };
