@@ -206,19 +206,16 @@ const actions = {
 			//console.log(error);
 		});
 	},
-	postProcess({ rootGetters, getters }, value) {
+	postProcess({ rootGetters, getters }) {
 		return new Promise(async (resolve, reject) => {
 
-
+			console.log("post!");
 			let projectDoc = getters.info.projectDocPath;
 			let userAltId = rootGetters["auth/user"].altId;
 
 			fn.httpsCallable('postProcess')({
 				doc: projectDoc,
 				id: userAltId
-			}).then(() => {
-				let callback = value.callback;
-				callback();
 			});
 
 		}, (error) => {

@@ -23,10 +23,11 @@ import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
   created: function() {
-    window.onbeforeunload = function() {
-      this.onClickBack();
-      return "アプリを離れようとしています。よろしいですか？";
-    };
+    window.addEventListener("beforeunload", e => {
+      e.preventDefault();
+      this.$store.dispatch("boards/postProcess");
+      e.returnValue = "未保存のデータがありますが、本当に閉じますか？";
+    });
     this.showLoad(true);
     this.unlisten = this.$store.getters.firebase
       .auth()
@@ -163,10 +164,9 @@ export default {
     },
     onClickBack() {
       this.postProcess({
-        callback: () => {
-          this.$router.go(-1);
-        }
+        callback: () => {}
       });
+      this.$router.go(-1);
     },
     showLoad(value) {
       this.$emit("show-load", value);

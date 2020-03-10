@@ -62,8 +62,9 @@ function getCollection(key, path, order, userid = null) {
 
 function taskUpdateEditorTransaction(taskObj, boardsPath) {
 
-  db.runTransaction(function (transaction) {
+  db.runTransaction((transaction) => {
 
+    let promises = [];
     for (const key in taskObj) {
 
       let boardDocId = key;
@@ -75,11 +76,18 @@ function taskUpdateEditorTransaction(taskObj, boardsPath) {
           let taskData = updatedTasks[i];
           let taskId = taskData.task.id;
           let path = boardsPath + boardDocId + "/tasks/" + taskId;
-          console.log(path);
-          return transaction.update(path, { "task": { "editing": "", "editing_date": null } });
+
+          let ref = db.doc(path);
+
+          let promise = transaction.set(ref, { "task": { "editing": "", "editing_date": null } }, { merge: true });
+
+          promises.push(promise);
         }
+
       }
     }
+    let go = Promise.all(promises);
+    return go;
 
   });
 }
