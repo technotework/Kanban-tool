@@ -466,12 +466,20 @@ Compose
 @mixin input($c,$hoverc){
   @include textFactory($f14,$primaryButtonText,"bold");
   @include containerFactory($c, $r8, 5px 32px 7px 32px);
-
+  border:none;
+  cursor: pointer;
   line-height: 1rem;
 
   &:hover{
     background-color: $hoverc;
   }
+}
+
+@mixin primaryInput{
+  
+  min-width: 86px;
+  @include input($primaryButton,$pHoverButton);
+  padding:14px 0;
 }
 
 @mixin secondaryInput{
