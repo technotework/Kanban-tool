@@ -24,7 +24,7 @@ export default {
   props: {
     id: String,
     value: String,
-    date: String
+    date: Number
   },
   data: function() {
     return {

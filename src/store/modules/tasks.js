@@ -85,7 +85,7 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    ==============================*/
-  createTask({ getters, rootGetters }, value) {
+  createTask({ getters, commit }, value) {
     return new Promise(async (resolve, reject) => {
 
       //setting
@@ -101,7 +101,7 @@ const actions = {
         content: template
       };
       await common.fb.add(object).catch(reject);
-
+      commit("boards/setUpdateDate", null, { root: true });
       resolve();
 
     }, (error) => {
@@ -113,7 +113,7 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    ==============================*/
-  insertTask({ getters, rootGetters }, value) {
+  insertTask({ getters, commit }, value) {
     return new Promise(async (resolve, reject) => {
 
       let { taskPath } = getters.info;
@@ -127,6 +127,7 @@ const actions = {
         content: template
       };
       await common.fb.setDoc(object).catch(reject);
+      commit("boards/setUpdateDate", null, { root: true });
       resolve();
 
     }, (error) => {
@@ -177,7 +178,7 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  updateTask({ getters, rootGetters }, value) {
+  updateTask({ getters, commit }, value) {
 
     return new Promise(async (resolve, reject) => {
 
@@ -192,6 +193,7 @@ const actions = {
         content: { task: { "data": content } }
       };
       await common.fb.setDoc(object).catch(reject);
+      commit("boards/setUpdateDate", null, { root: true });
       resolve();
 
 
@@ -204,7 +206,7 @@ const actions = {
  * メンバー情報のアップデート
  * 
  ==============================*/
-  updateMember({ getters, rootGetters }, value) {
+  updateMember({ getters, commit }, value) {
 
     return new Promise(async (resolve, reject) => {
 
@@ -219,6 +221,7 @@ const actions = {
         content: { task: { "members": content } }
       };
       await common.fb.setDoc(object).catch(reject);
+      commit("boards/setUpdateDate", null, { root: true });
       resolve();
 
 
@@ -241,6 +244,7 @@ const actions = {
       let taskDocPath = taskPath + value.id;
       //実行
       common.fb.deleteDoc({ path: taskDocPath }).catch(reject);
+      commit("boards/setUpdateDate", null, { root: true });
       resolve();
 
     }, (error) => {
@@ -308,7 +312,7 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-  dragSortUpdate({ rootGetters, getters }, value) {
+  dragSortUpdate({ commit, getters }, value) {
     return new Promise(async (resolve, reject) => {
 
       //同じボード内でのみ発動させる
@@ -331,6 +335,7 @@ const actions = {
           content: { task: { "order": order } }
         };
         await common.fb.setDoc(object).catch(reject);
+        commit("boards/setUpdateDate", null, { root: true });
         resolve();
       }
 

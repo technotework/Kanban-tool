@@ -1,6 +1,5 @@
 <template>
-    <BaseTimeText :date="date" >
-    {{date|formatUnixToDate}} </BaseTimeText>
+  <BaseTimeText :date="date">{{date|formatUnixToDate}}</BaseTimeText>
 </template>
 
 <script>
@@ -19,7 +18,7 @@ export default {
   },
   filters: {
     formatUnixToDate: function(date) {
-      let utime = Number(date);
+      let utime = date;
       let formated = moment.unix(utime).format("YYYY/MM/DD HH:mm");
 
       return formated;

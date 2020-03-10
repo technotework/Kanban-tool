@@ -9,7 +9,8 @@ const state = {
 	appInfo: null,
 	boardsData: [],
 	projectId: "",
-	unsnapshots: []
+	unsnapshots: [],
+	lastUpdateDate: null
 }
 
 //--------------
@@ -29,6 +30,10 @@ const mutations = {
 	setUnsnap(state, payload) {
 		state.unsnapshots.push(payload);
 	},
+	setUpdateDate(state, payload) {
+		let date = Math.floor(new Date().getTime() / 1000);
+		state.lastUpdateDate = date;
+	},
 	remove(state) {
 		for (let i = 0; i < state.unsnapshots.length; i++) {
 			state.unsnapshots[i]();
@@ -36,6 +41,7 @@ const mutations = {
 		state.unsnapshots = [];
 		state.appInfo = null;
 		state.boardsData = [];
+		state.lastUpdateDate = null;
 		state.projectId = "";
 	}
 }
@@ -52,6 +58,9 @@ const getters = {
 	},
 	projectId(state) {
 		return state.projectId;
+	},
+	updateDate(state) {
+		return state.lastUpdateDate;
 	}
 }
 
@@ -79,10 +88,9 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	 ========================*/
-	create({ rootGetters, getters }, value) {
+	create({ commit, getters }, value) {
 
 		return new Promise(async (resolve, reject) => {
-
 			//setting
 			let { boardPath } = getters.info;
 			let order = common.util.getOrder(null, getters.boards, "board");
@@ -93,6 +101,7 @@ const actions = {
 				content: boardTemplate
 			};
 			await common.fb.add(object).catch(reject);
+			commit("setUpdateDate");
 			resolve();
 
 		}, (error) => {
@@ -153,7 +162,7 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	======================== */
-	updateBoardName({ rootGetters, getters }, value) {
+	updateBoardName({ commit, getters }, value) {
 		return new Promise((resolve, reject) => {
 
 			//setting
@@ -165,7 +174,7 @@ const actions = {
 				content: { board: { "label": value.name } }
 			};
 			common.fb.setDoc(object).catch(reject);
-
+			commit("setUpdateDate");
 		}, (error) => {
 			//console.log(error);
 		});
@@ -176,7 +185,7 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	 ========================*/
-	delete({ rootGetters, getters }, value) {
+	delete({ commit, getters }, value) {
 		return new Promise(async (resolve, reject) => {
 
 			//setting
@@ -199,23 +208,28 @@ const actions = {
 			}
 
 			common.fb.deleteDoc({ path: boardDocPath }).catch(reject);
-
+			commit("setUpdateDate");
 			resolve();
 
 		}, (error) => {
 			//console.log(error);
 		});
 	},
+	/**
+	 * Backやブラウザを閉じて離脱後の後処理をFirebase Functionsに投げる
+	 * @param {*} param0 
+	 */
 	postProcess({ rootGetters, getters }) {
 		return new Promise(async (resolve, reject) => {
 
-			console.log("post!");
+			let updateDate = getters.updateDate;
 			let projectDoc = getters.info.projectDocPath;
 			let userAltId = rootGetters["auth/user"].altId;
 
 			fn.httpsCallable('postProcess')({
 				doc: projectDoc,
-				id: userAltId
+				id: userAltId,
+				date: updateDate
 			});
 
 		}, (error) => {
@@ -229,7 +243,7 @@ const actions = {
 	 * @param {*} param0 
 	 * @param {*} value 
 	 =============================*/
-	dragSortUpdate({ rootGetters, getters }, value) {
+	dragSortUpdate({ commit, getters }, value) {
 		return new Promise(async (resolve, reject) => {
 
 			let { boardPath } = getters.info;
@@ -243,6 +257,7 @@ const actions = {
 				content: { board: { "order": order } }
 			};
 			await common.fb.setDoc(object).catch(reject);
+			commit("setUpdateDate");
 			resolve();
 
 		}, (error) => {

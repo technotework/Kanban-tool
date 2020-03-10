@@ -37,13 +37,14 @@ export default {
   mixins: [base],
   name: "ClickToEditableTextarea",
   props: {
-    content: String
+    content: String,
+    status: Boolean
   },
   data: function() {
     return {
       textareaContent: "",
       temp: "",
-      status: false,
+
       menuItems: [
         {
           value: "編集",
@@ -62,6 +63,14 @@ export default {
       handler(value) {
         this.textareaContent = value;
       }
+    },
+    status: {
+      immediate: true,
+      handler(value) {
+        if (value == false && this.temp != "") {
+          this.textareaContent = this.temp;
+        }
+      }
     }
   },
   methods: {
@@ -79,20 +88,21 @@ export default {
     },
     onEdit: function() {
       this.temp = this.$refs.textarea.getContent();
-      this.status = true;
+      //this.status = true;
     },
     onDelete: function() {
       this.$emit("delete-event");
     },
     onSave: function() {
-      this.status = false;
+      //this.status = false;
+      this.temp = "";
       let value = this.$refs.textarea.getContent();
       this.$emit("save-event", { value: value });
       this.$emit("complete-edit-task");
     },
     onCancel: function() {
       this.textareaContent = this.temp;
-      this.status = false;
+      //this.status = false;
       this.$emit("complete-edit-task");
     }
   },

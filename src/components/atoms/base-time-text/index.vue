@@ -11,7 +11,7 @@ export default {
   mixins: [base],
   name: "BaseTimeText",
   props: {
-    date: { type: String }
+    date: { type: Number }
   }
 };
 </script>

@@ -29,7 +29,7 @@ const util = {
         "project": {
           "id": "",
           "label": "Project",
-          "update_date": `${date}`,
+          "update_date": date,
           "order": order
         }
       }
@@ -106,7 +106,7 @@ const util = {
           "editing": "",
           "editing_date": null,
           "createUser": `${uuid}`,
-          "create_date": `${date}`,
+          "create_date": date,
           "start_date": null,
           "end_date": null,
           "archive_date": null,

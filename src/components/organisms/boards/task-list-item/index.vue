@@ -2,6 +2,7 @@
   <div :class="[$style.item,{['ignore']:(editor!='')},(editor!='')?$style.noDrag:$style.drag]">
     <PostedTextarea
       :content="content"
+      :status="(editor!='')"
       @save-event="onSave"
       @delete-event="onDelete"
       @start-edit-task="onStartEdit"

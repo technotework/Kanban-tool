@@ -10,6 +10,14 @@ exports.postProcess = functions.region('us-central1').https.onCall(async (data, 
   let projectDoc = data.doc;
   let userId = data.id;
   let boardsPath = projectDoc + "/boards/";
+  console.log(data);
+  let projectUpdateDate = data.date;
+  //Projectの更新日付を変更する処理
+  if (projectUpdateDate != null) {
+    let doc = db.doc(projectDoc);
+    doc.set({ "project": { "update_date": projectUpdateDate } }, { merge: true });
+  }
+
   //ボードのドキュメント配列
   let boardsDocs = await getCollection("board", boardsPath, "board.order");
   let allBoard = boardsDocs.all;
