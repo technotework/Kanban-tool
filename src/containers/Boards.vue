@@ -23,6 +23,10 @@ import { TYPE, APP } from "@/containers/resorces/message";
 export default {
   name: "Boards",
   created: function() {
+    window.onbeforeunload = function() {
+      this.onClickBack();
+      return "アプリを離れようとしています。よろしいですか？";
+    };
     this.showLoad(true);
     this.unlisten = this.$store.getters.firebase
       .auth()
@@ -102,7 +106,8 @@ export default {
       "create",
       "delete",
       "updateBoardName",
-      "dragSortUpdate"
+      "dragSortUpdate",
+      "postProcess"
     ]),
     ...mapActions("members", ["getMembers"]),
     ...mapMutations("message", ["setBoardDialogue", "resetBoardDialogue"]),
@@ -157,7 +162,11 @@ export default {
       this.setBoardDialogue(object);
     },
     onClickBack() {
-      this.$router.go(-1);
+      this.postProcess({
+        callback: () => {
+          this.$router.go(-1);
+        }
+      });
     },
     showLoad(value) {
       this.$emit("show-load", value);

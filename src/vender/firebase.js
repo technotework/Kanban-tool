@@ -1,7 +1,8 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 import 'firebase/analytics';
-import 'firebase/auth'
-import 'firebase/firestore'
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/functions';
 import 'firebase/storage';
 
 // Initialize Firebase
@@ -28,6 +29,9 @@ export default {
   },
   db() {
     return firebase.firestore();
+  },
+  fn() {
+    return firebase.functions();
   },
   st() {
     return firebase.storage();

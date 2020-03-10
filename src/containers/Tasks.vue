@@ -29,7 +29,6 @@ export default {
   },
   destroyed: function() {
     this.$store.commit(this.storeModuleName + "/remove");
-
     this.$store.unregisterModule(this.storeModuleName);
   },
   data: () => {

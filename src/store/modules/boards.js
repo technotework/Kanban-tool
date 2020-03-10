@@ -1,4 +1,5 @@
 import store from "@/store/index"
+import { fn } from "@/store/index"
 import taskModule from "@/store/modules/tasks"
 import common from "@/store/common"
 //--------------
@@ -200,6 +201,25 @@ const actions = {
 			common.fb.deleteDoc({ path: boardDocPath }).catch(reject);
 
 			resolve();
+
+		}, (error) => {
+			//console.log(error);
+		});
+	},
+	postProcess({ rootGetters, getters }, value) {
+		return new Promise(async (resolve, reject) => {
+
+
+			let projectDoc = getters.info.projectDocPath;
+			let userAltId = rootGetters["auth/user"].altId;
+
+			fn.httpsCallable('postProcess')({
+				doc: projectDoc,
+				id: userAltId
+			}).then(() => {
+				let callback = value.callback;
+				callback();
+			});
 
 		}, (error) => {
 			//console.log(error);

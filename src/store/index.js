@@ -17,7 +17,8 @@ Firebase.init();
 Vue.config.productionTip = false;
 const db = Firebase.db();
 const st = Firebase.st();
-export { db, st };
+const fn = Firebase.fn('us-central1');
+export { db, st, fn };
 
 
 export default new Vuex.Store({
@@ -30,6 +31,9 @@ export default new Vuex.Store({
 		},
 		db: (state) => {
 			return Firebase.db();
+		},
+		fn: (state) => {
+			return Firebase.fn('us-central1');
 		},
 		storage: (state) => {
 
