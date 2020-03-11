@@ -9,6 +9,7 @@ const firebaseConfig = {
   measurementId: "G-KY5Y4EB809"
 };
 
-const contractId = "C1s25ymrqZUpS0WzqqoU"
+const contractId = "C1s25ymrqZUpS0WzqqoU";
+const teamId = "6snw7RU3yAYjYeHU4p2A";
 
-export { firebaseConfig, contractId }
+export { firebaseConfig, contractId, teamId }
