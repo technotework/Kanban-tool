@@ -543,7 +543,7 @@ Compose
 
 @mixin editableInputForm{
   @include textFactory($f16,$white,"regular");
-  @include containerFactory($transparent, $r3, $s8 0);
+  @include containerFactory($transparent, $r3,$s8 0);
   letter-spacing: 0.1rem;
   border:none;
 }

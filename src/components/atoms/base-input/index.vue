@@ -54,9 +54,6 @@ export default {
 .editable {
   @include editableInputForm;
 }
-.editable:disable {
-  @include editableInputForm;
-}
 
 .editableTitle {
   @include editableInputFormTitle;

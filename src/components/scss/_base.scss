@@ -22,10 +22,6 @@ body {
 }
 
 
-::-webkit-scrollbar-track{
-    background-color: red;
-}
-
 [v-cloak] {
     display: none
 }
@@ -37,6 +33,13 @@ body {
 textarea,input {
     @include ff;
     box-sizing: border-box;
+}
+
+input,
+select {
+    vertical-align: middle;
+    font-size: 16px;
+    border: none;
 }
 
 .v-enter-active, .v-leave-active {

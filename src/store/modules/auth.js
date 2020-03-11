@@ -233,7 +233,7 @@ function checkToGo(data, path) {
 	else {
 		//同じページにいる場合は重複して遷移しない
 		if (router.currentRoute.path != path) {
-			console.log(path);
+
 			router.push(path);
 		}
 	}
