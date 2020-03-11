@@ -1,7 +1,7 @@
 import common from "@/store/common"
-import { TYPE, APP } from "@/containers/resorces/message"
 import router from "@/router/"
 import { v4 as uuidv4 } from "uuid";
+import { contractId } from "@/setting"
 //--------------
 //state
 //--------------
@@ -23,8 +23,8 @@ const mutations = {
 
 		state.userData = payload;
 		//DEMOのため現状契約IDとチームIDは固定にしておく
-		state.contractData = "C1s25ymrqZUpS0WzqqoU";
-		state.teamData = payload.contracts.C1s25ymrqZUpS0WzqqoU[0];
+		state.contractData = contractId;
+		state.teamData = payload.contracts[contractId][0];
 		state.teamPathData = `workspace/${state.contractData}/teams/${state.teamData}`;
 		state.pathData = state.teamPathData + `/projects/`;
 		state.isLogin = true;
