@@ -222,15 +222,36 @@ const actions = {
 	postProcess({ rootGetters, getters }) {
 		return new Promise(async (resolve, reject) => {
 
-			let updateDate = getters.updateDate;
-			let projectDoc = getters.info.projectDocPath;
-			let userAltId = rootGetters["auth/user"].altId;
+			let resultStr = "";
+			//編集中のtaskを収集
+			for (const key in rootGetters) {
+				let getter = key.match(/task_.*editingDocPaths/);
+				if (getter != null) {
+					let sep = "";
+					if (resultStr != "") {
+						sep = ",";
+					}
+					if (rootGetters[getter].length > 0) {
+						resultStr += sep + rootGetters[getter].join(",");
+					}
+				}
+			}
 
+			let pathArray = [];
+			if (resultStr != "") {
+				pathArray = resultStr.split(",");
+			}
+			let projectDoc = getters.info.projectDocPath;
+			let updateDate = getters.updateDate;
+			console.log(pathArray);
 			fn.httpsCallable('postProcess')({
-				doc: projectDoc,
-				id: userAltId,
+				taskDocPaths: pathArray,
+				projectDocPath: projectDoc,
 				date: updateDate
 			});
+
+
+
 
 		}, (error) => {
 			//console.log(error);

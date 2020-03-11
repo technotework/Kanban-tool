@@ -1,5 +1,5 @@
 import common from "@/store/common"
-
+import store from "@/store/index"
 //--------------
 //state
 //--------------
@@ -61,6 +61,22 @@ const getters = {
   },
   boardId(state) {
     return state.parentBoardId;
+  },
+  editingDocPaths(state) {
+
+    let result = [];
+    let docs = state.tasksData;
+    let myId = store.getters["auth/user"].altId;
+    let taskPath = state.appInfo.taskPath;
+    for (let i = 0; i < docs.length; i++) {
+
+      if (docs[i].task.editing == myId) {
+        let path = taskPath + docs[i].task.id;
+        result.push(path);
+      }
+    }
+
+    return result;
   }
 }
 

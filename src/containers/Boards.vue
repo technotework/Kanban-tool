@@ -39,6 +39,9 @@ export default {
         }
       });
   },
+  beforeDestroy: function() {
+    this.$store.dispatch("boards/postProcess");
+  },
   destroyed: function() {
     window.removeEventListener("beforeunload", this.unload);
     this.unlisten();
@@ -160,7 +163,6 @@ export default {
       this.setBoardDialogue(object);
     },
     onClickBack() {
-      this.postProcess();
       this.$router.go(-1);
     },
     showLoad(value) {

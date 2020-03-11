@@ -3,99 +3,26 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 const db = admin.firestore();
 
-let unit = 10000000;
-
 exports.postProcess = functions.region('us-central1').https.onCall(async (data, context) => {
 
-  let projectDoc = data.doc;
-  let userId = data.id;
-  let boardsPath = projectDoc + "/boards/";
-  console.log(data);
+  let projectDoc = data.projectDocPath;
+  let taskDocPathArray = data.taskDocPaths;
   let projectUpdateDate = data.date;
+
   //Projectの更新日付を変更する処理
   if (projectUpdateDate != null) {
     let doc = db.doc(projectDoc);
     doc.set({ "project": { "update_date": projectUpdateDate } }, { merge: true });
   }
 
-  //ボードのドキュメント配列
-  let boardsDocs = await getCollection("board", boardsPath, "board.order");
-  let allBoard = boardsDocs.all;
-  let obj = {};
-
-  for (let i = 0; i < allBoard.length; i++) {
-
-    let doc = allBoard[i];
-    let boardDocId = doc.board.id;
-    let path = boardsPath + boardDocId + "/tasks/";
-    let taskDocs = await getCollection("task", path, "task.order", userId);
-    obj[boardDocId] = taskDocs;
+  //編集ロックしっぱなしを解消する処理
+  if (taskDocPathArray.length > 0) {
+    for (let i = 0; i < taskDocPathArray.length; i++) {
+      let path = taskDocPathArray[i];
+      console.log(path);
+      let doc = db.doc(path);
+      doc.set({ "task": { "editing": "", "editing_date": null } }, { merge: true });
+    }
   }
-  taskUpdateEditorTransaction(obj, boardsPath)
 
 });
-
-function getCollection(key, path, order, userid = null) {
-
-  return new Promise(async (resolve, reject) => {
-
-    let i = 0;
-
-    let collection = db.collection(path);
-    await collection.orderBy(order).get().then((querySnapshot) => {
-      let orderArray = [];
-      let editingArray = [];
-      querySnapshot.forEach((doc) => {
-        i++;
-        let data = doc.data();
-
-        data[key].id = doc.id;
-        //orderリセット処理
-        data[key].order = i * unit;
-
-        //(タスク用)自分が操作中の場合の消し込み処理
-        if (key == "task" && userid != null) {
-          if (data[key].editing == userid) {
-            editingArray.push(data);
-          }
-        }
-
-        orderArray.push(data);
-      });
-      resolve({ all: orderArray, editor: editingArray });
-    });
-
-  });
-}
-
-function taskUpdateEditorTransaction(taskObj, boardsPath) {
-
-  db.runTransaction((transaction) => {
-
-    let promises = [];
-    for (const key in taskObj) {
-
-      let boardDocId = key;
-      let updatedTasks = taskObj[key].editor;
-
-      if (updatedTasks.length > 0) {
-
-        for (let i = 0; i < updatedTasks.length; i++) {
-          let taskData = updatedTasks[i];
-          let taskId = taskData.task.id;
-          let path = boardsPath + boardDocId + "/tasks/" + taskId;
-
-          let ref = db.doc(path);
-
-          let promise = transaction.set(ref, { "task": { "editing": "", "editing_date": null } }, { merge: true });
-
-          promises.push(promise);
-        }
-
-      }
-    }
-    let go = Promise.all(promises);
-    return go;
-
-  });
-}
