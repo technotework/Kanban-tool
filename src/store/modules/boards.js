@@ -243,7 +243,7 @@ const actions = {
 			}
 			let projectDoc = getters.info.projectDocPath;
 			let updateDate = getters.updateDate;
-			console.log(pathArray);
+
 			fn.httpsCallable('postProcess')({
 				taskDocPaths: pathArray,
 				projectDocPath: projectDoc,
