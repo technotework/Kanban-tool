@@ -135,8 +135,8 @@ const actions = {
 					//初期データ作成
 					let uid = auth.user.uid;
 					let altId = uuidv4();
-					let contract = "C1s25ymrqZUpS0WzqqoU";
-					let team = "6snw7RU3yAYjYeHU4p2A";
+					let contract = contractId;
+					let team = teamId;
 					let userTemplate = common.templates.user(contract, team, altId);
 
 					let object = {
