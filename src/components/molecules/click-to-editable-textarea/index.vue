@@ -5,6 +5,7 @@
       :class="$style.textarea"
       :isedit="status"
       ref="textarea"
+      @meta-enter="onSave"
       @dblclick="onDClick"
     />
     <div :class="$style.buttons">

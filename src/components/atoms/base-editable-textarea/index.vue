@@ -6,6 +6,8 @@
       class="ignore"
       v-show="isedit"
       ref="textarea"
+      @keydown.13.meta="onEnter"
+      @keydown.13.ctrl="onEnter"
     ></textarea>
     <div :class="$style.content" v-show="!isedit" @dblclick="onDClick">{{myValue}}</div>
   </div>
@@ -22,22 +24,33 @@ export default {
     isedit: Boolean,
     value: String
   },
+  data: () => {
+    return {
+      temp: ""
+    };
+  },
   computed: {
     myValue: {
       get() {
         return this.value;
       },
       set(value) {
+        this.temp = value;
         this.$emit("input", value);
       }
     }
   },
   methods: {
-    getContent: function() {
+    getContent() {
       return this.$refs.textarea.value;
     },
-    onDClick: function() {
+    onDClick() {
       this.$emit("dblclick");
+    },
+    onEnter() {
+      this.$refs.textarea.blur();
+      this.$emit("input", this.temp);
+      this.$emit("meta-enter");
     }
   }
 };

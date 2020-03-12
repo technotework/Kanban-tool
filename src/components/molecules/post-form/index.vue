@@ -1,6 +1,12 @@
 <template>
   <div :class="$style.wrapper">
-    <BaseTextArea v-model.lazy="content" :class="$style.text" />
+    <BaseTextArea
+      ref="textarea"
+      v-model="content"
+      :class="$style.text"
+      @meta-enter="onSubmit"
+      @esc-keydown="onCancelSubmit"
+    />
     <div :class="$style.buttons">
       <SecondaryMiniButton :class="$style.button" @click="onCancelSubmit">キャンセル</SecondaryMiniButton>
       <PrimaryMiniButton :class="$style.button" @click="onSubmit">送信</PrimaryMiniButton>
@@ -26,15 +32,15 @@ export default {
     };
   },
   methods: {
-    onSubmit: function(e) {
+    onSubmit(e) {
       this.$emit("form-add", { value: this.content, e: e });
       this.reset();
     },
-    onCancelSubmit: function(e) {
+    onCancelSubmit(e) {
       this.reset();
       this.$emit("form-cancel", e);
     },
-    reset: function() {
+    reset() {
       this.content = "";
     }
   },

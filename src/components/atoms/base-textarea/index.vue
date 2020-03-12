@@ -1,5 +1,12 @@
 <template>
-  <textarea :class="$style.text" v-model.lazy="content"></textarea>
+  <textarea
+    ref="textarea"
+    :class="$style.text"
+    v-model="content"
+    @keydown.13.meta="onEnter"
+    @keydown.13.ctrl="onEnter"
+    @keyup.27="onEsc"
+  ></textarea>
 </template>
 
 <script>
@@ -11,19 +18,30 @@ export default {
   props: {
     value: String
   },
+  data: () => {
+    return {
+      temp: ""
+    };
+  },
   computed: {
     content: {
       get() {
         return this.value;
       },
       set(value) {
+        this.temp = value;
         this.$emit("input", value);
       }
     }
   },
   methods: {
     onEnter() {
-      this.$emit("enter-textarea-event");
+      this.$refs.textarea.blur();
+      this.$emit("input", this.temp);
+      this.$emit("meta-enter");
+    },
+    onEsc() {
+      this.$emit("esc-keydown");
     }
   }
 };
