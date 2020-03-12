@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     onKeydown(keyCode) {
-      console.log(keyCode);
       if (keyCode == 13) {
         this.$emit("keydown-enter");
       }

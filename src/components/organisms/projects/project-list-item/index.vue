@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.projectListItem">
-    <div :class="$style.thumb">
+    <div :class="$style.thumb" @dblclick="onDClick">
       <BaseIcon compose="normal" type="logo" :class="$style.thumbIcon" />
       <ContextMenu
         :class="$style.contextMenu"
@@ -52,8 +52,12 @@ export default {
   },
   components: { ContextMenu, DateTimeText, BaseIcon, ClickToEditableInput },
   methods: {
-    onMenuClick: function(value) {
+    onMenuClick(value) {
       value.title = this.title;
+      this.$emit("context-menu-click", value);
+    },
+    onDClick() {
+      let value = { id: this.id, name: "edit", title: this.title };
       this.$emit("context-menu-click", value);
     }
   }

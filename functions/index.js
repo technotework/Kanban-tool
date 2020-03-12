@@ -19,7 +19,6 @@ exports.postProcess = functions.region('us-central1').https.onCall(async (data, 
   if (taskDocPathArray.length > 0) {
     for (let i = 0; i < taskDocPathArray.length; i++) {
       let path = taskDocPathArray[i];
-      console.log(path);
       let doc = db.doc(path);
       doc.set({ "task": { "editing": "", "editing_date": null } }, { merge: true });
     }
