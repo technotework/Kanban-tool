@@ -5,7 +5,7 @@
     class="ignore"
     v-bind="{ placeholder, required, maxlength, name, readonly }"
     v-model.lazy="myValue"
-    @keyup.enter="onKeyup"
+    @keydown.enter="onKeydown($event.keyCode)"
   />
 </template>
 
@@ -34,8 +34,11 @@ export default {
     }
   },
   methods: {
-    onKeyup(e) {
-      this.$emit("keyup-enter");
+    onKeydown(keyCode) {
+      console.log(keyCode);
+      if (keyCode == 13) {
+        this.$emit("keydown-enter");
+      }
     }
   }
 };

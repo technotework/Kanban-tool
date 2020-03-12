@@ -8,12 +8,16 @@ function getMixin(compose, type) {
     components: {
       BaseInput
     },
-    template: `<BaseInput type="${type}" compose="${compose}" v-bind="{placeholder,required,maxlength,name,readonly}" v-model.lazy="myValue" @keyup-enter="onKeyup" />`,
+    template: `<BaseInput type="${type}" compose="${compose}" v-bind="{placeholder,required,maxlength,name,readonly}" v-model.lazy="myValue" @keydown-enter="onKeydown" />`,
     props: {
       ...BaseInput.props
     },
     methods: {
-      ...BaseInput.methods
+      ...BaseInput.methods,
+      onKeydown() {
+        this.$emit("keydown-enter");
+
+      }
     },
     computed: {
       ...BaseInput.computed

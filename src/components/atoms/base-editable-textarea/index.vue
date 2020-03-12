@@ -50,6 +50,7 @@ export default {
   width: 100%;
   @include taskText;
   background-color: $transparent;
+  white-space: pre-line;
 }
 .text {
   width: 100%;

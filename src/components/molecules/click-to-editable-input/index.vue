@@ -1,7 +1,13 @@
   <template>
   <div :class="[isDisable ? $style.wrapper : $style.wrapper2col,$role[role]]">
     <div @click="onClickEdit" :class="$style.editableInputContainer">
-      <component :is="isTitle ? title : noTitle" :readonly="isDisable" v-model.lazy="myValue" />
+      <component
+        ref="baseInput"
+        :is="isTitle ? title : noTitle"
+        :readonly="isDisable"
+        v-model.lazy="myValue"
+        @keydown-enter="onEnter"
+      />
       <template v-if="isDisable">
         <BaseIcon type="edit" :class="$style.icon" />
       </template>
@@ -30,29 +36,19 @@ import {
 export default {
   mixins: [base],
   name: "ClickToEditableInput",
-  data: function() {
-    return {
-      isDisable: true,
-      status: "uneditable",
-      title: EditInputTitle,
-      noTitle: EditInput
-    };
-  },
   props: {
     isTitle: { type: Boolean, default: false },
     value: String,
     role: String
   },
-  methods: {
-    onClickEdit: function(e) {
-      this.isDisable = false;
-      this.status = "editable";
-    },
-    onClickCompleteEdit: function(e) {
-      this.isDisable = true;
-      this.status = "uneditable";
-      this.$emit("keyup-enter");
-    }
+  data: function() {
+    return {
+      isDisable: true,
+      status: "uneditable",
+      title: EditInputTitle,
+      noTitle: EditInput,
+      temp: ""
+    };
   },
   computed: {
     myValue: {
@@ -60,8 +56,25 @@ export default {
         return this.value;
       },
       set(value) {
+        this.temp = value;
         this.$emit("input", value);
       }
+    }
+  },
+  methods: {
+    onClickEdit(e) {
+      this.isDisable = false;
+      this.status = "editable";
+    },
+    onClickCompleteEdit(e) {
+      this.isDisable = true;
+      this.status = "uneditable";
+    },
+    onEnter(e) {
+      this.$refs.baseInput.$el.blur();
+      this.isDisable = true;
+      this.status = "uneditable";
+      this.$emit("input", this.temp);
     }
   },
   components: { EditInputTitle, EditInput, MiniButton, BaseIcon }
