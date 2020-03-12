@@ -7,16 +7,17 @@
       @delete-event="onDelete"
       @start-edit-task="onStartEdit"
       @complete-edit-task="onCompleteEdit"
-    />
-    <component
-      :is="membersContainer"
-      :id="id"
-      :parent-id="boardId"
-      :editor="editor"
-      v-model="members"
-      ref="members"
-      :class="$style.member"
-    />
+    >
+      <component
+        :is="membersContainer"
+        :id="id"
+        :parent-id="boardId"
+        :editor="editor"
+        v-model="members"
+        ref="members"
+        :class="$style.member"
+      />
+    </PostedTextarea>
   </div>
 </template>
 
@@ -66,8 +67,8 @@ export default {
 }
 .member a {
   display: block;
-  margin: -21px 0 3px 5px;
-  width: 188px;
+  width: 168px;
+  margin-left: 1px;
   text-align: left;
 }
 .noDrag {

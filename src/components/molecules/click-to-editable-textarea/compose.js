@@ -9,7 +9,8 @@ function getMixin() {
       ClickToEditableTextarea
     },
     template: `<ClickToEditableTextarea :content="content" :status="status" @save-event="onSave" 
-    @delete-event="onDelete" @start-edit-task="onStartEdit" @complete-edit-task="onCompleteEdit" />`,
+    @delete-event="onDelete" @start-edit-task="onStartEdit" @complete-edit-task="onCompleteEdit">
+    <slot /></ClickToEditableTextarea>`,
     props: {
       ...ClickToEditableTextarea.props
     },

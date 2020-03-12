@@ -8,19 +8,24 @@
       @meta-enter="onSave"
       @dblclick="onDClick"
     />
-    <div :class="$style.buttons">
-      <template v-if="!status">
-        <ContextMenu
-          @context-menu-click="onMenuClick"
-          v-bind="{ menuItems }"
-          compose="top"
-          :class="$style.menu"
-        />
-      </template>
-      <template v-else>
-        <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
-        <PrimaryMiniButton :class="$style.button" @click="onSave">保存</PrimaryMiniButton>
-      </template>
+    <div :class="$style.nav">
+      <div :class="$style.option">
+        <slot />
+      </div>
+      <div :class="$style.buttons">
+        <template v-if="!status">
+          <ContextMenu
+            @context-menu-click="onMenuClick"
+            v-bind="{ menuItems }"
+            compose="top"
+            :class="$style.menu"
+          />
+        </template>
+        <template v-else>
+          <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
+          <PrimaryMiniButton :class="$style.button" @click="onSave">保存</PrimaryMiniButton>
+        </template>
+      </div>
     </div>
   </div>
 </template>
@@ -117,22 +122,21 @@ export default {
 </script>
 <style lang="scss" module>
 .wrapper {
-  position: relative;
-  padding: 0 0 32px 0;
+  padding: 0 0 3px 0;
 }
 .textarea {
   min-height: 80px;
 }
-.menu {
-  position: absolute;
-  top: -14px;
-  right: 9px;
+.nav {
+  margin: 8px 0 0 1px;
+  display: flex;
+  justify-content: space-between;
+}
+.menu svg {
+  margin: 6px 10px 0 0;
 }
 .buttons {
   display: flex;
-  position: absolute;
-  bottom: 1px;
-  right: 0;
 }
 .button {
   margin-left: 6px;

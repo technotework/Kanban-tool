@@ -5,12 +5,7 @@
     </template>
     <template v-else>
       <ul :class="$style.wapper">
-        <li
-          v-for="(member,index) in myData"
-          :key="index"
-          :data-tooltip="member.nickname"
-          :class="$style.tooltip"
-        >
+        <li v-for="(member,index) in myData" :key="index" :data-tooltip="member.nickname">
           <MemberIcon size="S" :img="member.img" />
         </li>
       </ul>
@@ -64,35 +59,5 @@ export default {
 }
 .wapper li {
   padding-right: 3px;
-}
-.tooltip {
-  position: relative;
-}
-.tooltip::before,
-.tooltip::after {
-  position: absolute;
-  transition: all 0.3s ease 0s;
-  opacity: 0;
-}
-.tooltip::before {
-  content: "";
-  border: 1px solid transparent;
-  border-bottom-color: $theme;
-  top: -35px;
-}
-.tooltip::after {
-  content: attr(data-tooltip);
-  display: block;
-  padding: 0 $s16;
-  background: $theme;
-  color: #fff;
-  border-radius: 5px;
-  top: -35px;
-}
-.tooltip:hover::before {
-  opacity: 1;
-}
-.tooltip:hover::after {
-  opacity: 1;
 }
 </style>
