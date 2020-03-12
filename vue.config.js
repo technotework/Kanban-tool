@@ -1,4 +1,5 @@
 module.exports = {
+
   devServer: {
     host: '0.0.0.0',
     port: '8080',
@@ -29,7 +30,7 @@ module.exports = {
     loaderOptions: {
       css: {
         modules: {
-          localIdentName: '[folder]---[local]---[hash:base64:5]'
+          localIdentName: '[hash:base64]'
         }
       },
       sass: {
