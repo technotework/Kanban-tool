@@ -17,7 +17,7 @@
         { [$style.close]: !open }
       ]"
       >
-        <PostForm @form-cancel="onCancelAddTask" @form-add="onAddTask" />
+        <PostForm ref="postForm" @form-cancel="onCancelAddTask" @form-add="onAddTask" />
       </div>
     </div>
     <draggable
@@ -92,6 +92,7 @@ export default {
   methods: {
     onAddClick: function(e) {
       this.changeOpen(!this.open);
+      this.$refs.postForm.focus();
     },
     onAddTask(value) {
       this.changeOpen(false);

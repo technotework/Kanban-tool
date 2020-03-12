@@ -42,6 +42,9 @@ export default {
     },
     reset() {
       this.content = "";
+    },
+    focus() {
+      this.$refs.textarea.$el.focus();
     }
   },
   computed: {},
