@@ -30,7 +30,7 @@ module.exports = {
     loaderOptions: {
       css: {
         modules: {
-          localIdentName: '[hash:base64]'
+          localIdentName: '[folder]---[local]---[hash:base64:5]'
         }
       },
       sass: {
