@@ -5,8 +5,8 @@
   "scripts": {
     "svg": "npx svg-sprite -C svg-config.json src/assets/svg/src/*svg",
     "fb": "npx firebase serve --only firestore",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --mode production",
     "test:unit": "vue-cli-service test:unit --detectOpenHandles",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",

@@ -18,7 +18,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-
+storybook-static
 .firebaserc
 src/setting.js
 
