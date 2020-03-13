@@ -3,7 +3,7 @@
     <BaseEditableTextarea
       v-model.lazy="textareaContent"
       :class="$style.textarea"
-      :isedit="status"
+      :isedit="status == 'ME'"
       ref="textarea"
       @meta-enter="onSave"
       @dblclick="onDClick"
@@ -13,17 +13,17 @@
         <slot />
       </div>
       <div :class="$style.buttons">
-        <template v-if="!status">
+        <template v-if="status == 'ME'">
+          <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
+          <PrimaryMiniButton :class="$style.button" @click="onSave">保存</PrimaryMiniButton>
+        </template>
+        <template v-else>
           <ContextMenu
             @context-menu-click="onMenuClick"
             v-bind="{ menuItems }"
             compose="top"
             :class="$style.menu"
           />
-        </template>
-        <template v-else>
-          <SecondaryMiniButton :class="$style.button" @click="onCancel">キャンセル</SecondaryMiniButton>
-          <PrimaryMiniButton :class="$style.button" @click="onSave">保存</PrimaryMiniButton>
         </template>
       </div>
     </div>
@@ -44,7 +44,7 @@ export default {
   name: "ClickToEditableTextarea",
   props: {
     content: String,
-    status: Boolean
+    status: String
   },
   data: function() {
     return {

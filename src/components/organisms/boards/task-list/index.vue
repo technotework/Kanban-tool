@@ -39,6 +39,7 @@
           :members-container="membersContainer"
           :id="item.task.id"
           :board-id="dataBoardId"
+          :my-editor-id="myEditorId"
           :content="item.task.data"
           :class="$style.listItem"
           :editor="item.task.editing"
@@ -64,7 +65,8 @@ export default {
     membersContainer: Object,
     value: Array,
     open: Boolean,
-    dataBoardId: String
+    dataBoardId: String,
+    myEditorId: String
   },
   data: function() {
     return {

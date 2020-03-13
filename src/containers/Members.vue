@@ -2,7 +2,7 @@
   <MembersUnit
     :members="members"
     :id="id"
-    :my-editor-id="myEditorId"
+    :status="status"
     :parent-id="parentId"
     :editor="editor"
     v-model="assigned"
@@ -20,6 +20,7 @@ export default {
     value: Array,
     id: String,
     editor: String,
+    status: String,
     parentId: String
   },
   data: () => {
@@ -36,9 +37,6 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
-    },
-    myEditorId() {
-      return this.$store.getters["auth/user"].altId;
     }
   },
   methods: {

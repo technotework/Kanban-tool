@@ -4,6 +4,7 @@
     :members-container="members"
     :open.sync="isOpen"
     :data-board-id="id"
+    :my-editor-id="myEditorId"
     @save-event="onSave"
     @form-add="onCreate"
     @delete-event="onDelete"
@@ -60,6 +61,9 @@ export default {
       set(value) {
         this.$store.commit(this.storeModuleName + "/setEditorOpen", value);
       }
+    },
+    myEditorId() {
+      return this.$store.getters["auth/user"].altId;
     }
   },
   methods: {

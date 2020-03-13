@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <template v-if="editStatus == 'NO_ONE'">
+    <template v-if="status == 'NO_ONE'">
       <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
         <template #button>
           <MembersIconList :members="members" v-model="myData" />
@@ -15,7 +15,7 @@
         </template>
       </ContextMenuContainer>
     </template>
-    <template v-if="editStatus == 'OTHER'">
+    <template v-if="status == 'OTHER'">
       <div :class="$style.other">
         <MemberIcon size="L" :img="editorImgSrc" :class="$style.icon" />
         <div :class="$style.line">EDITING...</div>
@@ -34,7 +34,7 @@ export default {
   props: {
     members: Object,
     value: Array,
-    myEditorId: String,
+    status: String,
     editor: String,
     id: String,
     parentId: String
@@ -47,17 +47,6 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
-    },
-    editStatus() {
-      let status;
-      if (this.editor == "") {
-        status = "NO_ONE";
-      } else if (this.editor == this.myEditorId) {
-        status = "ME";
-      } else if (this.editor != this.myEditorId) {
-        status = "OTHER";
-      }
-      return status;
     },
     editorImgSrc() {
       return this.members[this.editor].img;
@@ -95,12 +84,12 @@ export default {
 }
 .icon {
   position: absolute;
-  margin: -44px 0px 0px 178px;
+  margin: -15px 0px 0px 176px;
   z-index: 1000;
 }
 .line {
   @include editing;
   position: absolute;
-  margin: -25px 0 0 0;
+  margin: 5px 0 0 0;
 }
 </style>

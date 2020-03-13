@@ -2,7 +2,7 @@
   <div :class="[$style.item,{['ignore']:(editor!='')},(editor!='')?$style.noDrag:$style.drag]">
     <PostedTextarea
       :content="content"
-      :status="(editor!='')"
+      :status="editStatus"
       @save-event="onSave"
       @delete-event="onDelete"
       @start-edit-task="onStartEdit"
@@ -13,6 +13,7 @@
         :id="id"
         :parent-id="boardId"
         :editor="editor"
+        :status="editStatus"
         v-model="members"
         ref="members"
         :class="$style.member"
@@ -30,6 +31,7 @@ export default {
     id: String,
     editor: String,
     membersContainer: Object,
+    myEditorId: String,
     boardId: String,
     value: Array
   },
@@ -56,6 +58,17 @@ export default {
       set(value) {
         this.$emit("input", value);
       }
+    },
+    editStatus() {
+      let status;
+      if (this.editor == "") {
+        status = "NO_ONE";
+      } else if (this.editor == this.myEditorId) {
+        status = "ME";
+      } else if (this.editor != this.myEditorId) {
+        status = "OTHER";
+      }
+      return status;
     }
   },
   components: { PostedTextarea }
