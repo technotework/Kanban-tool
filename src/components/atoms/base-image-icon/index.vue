@@ -1,48 +1,53 @@
 <template>
-  <div :class="[$style.icon,$compose[compose]]" :img="img" :style="backgroundImage">
-    <slot />
-  </div>
+    <div
+        :class="[$style.icon, $compose[compose]]"
+        :img="img"
+        :style="backgroundImage"
+    >
+        <slot />
+    </div>
 </template>
 
 <script>
+/**
+ * 背景画像IconのAtoms
+ */
 import base from "@/components/utils/base-mixin";
-
 export default {
-  name: "base-image-icon",
-  mixins: [base],
-  props: {
-    img: String,
-    compose: String
-  },
-  computed: {
-    backgroundImage: function() {
-      return `background-image: url(${this.img});`;
+    name: "base-image-icon",
+    mixins: [base],
+    props: {
+        img: String,
+        compose: String
+    },
+    computed: {
+        backgroundImage: function() {
+            return `background-image: url(${this.img});`;
+        }
     }
-  }
 };
 </script>
 <style lang="scss" module>
 .icon {
-  background-position: center center;
-  background-repeat: no-repaet;
-  overflow: hidden;
-  background-size: cover;
-  display: inline-block;
-  background-color: #3f4247;
+    background-position: center center;
+    background-repeat: no-repaet;
+    overflow: hidden;
+    background-size: cover;
+    display: inline-block;
+    background-color: #3f4247;
 }
 </style>
 <style lang="scss" module="$compose">
 .xl {
-  @include imageIcon("XL");
+    @include imageIcon("XL");
 }
 .l {
-  @include imageIcon("L");
+    @include imageIcon("L");
 }
 .m {
-  @include imageIcon("M");
+    @include imageIcon("M");
 }
 .s {
-  @include imageIcon("S");
+    @include imageIcon("S");
 }
 </style>
-

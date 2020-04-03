@@ -2,16 +2,18 @@ import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
-import {
-    action
-} from "@/components/utils/story-export"
+} from "@/components/utils/story-creator";
+import { action } from "@/components/utils/story-export";
 
-import UserInfoForm from "./index"
+import UserInfoForm from "./index";
 
-let description = 'import UserInfoForm from "@/components/organisms/user/user-info-form/"';
-export default createDefStory("organisms/user/UserInfoForm", UserInfoForm, description);
-
+const description =
+    'import UserInfoForm from "@/components/organisms/user/user-info-form/"';
+export default createDefStory(
+    "organisms/user/UserInfoForm",
+    UserInfoForm,
+    description
+);
 
 //---------------------
 //Basic
@@ -21,9 +23,5 @@ export const Basic = () => ({
         UserInfoForm
     },
     template: `<UserInfoForm  />`,
-    methods: {
-
-    }
+    methods: {}
 });
-
-

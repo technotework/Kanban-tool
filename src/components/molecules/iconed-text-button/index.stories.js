@@ -1,13 +1,21 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator";
 import IconedTextButton from "./index.vue";
 
-
-let description = 'import IconedTextButton from "@/components/molecules/iconed-text-button/"'
-export default createDefStory("molecules/IconedTextButton", IconedTextButton, description);
+const description =
+    'import IconedTextButton from "@/components/molecules/iconed-text-button/"';
+export default createDefStory(
+    "molecules/IconedTextButton",
+    IconedTextButton,
+    description
+);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "IconedTextButton",
     compos: { IconedTextButton: IconedTextButton },
     props: {
@@ -15,8 +23,7 @@ let setting = {
         compose: "left"
     },
     action: { event: "click" },
-    template: tagTemp`<IconedTextButton ${'props'} ${'action'}>NewBoard</IconedTextButton>`
+    template: tagTemp`<IconedTextButton ${"props"} ${"action"}>NewBoard</IconedTextButton>`
 };
 
-export const Basic = () => (createStory(setting));
-
+export const Basic = () => createStory(setting);

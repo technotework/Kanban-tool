@@ -2,16 +2,14 @@ import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
-import {
-    action
-} from "@/components/utils/story-export"
+} from "@/components/utils/story-creator";
+import { action } from "@/components/utils/story-export";
 
-import AuthUnit from "./index"
+import AuthUnit from "./index";
 
-let description = 'import AuthUnit from "@/components/organisms/auth/auth-unit/"';
+const description =
+    'import AuthUnit from "@/components/organisms/auth/auth-unit/"';
 export default createDefStory("organisms/auth/AuthUnit", AuthUnit, description);
-
 
 //---------------------
 //Basic
@@ -22,8 +20,6 @@ export const Basic = () => ({
     },
     template: `<AuthUnit @login-event="action" />`,
     methods: {
-        action: action('login-event')
+        action: action("login-event")
     }
 });
-
-

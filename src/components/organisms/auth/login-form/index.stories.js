@@ -2,16 +2,18 @@ import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
-import {
-    action
-} from "@/components/utils/story-export"
+} from "@/components/utils/story-creator";
+import { action } from "@/components/utils/story-export";
 
-import LoginForm from "./index"
+import LoginForm from "./index";
 
-let description = 'import LoginForm from "@/components/organisms/auth/login-form/"';
-export default createDefStory("organisms/auth/LoginForm", LoginForm, description);
-
+const description =
+    'import LoginForm from "@/components/organisms/auth/login-form/"';
+export default createDefStory(
+    "organisms/auth/LoginForm",
+    LoginForm,
+    description
+);
 
 //---------------------
 //Basic
@@ -22,8 +24,6 @@ export const Basic = () => ({
     },
     template: `<LoginForm @login-event="action" />`,
     methods: {
-        action: action('login-event')
+        action: action("login-event")
     }
 });
-
-

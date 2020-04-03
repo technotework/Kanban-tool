@@ -2,26 +2,30 @@ import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
+} from "@/components/utils/story-creator";
 import ContentAreaLayout from "./index";
 
-let description = 'import ContentAreaLayout from "@/components/templates/content-area-layout/"';
-export default createDefStory("templates/ContentAreaLayout", ContentAreaLayout, description);
-
+const description =
+    'import ContentAreaLayout from "@/components/templates/content-area-layout/"';
+export default createDefStory(
+    "templates/ContentAreaLayout",
+    ContentAreaLayout,
+    description
+);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "ContentAreaLayout",
     compos: {
         ContentAreaLayout: ContentAreaLayout
     },
     props: {},
     action: {},
-    template: tagTemp `<ContentAreaLayout>
+    template: tagTemp`<ContentAreaLayout>
     <template #nav>nav</template>
     <template #article>article</template>
 </ContentAreaLayout>`
 };
 
-export const Basic = () => (createStory(setting));
+export const Basic = () => createStory(setting);

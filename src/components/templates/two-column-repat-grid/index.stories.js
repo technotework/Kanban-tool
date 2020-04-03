@@ -2,22 +2,27 @@ import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
+} from "@/components/utils/story-creator";
 import TwoColumnRepeatGrid from "./index.vue";
 
-let description = 'import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/"';
-export default createDefStory("templates/TwoColumnRepeatGrid", TwoColumnRepeatGrid, description);
+const description =
+    'import TwoColumnRepeatGrid from "@/components/templates/two-column-repat-grid/"';
+export default createDefStory(
+    "templates/TwoColumnRepeatGrid",
+    TwoColumnRepeatGrid,
+    description
+);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "TwoColumnRepeatGrid",
     compos: {
         TwoColumnRepeatGrid: TwoColumnRepeatGrid
     },
     props: {},
     action: {},
-    template: tagTemp `<TwoColumnRepeatGrid ${'props'} ${'action'}>
+    template: tagTemp`<TwoColumnRepeatGrid ${"props"} ${"action"}>
         <div style="background-color:#ff0; width:100%; margin-right:5px; ">1</div>
         <div style="background-color:#ff0; width:100%; margin-right:5px;">2</div>
         <div style="background-color:#ff0; width:100%;  margin-right:5px; ">3</div>
@@ -27,4 +32,4 @@ let setting = {
     </TwoColumnRepeatGrid>`
 };
 
-export const Basic = () => (createStory(setting));
+export const Basic = () => createStory(setting);

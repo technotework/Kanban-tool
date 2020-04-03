@@ -5,7 +5,8 @@ import {
 } from "@/components/utils/story-creator";
 import FloatMessage from "./index.vue";
 
-let description = 'import FloatMessage from "@/components/molecules/float-message/"';
+const description =
+    'import FloatMessage from "@/components/molecules/float-message/"';
 
 export default createDefStory(
     "molecules/FloatMessage",
@@ -15,19 +16,20 @@ export default createDefStory(
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "FloatMessage",
     compos: {
         FloatMessage: FloatMessage
     },
     props: {
         type: "ErrorText",
-        message: "メッセージメッセージメッセージメッセージメッセージメッセージメッセージメッセージ"
+        message:
+            "メッセージメッセージメッセージメッセージメッセージメッセージメッセージメッセージ"
     },
     action: {
         event: "click"
     },
-    template: tagTemp`<FloatMessage ${'props'} ${'action'}>MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</FloatMessage>`
+    template: tagTemp`<FloatMessage ${"props"} ${"action"}>MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</FloatMessage>`
 };
 
-export const Basic = () => (createStory(setting));
+export const Basic = () => createStory(setting);

@@ -1,56 +1,60 @@
 <template>
-  <div>
-    <label :for="target" :class="[(value == model)?$style.active:$style.deactive]">
-      <input
-        :class="$style.radio"
-        type="radio"
-        :name="name"
-        :id="target"
-        :value="value"
-        :checked="value == model"
-        @change="$emit('change',value)"
-      />
-      <span :class="$style.label">
-        <slot />
-      </span>
-    </label>
-  </div>
+    <div>
+        <label
+            :for="target"
+            :class="[value == model ? $style.active : $style.deactive]"
+        >
+            <input
+                :class="$style.radio"
+                type="radio"
+                :name="name"
+                :id="target"
+                :value="value"
+                :checked="value == model"
+                @change="$emit('change', value)"
+            />
+            <span :class="$style.label">
+                <slot />
+            </span>
+        </label>
+    </div>
 </template>
 
 <script>
+/**
+ * RadioButtonのAtoms
+ */
 import base from "@/components/utils/base-mixin";
 export default {
-  name: "BaseButtonRadio",
-  mixins: [base],
-  model: {
-    prop: "model",
-    event: "change"
-  },
-  props: {
-    target: String,
-    name: String,
-    value: String,
-    model: String
-  },
-  methods: {},
+    name: "BaseButtonRadio",
+    mixins: [base],
+    model: {
+        prop: "model",
+        event: "change"
+    },
+    props: {
+        target: String,
+        name: String,
+        value: String,
+        model: String
+    },
+    methods: {},
 
-  components: {}
+    components: {}
 };
 </script>
 <style lang="scss" module>
 .radio {
-  display: none;
+    display: none;
 }
 .label {
-  display: inline-block;
-  margin: 0 22px;
+    display: inline-block;
+    margin: 0 22px;
 }
 .active {
-  @include primaryTab;
+    @include primaryTab;
 }
 .deactive {
-  @include secondaryTab;
+    @include secondaryTab;
 }
 </style>
-
-

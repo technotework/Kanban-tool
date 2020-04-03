@@ -1,36 +1,45 @@
 import {
-  createDefStory,
-  createStory,
-  tagTemp
+    createDefStory,
+    createStory,
+    tagTemp
 } from "@/components/utils/story-creator";
 import BaseNoLinkButton from "./index.vue";
 import {
-  PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, AddMiniButton, TransparentButton, MenuButton, MiniButton, BigButton, TextButton
+    PrimaryButton,
+    SecondaryButton,
+    PrimaryMiniButton,
+    SecondaryMiniButton,
+    AddMiniButton,
+    TransparentButton,
+    MenuButton,
+    MiniButton,
+    BigButton,
+    TextButton
 } from "./compose";
 
-let description =
-  'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, AddMiniButton, TransparentButton, MenuButton, MiniButton,BigButton,TextButton} from "@/components/atoms/base-no-link-button/compose"';
+const description =
+    'import BaseNoLinkButton from "@/components/atoms/base-no-link-button/" <br>import {PrimaryButton, SecondaryButton, PrimaryMiniButton, SecondaryMiniButton, AddMiniButton, TransparentButton, MenuButton, MiniButton,BigButton,TextButton} from "@/components/atoms/base-no-link-button/compose"';
 export default createDefStory(
-  "atoms/BaseNoLinkButton",
-  BaseNoLinkButton,
-  description
+    "atoms/BaseNoLinkButton",
+    BaseNoLinkButton,
+    description
 );
 
 //---------------------
 //Basic
-let setting = {
-  name: "BaseNoLinkButton",
-  compos: {
-    BaseNoLinkButton: BaseNoLinkButton
-  },
-  props: {
-    href: "https://www.google.com/",
-    target: "_blank"
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<BaseNoLinkButton ${"props"} ${"action"}>Button</BaseNoLinkButton>`
+const setting = {
+    name: "BaseNoLinkButton",
+    compos: {
+        BaseNoLinkButton: BaseNoLinkButton
+    },
+    props: {
+        href: "https://www.google.com/",
+        target: "_blank"
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<BaseNoLinkButton ${"props"} ${"action"}>Button</BaseNoLinkButton>`
 };
 
 export const Basic = () => createStory(setting);
@@ -39,14 +48,14 @@ export const Basic = () => createStory(setting);
 //PrimaryButton
 
 let settingP = {
-  name: "PrimaryButton",
-  compos: {
-    PrimaryButton: PrimaryButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<PrimaryButton ${"props"} ${"action"}>Button</PrimaryButton>`
+    name: "PrimaryButton",
+    compos: {
+        PrimaryButton: PrimaryButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<PrimaryButton ${"props"} ${"action"}>Button</PrimaryButton>`
 };
 
 export const Primary = () => createStory(settingP);
@@ -55,14 +64,14 @@ export const Primary = () => createStory(settingP);
 //SecondaryButton
 
 let settingS = {
-  name: "SecondaryButton",
-  compos: {
-    SecondaryButton: SecondaryButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<SecondaryButton ${"props"} ${"action"}>Button</SecondaryButton>`
+    name: "SecondaryButton",
+    compos: {
+        SecondaryButton: SecondaryButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<SecondaryButton ${"props"} ${"action"}>Button</SecondaryButton>`
 };
 
 export const Secondary = () => createStory(settingS);
@@ -71,14 +80,14 @@ export const Secondary = () => createStory(settingS);
 //PrimaryMiniButton
 
 let settingMP = {
-  name: "PrimaryMiniButton",
-  compos: {
-    PrimaryMiniButton: PrimaryMiniButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<PrimaryMiniButton ${"props"} ${"action"}>Button</PrimaryMiniButton>`
+    name: "PrimaryMiniButton",
+    compos: {
+        PrimaryMiniButton: PrimaryMiniButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<PrimaryMiniButton ${"props"} ${"action"}>Button</PrimaryMiniButton>`
 };
 
 export const PrimaryMini = () => createStory(settingMP);
@@ -87,14 +96,14 @@ export const PrimaryMini = () => createStory(settingMP);
 //SecondaryMiniButton
 
 let settingMS = {
-  name: "SecondaryMiniButton",
-  compos: {
-    SecondaryMiniButton: SecondaryMiniButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<SecondaryMiniButton ${"props"} ${"action"}>Button</SecondaryMiniButton>`
+    name: "SecondaryMiniButton",
+    compos: {
+        SecondaryMiniButton: SecondaryMiniButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<SecondaryMiniButton ${"props"} ${"action"}>Button</SecondaryMiniButton>`
 };
 
 export const SecondaryMini = () => createStory(settingMS);
@@ -103,53 +112,49 @@ export const SecondaryMini = () => createStory(settingMS);
 //AddMiniButton
 
 let settingMA = {
-  name: "AddMiniButton",
-  compos: {
-    AddMiniButton: AddMiniButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<div style="background-color:#fff; padding:30px;"><AddMiniButton ${"props"} ${"action"}>Button</AddMiniButton></div>`
+    name: "AddMiniButton",
+    compos: {
+        AddMiniButton: AddMiniButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<div style="background-color:#fff; padding:30px;"><AddMiniButton ${"props"} ${"action"}>Button</AddMiniButton></div>`
 };
 
 export const AddMini = () => createStory(settingMA);
-
 
 //---------------------
 //TransparentButton
 
 let settingT = {
-  name: "TransparentButton",
-  compos: {
-    TransparentButton: TransparentButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<TransparentButton ${"props"} ${"action"}>Button</TransparentButton>`
+    name: "TransparentButton",
+    compos: {
+        TransparentButton: TransparentButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<TransparentButton ${"props"} ${"action"}>Button</TransparentButton>`
 };
 
 export const Transparent = () => createStory(settingT);
-
 
 //---------------------
 //MenuButton
 
 let settingMenu = {
-  name: "MenuButton",
-  compos: {
-    MenuButton: MenuButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<MenuButton ${"props"} ${"action"}>Button</MenuButton>`
+    name: "MenuButton",
+    compos: {
+        MenuButton: MenuButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<MenuButton ${"props"} ${"action"}>Button</MenuButton>`
 };
 
 export const Menu = () => createStory(settingMenu);
-
-
 
 //fixme
 
@@ -157,48 +162,46 @@ export const Menu = () => createStory(settingMenu);
 //MiniButton
 
 let settingM = {
-  name: "MiniButton",
-  compos: {
-    MiniButton: MiniButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<MiniButton ${"props"} ${"action"}>Button</MiniButton>`
+    name: "MiniButton",
+    compos: {
+        MiniButton: MiniButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<MiniButton ${"props"} ${"action"}>Button</MiniButton>`
 };
 
 export const Mini = () => createStory(settingM);
-
 
 //---------------------
 //BigButton
 
 let settingBG = {
-  name: "BigButton",
-  compos: {
-    BigButton: BigButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<BigButton ${"props"} ${"action"}>Button</BigButton>`
+    name: "BigButton",
+    compos: {
+        BigButton: BigButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<BigButton ${"props"} ${"action"}>Button</BigButton>`
 };
 
 export const Big = () => createStory(settingBG);
-
 
 //---------------------
 //TextButton
 
 let settingText = {
-  name: "TextButton",
-  compos: {
-    TextButton: TextButton
-  },
-  action: {
-    event: "click"
-  },
-  template: tagTemp`<TextButton ${"props"} ${"action"}>Button</TextButton>`
+    name: "TextButton",
+    compos: {
+        TextButton: TextButton
+    },
+    action: {
+        event: "click"
+    },
+    template: tagTemp`<TextButton ${"props"} ${"action"}>Button</TextButton>`
 };
 
 export const Text = () => createStory(settingText);

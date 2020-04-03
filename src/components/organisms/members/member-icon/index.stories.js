@@ -1,29 +1,32 @@
-
 import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
-import MemberIcon from "@/components/organisms/members/member-icon/"
+} from "@/components/utils/story-creator";
+import MemberIcon from "@/components/organisms/members/member-icon/";
 
-let description = 'import MemberIcon from "@/components/organisms/members/member-icon/"'
-export default createDefStory("organisms/members/MemberIcon", MemberIcon, description);
+const description =
+    'import MemberIcon from "@/components/organisms/members/member-icon/"';
+export default createDefStory(
+    "organisms/members/MemberIcon",
+    MemberIcon,
+    description
+);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "MemberIcon",
     compos: {
         MemberIcon: MemberIcon
     },
     props: {
         size: "S",
-        img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg"
+        img:
+            "https://upload.wikimedia.org/wikipedia/commons/3/31/Doll_face_silver_Persian_2.jpg"
     },
-    action: {
-
-    },
-    template: tagTemp`<MemberIcon ${'props'} ${'action'} />`
+    action: {},
+    template: tagTemp`<MemberIcon ${"props"} ${"action"} />`
 };
 
-export const Basic = () => (createStory(setting));
+export const Basic = () => createStory(setting);

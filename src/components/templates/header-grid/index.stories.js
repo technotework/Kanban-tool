@@ -1,17 +1,22 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator";
 import HeaderGrid from "./index.vue";
 
-let description = 'import HeaderGrid from "@/components/templates/header-grid/"';
+const description =
+    'import HeaderGrid from "@/components/templates/header-grid/"';
 export default createDefStory("templates/HeaderGrid", HeaderGrid, description);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "HeaderGrid",
     compos: { HeaderGrid: HeaderGrid },
     props: {},
     action: {},
-    template: tagTemp`<HeaderGrid ${'props'} ${'action'}>
+    template: tagTemp`<HeaderGrid ${"props"} ${"action"}>
         
     <template #unit1>
         <div style="background-color:#ff0; width:166px; height:34px;">box</div>
@@ -32,5 +37,4 @@ let setting = {
     </HeaderGrid>`
 };
 
-export const Basic = () => (createStory(setting));
-
+export const Basic = () => createStory(setting);

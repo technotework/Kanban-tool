@@ -8,18 +8,21 @@ import {
     object,
     boolean,
     withInfo
-} from "@/components/utils/story-export"
+} from "@/components/utils/story-export";
 import {
     createDefStory,
     createStory,
     tagTemp
-} from "@/components/utils/story-creator"
+} from "@/components/utils/story-creator";
 import ProjectList from "./index.vue";
 
-
-let description = 'import ProjectList from "@/components/organisms/projects/project-list/"'
-export default createDefStory("organisms/projects/ProjectList", ProjectList, description);
-
+const description =
+    'import ProjectList from "@/components/organisms/projects/project-list/"';
+export default createDefStory(
+    "organisms/projects/ProjectList",
+    ProjectList,
+    description
+);
 
 //---------------------
 //Basic
@@ -45,7 +48,7 @@ export const Basic = () => ({
                     }
                 }
             ]
-        }
+        };
     },
     template: `<ProjectList
     v-model="items"
@@ -54,8 +57,8 @@ export const Basic = () => ({
     @drag-sort-list="onDragSortList"
   />`,
     methods: {
-        onMenuClick: action('context-menu-click'),
-        onInput: action('edited-project-name'),
-        onDragSortList: action('drag-sort-list')
+        onMenuClick: action("context-menu-click"),
+        onInput: action("edited-project-name"),
+        onDragSortList: action("drag-sort-list")
     }
 });

@@ -1,56 +1,62 @@
 <template>
-  <a :class="[$style.button, $compose[compose]]" class="ignore" @click.prevent="onClick">
-    <slot />
-  </a>
+    <a
+        :class="[$style.button, $compose[compose]]"
+        class="ignore"
+        @click.prevent="onClick"
+    >
+        <slot />
+    </a>
 </template>
 
 <script>
+/**
+ * Aタグで作られたリンクではないボタンのAtoms
+ */
 import base from "@/components/utils/base-mixin";
 export default {
-  mixins: [base],
-  name: "BaseNoLinkButton",
-  props: {}
+    mixins: [base],
+    name: "BaseNoLinkButton"
 };
 </script>
 
 <style lang="scss" module>
 .button {
-  display: block;
-  overflow: hidden;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  user-select: none;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    user-select: none;
 }
 </style>
 
 <style lang="scss" module="$compose">
 .primary {
-  @include primaryButton;
+    @include primaryButton;
 }
 .secondary {
-  @include secondaryButton;
+    @include secondaryButton;
 }
 .mprimary {
-  @include primaryMiniButton;
+    @include primaryMiniButton;
 }
 .msecondary {
-  @include secondaryMiniButton;
+    @include secondaryMiniButton;
 }
 .menu {
-  @include menuButton;
+    @include menuButton;
 }
 .transparent {
-  @include transparentButton;
+    @include transparentButton;
 }
 .mini {
-  @include primarySideButton;
+    @include primarySideButton;
 }
 .add {
-  @include addMiniButton;
+    @include addMiniButton;
 }
 .big {
-  @include newButton;
+    @include newButton;
 }
 </style>

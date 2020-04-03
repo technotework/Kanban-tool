@@ -1,19 +1,26 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator";
 import TabContainer from "./index.vue";
 
-
-let description = 'import TabContainer from "@/components/molecules/tab-container/"'
-export default createDefStory("molecules/TabContainer", TabContainer, description);
+const description =
+    'import TabContainer from "@/components/molecules/tab-container/"';
+export default createDefStory(
+    "molecules/TabContainer",
+    TabContainer,
+    description
+);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "TabContainer",
     compos: { TabContainer: TabContainer },
-    props: {
-    },
+    props: {},
     action: {},
-    template: tagTemp`<TabContainer ${'props'} ${'action'}>
+    template: tagTemp`<TabContainer ${"props"} ${"action"}>
         <template #tab1>tab1</template>
         <template #tab2>tab2</template>
         <template #first>firstContent</template>
@@ -21,5 +28,4 @@ let setting = {
     </TabContainer>`
 };
 
-export const Basic = () => (createStory(setting));
-
+export const Basic = () => createStory(setting);

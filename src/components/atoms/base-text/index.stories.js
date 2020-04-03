@@ -1,24 +1,27 @@
-import { createDefStory, createStory, tagTemp } from "@/components/utils/story-creator"
+import {
+    createDefStory,
+    createStory,
+    tagTemp
+} from "@/components/utils/story-creator";
 import BaseText from "./index.vue";
 import { ErrorText } from "./compose";
 
-let description = 'import BaseText from "@/components/atoms/base-text/"';
+const description = 'import BaseText from "@/components/atoms/base-text/"';
 export default createDefStory("atoms/BaseText", BaseText, description);
 
 //---------------------
 //Basic
-let setting = {
+const setting = {
     name: "BaseText",
     compos: { BaseText: BaseText },
     props: {
         compose: "contents"
     },
     action: {},
-    template: tagTemp`<BaseText ${'props'} ${'action'}>テキスト</BaseText>`
+    template: tagTemp`<BaseText ${"props"} ${"action"}>テキスト</BaseText>`
 };
 
-export const Basic = () => (createStory(setting));
-
+export const Basic = () => createStory(setting);
 
 //---------------------
 //Caption
@@ -27,8 +30,7 @@ let settingE = {
     compos: { ErrorText: ErrorText },
     props: {},
     action: {},
-    template: tagTemp`<ErrorText ${'props'} ${'action'}>テキスト</ErrorText>`
+    template: tagTemp`<ErrorText ${"props"} ${"action"}>テキスト</ErrorText>`
 };
 
-export const Error = () => (createStory(settingE));
-
+export const Error = () => createStory(settingE);

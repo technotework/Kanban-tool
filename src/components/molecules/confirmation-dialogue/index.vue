@@ -1,62 +1,78 @@
 <template>
-  <div>
-    <BaseModalCover>
-      <Dialogue>
-        <span :class="$style.text">{{text}}</span>
-        <div :class="$style.buttonContainer">
-          <template v-if="sCallback!=null">
-            <SecondaryButton :class="$style.button" @click="onClickSecondary">キャンセル</SecondaryButton>
-          </template>
-          <PrimaryButton :class="$style.button" @click="onClickPrimary">OK</PrimaryButton>
-        </div>
-      </Dialogue>
-    </BaseModalCover>
-  </div>
+    <div>
+        <BaseModalCover>
+            <Dialogue>
+                <span :class="$style.text">{{ text }}</span>
+                <div :class="$style.buttonContainer">
+                    <template v-if="sCallback != null">
+                        <SecondaryButton
+                            :class="$style.button"
+                            @click="onClickSecondary"
+                            >キャンセル</SecondaryButton
+                        >
+                    </template>
+                    <PrimaryButton
+                        :class="$style.button"
+                        @click="onClickPrimary"
+                        >OK</PrimaryButton
+                    >
+                </div>
+            </Dialogue>
+        </BaseModalCover>
+    </div>
 </template>
 
 <script>
+/**
+ * ダイアログのコンポーネント
+ * プライマリとセカンダリボタンのcallbackをうけとり実行する
+ * セカンダリコールバック画ない場合は、セカンダリ自体を表示しない
+ */
 import BaseModalCover from "@/components/atoms/base-modal-cover";
 import { Dialogue } from "@/components/atoms/base-modal-container/compose";
 import {
-  PrimaryButton,
-  SecondaryButton
+    PrimaryButton,
+    SecondaryButton
 } from "@/components/atoms/base-no-link-button/compose";
 
 export default {
-  name: "ConfirmationDialogue",
-  props: {
-    text: String,
-    pCallback: Function,
-    sCallback: Function
-  },
-  components: {
-    BaseModalCover,
-    Dialogue,
-    PrimaryButton,
-    SecondaryButton
-  },
-  methods: {
-    onClickPrimary: function(e) {
-      this.pCallback();
+    name: "ConfirmationDialogue",
+    props: {
+        text: String,
+        pCallback: Function,
+        sCallback: Function
     },
-    onClickSecondary: function(e) {
-      this.sCallback();
+    components: {
+        BaseModalCover,
+        Dialogue,
+        PrimaryButton,
+        SecondaryButton
+    },
+    methods: {
+        /**
+         * handlers
+         */
+        onClickPrimary: function(e) {
+            this.pCallback();
+        },
+        onClickSecondary: function(e) {
+            this.sCallback();
+        }
     }
-  }
 };
 </script>
 <style lang="scss" module>
 .text {
-  letter-spacing: 0.15rem;
-  line-height: $f24;
+    letter-spacing: 0.15rem;
+    line-height: $f24;
 }
 .buttonContainer {
-  display: flex;
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
+    display: flex;
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
 }
 .button {
-  margin-right: $s8;
+    margin-right: $s8;
 }
 </style>

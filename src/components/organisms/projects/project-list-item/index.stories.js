@@ -1,14 +1,14 @@
-import {
-    createDefStory,
-} from "@/components/utils/story-creator";
-import {
-    action, text
-} from "@/components/utils/story-export"
+import { createDefStory } from "@/components/utils/story-creator";
+import { action, text } from "@/components/utils/story-export";
 import ProjectListItem from "./index.vue";
 
-let description = 'import ProjectListItem from "@/components/organisms/projects/project-list-item/"';
-export default createDefStory("organisms/projects/ProjectListItem", ProjectListItem, description);
-
+const description =
+    'import ProjectListItem from "@/components/organisms/projects/project-list-item/"';
+export default createDefStory(
+    "organisms/projects/ProjectListItem",
+    ProjectListItem,
+    description
+);
 
 //---------------------
 //Basic
@@ -25,8 +25,7 @@ export const Basic = () => ({
             }
         }
     }),
-    props: {
-    },
+    props: {},
     template: `<ProjectListItem
     :id="item.project.id"
     v-model="item.project.label"
@@ -35,7 +34,7 @@ export const Basic = () => ({
     @edited-project-name="onInput"
   />`,
     methods: {
-        onMenuClick: action('context-menu-click'),
-        onInput: action('edited-project-name')
+        onMenuClick: action("context-menu-click"),
+        onInput: action("edited-project-name")
     }
 });
