@@ -1,9 +1,5 @@
 import { action } from "@/components/utils/story-export";
-import {
-    createDefStory,
-    createStory,
-    tagTemp
-} from "@/components/utils/story-creator";
+import { createDefStory } from "@/components/utils/story-creator";
 import BoardListItem from "./index.vue";
 
 const description =

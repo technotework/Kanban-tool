@@ -3,7 +3,6 @@ import {
     createStory,
     tagTemp
 } from "@/components/utils/story-creator";
-import { action } from "@/components/utils/story-export";
 import AppHeader from "./index.vue";
 
 const description =

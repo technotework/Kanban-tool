@@ -1,19 +1,5 @@
-import {
-    action,
-    withKnobs,
-    text,
-    color,
-    number,
-    array,
-    object,
-    boolean,
-    withInfo
-} from "@/components/utils/story-export";
-import {
-    createDefStory,
-    createStory,
-    tagTemp
-} from "@/components/utils/story-creator";
+import { action } from "@/components/utils/story-export";
+import { createDefStory } from "@/components/utils/story-creator";
 import ProjectList from "./index.vue";
 
 const description =

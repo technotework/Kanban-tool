@@ -1,19 +1,18 @@
 <template>
-  <Message target="auth">
-    <Auth />
-  </Message>
+    <Message target="auth">
+        <Auth />
+    </Message>
 </template>
 
 <script>
+/**
+ *ログイン・会員登録ページ
+ */
 import Auth from "@/containers/Auth";
 import Message from "@/containers/Message";
 export default {
-  name: "LoginPage",
-  props: {},
-  components: { Auth, Message }
+    name: "LoginPage",
+    components: { Auth, Message }
 };
 </script>
-<style lang="scss" module>
-</style>
-
-
+<style lang="scss" module></style>

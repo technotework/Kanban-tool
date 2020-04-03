@@ -1,5 +1,5 @@
 import { createDefStory } from "@/components/utils/story-creator";
-import { action, text } from "@/components/utils/story-export";
+import { action } from "@/components/utils/story-export";
 import ProjectListItem from "./index.vue";
 
 const description =
