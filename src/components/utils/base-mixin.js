@@ -2,7 +2,7 @@ export default {
     props: {
         compose: {
             type: String
-        },
+        }
     },
     methods: {
         onClick(e) {
