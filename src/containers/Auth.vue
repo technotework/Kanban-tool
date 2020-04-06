@@ -4,7 +4,7 @@
 
 <script>
 /**
- *認証情報のVuex通信を行うコンポーネント
+ *認証情報のVuexModules authと通信を行うコンテナ
  */
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import { validateMultiple } from "@/containers/resorces/validator";
@@ -13,91 +13,112 @@ import { getConfirmMessage } from "@/containers/resorces/message";
 import AuthUnit from "@/components/organisms/auth/auth-unit/";
 export default {
     name: "Auth",
-    data: () => {
-        return {};
-    },
-    computed: {},
     methods: {
         ...mapActions("auth", ["login", "regist"]),
         ...mapMutations("message", ["setAuthDialogue", "resetAuthDialogue"]),
+        /**
+         * ログインデータをうけてバリデーションエラーをかけて
+         * 問題なければStoreに渡す
+         */
         onLogin(value) {
-            let objMail = {
+            const objMail = {
                 data: value.id,
                 name: "メールアドレス",
                 require: true,
-                email: true
+                email: true,
             };
 
-            let objPass = {
+            const objPass = {
                 data: value.pass,
                 name: "パスワード",
                 require: true,
-                password: true
+                password: true,
             };
 
             validateMultiple([objMail, objPass], () => {
-                //login先にvalueにcallbackを登録して渡す
+                //storeからcallbackされる
                 value.callback = () => {
                     this.onLoginFail();
                 };
+                //ログインをstoreになげる
                 this.login(value);
             });
         },
+        /**
+         * 登録データをうけてバリデーションエラーをかけて
+         * 問題なければStoreに渡す
+         */
         onRegist(value) {
-            let objMail = {
+            const objMail = {
                 data: value.id,
                 name: "メールアドレス",
                 require: true,
-                email: true
+                email: true,
             };
 
-            let objPass = {
+            const objPass = {
                 data: value.pass,
                 name: "パスワード",
                 more: 8,
                 require: true,
-                password: true
+                password: true,
             };
 
-            let objAgree = {
+            const objAgree = {
                 data: value.agree,
                 name: "利用規約に同意",
-                agree: true
+                agree: true,
             };
 
             validateMultiple([objMail, objPass, objAgree], () => {
+                //storeからcallbackされる
                 value.callback = () => {
                     this.onCompleteRegist();
                 };
+                //auth storeになげる
                 this.regist(value);
             });
         },
+        /**
+         * 登録完了ダイアログコールバック
+         */
         onCompleteRegist() {
-            let message = getConfirmMessage({
+            //ダイアログ表示データ取得
+            const message = getConfirmMessage({
                 type: TYPE.ALERT,
-                normal: APP.SENDMAIL
+                normal: APP.SENDMAIL,
             });
-            let p = () => {
+            //primary button callback
+            const p = () => {
                 this.$refs.authUnit.tabReset();
+                //ダイアログStoreデータリセット
                 this.resetAuthDialogue();
             };
-            let object = { text: message[0].text, p: p, s: null };
+            //ダイアログデータ構成
+            const object = { text: message[0].text, p: p, s: null };
 
             this.setAuthDialogue(object);
         },
+        /**
+         *メール認証してない状態でログイン失敗した場合のメッセージ
+         */
         onLoginFail() {
-            let message = getConfirmMessage({
+            //ダイアログ表示データ取得
+            const message = getConfirmMessage({
                 type: TYPE.ALERT,
-                normal: APP.NO_AUTH
+                normal: APP.NO_AUTH,
             });
-            let p = () => {
+            //primary button callback
+            const p = () => {
+                //ダイアログStoreデータリセット
                 this.resetAuthDialogue();
             };
-            let object = { text: message[0].text, p: p, s: null };
+            //ダイアログデータ構成
+            const object = { text: message[0].text, p: p, s: null };
 
             this.setAuthDialogue(object);
-        }
+        },
     },
-    components: { AuthUnit }
+    components: { AuthUnit },
 };
 </script>

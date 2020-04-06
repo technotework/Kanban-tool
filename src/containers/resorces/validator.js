@@ -6,106 +6,60 @@ import { TYPE, APP } from "@/containers/resorces/message";
 let unit = 10000000;
 
 /**
- *バリデーションチェック関数
+ * EntryPoint
+ * エラーチェックしてエラーがあればThrowする
+ *
+ * @param {*} objects
+ * [{data:評価データ
+ * name:データ名
+ * more:文字列以上
+ * less:文字列以下
+ * lessMB:MBリミット
+ * require:必須チェック
+ * email:メールチェック
+ * password:パスワードチェック
+ * agree:同意のbooleanチェック},の配列が入ってくる]
+ *
+ * @param {*} callback
  */
-const validator = {
-    require: obj => {
-        let { data, opt } = obj;
+function validateMultiple(objects, callback) {
+    //内容を評価してエラーがあれば配列で返す
+    const array = getErrors(objects);
 
-        if (data == null || data == undefined || data == "") {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.REQUIRE,
-                arg: { name: opt.name }
-            };
-        } else {
-            return true;
-        }
-    },
-    email: obj => {
-        let { data, opt } = obj;
+    if (array.length > 0) {
+        //エラーがあればthrowする
+        throw { type: "VALIDATIONS", error: array };
+    } else {
+        //エラーがなければcallback実行する
+        callback();
+    }
+}
 
-        let reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+/**
+ *エラーかどうかloopして評価する
+ * @param {*} objects
+ */
+function getErrors(objects) {
+    //エラーを詰め込む配列
+    let errors = [];
 
-        if (data != "" && !data.match(reg)) {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.WRONG_EMAIL,
-                arg: { name: opt.name }
-            };
-        } else {
-            return true;
-        }
-    },
-    password: obj => {
-        let { data, opt } = obj;
+    for (let i = 0; i < objects.length; i++) {
+        let result = createValidation(objects[i]);
 
-        let reg = /^[0-9a-zA-Z]*$/;
-
-        if (!data.match(reg)) {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.WRONG_PASSWORD,
-                arg: { name: opt.name }
-            };
-        } else {
-            return true;
-        }
-    },
-    agree: obj => {
-        let { data, opt } = obj;
-
-        if (!data) {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.FAIL_AGREE,
-                arg: { name: opt.name }
-            };
-        } else {
-            return true;
-        }
-    },
-    more: obj => {
-        let { data, opt } = obj;
-        if (data.length < opt.length) {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.LENGTH_MORE,
-                arg: { name: opt.name, length: opt.length }
-            };
-        } else {
-            return true;
-        }
-    },
-    less: obj => {
-        let { data, opt } = obj;
-        if (data.length > opt.length) {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.LENGTH_LESS,
-                arg: { name: opt.name, length: opt.length }
-            };
-        } else {
-            return true;
-        }
-    },
-    lessMB: obj => {
-        let { data, opt } = obj;
-
-        if (data > opt.length * 1000000) {
-            return {
-                type: TYPE.VALIDATION,
-                error: APP.LENGTH_LESS_MB,
-                arg: { name: opt.name, length: opt.length }
-            };
-        } else {
-            return true;
+        for (let j = 0; j < result.length; j++) {
+            errors.push(result[j]);
         }
     }
-};
 
+    return errors;
+}
+
+/**
+ * 該当するチェック項目データを整形して配列につっこむ
+ * @param {*} obj
+ */
 function createValidation(obj) {
-    let {
+    const {
         data,
         name,
         more,
@@ -114,7 +68,7 @@ function createValidation(obj) {
         require,
         email,
         password,
-        agree
+        agree,
     } = obj;
 
     let target = {};
@@ -148,6 +102,9 @@ function createValidation(obj) {
     }
 
     let array = [];
+    /**
+     * バリデーションチェック
+     */
     for (const key in target) {
         if (validator.hasOwnProperty(key)) {
             let validateItem = validator[key](target[key]);
@@ -161,6 +118,105 @@ function createValidation(obj) {
     return array;
 }
 
+/**
+ *バリデーションチェック関数
+ */
+const validator = {
+    require: (obj) => {
+        let { data, opt } = obj;
+
+        if (data == null || data == undefined || data == "") {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.REQUIRE,
+                arg: { name: opt.name },
+            };
+        } else {
+            return true;
+        }
+    },
+    email: (obj) => {
+        let { data, opt } = obj;
+
+        let reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        if (data != "" && !data.match(reg)) {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.WRONG_EMAIL,
+                arg: { name: opt.name },
+            };
+        } else {
+            return true;
+        }
+    },
+    password: (obj) => {
+        let { data, opt } = obj;
+
+        let reg = /^[0-9a-zA-Z]*$/;
+
+        if (!data.match(reg)) {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.WRONG_PASSWORD,
+                arg: { name: opt.name },
+            };
+        } else {
+            return true;
+        }
+    },
+    agree: (obj) => {
+        let { data, opt } = obj;
+
+        if (!data) {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.FAIL_AGREE,
+                arg: { name: opt.name },
+            };
+        } else {
+            return true;
+        }
+    },
+    more: (obj) => {
+        let { data, opt } = obj;
+        if (data.length < opt.length) {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.LENGTH_MORE,
+                arg: { name: opt.name, length: opt.length },
+            };
+        } else {
+            return true;
+        }
+    },
+    less: (obj) => {
+        let { data, opt } = obj;
+        if (data.length > opt.length) {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.LENGTH_LESS,
+                arg: { name: opt.name, length: opt.length },
+            };
+        } else {
+            return true;
+        }
+    },
+    lessMB: (obj) => {
+        let { data, opt } = obj;
+
+        if (data > opt.length * 1000000) {
+            return {
+                type: TYPE.VALIDATIONS,
+                error: APP.LENGTH_LESS_MB,
+                arg: { name: opt.name, length: opt.length },
+            };
+        } else {
+            return true;
+        }
+    },
+};
+
 function validate(obj, callback) {
     let array = createValidation(obj);
     if (array.length > 0) {
@@ -168,29 +224,6 @@ function validate(obj, callback) {
     } else {
         callback();
     }
-}
-
-function validateMultiple(objects, callback) {
-    let array = getErrors(objects);
-
-    if (array.length > 0) {
-        throw { type: "VALIDATIONS", error: array };
-    } else {
-        callback();
-    }
-}
-
-function getErrors(objects) {
-    let errors = [];
-    for (let i = 0; i < objects.length; i++) {
-        let result = createValidation(objects[i]);
-
-        for (let j = 0; j < result.length; j++) {
-            errors.push(result[j]);
-        }
-    }
-
-    return errors;
 }
 
 export { validateMultiple };
