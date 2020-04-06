@@ -14,18 +14,18 @@ export default {
     name: "ProjectPage",
     data: () => {
         return {
-            isShowLoad: false
+            isShowLoad: false,
         };
     },
     methods: {
         onShowLoad(value) {
             this.isShowLoad = value;
-        }
+        },
     },
     components: {
         Message,
-        Boards
-    }
+        Boards,
+    },
 };
 </script>
 <style lang="scss" module></style>

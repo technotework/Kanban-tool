@@ -34,11 +34,11 @@ import BaseIcon from "@/components/atoms/base-icon/";
 import base from "@/components/utils/base-mixin";
 import {
     PrimaryButton,
-    MiniButton
+    MiniButton,
 } from "@/components/atoms/base-no-link-button/compose";
 import {
     EditInput,
-    EditInputTitle
+    EditInputTitle,
 } from "@/components/atoms/base-input/compose";
 export default {
     mixins: [base],
@@ -46,15 +46,15 @@ export default {
     props: {
         isTitle: { type: Boolean, default: false },
         value: String,
-        role: String
+        role: String,
     },
-    data: function() {
+    data: function () {
         return {
             isDisable: true,
             status: "uneditable",
             title: EditInputTitle,
             noTitle: EditInput,
-            temp: ""
+            temp: "",
         };
     },
     computed: {
@@ -65,8 +65,8 @@ export default {
             set(value) {
                 this.temp = value;
                 this.$emit("input", value);
-            }
-        }
+            },
+        },
     },
     methods: {
         /**
@@ -84,10 +84,11 @@ export default {
             this.$refs.baseInput.$el.blur();
             this.isDisable = true;
             this.status = "uneditable";
-            this.$emit("input", this.temp);
-        }
+
+            //this.$emit("input", this.temp);
+        },
     },
-    components: { EditInputTitle, EditInput, MiniButton, BaseIcon }
+    components: { EditInputTitle, EditInput, MiniButton, BaseIcon },
 };
 </script>
 <style lang="scss" module>

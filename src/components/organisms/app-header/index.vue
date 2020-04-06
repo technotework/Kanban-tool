@@ -54,7 +54,7 @@ export default {
         title: String,
         username: String,
         navname: String,
-        value: String
+        value: String,
     },
     methods: {
         /**
@@ -68,15 +68,15 @@ export default {
         },
         onEditedTitle(value) {
             this.$emit("update:title", value);
-        }
+        },
     },
     components: {
         HeaderGrid,
         NavButton,
         ClickToEditableInput,
         IconedTextButton,
-        ImageIconedText
-    }
+        ImageIconedText,
+    },
 };
 </script>
 <style lang="scss" module>

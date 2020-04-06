@@ -65,6 +65,7 @@ export default {
             projectId: "",
             task: Task,
             isShowLoad: false,
+            isEditingProjectName: false,
         };
     },
     computed: {
