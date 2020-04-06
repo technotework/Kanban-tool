@@ -1,44 +1,40 @@
 //--------------
 //state
 //--------------
-const state = {
-}
+const state = {};
 
 //--------------
 //mutations
 //--------------
-const mutations = {
-
-}
+const mutations = {};
 
 //--------------
 //getters
 //--------------
-const getters = {
-}
+const getters = {};
 
 //--------------
 //actions
 //--------------
 const actions = {
-	remove({ commit }) {
-		commit("auth/remove", null, { root: true });
-		commit("boards/remove", null, { root: true });
-		commit("members/remove", null, { root: true });
-		commit("message/remove", null, { root: true });
-		commit("projects/remove", null, { root: true });
-		commit("user/remove", null, { root: true });
-		commit("team/remove", null, { root: true });
-	}
-}
+    //一括リセット
+    remove({ commit }) {
+        commit("auth/remove", null, { root: true });
+        commit("boards/remove", null, { root: true });
+        commit("members/remove", null, { root: true });
+        commit("message/remove", null, { root: true });
+        commit("projects/remove", null, { root: true });
+        commit("user/remove", null, { root: true });
+        commit("team/remove", null, { root: true });
+    },
+};
 
-
-export { state, mutations, getters, actions }
+export { state, mutations, getters, actions };
 export default {
-	namespaced: true,
-	strict: true,
-	state,
-	mutations,
-	getters,
-	actions
-}
+    namespaced: true,
+    strict: true,
+    state,
+    mutations,
+    getters,
+    actions,
+};

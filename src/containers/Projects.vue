@@ -108,7 +108,6 @@ export default {
          * handlers
          */
         onClickNewProject() {
-            //this.initProjectData();
             this.create();
         },
         onClickContextMenu(value) {
