@@ -401,9 +401,9 @@ const actions = {
                     "/tasks/" +
                     taskId;
 
-                const db = rootGetters.db;
                 //オリジナルタスクのコンテンツ取得
-                const taskData = await db.doc(originalTaskDocPath).get();
+                const object = { path: originalTaskDocPath };
+                const taskData = await common.fb.getDoc(object);
                 const data = taskData.data();
                 //オリジナルタスクの消し込み
                 await dispatch(
