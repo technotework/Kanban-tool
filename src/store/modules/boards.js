@@ -126,14 +126,12 @@ const actions = {
                 }
 
                 //setting
-                const { projectDocPath, boardPath } = getters.info;
-                const db = rootGetters.db;
-                const collection = db.collection(boardPath);
+                const { boardPath } = getters.info;
 
-                //読み込み&listen
-                const unsnap = collection
-                    .orderBy("board.order")
-                    .onSnapshot(function (querySnapshot) {
+                const object = {
+                    path: boardPath,
+                    order: "board.order",
+                    callback: (querySnapshot) => {
                         let array = [];
                         querySnapshot.forEach(function (doc) {
                             const result = doc.data();
@@ -166,8 +164,9 @@ const actions = {
                             }
                         });
                         commit("setBoardsData", array);
-                    });
-
+                    },
+                };
+                const unsnap = common.fb.snap(object);
                 commit("setUnsnap", unsnap);
             },
             (error) => {

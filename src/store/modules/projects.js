@@ -96,12 +96,10 @@ const actions = {
 
                 const { projectPath } = getters.info;
 
-                const db = rootGetters.db;
-                //ProjectをRead&Listen
-                const collection = db.collection(projectPath);
-                const unsnap = collection
-                    .orderBy("project.order")
-                    .onSnapshot(function (querySnapshot) {
+                const object = {
+                    path: projectPath,
+                    order: "project.order",
+                    callback: (querySnapshot) => {
                         let array = [];
                         //Projectデータ取得してArrayにつめこむ
                         querySnapshot.forEach(function (doc) {
@@ -109,10 +107,11 @@ const actions = {
                             result.project.id = doc.id;
                             array.push(result);
                         });
-
                         //完了
                         commit("setData", array);
-                    });
+                    },
+                };
+                const unsnap = common.fb.snap(object);
                 commit("setUnsnap", unsnap);
             },
             (error) => {
@@ -240,9 +239,6 @@ const actions = {
 
 /**
  * Projectドキュメントを作成
- * @param {*} db
- * @param {*} path
- * @param {*} initialTemplate
  */
 function createProject(path, date, projects) {
     return new Promise(
@@ -269,7 +265,6 @@ function createProject(path, date, projects) {
  * BoardDocumentを作成
  * @param {*} path
  * @param {*} projectDoc
- * @param {*} db
  */
 function createBoards(path, projectDoc) {
     return new Promise(
@@ -296,7 +291,6 @@ function createBoards(path, projectDoc) {
  * 初期タスクを作成
  * @param {*} uuid
  * @param {*} date
- * @param {*} db
  * @param {*} boardDocumentPath
  */
 function createTasks(uuid, date, boardDocumentPath) {

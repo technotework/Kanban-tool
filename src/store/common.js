@@ -110,6 +110,19 @@ const util = {
    ==================================*/
     fb: {
         /**
+         * snapshot
+         */
+        snap: (object) => {
+            const { path, order, callback } = object;
+            const collection = db.collection(path);
+            const unsnap = collection
+                .orderBy(order)
+                .onSnapshot(function (querySnapshot) {
+                    callback(querySnapshot);
+                });
+            return unsnap;
+        },
+        /**
          * CollectionAdd
          */
         add: (object) => {

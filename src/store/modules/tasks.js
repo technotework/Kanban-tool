@@ -175,12 +175,10 @@ const actions = {
             async (resolve, reject) => {
                 const { taskPath } = getters.info;
 
-                //読み込み&Listen
-                const db = rootGetters.db;
-                const collection = db.collection(taskPath);
-                const unsnap = collection
-                    .orderBy("task.order")
-                    .onSnapshot(function (querySnapshot) {
+                const object = {
+                    path: taskPath,
+                    order: "task.order",
+                    callback: (querySnapshot) => {
                         let array = [];
                         querySnapshot.forEach(function (doc) {
                             let result = doc.data();
@@ -204,7 +202,9 @@ const actions = {
                             array.push(result);
                         });
                         commit("setTasksData", array);
-                    });
+                    },
+                };
+                const unsnap = common.fb.snap(object);
                 commit("setUnsnap", unsnap);
             },
             (error) => {
