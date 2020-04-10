@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+		
+    match /contractType/{contractTypeId} {
+      allow read;
+    }
+    
+    match /roles/{rolesId} {
+      allow read;
+    }
+    
+    match /labels/{labelsId} {
+      allow read: if isAuthenticated();
+    }
+    
+    match /users/{usersId} {
+    	allow create,read: if isAuthenticated();
+      allow update: if isAuthenticated() && isUserAuthenticated(usersId);
+    }
+    
+    match /workspace/{contractId} {
+      allow read,update: if isAuthenticated() && isMatchContract(contractId);
+    }
+    
+    match /workspace/{contractId}/teams/{teamId} {
+      allow read,update: if isAuthenticated() && isMatchWorkspace(contractId,teamId);
+    }
+    
+    match /workspace/{contractId}/teams/{teamId}/projects/{all=**} {
+      allow read,write: if isAuthenticated() && isMatchWorkspace(contractId,teamId);
+    }
+    
+    /*----------------------
+    helper
+    ------------------------*/
+    function documentPath(paths) {
+      return path([['databases', database, 'documents'].join('/'), paths.join('/')].join('/'));
+    }
+    
+    function getData(path) {
+      return get(path).data;
+    }
+    
+     function isAuthenticated() {
+      return request.auth != null;
+    }
+    function isUserAuthenticated(usersId) {
+      return request.auth.uid == usersId;
+    }
+    function isMatchContract(contractId) {
+      return debug(contractId in getData(documentPath(['users', request.auth.uid])).contracts);
+    }
+    function isMatchWorkspace(contractId,teamId) {
+      return contractId in getData(documentPath(['users', request.auth.uid])).contracts 
+      &&  teamId in getData(documentPath(['users', request.auth.uid])).contracts[contractId];
+    }
+  }
+}

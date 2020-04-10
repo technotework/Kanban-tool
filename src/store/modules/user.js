@@ -5,7 +5,7 @@ import { TYPE, APP } from "@/containers/resorces/message";
 //state
 //--------------
 const state = {
-    userDataObject: null,
+    userDataObject: null
 };
 
 //--------------
@@ -17,7 +17,7 @@ const mutations = {
     },
     remove(state, payload) {
         state.userDataObject = null;
-    },
+    }
 };
 
 //--------------
@@ -26,7 +26,7 @@ const mutations = {
 const getters = {
     userData(state) {
         return state.userDataObject;
-    },
+    }
 };
 
 //--------------
@@ -43,14 +43,14 @@ const actions = {
             async (resolve, reject) => {
                 const { uid } = obj;
                 const object = {
-                    path: `users/${uid}`,
+                    path: `users/${uid}`
                 };
                 const doc = await common.fb.getDoc(object).catch(reject);
 
                 commit("setUserData", doc.data());
                 resolve();
             },
-            (error) => {
+            error => {
                 //console.log(error);
             }
         );
@@ -71,16 +71,16 @@ const actions = {
                 //upload
                 const upload = {
                     path: id + "/icon",
-                    content: data,
+                    content: data
                 };
                 await common.fb.upload(upload);
 
                 //ニックネームと画像アップロードフラグをusersに書き込み
                 const userData = {
                     path: "users/" + uuid,
-                    content: { img: true, nickname: value.nickname },
+                    content: { img: true, nickname: value.nickname }
                 };
-                await common.fb.setDoc(userData).catch(reject);
+                await common.fb.updateDoc(userData).catch(reject);
 
                 //できたら再取得
                 dispatch(
@@ -91,7 +91,7 @@ const actions = {
                 dispatch("downloadFile");
                 resolve();
             },
-            (error) => {
+            error => {
                 //console.log(error);
             }
         );
@@ -107,11 +107,11 @@ const actions = {
                 const response = await common.fb.execDownloadIcon(id);
                 commit("auth/setImage", response.url, { root: true });
             },
-            (error) => {
+            error => {
                 //console.log(error);
             }
         );
-    },
+    }
 };
 
 export { state, mutations, getters, actions };
@@ -121,5 +121,5 @@ export default {
     state,
     mutations,
     getters,
-    actions,
+    actions
 };

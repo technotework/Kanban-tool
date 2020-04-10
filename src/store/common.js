@@ -117,7 +117,7 @@ const util = {
             const collection = db.collection(path);
             const unsnap = collection
                 .orderBy(order)
-                .onSnapshot(function (querySnapshot) {
+                .onSnapshot(function(querySnapshot) {
                     callback(querySnapshot);
                 });
             return unsnap;
@@ -193,6 +193,32 @@ const util = {
 
                 await doc
                     .set(content, { merge: true })
+                    .then(() => {
+                        resolve();
+                    })
+                    .catch((error) => {
+                        throw {
+                            type: TYPE.FIREBASE_FIRESTORE,
+                            error: error.code,
+                        };
+                    });
+            });
+        },
+        /**
+         * DocumentSet
+         */
+        updateDoc: (object) => {
+            return new Promise(async (resolve, reject) => {
+                if (!navigator.onLine) {
+                    reject();
+                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+                }
+
+                let { path, content } = object;
+                let doc = db.doc(path);
+
+                await doc
+                    .update(content)
                     .then(() => {
                         resolve();
                     })
