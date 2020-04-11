@@ -2150,3 +2150,3663 @@ java.net.SocketException: Connection reset
 	at java.base/java.lang.Thread.run(Thread.java:830)
 
 
+[debug] [2020-04-10T23:04:05.549Z] Apr 11, 2020 8:04:05 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Apr 11, 2020 8:04:05 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:05.715Z] Apr 11, 2020 8:04:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:05.720Z] Apr 11, 2020 8:04:05 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:05.720Z] Apr 11, 2020 8:04:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:04:05.725Z] Apr 11, 2020 8:04:05 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:05.821Z] Apr 11, 2020 8:04:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:05.929Z] Apr 11, 2020 8:04:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:04:05.961Z] Apr 11, 2020 8:04:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:04:06.080Z] bool_value: true
+
+
+[debug] [2020-04-10T23:04:06.280Z] Apr 11, 2020 8:04:06 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:04:06.318Z] bool_value: true
+
+
+[debug] [2020-04-10T23:04:06.428Z] Apr 11, 2020 8:04:06 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:06.524Z] Apr 11, 2020 8:04:06 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:06.748Z] Apr 11, 2020 8:04:06 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:04:06.908Z] Apr 11, 2020 8:04:06 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:04:06.995Z] Apr 11, 2020 8:04:06 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:07.087Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:04:07.092Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:07.189Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:04:07.319Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:07.387Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:07.486Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:07.549Z] Apr 11, 2020 8:04:07 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:07.575Z] Apr 11, 2020 8:04:07 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-10T23:04:16.028Z] Apr 11, 2020 8:04:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:16.060Z] Apr 11, 2020 8:04:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:16.218Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:16.222Z] Apr 11, 2020 8:04:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:16.229Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:04:16.233Z] Apr 11, 2020 8:04:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:04:16.316Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:16.429Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:04:16.459Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:04:16.586Z] bool_value: true
+
+
+[debug] [2020-04-10T23:04:16.785Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:04:16.821Z] bool_value: true
+
+
+[debug] [2020-04-10T23:04:16.949Z] Apr 11, 2020 8:04:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:17.089Z] Apr 11, 2020 8:04:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:17.533Z] Apr 11, 2020 8:04:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:04:17.721Z] Apr 11, 2020 8:04:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:04:17.882Z] Apr 11, 2020 8:04:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:17.949Z] Apr 11, 2020 8:04:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:04:17.999Z] Apr 11, 2020 8:04:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:18.099Z] Apr 11, 2020 8:04:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:04:18.218Z] Apr 11, 2020 8:04:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:18.289Z] Apr 11, 2020 8:04:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:18.436Z] Apr 11, 2020 8:04:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:18.544Z] Apr 11, 2020 8:04:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:04:19.373Z] Apr 11, 2020 8:04:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:04:19.545Z] Apr 11, 2020 8:04:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:04:19.844Z] Apr 11, 2020 8:04:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:04:19.935Z] Apr 11, 2020 8:04:19 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-10T23:08:32.357Z] Apr 11, 2020 8:08:32 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:32.421Z] Apr 11, 2020 8:08:32 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:32.634Z] Apr 11, 2020 8:08:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:32.634Z] Apr 11, 2020 8:08:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:08:32.642Z] Apr 11, 2020 8:08:32 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:32.644Z] Apr 11, 2020 8:08:32 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:32.778Z] Apr 11, 2020 8:08:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:32.902Z] Apr 11, 2020 8:08:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:08:32.935Z] Apr 11, 2020 8:08:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:08:33.090Z] bool_value: true
+
+
+[debug] [2020-04-10T23:08:33.280Z] Apr 11, 2020 8:08:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:08:33.334Z] bool_value: true
+
+
+[debug] [2020-04-10T23:08:33.495Z] Apr 11, 2020 8:08:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:33.657Z] Apr 11, 2020 8:08:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:34.052Z] Apr 11, 2020 8:08:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:08:34.217Z] Apr 11, 2020 8:08:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:08:34.565Z] Apr 11, 2020 8:08:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:08:34.926Z] Apr 11, 2020 8:08:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:08:34.944Z] Apr 11, 2020 8:08:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:35.014Z] Apr 11, 2020 8:08:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:35.199Z] Apr 11, 2020 8:08:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:08:35.548Z] Apr 11, 2020 8:08:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:08:35.555Z] Apr 11, 2020 8:08:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:35.646Z] Apr 11, 2020 8:08:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:35.736Z] Apr 11, 2020 8:08:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:08:36.057Z] Apr 11, 2020 8:08:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:36.121Z] Apr 11, 2020 8:08:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:36.147Z] Apr 11, 2020 8:08:36 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-10T23:08:47.000Z] Apr 11, 2020 8:08:46 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:47.162Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:47.168Z] Apr 11, 2020 8:08:47 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:47.251Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:47.373Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:08:47.486Z] bool_value: true
+
+
+[debug] [2020-04-10T23:08:47.578Z] Apr 11, 2020 8:08:47 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:47.691Z] bool_value: true
+
+
+[debug] [2020-04-10T23:08:47.728Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:08:47.733Z] Apr 11, 2020 8:08:47 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:08:47.797Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:47.886Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:47.900Z] Apr 11, 2020 8:08:47 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:08:48.230Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:08:48.295Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:08:48.488Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:08:48.675Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:08:48.782Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:08:48.803Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:08:48.957Z] Apr 11, 2020 8:08:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:08:49.167Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:49.204Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:49.232Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:49.287Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:49.371Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:08:49.644Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:49.704Z] Apr 11, 2020 8:08:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:08:49.727Z] Apr 11, 2020 8:08:49 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-10T23:24:34.787Z] Apr 11, 2020 8:24:34 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:24:34.982Z] Apr 11, 2020 8:24:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:34.986Z] Apr 11, 2020 8:24:34 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:24:35.082Z] Apr 11, 2020 8:24:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:35.201Z] Apr 11, 2020 8:24:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:24:35.311Z] bool_value: true
+
+
+[debug] [2020-04-10T23:24:35.526Z] bool_value: true
+
+
+[debug] [2020-04-10T23:24:35.535Z] Apr 11, 2020 8:24:35 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:24:35.635Z] Apr 11, 2020 8:24:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:35.691Z] Apr 11, 2020 8:24:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:24:35.695Z] Apr 11, 2020 8:24:35 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:24:35.725Z] Apr 11, 2020 8:24:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:35.888Z] Apr 11, 2020 8:24:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:24:36.096Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:24:36.216Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:24:36.244Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:24:36.455Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:24:36.815Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:36.888Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:36.902Z] Apr 11, 2020 8:24:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:37.009Z] Apr 11, 2020 8:24:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:37.159Z] Apr 11, 2020 8:24:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:24:37.494Z] Apr 11, 2020 8:24:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:24:37.556Z] Apr 11, 2020 8:24:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:33.227Z] Apr 11, 2020 8:25:33 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:33.396Z] Apr 11, 2020 8:25:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:33.400Z] Apr 11, 2020 8:25:33 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:33.486Z] Apr 11, 2020 8:25:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:33.642Z] Apr 11, 2020 8:25:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:25:33.761Z] bool_value: true
+
+
+[debug] [2020-04-10T23:25:34.031Z] bool_value: true
+
+
+[debug] [2020-04-10T23:25:34.092Z] Apr 11, 2020 8:25:34 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:34.173Z] Apr 11, 2020 8:25:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:34.265Z] Apr 11, 2020 8:25:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:25:34.270Z] Apr 11, 2020 8:25:34 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:34.291Z] Apr 11, 2020 8:25:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:34.498Z] Apr 11, 2020 8:25:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:25:34.846Z] Apr 11, 2020 8:25:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:35.222Z] Apr 11, 2020 8:25:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:35.264Z] Apr 11, 2020 8:25:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:25:35.520Z] Apr 11, 2020 8:25:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:25:35.930Z] Apr 11, 2020 8:25:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:35.985Z] Apr 11, 2020 8:25:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:25:36.001Z] Apr 11, 2020 8:25:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:36.133Z] Apr 11, 2020 8:25:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:25:36.337Z] Apr 11, 2020 8:25:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:25:36.562Z] Apr 11, 2020 8:25:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:36.650Z] Apr 11, 2020 8:25:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:55.725Z] Apr 11, 2020 8:25:55 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:55.940Z] Apr 11, 2020 8:25:55 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:55.947Z] Apr 11, 2020 8:25:55 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:56.038Z] Apr 11, 2020 8:25:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:56.166Z] Apr 11, 2020 8:25:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:25:56.294Z] bool_value: true
+
+
+[debug] [2020-04-10T23:25:56.368Z] Apr 11, 2020 8:25:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:56.525Z] bool_value: true
+
+
+[debug] [2020-04-10T23:25:56.548Z] Apr 11, 2020 8:25:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:25:56.552Z] Apr 11, 2020 8:25:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:25:56.650Z] Apr 11, 2020 8:25:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:56.764Z] Apr 11, 2020 8:25:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:25:56.772Z] Apr 11, 2020 8:25:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:57.239Z] Apr 11, 2020 8:25:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:25:57.423Z] Apr 11, 2020 8:25:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:57.547Z] Apr 11, 2020 8:25:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:57.665Z] Apr 11, 2020 8:25:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:25:57.814Z] Apr 11, 2020 8:25:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:25:57.964Z] Apr 11, 2020 8:25:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:25:58.026Z] Apr 11, 2020 8:25:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:58.097Z] Apr 11, 2020 8:25:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:58.141Z] Apr 11, 2020 8:25:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:25:58.347Z] Apr 11, 2020 8:25:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:25:58.410Z] Apr 11, 2020 8:25:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:56.500Z] Apr 11, 2020 8:26:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:26:56.565Z] Apr 11, 2020 8:26:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:26:56.749Z] Apr 11, 2020 8:26:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:26:56.753Z] Apr 11, 2020 8:26:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:26:56.783Z] Apr 11, 2020 8:26:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:56.788Z] Apr 11, 2020 8:26:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:26:56.883Z] Apr 11, 2020 8:26:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:56.957Z] Apr 11, 2020 8:26:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:26:57.048Z] Apr 11, 2020 8:26:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:26:57.173Z] bool_value: true
+
+
+[debug] [2020-04-10T23:26:57.322Z] Apr 11, 2020 8:26:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:26:57.450Z] bool_value: true
+
+
+[debug] [2020-04-10T23:26:57.619Z] Apr 11, 2020 8:26:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:57.741Z] Apr 11, 2020 8:26:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:57.954Z] Apr 11, 2020 8:26:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:58.051Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:58.141Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:26:58.170Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:26:58.317Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:26:58.473Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:58.513Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:26:58.553Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:58.773Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:26:58.836Z] Apr 11, 2020 8:26:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:01.858Z] Apr 11, 2020 8:28:01 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:01.947Z] Apr 11, 2020 8:28:01 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:02.107Z] Apr 11, 2020 8:28:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:02.113Z] Apr 11, 2020 8:28:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:02.123Z] Apr 11, 2020 8:28:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:28:02.130Z] Apr 11, 2020 8:28:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:02.224Z] Apr 11, 2020 8:28:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:02.349Z] Apr 11, 2020 8:28:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:28:02.367Z] Apr 11, 2020 8:28:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:28:02.485Z] bool_value: true
+
+
+[debug] [2020-04-10T23:28:02.750Z] Apr 11, 2020 8:28:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:28:02.783Z] bool_value: true
+
+
+[debug] [2020-04-10T23:28:03.036Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:03.222Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:03.586Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:03.695Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:03.775Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:28:03.805Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:28:03.958Z] Apr 11, 2020 8:28:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:28:04.156Z] Apr 11, 2020 8:28:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:28:04.174Z] Apr 11, 2020 8:28:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:04.252Z] Apr 11, 2020 8:28:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:04.423Z] Apr 11, 2020 8:28:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:04.525Z] Apr 11, 2020 8:28:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:31.559Z] Apr 11, 2020 8:28:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:31.738Z] Apr 11, 2020 8:28:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:28:31.742Z] Apr 11, 2020 8:28:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:31.774Z] Apr 11, 2020 8:28:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:31.942Z] Apr 11, 2020 8:28:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:31.947Z] Apr 11, 2020 8:28:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:28:31.957Z] Apr 11, 2020 8:28:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:28:32.039Z] Apr 11, 2020 8:28:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:32.155Z] Apr 11, 2020 8:28:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:28:32.279Z] bool_value: true
+
+
+[debug] [2020-04-10T23:28:32.292Z] Apr 11, 2020 8:28:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:28:32.526Z] bool_value: true
+
+
+[debug] [2020-04-10T23:28:32.686Z] Apr 11, 2020 8:28:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:32.815Z] Apr 11, 2020 8:28:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:32.894Z] Apr 11, 2020 8:28:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:33.004Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:33.089Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:28:33.236Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:28:33.427Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:28:33.443Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:33.525Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:33.598Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:28:33.828Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:28:33.890Z] Apr 11, 2020 8:28:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:48.950Z] Apr 11, 2020 8:30:48 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:48.986Z] Apr 11, 2020 8:30:48 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:49.142Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:30:49.147Z] Apr 11, 2020 8:30:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:49.153Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:49.159Z] Apr 11, 2020 8:30:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:49.250Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:49.359Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:30:49.417Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:30:49.523Z] bool_value: true
+
+
+[debug] [2020-04-10T23:30:49.721Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:30:49.784Z] bool_value: true
+
+
+[debug] [2020-04-10T23:30:49.943Z] Apr 11, 2020 8:30:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:50.071Z] Apr 11, 2020 8:30:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:50.314Z] Apr 11, 2020 8:30:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:50.438Z] Apr 11, 2020 8:30:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:50.529Z] Apr 11, 2020 8:30:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:30:50.569Z] Apr 11, 2020 8:30:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:30:50.748Z] Apr 11, 2020 8:30:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:30:51.055Z] Apr 11, 2020 8:30:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:30:51.087Z] Apr 11, 2020 8:30:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:51.196Z] Apr 11, 2020 8:30:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:51.386Z] Apr 11, 2020 8:30:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:51.456Z] Apr 11, 2020 8:30:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:58.481Z] Apr 11, 2020 8:30:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:58.536Z] Apr 11, 2020 8:30:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:58.691Z] Apr 11, 2020 8:30:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:30:58.701Z] Apr 11, 2020 8:30:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:58.706Z] Apr 11, 2020 8:30:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:58.711Z] Apr 11, 2020 8:30:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:30:58.803Z] Apr 11, 2020 8:30:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:58.940Z] Apr 11, 2020 8:30:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:30:58.987Z] Apr 11, 2020 8:30:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:30:59.086Z] bool_value: true
+
+
+[debug] [2020-04-10T23:30:59.294Z] bool_value: true
+
+
+[debug] [2020-04-10T23:30:59.320Z] Apr 11, 2020 8:30:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:30:59.401Z] Apr 11, 2020 8:30:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:59.502Z] Apr 11, 2020 8:30:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:30:59.887Z] Apr 11, 2020 8:30:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:31:00.055Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:00.090Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:31:00.257Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:00.409Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:31:00.426Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:31:00.764Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:00.847Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:00.876Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:00.949Z] Apr 11, 2020 8:31:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:49.530Z] Apr 11, 2020 8:31:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:31:49.564Z] Apr 11, 2020 8:31:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:31:49.736Z] Apr 11, 2020 8:31:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:49.737Z] Apr 11, 2020 8:31:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:31:49.741Z] Apr 11, 2020 8:31:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:31:49.742Z] Apr 11, 2020 8:31:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:31:49.832Z] Apr 11, 2020 8:31:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:49.980Z] Apr 11, 2020 8:31:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:31:50.020Z] Apr 11, 2020 8:31:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:31:50.138Z] bool_value: true
+
+
+[debug] [2020-04-10T23:31:50.312Z] Apr 11, 2020 8:31:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:31:50.351Z] bool_value: true
+
+
+[debug] [2020-04-10T23:31:50.467Z] Apr 11, 2020 8:31:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:50.569Z] Apr 11, 2020 8:31:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:50.781Z] Apr 11, 2020 8:31:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:31:50.923Z] Apr 11, 2020 8:31:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:31:51.018Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:51.113Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:51.118Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:31:51.215Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:31:51.374Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:51.440Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:51.538Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:31:51.600Z] Apr 11, 2020 8:31:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:19.300Z] Apr 11, 2020 8:32:19 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Apr 11, 2020 8:32:19 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:32:19.485Z] Apr 11, 2020 8:32:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:19.488Z] Apr 11, 2020 8:32:19 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:32:19.500Z] Apr 11, 2020 8:32:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:32:19.504Z] Apr 11, 2020 8:32:19 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:32:19.573Z] Apr 11, 2020 8:32:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:19.701Z] Apr 11, 2020 8:32:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:32:19.708Z] Apr 11, 2020 8:32:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:32:19.816Z] bool_value: true
+
+
+[debug] [2020-04-10T23:32:20.022Z] bool_value: true
+
+
+[debug] [2020-04-10T23:32:20.052Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:32:20.125Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:20.215Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:20.548Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:32:20.675Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:32:20.702Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:20.796Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:20.904Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:32:20.939Z] Apr 11, 2020 8:32:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:32:21.160Z] Apr 11, 2020 8:32:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:21.243Z] Apr 11, 2020 8:32:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:21.293Z] Apr 11, 2020 8:32:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:32:21.367Z] Apr 11, 2020 8:32:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:31.798Z] Apr 11, 2020 8:33:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:31.831Z] Apr 11, 2020 8:33:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:31.984Z] Apr 11, 2020 8:33:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:31.989Z] Apr 11, 2020 8:33:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:33:31.991Z] Apr 11, 2020 8:33:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:31.995Z] Apr 11, 2020 8:33:31 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:32.106Z] Apr 11, 2020 8:33:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:32.205Z] Apr 11, 2020 8:33:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:33:32.232Z] Apr 11, 2020 8:33:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:33:32.350Z] bool_value: true
+
+
+[debug] [2020-04-10T23:33:32.539Z] Apr 11, 2020 8:33:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:33:32.567Z] bool_value: true
+
+
+[debug] [2020-04-10T23:33:32.698Z] Apr 11, 2020 8:33:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:32.791Z] Apr 11, 2020 8:33:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:33.050Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:33.171Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:33.240Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:33:33.292Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:33:33.416Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:33:33.599Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:33:33.667Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:33.753Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:33.828Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:33.897Z] Apr 11, 2020 8:33:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:34.882Z] Apr 11, 2020 8:33:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:33:35.083Z] Apr 11, 2020 8:33:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:33:35.280Z] Apr 11, 2020 8:33:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:33:35.734Z] Apr 11, 2020 8:33:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:33:56.748Z] Apr 11, 2020 8:33:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:56.922Z] Apr 11, 2020 8:33:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:56.927Z] Apr 11, 2020 8:33:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:57.029Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:57.214Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:33:57.353Z] bool_value: true
+
+
+[debug] [2020-04-10T23:33:57.371Z] Apr 11, 2020 8:33:57 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:57.531Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:33:57.541Z] Apr 11, 2020 8:33:57 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:33:57.585Z] bool_value: true
+
+
+[debug] [2020-04-10T23:33:57.696Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:57.748Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:33:57.796Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:57.826Z] Apr 11, 2020 8:33:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:33:58.250Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:33:58.286Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:33:58.416Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:33:58.731Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:33:58.810Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:58.901Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:58.978Z] Apr 11, 2020 8:33:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:33:59.159Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:33:59.299Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:33:59.304Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:59.381Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:59.479Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:33:59.686Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:33:59.744Z] Apr 11, 2020 8:33:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:22.603Z] Apr 11, 2020 8:34:22 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:22.765Z] Apr 11, 2020 8:34:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:22.770Z] Apr 11, 2020 8:34:22 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:22.858Z] Apr 11, 2020 8:34:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:22.984Z] Apr 11, 2020 8:34:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:34:23.107Z] bool_value: true
+
+
+[debug] [2020-04-10T23:34:23.144Z] Apr 11, 2020 8:34:23 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:23.299Z] Apr 11, 2020 8:34:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:34:23.304Z] Apr 11, 2020 8:34:23 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:23.338Z] bool_value: true
+
+
+[debug] [2020-04-10T23:34:23.471Z] Apr 11, 2020 8:34:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:23.515Z] Apr 11, 2020 8:34:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:34:23.571Z] Apr 11, 2020 8:34:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:23.593Z] Apr 11, 2020 8:34:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:34:24.001Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:34:24.054Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:34:24.182Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:34:24.474Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:34:24.581Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:24.671Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:24.782Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:34:24.981Z] Apr 11, 2020 8:34:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:34:25.130Z] Apr 11, 2020 8:34:25 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:34:25.184Z] Apr 11, 2020 8:34:25 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:25.264Z] Apr 11, 2020 8:34:25 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:25.311Z] Apr 11, 2020 8:34:25 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:34:25.514Z] Apr 11, 2020 8:34:25 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:25.590Z] Apr 11, 2020 8:34:25 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:33.239Z] Apr 11, 2020 8:34:33 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:33.392Z] Apr 11, 2020 8:34:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:33.396Z] Apr 11, 2020 8:34:33 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:33.476Z] Apr 11, 2020 8:34:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:33.601Z] Apr 11, 2020 8:34:33 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:34:33.713Z] bool_value: true
+
+
+[debug] [2020-04-10T23:34:33.928Z] bool_value: true
+
+
+[debug] [2020-04-10T23:34:33.946Z] Apr 11, 2020 8:34:33 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:34.047Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:34.096Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:34:34.100Z] Apr 11, 2020 8:34:34 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:34:34.154Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:34.295Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:34:34.388Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:34:34.590Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:34.705Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:34.835Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:34:34.911Z] Apr 11, 2020 8:34:34 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:34:35.250Z] Apr 11, 2020 8:34:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:35.326Z] Apr 11, 2020 8:34:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:35.525Z] Apr 11, 2020 8:34:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:34:35.709Z] Apr 11, 2020 8:34:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:34:35.807Z] Apr 11, 2020 8:34:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:34:35.941Z] Apr 11, 2020 8:34:35 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:34:36.030Z] Apr 11, 2020 8:34:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:34:36.228Z] Apr 11, 2020 8:34:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:36.305Z] Apr 11, 2020 8:34:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:34:36.400Z] Apr 11, 2020 8:34:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:35:26.784Z] Apr 11, 2020 8:35:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:35:26.955Z] Apr 11, 2020 8:35:26 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:26.959Z] Apr 11, 2020 8:35:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:35:27.046Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:27.170Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:35:27.275Z] bool_value: true
+
+
+[debug] [2020-04-10T23:35:27.317Z] Apr 11, 2020 8:35:27 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:35:27.463Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:35:27.468Z] Apr 11, 2020 8:35:27 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:35:27.481Z] bool_value: true
+
+
+[debug] [2020-04-10T23:35:27.599Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:27.671Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:35:27.717Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:27.766Z] Apr 11, 2020 8:35:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:35:28.076Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:35:28.212Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:35:28.219Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:35:28.392Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:35:28.617Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:28.679Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:28.738Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:28.818Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:28.905Z] Apr 11, 2020 8:35:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:35:29.046Z] Apr 11, 2020 8:35:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:35:29.244Z] Apr 11, 2020 8:35:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:35:29.258Z] Apr 11, 2020 8:35:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:29.336Z] Apr 11, 2020 8:35:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:35:29.555Z] Apr 11, 2020 8:35:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:36:01.542Z] Apr 11, 2020 8:36:01 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:01.708Z] Apr 11, 2020 8:36:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:01.712Z] Apr 11, 2020 8:36:01 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:01.794Z] Apr 11, 2020 8:36:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:01.915Z] Apr 11, 2020 8:36:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:36:02.033Z] bool_value: true
+
+
+[debug] [2020-04-10T23:36:02.091Z] Apr 11, 2020 8:36:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:02.266Z] Apr 11, 2020 8:36:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:36:02.272Z] Apr 11, 2020 8:36:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:02.296Z] bool_value: true
+
+
+[debug] [2020-04-10T23:36:02.432Z] Apr 11, 2020 8:36:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:02.492Z] Apr 11, 2020 8:36:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:36:02.545Z] Apr 11, 2020 8:36:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:02.598Z] Apr 11, 2020 8:36:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:36:02.965Z] Apr 11, 2020 8:36:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:03.049Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:03.096Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:36:03.142Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:36:03.453Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:03.520Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:03.607Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:36:03.741Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:36:03.882Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:36:03.931Z] Apr 11, 2020 8:36:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:36:04.101Z] Apr 11, 2020 8:36:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:36:04.182Z] Apr 11, 2020 8:36:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:04.250Z] Apr 11, 2020 8:36:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:04.400Z] Apr 11, 2020 8:36:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:36:35.850Z] Apr 11, 2020 8:36:35 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:36.046Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:36.053Z] Apr 11, 2020 8:36:36 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:36.163Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:36.294Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:36:36.413Z] bool_value: true
+
+
+[debug] [2020-04-10T23:36:36.487Z] Apr 11, 2020 8:36:36 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:36.661Z] bool_value: true
+
+
+[debug] [2020-04-10T23:36:36.667Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:36:36.672Z] Apr 11, 2020 8:36:36 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:36.787Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:36.907Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:36:36.939Z] Apr 11, 2020 8:36:36 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:37.057Z] Apr 11, 2020 8:36:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:36:37.592Z] Apr 11, 2020 8:36:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:36:37.725Z] Apr 11, 2020 8:36:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:36:37.741Z] Apr 11, 2020 8:36:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:36:37.919Z] Apr 11, 2020 8:36:37 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:36:38.203Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:38.265Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:38.359Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:38.456Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:38.540Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:36:38.663Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:36:38.846Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:36:38.897Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:38.985Z] Apr 11, 2020 8:36:38 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:39.282Z] Apr 11, 2020 8:36:39 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:36:52.366Z] Apr 11, 2020 8:36:52 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:52.530Z] Apr 11, 2020 8:36:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:52.535Z] Apr 11, 2020 8:36:52 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:52.625Z] Apr 11, 2020 8:36:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:52.752Z] Apr 11, 2020 8:36:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:36:52.855Z] bool_value: true
+
+
+[debug] [2020-04-10T23:36:52.885Z] Apr 11, 2020 8:36:52 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:53.033Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:36:53.037Z] Apr 11, 2020 8:36:53 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:36:53.063Z] bool_value: true
+
+
+[debug] [2020-04-10T23:36:53.171Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:53.213Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:36:53.263Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:53.293Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:36:53.635Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:36:53.753Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:36:53.770Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:36:53.939Z] Apr 11, 2020 8:36:53 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:36:54.165Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:54.224Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:54.272Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:54.351Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:54.442Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:36:54.592Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:36:54.754Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:54.782Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:36:54.822Z] Apr 11, 2020 8:36:54 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:36:55.140Z] Apr 11, 2020 8:36:55 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:41:11.900Z] Apr 11, 2020 8:41:11 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:11.933Z] Apr 11, 2020 8:41:11 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:12.101Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:12.102Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:41:12.106Z] Apr 11, 2020 8:41:12 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:12.106Z] Apr 11, 2020 8:41:12 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:12.195Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:12.292Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:41:12.329Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:41:12.374Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:41:12.440Z] bool_value: true
+
+
+[debug] [2020-04-10T23:41:12.655Z] bool_value: true
+
+
+[debug] [2020-04-10T23:41:12.765Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:12.845Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:41:12.868Z] Apr 11, 2020 8:41:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:13.291Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:41:13.380Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:13.468Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:13.476Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:41:13.565Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:41:13.789Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:41:13.881Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:13.946Z] Apr 11, 2020 8:41:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:14.161Z] Apr 11, 2020 8:41:14 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:41:14.295Z] Apr 11, 2020 8:41:14 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:41:14.466Z] Apr 11, 2020 8:41:14 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:41:14.675Z] Apr 11, 2020 8:41:14 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:14.731Z] Apr 11, 2020 8:41:14 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:14.755Z] Apr 11, 2020 8:41:14 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-10T23:41:58.492Z] Apr 11, 2020 8:41:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:58.653Z] Apr 11, 2020 8:41:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:58.657Z] Apr 11, 2020 8:41:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:58.744Z] Apr 11, 2020 8:41:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:58.879Z] Apr 11, 2020 8:41:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:41:58.993Z] bool_value: true
+
+
+[debug] [2020-04-10T23:41:59.027Z] Apr 11, 2020 8:41:59 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:59.185Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:41:59.190Z] Apr 11, 2020 8:41:59 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:41:59.220Z] bool_value: true
+
+
+[debug] [2020-04-10T23:41:59.325Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:59.410Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: no entity to update: app: "dev~kanbandemoboards"
+path <
+  Element {
+    type: "workspace"
+    name: "VlLhkwvK65svqmtJynUe"
+  }
+  Element {
+    type: "teams"
+    name: "4ZO9rAlLJTQuB2Oz0YRq"
+  }
+  Element {
+    type: "projects"
+    name: "abcd"
+  }
+>
+
+
+[debug] [2020-04-10T23:41:59.426Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:59.834Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:41:59.856Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:41:59.927Z] Apr 11, 2020 8:41:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:00.025Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:42:00.316Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:00.380Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:00.411Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:42:00.591Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:42:00.706Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:42:00.881Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:42:00.994Z] Apr 11, 2020 8:42:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:42:01.117Z] Apr 11, 2020 8:42:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:42:01.327Z] Apr 11, 2020 8:42:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:01.479Z] Apr 11, 2020 8:42:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:58.922Z] Apr 11, 2020 8:42:58 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:42:59.082Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:59.086Z] Apr 11, 2020 8:42:59 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:42:59.170Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:59.285Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:42:59.396Z] bool_value: true
+
+
+[debug] [2020-04-10T23:42:59.433Z] Apr 11, 2020 8:42:59 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:42:59.583Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:42:59.587Z] Apr 11, 2020 8:42:59 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:42:59.595Z] bool_value: true
+
+
+[debug] [2020-04-10T23:42:59.695Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:42:59.757Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:42:59.786Z] Apr 11, 2020 8:42:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:43:00.074Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:43:00.152Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:43:00.283Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:43:00.459Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:43:00.540Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:43:00.671Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:43:00.705Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:43:00.730Z] Apr 11, 2020 8:43:00 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:43:01.012Z] Apr 11, 2020 8:43:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:43:01.106Z] Apr 11, 2020 8:43:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:43:01.182Z] Apr 11, 2020 8:43:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:43:01.262Z] Apr 11, 2020 8:43:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:43:01.538Z] Apr 11, 2020 8:43:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:43:01.598Z] Apr 11, 2020 8:43:01 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:02.669Z] Apr 11, 2020 8:49:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:02.921Z] Apr 11, 2020 8:49:02 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:02.929Z] Apr 11, 2020 8:49:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:03.113Z] Apr 11, 2020 8:49:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:03.245Z] Apr 11, 2020 8:49:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:49:03.318Z] Apr 11, 2020 8:49:03 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:03.368Z] bool_value: true
+
+
+[debug] [2020-04-10T23:49:03.576Z] Apr 11, 2020 8:49:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:49:03.580Z] Apr 11, 2020 8:49:03 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:03.586Z] bool_value: true
+
+
+[debug] [2020-04-10T23:49:03.710Z] Apr 11, 2020 8:49:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:03.794Z] Apr 11, 2020 8:49:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:49:03.813Z] Apr 11, 2020 8:49:03 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:04.241Z] Apr 11, 2020 8:49:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:49:04.448Z] Apr 11, 2020 8:49:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:49:04.597Z] Apr 11, 2020 8:49:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:49:04.788Z] Apr 11, 2020 8:49:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:49:04.800Z] Apr 11, 2020 8:49:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:49:04.984Z] Apr 11, 2020 8:49:04 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:49:05.003Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:05.074Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:05.307Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:49:05.453Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:05.544Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:05.623Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:49:05.903Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:05.958Z] Apr 11, 2020 8:49:05 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:05.983Z] Apr 11, 2020 8:49:05 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-10T23:49:29.515Z] Apr 11, 2020 8:49:29 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:29.713Z] Apr 11, 2020 8:49:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:29.718Z] Apr 11, 2020 8:49:29 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:29.813Z] Apr 11, 2020 8:49:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:29.957Z] Apr 11, 2020 8:49:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-10T23:49:30.078Z] bool_value: true
+
+
+[debug] [2020-04-10T23:49:30.140Z] Apr 11, 2020 8:49:30 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:30.285Z] bool_value: true
+
+
+[debug] [2020-04-10T23:49:30.306Z] Apr 11, 2020 8:49:30 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:49:30.312Z] Apr 11, 2020 8:49:30 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-10T23:49:30.402Z] Apr 11, 2020 8:49:30 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:30.546Z] Apr 11, 2020 8:49:30 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:30.553Z] Apr 11, 2020 8:49:30 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:49:30.965Z] Apr 11, 2020 8:49:30 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:49:30.994Z] Apr 11, 2020 8:49:30 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-10T23:49:31.133Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:49:31.306Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-10T23:49:31.472Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-10T23:49:31.537Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:31.607Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:31.668Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-10T23:49:31.991Z] Apr 11, 2020 8:49:31 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-10T23:49:32.018Z] Apr 11, 2020 8:49:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:32.118Z] Apr 11, 2020 8:49:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:32.207Z] Apr 11, 2020 8:49:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-10T23:49:32.503Z] Apr 11, 2020 8:49:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-10T23:49:32.561Z] Apr 11, 2020 8:49:32 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:39.257Z] Apr 11, 2020 10:16:39 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:16:39.257Z] Apr 11, 2020 10:16:39 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:16:39.493Z] Apr 11, 2020 10:16:39 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:39.497Z] Apr 11, 2020 10:16:39 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:16:39.568Z] Apr 11, 2020 10:16:39 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:16:39.572Z] Apr 11, 2020 10:16:39 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:16:39.589Z] Apr 11, 2020 10:16:39 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:39.736Z] Apr 11, 2020 10:16:39 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:16:39.793Z] Apr 11, 2020 10:16:39 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:16:39.937Z] bool_value: true
+
+
+[debug] [2020-04-11T01:16:40.196Z] bool_value: true
+
+
+[debug] [2020-04-11T01:16:40.232Z] Apr 11, 2020 10:16:40 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:16:40.306Z] Apr 11, 2020 10:16:40 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:40.410Z] Apr 11, 2020 10:16:40 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:40.697Z] Apr 11, 2020 10:16:40 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:16:40.876Z] Apr 11, 2020 10:16:40 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:16:40.881Z] Apr 11, 2020 10:16:40 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:16:40.897Z] Apr 11, 2020 10:16:40 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:16:41.053Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:16:41.099Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:16:41.314Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:41.382Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:41.442Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:16:41.903Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:41.989Z] Apr 11, 2020 10:16:41 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:42.067Z] Apr 11, 2020 10:16:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:16:42.359Z] Apr 11, 2020 10:16:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:42.424Z] Apr 11, 2020 10:16:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:16:42.448Z] Apr 11, 2020 10:16:42 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-11T01:17:16.619Z] Apr 11, 2020 10:17:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:16.795Z] Apr 11, 2020 10:17:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:16.800Z] Apr 11, 2020 10:17:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:16.892Z] Apr 11, 2020 10:17:16 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:17.007Z] Apr 11, 2020 10:17:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:17:17.121Z] bool_value: true
+
+
+[debug] [2020-04-11T01:17:17.337Z] bool_value: true
+
+
+[debug] [2020-04-11T01:17:17.465Z] Apr 11, 2020 10:17:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:17.587Z] Apr 11, 2020 10:17:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:18.128Z] Apr 11, 2020 10:17:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:17:18.327Z] Apr 11, 2020 10:17:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:17:18.629Z] Apr 11, 2020 10:17:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:17:19.034Z] Apr 11, 2020 10:17:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:17:19.171Z] Apr 11, 2020 10:17:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:17:19.390Z] Apr 11, 2020 10:17:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:17:19.626Z] Apr 11, 2020 10:17:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:19.691Z] Apr 11, 2020 10:17:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:20.073Z] Apr 11, 2020 10:17:20 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:20.105Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:20.209Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:20.222Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:17:20.226Z] Apr 11, 2020 10:17:20 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:20.309Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:17:20.479Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:17:20.770Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:20.837Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:20.907Z] Apr 11, 2020 10:17:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:17:48.486Z] Apr 11, 2020 10:17:48 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:48.653Z] Apr 11, 2020 10:17:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:48.658Z] Apr 11, 2020 10:17:48 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:48.754Z] Apr 11, 2020 10:17:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:48.886Z] Apr 11, 2020 10:17:48 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:17:49.014Z] Apr 11, 2020 10:17:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:49.018Z] bool_value: true
+
+
+[debug] [2020-04-11T01:17:49.182Z] Apr 11, 2020 10:17:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:17:49.186Z] Apr 11, 2020 10:17:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:17:49.242Z] bool_value: true
+
+
+[debug] [2020-04-11T01:17:49.359Z] Apr 11, 2020 10:17:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:49.409Z] Apr 11, 2020 10:17:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:17:49.463Z] Apr 11, 2020 10:17:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:49.843Z] Apr 11, 2020 10:17:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:17:49.905Z] Apr 11, 2020 10:17:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:50.002Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:50.104Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:17:50.411Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:17:50.432Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:50.515Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:50.615Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:17:50.868Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:17:50.938Z] Apr 11, 2020 10:17:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:17:51.011Z] Apr 11, 2020 10:17:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:17:51.183Z] Apr 11, 2020 10:17:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:17:51.387Z] Apr 11, 2020 10:17:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:17:51.443Z] Apr 11, 2020 10:17:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:17.848Z] Apr 11, 2020 10:19:17 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:18.001Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:18.005Z] Apr 11, 2020 10:19:18 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:18.094Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:18.216Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:19:18.324Z] bool_value: true
+
+
+[debug] [2020-04-11T01:19:18.507Z] Apr 11, 2020 10:19:18 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:18.541Z] bool_value: true
+
+
+[debug] [2020-04-11T01:19:18.643Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:18.649Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:18.653Z] Apr 11, 2020 10:19:18 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:18.740Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:18.850Z] Apr 11, 2020 10:19:18 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:19.286Z] Apr 11, 2020 10:19:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:19.292Z] Apr 11, 2020 10:19:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:19:19.487Z] Apr 11, 2020 10:19:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:19.813Z] Apr 11, 2020 10:19:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:19:19.816Z] Apr 11, 2020 10:19:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:19.920Z] Apr 11, 2020 10:19:19 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:20.007Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:19:20.220Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:19:20.318Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:20.348Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:19:20.382Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:20.506Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:19:20.709Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:20.765Z] Apr 11, 2020 10:19:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:42.399Z] Apr 11, 2020 10:19:42 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Apr 11, 2020 10:19:42 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:42.579Z] Apr 11, 2020 10:19:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:42.583Z] Apr 11, 2020 10:19:42 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:42.588Z] Apr 11, 2020 10:19:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:42.592Z] Apr 11, 2020 10:19:42 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:42.689Z] Apr 11, 2020 10:19:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:42.838Z] Apr 11, 2020 10:19:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:42.873Z] Apr 11, 2020 10:19:42 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:19:42.999Z] bool_value: true
+
+
+[debug] [2020-04-11T01:19:43.155Z] Apr 11, 2020 10:19:43 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:19:43.218Z] bool_value: true
+
+
+[debug] [2020-04-11T01:19:43.328Z] Apr 11, 2020 10:19:43 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:43.422Z] Apr 11, 2020 10:19:43 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:43.650Z] Apr 11, 2020 10:19:43 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:43.865Z] Apr 11, 2020 10:19:43 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:43.890Z] Apr 11, 2020 10:19:43 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:44.005Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:44.133Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:19:44.237Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:19:44.466Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:44.543Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:44.671Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:19:44.806Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:19:44.960Z] Apr 11, 2020 10:19:44 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:19:45.166Z] Apr 11, 2020 10:19:45 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:45.227Z] Apr 11, 2020 10:19:45 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:45.249Z] Apr 11, 2020 10:19:45 AM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+[debug] [2020-04-11T01:19:55.965Z] Apr 11, 2020 10:19:55 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:56.006Z] Apr 11, 2020 10:19:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:56.177Z] Apr 11, 2020 10:19:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:56.184Z] Apr 11, 2020 10:19:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:56.189Z] Apr 11, 2020 10:19:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:56.194Z] Apr 11, 2020 10:19:56 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:19:56.318Z] Apr 11, 2020 10:19:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:56.467Z] Apr 11, 2020 10:19:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:56.491Z] Apr 11, 2020 10:19:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:19:56.676Z] bool_value: true
+
+
+[debug] [2020-04-11T01:19:56.930Z] Apr 11, 2020 10:19:56 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:19:56.975Z] bool_value: true
+
+
+[debug] [2020-04-11T01:19:57.102Z] Apr 11, 2020 10:19:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:57.225Z] Apr 11, 2020 10:19:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:57.475Z] Apr 11, 2020 10:19:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:57.601Z] Apr 11, 2020 10:19:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:57.737Z] Apr 11, 2020 10:19:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:19:57.740Z] Apr 11, 2020 10:19:57 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:58.003Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:58.128Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:58.197Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:58.313Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:19:58.521Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:19:58.660Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:19:58.817Z] Apr 11, 2020 10:19:58 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:19:59.022Z] Apr 11, 2020 10:19:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:59.086Z] Apr 11, 2020 10:19:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:19:59.256Z] Apr 11, 2020 10:19:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:19:59.415Z] Apr 11, 2020 10:19:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:19:59.768Z] Apr 11, 2020 10:19:59 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:09.490Z] Apr 11, 2020 10:20:09 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:09.509Z] Apr 11, 2020 10:20:09 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:09.697Z] Apr 11, 2020 10:20:09 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:20:09.700Z] Apr 11, 2020 10:20:09 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:09.703Z] Apr 11, 2020 10:20:09 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:09.711Z] Apr 11, 2020 10:20:09 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:09.809Z] Apr 11, 2020 10:20:09 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:09.931Z] Apr 11, 2020 10:20:09 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:20:09.966Z] Apr 11, 2020 10:20:09 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:20:10.232Z] bool_value: true
+
+
+[debug] [2020-04-11T01:20:10.603Z] Apr 11, 2020 10:20:10 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:10.653Z] bool_value: true
+
+
+[debug] [2020-04-11T01:20:10.769Z] Apr 11, 2020 10:20:10 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:10.927Z] Apr 11, 2020 10:20:10 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:11.391Z] Apr 11, 2020 10:20:11 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:11.479Z] Apr 11, 2020 10:20:11 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:11.626Z] Apr 11, 2020 10:20:11 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:20:11.758Z] Apr 11, 2020 10:20:11 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:20:11.940Z] Apr 11, 2020 10:20:11 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:12.010Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:20:12.059Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:12.327Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:12.449Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:20:12.647Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:20:12.753Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:20:12.879Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:20:12.955Z] Apr 11, 2020 10:20:12 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:13.057Z] Apr 11, 2020 10:20:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:20:13.269Z] Apr 11, 2020 10:20:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:13.326Z] Apr 11, 2020 10:20:13 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:20.094Z] Apr 11, 2020 10:20:20 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:20.146Z] Apr 11, 2020 10:20:20 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:20.311Z] Apr 11, 2020 10:20:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:20.316Z] Apr 11, 2020 10:20:20 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:20.331Z] Apr 11, 2020 10:20:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:20:20.335Z] Apr 11, 2020 10:20:20 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:20:20.420Z] Apr 11, 2020 10:20:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:20.530Z] Apr 11, 2020 10:20:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:20:20.556Z] Apr 11, 2020 10:20:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:20:20.699Z] bool_value: true
+
+
+[debug] [2020-04-11T01:20:20.942Z] Apr 11, 2020 10:20:20 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:21.019Z] bool_value: true
+
+
+[debug] [2020-04-11T01:20:21.187Z] Apr 11, 2020 10:20:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:21.324Z] Apr 11, 2020 10:20:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:21.869Z] Apr 11, 2020 10:20:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:21.963Z] Apr 11, 2020 10:20:21 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:22.069Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:20:22.323Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:20:22.413Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:22.483Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:22.529Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:20:22.849Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:22.872Z] Apr 11, 2020 10:20:22 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:20:23.368Z] Apr 11, 2020 10:20:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:20:23.706Z] Apr 11, 2020 10:20:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:20:23.808Z] Apr 11, 2020 10:20:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:20:23.868Z] Apr 11, 2020 10:20:23 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:20:24.073Z] Apr 11, 2020 10:20:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:20:24.313Z] Apr 11, 2020 10:20:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:20:24.373Z] Apr 11, 2020 10:20:24 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:48.942Z] Apr 11, 2020 10:21:48 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:21:48.977Z] Apr 11, 2020 10:21:48 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:21:49.177Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:21:49.182Z] Apr 11, 2020 10:21:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:21:49.200Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:49.204Z] Apr 11, 2020 10:21:49 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:21:49.338Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:49.446Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:21:49.505Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:21:49.611Z] bool_value: true
+
+
+[debug] [2020-04-11T01:21:49.788Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:21:49.845Z] bool_value: true
+
+
+[debug] [2020-04-11T01:21:49.958Z] Apr 11, 2020 10:21:49 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:50.095Z] Apr 11, 2020 10:21:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:50.482Z] Apr 11, 2020 10:21:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:21:50.658Z] Apr 11, 2020 10:21:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:21:50.794Z] Apr 11, 2020 10:21:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:21:50.963Z] Apr 11, 2020 10:21:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:21:50.977Z] Apr 11, 2020 10:21:50 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:21:51.336Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:21:51.500Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:21:51.655Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:21:51.775Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:51.830Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:21:51.862Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:51.954Z] Apr 11, 2020 10:21:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:21:52.062Z] Apr 11, 2020 10:21:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:52.124Z] Apr 11, 2020 10:21:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:52.250Z] Apr 11, 2020 10:21:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:21:52.303Z] Apr 11, 2020 10:21:52 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:26.594Z] Apr 11, 2020 10:23:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:23:26.604Z] Apr 11, 2020 10:23:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:23:26.744Z] Apr 11, 2020 10:23:26 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:26.748Z] Apr 11, 2020 10:23:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:23:26.751Z] Apr 11, 2020 10:23:26 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:23:26.756Z] Apr 11, 2020 10:23:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-11T01:23:26.844Z] Apr 11, 2020 10:23:26 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:26.963Z] Apr 11, 2020 10:23:26 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:23:26.985Z] Apr 11, 2020 10:23:26 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L23
+
+[debug] [2020-04-11T01:23:27.099Z] bool_value: true
+
+
+[debug] [2020-04-11T01:23:27.274Z] Apr 11, 2020 10:23:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:23:27.300Z] bool_value: true
+
+
+[debug] [2020-04-11T01:23:27.405Z] Apr 11, 2020 10:23:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:27.495Z] Apr 11, 2020 10:23:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:27.833Z] Apr 11, 2020 10:23:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L18
+
+[debug] [2020-04-11T01:23:27.950Z] Apr 11, 2020 10:23:27 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:23:28.104Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L19
+
+[debug] [2020-04-11T01:23:28.238Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:23:28.303Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:28.360Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:28.414Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:23:28.704Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:23:28.721Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'create' @ L31
+
+[debug] [2020-04-11T01:23:28.989Z] Apr 11, 2020 10:23:28 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L31
+
+[debug] [2020-04-11T01:23:29.183Z] Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:29.267Z] Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:29.300Z] Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'delete' @ L31
+
+[debug] [2020-04-11T01:23:29.346Z] Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: 
+false for 'update' @ L27
+
+[debug] [2020-04-11T01:23:29.633Z] Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
+[debug] [2020-04-11T01:23:29.690Z] Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: No matching allow statements
+
