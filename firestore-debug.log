@@ -4168,3 +4168,5 @@ Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedSt
 INFO: operation failed: No matching allow statements
 Apr 11, 2020 10:23:29 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
 INFO: operation failed: No matching allow statements
+*** shutting down gRPC server since JVM is shutting down
+*** server shut down

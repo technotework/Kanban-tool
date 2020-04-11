@@ -1,6 +1,4 @@
-import router from "@/router/";
 import common from "@/store/common";
-import { TYPE, APP } from "@/containers/resorces/message";
 //--------------
 //state
 //--------------
@@ -38,22 +36,14 @@ const actions = {
      * @param {*} param0
      * @param {*} obj
      */
-    getUserInfo({ commit, dispatch }, obj) {
-        return new Promise(
-            async (resolve, reject) => {
-                const { uid } = obj;
-                const object = {
-                    path: `users/${uid}`
-                };
-                const doc = await common.fb.getDoc(object).catch(reject);
+    async getUserInfo({ commit, dispatch }, obj) {
+        const { uid } = obj;
+        const object = {
+            path: `users/${uid}`
+        };
+        const doc = await common.fb.getDoc(object);
 
-                commit("setUserData", doc.data());
-                resolve();
-            },
-            error => {
-                //console.log(error);
-            }
-        );
+        commit("setUserData", doc.data());
     },
     /**
      * プロフィール入力後の処理
@@ -61,56 +51,41 @@ const actions = {
      * @param {*} param0
      * @param {*} value
      */
-    uploadFile({ rootGetters, getters, dispatch }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                const data = value.data.data;
-                const uuid = rootGetters["auth/user"].uuid;
-                const id = rootGetters["auth/user"].altId;
+    async uploadFile({ rootGetters, getters, dispatch }, value) {
+        const data = value.data.data;
+        const uuid = rootGetters["auth/user"].uuid;
+        const id = rootGetters["auth/user"].altId;
 
-                //upload
-                const upload = {
-                    path: id + "/icon",
-                    content: data
-                };
-                await common.fb.upload(upload);
+        //upload
+        const upload = {
+            path: id + "/icon",
+            content: data
+        };
+        await common.fb.upload(upload);
 
-                //ニックネームと画像アップロードフラグをusersに書き込み
-                const userData = {
-                    path: "users/" + uuid,
-                    content: { img: true, nickname: value.nickname }
-                };
-                await common.fb.updateDoc(userData).catch(reject);
+        //ニックネームと画像アップロードフラグをusersに書き込み
+        const userData = {
+            path: "users/" + uuid,
+            content: { img: true, nickname: value.nickname }
+        };
+        await common.fb.updateDoc(userData);
 
-                //できたら再取得
-                dispatch(
-                    "auth/setUserInfo",
-                    { uid: uuid, path: "app/projects" },
-                    { root: true }
-                );
-                dispatch("downloadFile");
-                resolve();
-            },
-            error => {
-                //console.log(error);
-            }
+        //できたら再取得
+        dispatch(
+            "auth/setUserInfo",
+            { uid: uuid, path: "app/projects" },
+            { root: true }
         );
+        dispatch("downloadFile");
     },
     /**
      * アイコンダウンロード
      * @param {*} param0
      */
-    downloadFile({ rootGetters, commit }) {
-        return new Promise(
-            async (resolve, reject) => {
-                const id = rootGetters["auth/user"].altId;
-                const response = await common.fb.execDownloadIcon(id);
-                commit("auth/setImage", response.url, { root: true });
-            },
-            error => {
-                //console.log(error);
-            }
-        );
+    async downloadFile({ rootGetters, commit }) {
+        const id = rootGetters["auth/user"].altId;
+        const response = await common.fb.execDownloadIcon(id);
+        commit("auth/setImage", response.url, { root: true });
     }
 };
 

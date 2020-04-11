@@ -5,7 +5,7 @@ import common from "@/store/common";
 //--------------
 const state = {
     teamNameData: "",
-    unsnapshots: [],
+    unsnapshots: []
 };
 
 //--------------
@@ -24,7 +24,7 @@ const mutations = {
         }
         state.unsnapshots = [];
         state.teamNameData = "";
-    },
+    }
 };
 
 //--------------
@@ -33,7 +33,7 @@ const mutations = {
 const getters = {
     team(state) {
         return state.teamNameData;
-    },
+    }
 };
 
 //--------------
@@ -45,47 +45,32 @@ const actions = {
 	 * @param {*} param0 
 	 =============================*/
     read({ commit, rootGetters, getters, dispatch }) {
-        return new Promise(
-            (resolve, reject) => {
-                const teamsPath = rootGetters["auth/teamPath"];
+        const teamsPath = rootGetters["auth/teamPath"];
 
-                const db = rootGetters.db;
-                //TeamNameをRead&Listen
-                const doc = db.doc(teamsPath);
-                const unsnap = doc.onSnapshot(function (doc) {
-                    const data = doc.data();
-                    //完了
-                    commit("setData", data.label);
-                });
-                commit("setUnsnap", unsnap);
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+        const db = rootGetters.db;
+        //TeamNameをRead&Listen
+        const doc = db.doc(teamsPath);
+        const unsnap = doc.onSnapshot(function(doc) {
+            const data = doc.data();
+            //完了
+            commit("setData", data.label);
+        });
+        commit("setUnsnap", unsnap);
     },
     /**
      * プロジェクト名更新
      * @param {*} param0
      * @param {*} value
      */
-    updateTeamName({ rootGetters }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                const teamsPath = rootGetters["auth/teamPath"];
-                const name = value;
-                const object = {
-                    path: teamsPath,
-                    content: { label: name },
-                };
-                await common.fb.setDoc(object).catch(reject);
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
-    },
+    async updateTeamName({ rootGetters }, value) {
+        const teamsPath = rootGetters["auth/teamPath"];
+        const name = value;
+        const object = {
+            path: teamsPath,
+            content: { label: name }
+        };
+        await common.fb.setDoc(object);
+    }
 };
 
 export { state, mutations, getters, actions };
@@ -95,5 +80,5 @@ export default {
     state,
     mutations,
     getters,
-    actions,
+    actions
 };

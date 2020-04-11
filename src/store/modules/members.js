@@ -7,7 +7,7 @@ import { TYPE, APP } from "@/containers/resorces/message";
 //--------------
 const state = {
     membersData: null,
-    unsnapshots: [],
+    unsnapshots: []
 };
 
 //--------------
@@ -26,7 +26,7 @@ const mutations = {
         }
         state.unsnapshots = [];
         state.membersData = null;
-    },
+    }
 };
 
 //--------------
@@ -35,7 +35,7 @@ const mutations = {
 const getters = {
     members(state) {
         return state.membersData;
-    },
+    }
 };
 
 //--------------
@@ -54,7 +54,7 @@ const actions = {
 
                 const unsnap = collection
                     .orderBy("nickname")
-                    .onSnapshot(async (querySnapshot) => {
+                    .onSnapshot(async querySnapshot => {
                         const docs = querySnapshot.docs;
                         let obj = {};
                         for (let i = 0; i < docs.length; i++) {
@@ -64,7 +64,7 @@ const actions = {
                             let url = response.url;
                             obj[id] = {
                                 img: url,
-                                nickname: result.nickname,
+                                nickname: result.nickname
                             };
                         }
 
@@ -74,11 +74,11 @@ const actions = {
 
                 commit("setUnsnap", unsnap);
             },
-            (error) => {
+            error => {
                 //console.log(error);
             }
         );
-    },
+    }
 };
 
 export { state, mutations, getters, actions };
@@ -88,5 +88,5 @@ export default {
     state,
     mutations,
     getters,
-    actions,
+    actions
 };

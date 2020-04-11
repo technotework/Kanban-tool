@@ -1,3 +1,6 @@
+/**
+ * ログイン・登録・ログアウト
+ */
 import common from "@/store/common";
 import router from "@/router/";
 import { v4 as uuidv4 } from "uuid";
@@ -12,7 +15,7 @@ const state = {
     pathData: "",
     teamPathData: "",
     isLogin: false,
-    imgData: null,
+    imgData: null
 };
 
 //--------------
@@ -39,7 +42,7 @@ const mutations = {
     },
     setImage(state, payload) {
         state.imgData = payload;
-    },
+    }
 };
 
 //--------------
@@ -66,7 +69,7 @@ const getters = {
     },
     icon(state) {
         return state.imgData;
-    },
+    }
 };
 
 //--------------
@@ -79,37 +82,30 @@ const actions = {
      * @param {*} idとpass
      */
     login({ dispatch, rootGetters }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                const firebase = rootGetters.firebase;
-                const callback = value.callback;
+        const firebase = rootGetters.firebase;
+        const callback = value.callback;
 
-                firebase
-                    .auth()
-                    .signInWithEmailAndPassword(value.id, value.pass)
-                    .then(
-                        (auth) => {
-                            if (!auth.user.emailVerified) {
-                                callback();
-                                dispatch("logout");
-                            } else {
-                                let uid = auth.user.uid;
-                                let path = "/projects";
-                                dispatch("setUserInfo", {
-                                    uid: uid,
-                                    path: path,
-                                });
-                            }
-                        },
-                        (error) => {
-                            throw { type: "FIREBASE_AUTH", error: error.code };
-                        }
-                    );
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(value.id, value.pass)
+            .then(
+                auth => {
+                    if (!auth.user.emailVerified) {
+                        callback();
+                        dispatch("logout");
+                    } else {
+                        let uid = auth.user.uid;
+                        let path = "/projects";
+                        dispatch("setUserInfo", {
+                            uid: uid,
+                            path: path
+                        });
+                    }
+                },
+                error => {
+                    throw { type: "FIREBASE_AUTH", error: error.code };
+                }
+            );
     },
     /**
      * singUp
@@ -117,84 +113,61 @@ const actions = {
      * @param {*} idとpass
      */
     regist({ dispatch, rootGetters }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                const firebase = rootGetters.firebase;
-                const email = value.id;
-                const password = value.pass;
-                const callback = value.callback;
+        const firebase = rootGetters.firebase;
+        const email = value.id;
+        const password = value.pass;
+        const callback = value.callback;
 
-                firebase
-                    .auth()
-                    .createUserWithEmailAndPassword(email, password)
-                    .then((auth) => {
-                        auth.user.sendEmailVerification();
-                        callback();
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(auth => {
+                auth.user.sendEmailVerification();
+                callback();
 
-                        //初期データ作成
-                        const uid = auth.user.uid;
-                        const altId = uuidv4();
-                        const contract = contractId;
-                        const team = teamId;
-                        const userTemplate = common.templates.user(
-                            contract,
-                            team,
-                            altId
-                        );
+                //初期データ作成
+                const uid = auth.user.uid;
+                const altId = uuidv4();
+                const contract = contractId;
+                const team = teamId;
+                const userTemplate = common.templates.user(
+                    contract,
+                    team,
+                    altId
+                );
 
-                        const object = {
-                            path: "/users/" + uid,
-                            content: userTemplate,
-                        };
-                        common.fb.setDoc(object).catch(reject);
-                    })
-                    .catch((error) => {
-                        throw { type: "FIREBASE_AUTH", error: error.code };
-                    });
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+                const object = {
+                    path: "/users/" + uid,
+                    content: userTemplate
+                };
+                common.fb.setDoc(object);
+            });
     },
     /**
      * setUserInfo
      * @param {*} context
      * @param {*} uid
      */
-    setUserInfo({ commit, getters, rootGetters, dispatch }, obj) {
-        return new Promise(
-            async (resolve, reject) => {
-                const { uid, path } = obj;
+    async setUserInfo({ commit, getters, rootGetters, dispatch }, obj) {
+        const { uid, path } = obj;
 
-                //ログイン後やリロード後なにもユーザーデータがない
-                //if (rootGetters["user/userData"] == null) {
-                //ユーザーデータ取得を別モジュールに依頼
-                await dispatch("user/getUserInfo", obj, { root: true });
+        //ログイン後やリロード後なにもユーザーデータがない
+        //if (rootGetters["user/userData"] == null) {
+        //ユーザーデータ取得を別モジュールに依頼
+        await dispatch("user/getUserInfo", obj, { root: true });
 
-                const result = rootGetters["user/userData"];
-                result.uuid = uid;
-                result.path = result.altId + "/icon";
-                //ユーザーデータを格納
-                commit("succsessLogin", result);
+        const result = rootGetters["user/userData"];
+        result.uuid = uid;
+        result.path = result.altId + "/icon";
+        //ユーザーデータを格納
+        commit("succsessLogin", result);
 
-                //すでにアイコンとニックネームがあれば格納する
-                if (result.img == true && result.nickname != "") {
-                    dispatch("user/downloadFile", null, { root: true });
-                }
-                //遷移
-                checkToGo(result, path);
-                resolve();
-                /*}
-				else {
-	
-					resolve();
-				}*/
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+        //すでにアイコンとニックネームがあれば格納する
+        if (result.img == true && result.nickname != "") {
+            dispatch("user/downloadFile", null, { root: true });
+        }
+        //遷移
+        checkToGo(result, path);
     },
     /**
      * Logout
@@ -207,10 +180,10 @@ const actions = {
             .auth()
             .signOut()
             .then(() => {})
-            .catch((error) => {
+            .catch(error => {
                 throw { type: "FIREBASE_AUTH", error: error.code };
             });
-    },
+    }
 };
 
 /**
@@ -246,5 +219,5 @@ export default {
     state,
     mutations,
     getters,
-    actions,
+    actions
 };

@@ -1,3 +1,6 @@
+/**
+ * タスク管理
+ */
 import common from "@/store/common";
 import store from "@/store/index";
 //--------------
@@ -9,7 +12,7 @@ function state() {
         tasksData: [],
         isOpenEditor: false,
         parentBoardId: "",
-        unsnapshots: [],
+        unsnapshots: []
     };
 }
 
@@ -41,7 +44,7 @@ const mutations = {
         state.tasksData = [];
         state.isOpenEditor = false;
         state.parentBoardId = "";
-    },
+    }
 };
 
 //--------------
@@ -73,7 +76,7 @@ const getters = {
         }
 
         return result;
-    },
+    }
 };
 
 //--------------
@@ -100,7 +103,7 @@ const actions = {
                 rootGetters["boards/projectId"] +
                 "/boards/" +
                 value +
-                "/tasks/",
+                "/tasks/"
         };
         commit("initializeData", info);
     },
@@ -109,108 +112,78 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    ==============================*/
-    createTask({ getters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //setting
-                const { uuid, taskPath } = getters.info;
-                const content = value.value;
-                const date = Math.floor(new Date().getTime() / 1000);
-                const order = common.util.getOrder(null, getters.tasks, "task");
-                const template = common.templates.task(
-                    uuid,
-                    date,
-                    order,
-                    content
-                );
+    async createTask({ getters, commit }, value) {
+        //setting
+        const { uuid, taskPath } = getters.info;
+        const content = value.value;
+        const date = Math.floor(new Date().getTime() / 1000);
+        const order = common.util.getOrder(null, getters.tasks, "task");
+        const template = common.templates.task(uuid, date, order, content);
 
-                //作成
-                const object = {
-                    path: taskPath,
-                    content: template,
-                };
-                await common.fb.add(object).catch(reject);
-                commit("boards/setUpdateDate", null, { root: true });
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+        //作成
+        const object = {
+            path: taskPath,
+            content: template
+        };
+        await common.fb.add(object);
+        commit("boards/setUpdateDate", null, { root: true });
     },
     /**==============================
    * Taskの挿入
    * @param {*} param0 
    * @param {*} value 
    ==============================*/
-    insertTask({ getters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                const { taskPath } = getters.info;
-                const id = value.id;
-                const template = value.template;
-                const order = common.util.getOrder(id, getters.tasks, "task");
-                template.task.order = order;
-                //作成
-                const object = {
-                    path: taskPath + id,
-                    content: template,
-                };
-                await common.fb.setDoc(object).catch(reject);
-                commit("boards/setUpdateDate", null, { root: true });
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+    async insertTask({ getters, commit }, value) {
+        const { taskPath } = getters.info;
+        const id = value.id;
+        const template = value.template;
+        const order = common.util.getOrder(id, getters.tasks, "task");
+        template.task.order = order;
+        //作成
+        const object = {
+            path: taskPath + id,
+            content: template
+        };
+        await common.fb.setDoc(object);
+        commit("boards/setUpdateDate", null, { root: true });
     },
     /**=============================
    * 初期読み込み
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-    read({ commit, getters, dispatch, rootGetters }) {
-        return new Promise(
-            async (resolve, reject) => {
-                const { taskPath } = getters.info;
+    read({ commit, getters, dispatch }) {
+        const { taskPath } = getters.info;
 
-                const object = {
-                    path: taskPath,
-                    order: "task.order",
-                    callback: (querySnapshot) => {
-                        let array = [];
-                        querySnapshot.forEach(function (doc) {
-                            let result = doc.data();
-                            result.task.id = doc.id;
+        const object = {
+            path: taskPath,
+            order: "task.order",
+            callback: querySnapshot => {
+                let array = [];
+                querySnapshot.forEach(function(doc) {
+                    let result = doc.data();
+                    result.task.id = doc.id;
 
-                            //予期せずロックしっぱなしだった場合、30分たっていたらロック解除する
-                            if (result.task.editing != "") {
-                                let now = Math.floor(
-                                    new Date().getTime() / 1000
-                                );
-                                if (
-                                    result.task.editing_date != null &&
-                                    now - result.task.editing_date > 1800
-                                ) {
-                                    dispatch("unlockTask", {
-                                        id: result.task.id,
-                                    });
-                                }
-                            }
+                    //予期せずロックしっぱなしだった場合、30分たっていたらロック解除する
+                    if (result.task.editing != "") {
+                        let now = Math.floor(new Date().getTime() / 1000);
+                        if (
+                            result.task.editing_date != null &&
+                            now - result.task.editing_date > 1800
+                        ) {
+                            dispatch("unlockTask", {
+                                id: result.task.id
+                            });
+                        }
+                    }
 
-                            array.push(result);
-                        });
-                        commit("setTasksData", array);
-                    },
-                };
-                const unsnap = common.fb.snap(object);
-                commit("setUnsnap", unsnap);
-            },
-            (error) => {
-                //console.log(error);
+                    array.push(result);
+                });
+                commit("setTasksData", array);
             }
-        );
+        };
+        const unsnap = common.fb.snap(object);
+        commit("setUnsnap", unsnap);
     },
 
     /**=============================
@@ -218,53 +191,37 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-    updateTask({ getters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //setting
-                const { taskPath } = getters.info;
-                const content = value.value;
-                const taskDocPath = taskPath + value.id;
+    async updateTask({ getters, commit }, value) {
+        //setting
+        const { taskPath } = getters.info;
+        const content = value.value;
+        const taskDocPath = taskPath + value.id;
 
-                //実行
-                const object = {
-                    path: taskDocPath,
-                    content: { task: { data: content } },
-                };
-                await common.fb.setDoc(object).catch(reject);
-                commit("boards/setUpdateDate", null, { root: true });
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+        //実行
+        const object = {
+            path: taskDocPath,
+            content: { task: { data: content } }
+        };
+        await common.fb.setDoc(object);
+        commit("boards/setUpdateDate", null, { root: true });
     },
     /**==============================
  * メンバー情報のアップデート
  * 
  ==============================*/
-    updateMember({ getters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //setting
-                const { id, data } = value;
-                const { taskPath } = getters.info;
-                const taskDocPath = taskPath + id;
-                const content = data;
-                //実行
-                const object = {
-                    path: taskDocPath,
-                    content: { task: { members: content } },
-                };
-                await common.fb.setDoc(object).catch(reject);
-                commit("boards/setUpdateDate", null, { root: true });
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+    async updateMember({ getters, commit }, value) {
+        //setting
+        const { id, data } = value;
+        const { taskPath } = getters.info;
+        const taskDocPath = taskPath + id;
+        const content = data;
+        //実行
+        const object = {
+            path: taskDocPath,
+            content: { task: { members: content } }
+        };
+        await common.fb.setDoc(object);
+        commit("boards/setUpdateDate", null, { root: true });
     },
     /**=============================
    * タスクを削除
@@ -272,72 +229,48 @@ const actions = {
    * @param {*} value 
    =============================*/
     deleteTask({ getters, rootGetters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //setting
-                const { taskPath } = getters.info;
-                const taskDocPath = taskPath + value.id;
-                //実行
-                common.fb.deleteDoc({ path: taskDocPath }).catch(reject);
-                commit("boards/setUpdateDate", null, { root: true });
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+        //setting
+        const { taskPath } = getters.info;
+        const taskDocPath = taskPath + value.id;
+        //実行
+        common.fb.deleteDoc({ path: taskDocPath });
+        commit("boards/setUpdateDate", null, { root: true });
     },
     /**
      * 現在の編集者を追加
      * @param {*} param0
      * @param {*} value
      */
-    lockTask({ getters, rootGetters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //setting
-                const { taskPath } = getters.info;
-                const taskDocPath = taskPath + value.id;
-                const date = Math.floor(new Date().getTime() / 1000);
-                const userId = rootGetters["auth/user"].altId;
-                //実行
-                const object = {
-                    path: taskDocPath,
-                    content: { task: { editing: userId, editing_date: date } },
-                };
-                await common.fb.setDoc(object).catch(reject);
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+    async lockTask({ getters, rootGetters, commit }, value) {
+        //setting
+        const { taskPath } = getters.info;
+        const taskDocPath = taskPath + value.id;
+        const date = Math.floor(new Date().getTime() / 1000);
+        const userId = rootGetters["auth/user"].altId;
+        //実行
+        const object = {
+            path: taskDocPath,
+            content: { task: { editing: userId, editing_date: date } }
+        };
+        await common.fb.setDoc(object);
     },
     /**
      * 現在の編集者を解除
      * @param {*} param0
      * @param {*} value
      */
-    unlockTask({ getters, rootGetters, commit }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //setting
-                const { taskPath } = getters.info;
-                const taskDocPath = taskPath + value.id;
-                const date = null;
-                const userId = "";
-                //実行
-                const object = {
-                    path: taskDocPath,
-                    content: { task: { editing: userId, editing_date: date } },
-                };
-                await common.fb.setDoc(object).catch(reject);
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
-        );
+    async unlockTask({ getters, rootGetters, commit }, value) {
+        //setting
+        const { taskPath } = getters.info;
+        const taskDocPath = taskPath + value.id;
+        const date = null;
+        const userId = "";
+        //実行
+        const object = {
+            path: taskDocPath,
+            content: { task: { editing: userId, editing_date: date } }
+        };
+        await common.fb.setDoc(object);
     },
 
     /**=========================================================
@@ -347,80 +280,56 @@ const actions = {
    * @param {*} param0 
    * @param {*} value 
    =============================*/
-    dragSortUpdate({ commit, getters }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                //同じボード内でのみ発動させる
-                const { taskPath } = getters.info;
-                const taskId = value.id;
-                //判定
-                let isSameBoard = false;
-                for (let i = 0; i < getters.tasks.length; i++) {
-                    if (getters.tasks[i].task.id == taskId) {
-                        isSameBoard = true;
-                    }
-                }
-                //実行
-                if (isSameBoard) {
-                    const taskDocPath = taskPath + taskId;
-                    const order = common.util.getOrder(
-                        taskId,
-                        getters.tasks,
-                        "task"
-                    );
-                    const object = {
-                        path: taskDocPath,
-                        content: { task: { order: order } },
-                    };
-                    await common.fb.setDoc(object).catch(reject);
-                    commit("boards/setUpdateDate", null, { root: true });
-                    resolve();
-                }
-            },
-            (error) => {
-                //console.log(error);
+    async dragSortUpdate({ commit, getters }, value) {
+        //同じボード内でのみ発動させる
+        const { taskPath } = getters.info;
+        const taskId = value.id;
+        //判定
+        let isSameBoard = false;
+        for (let i = 0; i < getters.tasks.length; i++) {
+            if (getters.tasks[i].task.id == taskId) {
+                isSameBoard = true;
             }
-        );
+        }
+        //実行
+        if (isSameBoard) {
+            const taskDocPath = taskPath + taskId;
+            const order = common.util.getOrder(taskId, getters.tasks, "task");
+            const object = {
+                path: taskDocPath,
+                content: { task: { order: order } }
+            };
+            await common.fb.setDoc(object);
+            commit("boards/setUpdateDate", null, { root: true });
+        }
     },
     /**===========================
   * ドラッグして追加されたので、旧リストからデータを引き継ぎ元を消す
   * @param {*} param0 
   * @param {*} value 
   =============================*/
-    dragAdded({ rootGetters, getters, dispatch }, value) {
-        return new Promise(
-            async (resolve, reject) => {
-                const taskId = value.id;
-                const originalBoardId = value.boardId;
-                const { projectPath } = getters.info;
-                //パスの設定
-                const originalTaskDocPath =
-                    projectPath +
-                    "/boards/" +
-                    originalBoardId +
-                    "/tasks/" +
-                    taskId;
+    async dragAdded({ rootGetters, getters, dispatch }, value) {
+        const taskId = value.id;
+        const originalBoardId = value.boardId;
+        const { projectPath } = getters.info;
+        //パスの設定
+        const originalTaskDocPath =
+            projectPath + "/boards/" + originalBoardId + "/tasks/" + taskId;
 
-                //オリジナルタスクのコンテンツ取得
-                const object = { path: originalTaskDocPath };
-                const taskData = await common.fb.getDoc(object);
-                const data = taskData.data();
-                //オリジナルタスクの消し込み
-                await dispatch(
-                    "task_" + originalBoardId + "/deleteTask",
-                    { id: taskId },
-                    { root: true }
-                );
-
-                //移動後のタスクの生成
-                await dispatch("insertTask", { template: data, id: taskId });
-                resolve();
-            },
-            (error) => {
-                //console.log(error);
-            }
+        //オリジナルタスクのコンテンツ取得
+        const object = { path: originalTaskDocPath };
+        const taskData = await common.fb.getDoc(object);
+        const data = taskData.data();
+        //オリジナルタスクの消し込み
+        await dispatch(
+            "task_" + originalBoardId + "/deleteTask",
+            { id: taskId },
+            { root: true }
         );
-    },
+
+        //移動後のタスクの生成
+        await dispatch("insertTask", { template: data, id: taskId });
+    }
 };
 
 export { state, mutations, getters, actions };
@@ -430,5 +339,5 @@ export default {
     state,
     mutations,
     getters,
-    actions,
+    actions
 };
