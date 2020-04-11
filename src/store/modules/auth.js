@@ -121,27 +121,32 @@ const actions = {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
-            .then(auth => {
-                auth.user.sendEmailVerification();
-                callback();
+            .then(
+                auth => {
+                    auth.user.sendEmailVerification();
+                    callback();
 
-                //初期データ作成
-                const uid = auth.user.uid;
-                const altId = uuidv4();
-                const contract = contractId;
-                const team = teamId;
-                const userTemplate = common.templates.user(
-                    contract,
-                    team,
-                    altId
-                );
+                    //初期データ作成
+                    const uid = auth.user.uid;
+                    const altId = uuidv4();
+                    const contract = contractId;
+                    const team = teamId;
+                    const userTemplate = common.templates.user(
+                        contract,
+                        team,
+                        altId
+                    );
 
-                const object = {
-                    path: "/users/" + uid,
-                    content: userTemplate
-                };
-                common.fb.setDoc(object);
-            });
+                    const object = {
+                        path: "/users/" + uid,
+                        content: userTemplate
+                    };
+                    common.fb.setDoc(object);
+                },
+                error => {
+                    throw { type: "FIREBASE_AUTH", error: error.code };
+                }
+            );
     },
     /**
      * setUserInfo

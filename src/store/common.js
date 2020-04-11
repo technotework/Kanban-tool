@@ -14,7 +14,7 @@ const util = {
                 isDeleted: false,
                 nickname: "",
                 img: false,
-                role: "manager",
+                role: "manager"
             };
 
             obj.contracts[contract] = [team];
@@ -26,17 +26,17 @@ const util = {
                     id: "",
                     label: "Project",
                     update_date: date,
-                    order: order,
-                },
+                    order: order
+                }
             };
         },
-        board: (order) => {
+        board: order => {
             return {
                 board: {
                     id: "",
                     order: order,
-                    label: "NewBoard",
-                },
+                    label: "NewBoard"
+                }
             };
         },
         initialBoards: () => {
@@ -45,30 +45,30 @@ const util = {
                     board: {
                         id: "",
                         label: "Backlog",
-                        order: unit,
-                    },
+                        order: unit
+                    }
                 },
                 {
                     board: {
                         id: "",
                         label: "ToDo",
-                        order: unit * 2,
-                    },
+                        order: unit * 2
+                    }
                 },
                 {
                     board: {
                         id: "",
                         label: "Progress",
-                        order: unit * 3,
-                    },
+                        order: unit * 3
+                    }
                 },
                 {
                     board: {
                         id: "",
                         label: "Complete",
-                        order: unit * 4,
-                    },
-                },
+                        order: unit * 4
+                    }
+                }
             ];
         },
         task: (uuid, date, order = null, data = null) => {
@@ -100,10 +100,10 @@ const util = {
                     start_date: null,
                     end_date: null,
                     archive_date: null,
-                    comments: [],
-                },
+                    comments: []
+                }
             };
-        },
+        }
     },
     /**==================================
    * firebaseWrapper
@@ -112,7 +112,7 @@ const util = {
         /**
          * snapshot
          */
-        snap: (object) => {
+        snap: object => {
             const { path, order, callback } = object;
             const collection = db.collection(path);
             const unsnap = collection
@@ -125,208 +125,191 @@ const util = {
         /**
          * CollectionAdd
          */
-        add: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
+        add: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
 
-                const { path, content } = object;
-                const collection = db.collection(path);
-
-                await collection
-                    .add(content)
-                    .then((doc) => {
-                        resolve(doc);
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_FIRESTORE,
-                            error: error.code,
-                        };
-                    });
-            });
+            const { path, content } = object;
+            const collection = db.collection(path);
+            let result;
+            await collection
+                .add(content)
+                .then(doc => {
+                    result = doc;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_FIRESTORE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * collection get
          */
-        get: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    reject();
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
+        get: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
 
-                const { path, key } = object;
-                const collection = db.collection(path);
-                await collection
-                    .get()
-                    .then((querySnapshot) => {
-                        let array = [];
-                        querySnapshot.forEach((doc) => {
-                            const data = doc.data();
-                            data[key].id = doc.id;
-                            array.push(data);
-                        });
-                        resolve(array);
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_FIRESTORE,
-                            error: error.code,
-                        };
+            const { path, key } = object;
+            const collection = db.collection(path);
+            let result;
+            await collection
+                .get()
+                .then(querySnapshot => {
+                    let array = [];
+                    querySnapshot.forEach(doc => {
+                        const data = doc.data();
+                        data[key].id = doc.id;
+                        array.push(data);
                     });
-            });
+                    result = array;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_FIRESTORE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * DocumentSet
          */
-        setDoc: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    reject();
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
+        setDoc: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
 
-                let { path, content } = object;
-                let doc = db.doc(path);
-
-                await doc
-                    .set(content, { merge: true })
-                    .then(() => {
-                        resolve();
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_FIRESTORE,
-                            error: error.code,
-                        };
-                    });
-            });
+            let { path, content } = object;
+            let doc = db.doc(path);
+            let result;
+            await doc
+                .set(content, { merge: true })
+                .then(() => {
+                    result = true;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_FIRESTORE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * DocumentSet
          */
-        updateDoc: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    reject();
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
+        updateDoc: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
 
-                let { path, content } = object;
-                let doc = db.doc(path);
-
-                await doc
-                    .update(content)
-                    .then(() => {
-                        resolve();
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_FIRESTORE,
-                            error: error.code,
-                        };
-                    });
-            });
+            let { path, content } = object;
+            let doc = db.doc(path);
+            let result;
+            await doc
+                .update(content)
+                .then(() => {
+                    result = true;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_FIRESTORE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * getDoc
          */
-        getDoc: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    reject();
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
-                const { path } = object;
-                const doc = db.doc(path);
-                await doc
-                    .get()
-                    .then((doc) => {
-                        resolve(doc);
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_FIRESTORE,
-                            error: error.code,
-                        };
-                    });
-            });
+        getDoc: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+            const { path } = object;
+            const doc = db.doc(path);
+            let result;
+            await doc
+                .get()
+                .then(doc => {
+                    result = doc;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_FIRESTORE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * documentDelete
          */
-        deleteDoc: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    reject();
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
-
-                const { path } = object;
-                const doc = db.doc(path);
-                await doc
-                    .delete()
-                    .then(() => {
-                        resolve();
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_FIRESTORE,
-                            error: error.code,
-                        };
-                    });
-            });
+        deleteDoc: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+            const { path } = object;
+            const doc = db.doc(path);
+            let result;
+            await doc
+                .delete()
+                .then(() => {
+                    result = true;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_FIRESTORE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * upload
          */
-        upload: (object) => {
-            return new Promise(async (resolve, reject) => {
-                if (!navigator.onLine) {
-                    reject();
-                    throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                }
-                const { path, content } = object;
-
-                const strorage = st.ref().child(path);
-                //アップロード
-                await strorage
-                    .put(content)
-                    .then(() => {
-                        resolve();
-                    })
-                    .catch((error) => {
-                        throw {
-                            type: TYPE.FIREBASE_STORAGE,
-                            error: error.code,
-                        };
-                    });
-            });
+        upload: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+            const { path, content } = object;
+            let result;
+            const strorage = st.ref().child(path);
+            //アップロード
+            await strorage
+                .put(content)
+                .then(() => {
+                    result = true;
+                })
+                .catch(error => {
+                    throw {
+                        type: TYPE.FIREBASE_STORAGE,
+                        error: error.code
+                    };
+                });
+            return result;
         },
         /**
          * ダウンロード実行
          * @param {*} id
          */
-        execDownloadIcon: (id) => {
-            return new Promise(
-                async (resolve, reject) => {
-                    if (!navigator.onLine) {
-                        reject();
-                        throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
-                    }
+        execDownloadIcon: async id => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
 
-                    const ref = st.ref(id + "/icon");
-                    const url = await ref.getDownloadURL();
-                    const response = await fetch(url);
-                    resolve(response);
-                },
-                (error) => {
-                    throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
-                }
-            );
-        },
+            const ref = st.ref(id + "/icon");
+            const url = await ref.getDownloadURL();
+            const response = await fetch(url).catch(error => {
+                throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
+            });
+            return response;
+        }
     },
     /**==================================
    * util
@@ -393,8 +376,8 @@ const util = {
                 myOrder = prevOrder + (nextOrder - prevOrder) / 2;
             }
             return myOrder;
-        },
-    },
+        }
+    }
 };
 
 export default util;

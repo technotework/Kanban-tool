@@ -1,7 +1,4 @@
-import router from "@/router/";
 import common from "@/store/common";
-import { db, st } from "@/store/index";
-import { TYPE, APP } from "@/containers/resorces/message";
 //--------------
 //state
 //--------------

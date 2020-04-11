@@ -17,7 +17,7 @@ const TYPE = {
     VALIDATIONS: "VALIDATIONS",
     CONFIRM: "CONFIRM",
     ALERT: "ALERT",
-    NETWORK: "NETWORK",
+    NETWORK: "NETWORK"
 };
 
 const APP = {
@@ -33,7 +33,7 @@ const APP = {
     LOGOUT: "app/force-logout",
     DISCONNECT: "app/internet-disconnect",
     SENDMAIL: "app/send-mail",
-    NO_AUTH: "app/no-auth",
+    NO_AUTH: "app/no-auth"
 };
 export { TYPE, APP };
 
@@ -42,7 +42,7 @@ export { TYPE, APP };
  * メッセージ生成
  * @param {*} error
  =================================*/
-const getMessages = (data) => {
+const getMessages = data => {
     let messages;
     switch (data.type) {
         case TYPE.FIREBASE_FIRESTORE:
@@ -73,7 +73,7 @@ const getMessages = (data) => {
  * ダイアログメッセージ生成
  * @param {*} data
 ================================= */
-const getConfirmMessage = (data) => {
+const getConfirmMessage = data => {
     let message = confirmMessage(data.normal, data.arg);
     return message;
 };
@@ -145,20 +145,20 @@ function storageError(error) {
         case "storage/canceled":
             message = {
                 text: "ユーザーが操作をキャンセルしました。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case "storage/unauthenticated":
         case "storage/unauthorized":
             message = {
                 text: "ユーザーに権限がありません。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case "storage/retry-limit-exceeded":
             message = {
                 text: "処理時間制限を超えました。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
     }
@@ -176,25 +176,25 @@ function firebaseAuthError(error) {
         case "auth/email-already-in-use":
             message = {
                 text: "メールアドレスはすでに登録されています。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case "auth/invalid-email":
             message = {
                 text: "メールアドレスが正しくありません。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case "auth/operation-not-allowed":
             message = {
                 text: "メールアドレスまたはパスワードが有効ではありません。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case "auth/weak-password":
             message = {
                 text: "パスワードが脆弱すぎます。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case "auth/user-disabled":
@@ -206,7 +206,7 @@ function firebaseAuthError(error) {
         case "auth/wrong-password":
             message = {
                 text: "パスワードが間違っています。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         default:
@@ -227,7 +227,7 @@ function networkError(error) {
         case APP.DISCONNECT:
             message = {
                 text: "インターネット接続をご確認ください。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
     }
@@ -259,49 +259,49 @@ function validationError(error, arg) {
         case APP.REQUIRE:
             message = {
                 text: `${arg.name}は入力必須です。`,
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.WRONG_EMAIL:
             message = {
                 text: "メールアドレスの形式が間違っています。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.WRONG_PASSWORD:
             message = {
                 text: "パスワードは半角英数字で入力してください。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.FAIL_AGREE:
             message = {
                 text: "利用規約をご覧いただき同意にチェックしてください。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.LENGTH_MORE:
             message = {
                 text: `${arg.name}は、${arg.length}文字以上で入力してください。`,
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.LENGTH_LESS:
             message = {
                 text: `${arg.name}は、${arg.length}文字以内で入力してください。`,
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.LENGTH_LESS_MB:
             message = {
                 text: `${arg.name}は、${arg.length}MB以内です。`,
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         case APP.LOGOUT:
             message = {
                 text: "予期せぬ問題が発生したためログアウトしました。",
-                type: ERROR_MESSAGE,
+                type: ERROR_MESSAGE
             };
             break;
         default:
@@ -324,21 +324,21 @@ function confirmMessage(normal, arg) {
         case APP.DELETE:
             message = {
                 text: `「${arg.name}」を削除します。よろしいですか？`,
-                type: DIALOGUE,
+                type: DIALOGUE
             };
             break;
         case APP.SENDMAIL:
             message = {
                 text:
                     "認証メールをご登録のメールアドレスに送信しました。\nご確認後、メール内のリンクをクリックすることで会員登録が完了します。",
-                type: ALERT,
+                type: ALERT
             };
             break;
         case APP.NO_AUTH:
             message = {
                 text:
                     "会員登録後お送りしたメールをご確認ください。メール内のリンクをクリックすることで会員登録が完了し、ログイン可能になります。",
-                type: ALERT,
+                type: ALERT
             };
             break;
     }

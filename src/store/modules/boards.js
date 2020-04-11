@@ -78,6 +78,8 @@ const actions = {
             boardPath: rootGetters["auth/path"] + value + "/boards/"
         };
         commit("setAppInfo", info);
+
+        return info;
     },
     /**========================
 	 * ボード作成
