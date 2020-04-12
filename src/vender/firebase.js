@@ -9,23 +9,24 @@ import "firebase/storage";
 // Initialize Firebase
 const config = firebaseConfig;
 
+const db = () => {
+    return firebase.firestore();
+};
+const fn = () => {
+    return firebase.functions();
+};
+const st = () => {
+    return firebase.storage();
+};
+const fb = () => {
+    return firebase;
+};
+export { db, fn, st, fb };
+
 export default {
     firebase,
-    initApp() {
-        firebase.initializeApp(config);
-    },
     init() {
         firebase.initializeApp(config);
-        firebase.analytics();
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-    },
-    db() {
-        return firebase.firestore();
-    },
-    fn() {
-        return firebase.functions();
-    },
-    st() {
-        return firebase.storage();
-    },
+        //firebase.analytics();
+    }
 };

@@ -15,27 +15,14 @@ Vue.use(Vuex);
 Firebase.init();
 
 Vue.config.productionTip = false;
-const db = Firebase.db();
-const st = Firebase.st();
-const fn = Firebase.fn("us-central1");
-export { db, st, fn };
 
 export default new Vuex.Store({
     strict: true,
     state: {},
     getters: {
-        firebase: (state) => {
+        firebase: state => {
             return Firebase.firebase;
-        },
-        db: (state) => {
-            return Firebase.db();
-        },
-        fn: (state) => {
-            return Firebase.fn("us-central1");
-        },
-        storage: (state) => {
-            return Firebase.st();
-        },
+        }
     },
     modules: {
         app,
@@ -46,6 +33,6 @@ export default new Vuex.Store({
         message,
         user,
         members,
-        team,
-    },
+        team
+    }
 });

@@ -46,12 +46,10 @@ const actions = {
     getMembers({ rootGetters, commit }) {
         return new Promise(
             async (resolve, reject) => {
-                const db = rootGetters.db;
-                const collection = db.collection("users");
-
-                const unsnap = collection
-                    .orderBy("nickname")
-                    .onSnapshot(async querySnapshot => {
+                const object = {
+                    path: "users",
+                    order: "nickname",
+                    callback: async querySnapshot => {
                         const docs = querySnapshot.docs;
                         let obj = {};
                         for (let i = 0; i < docs.length; i++) {
@@ -64,11 +62,11 @@ const actions = {
                                 nickname: result.nickname
                             };
                         }
-
                         commit("setMembersData", obj);
                         resolve();
-                    });
-
+                    }
+                };
+                const unsnap = await common.fb.snap(object);
                 commit("setUnsnap", unsnap);
             },
             error => {

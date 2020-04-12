@@ -2,7 +2,6 @@
  * ボード関連
  */
 import store from "@/store/index";
-import { fn } from "@/store/index";
 import taskModule from "@/store/modules/tasks";
 import common from "@/store/common";
 //--------------
@@ -217,7 +216,7 @@ const actions = {
         let projectDoc = getters.info.projectDocPath;
         let updateDate = getters.updateDate;
 
-        fn.httpsCallable("postProcess")({
+        common.fb.postProcess({
             taskDocPaths: pathArray,
             projectDocPath: projectDoc,
             date: updateDate

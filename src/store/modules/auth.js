@@ -81,72 +81,48 @@ const actions = {
      * @param {*} context
      * @param {*} idとpass
      */
-    login({ dispatch, rootGetters }, value) {
-        const firebase = rootGetters.firebase;
-        const callback = value.callback;
-
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(value.id, value.pass)
-            .then(
-                auth => {
-                    if (!auth.user.emailVerified) {
-                        callback();
-                        dispatch("logout");
-                    } else {
-                        let uid = auth.user.uid;
-                        let path = "/projects";
-                        dispatch("setUserInfo", {
-                            uid: uid,
-                            path: path
-                        });
-                    }
-                },
-                error => {
-                    throw { type: "FIREBASE_AUTH", error: error.code };
-                }
-            );
+    async login({ dispatch }, value) {
+        const object = {
+            id: value.id,
+            pass: value.pass,
+            callback: value.callback
+        };
+        const result = await common.fb.login(object);
+        if (result.type == "succsess") {
+            dispatch("setUserInfo", {
+                uid: result.uid,
+                path: result.path
+            });
+        } else {
+            dispatch("logout");
+        }
     },
     /**
      * singUp
      * @param {*} context
      * @param {*} idとpass
      */
-    regist({ dispatch, rootGetters }, value) {
-        const firebase = rootGetters.firebase;
-        const email = value.id;
-        const password = value.pass;
-        const callback = value.callback;
+    async regist({ dispatch }, value) {
+        const registData = {
+            id: value.id,
+            pass: value.pass,
+            callback: value.callback
+        };
 
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then(
-                auth => {
-                    auth.user.sendEmailVerification();
-                    callback();
+        const userUid = await common.fb.regist(registData);
 
-                    //初期データ作成
-                    const uid = auth.user.uid;
-                    const altId = uuidv4();
-                    const contract = contractId;
-                    const team = teamId;
-                    const userTemplate = common.templates.user(
-                        contract,
-                        team,
-                        altId
-                    );
+        //初期データ作成
+        const uid = userUid;
+        const altId = uuidv4();
+        const contract = contractId;
+        const team = teamId;
+        const userTemplate = common.templates.user(contract, team, altId);
 
-                    const object = {
-                        path: "/users/" + uid,
-                        content: userTemplate
-                    };
-                    common.fb.setDoc(object);
-                },
-                error => {
-                    throw { type: "FIREBASE_AUTH", error: error.code };
-                }
-            );
+        const object = {
+            path: "/users/" + uid,
+            content: userTemplate
+        };
+        common.fb.setDoc(object);
     },
     /**
      * setUserInfo
@@ -178,16 +154,9 @@ const actions = {
      * Logout
      * @param {*} context
      */
-    logout({ rootGetters, dispatch }) {
+    async logout({ dispatch }) {
         dispatch("app/remove", null, { root: true });
-        const firebase = rootGetters.firebase;
-        firebase
-            .auth()
-            .signOut()
-            .then(() => {})
-            .catch(error => {
-                throw { type: "FIREBASE_AUTH", error: error.code };
-            });
+        await common.fb.logout();
     }
 };
 

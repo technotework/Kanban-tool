@@ -1,4 +1,3 @@
-import store from "@/store/index";
 import common from "@/store/common";
 //--------------
 //state
@@ -44,17 +43,19 @@ const actions = {
 	 * 読み込み
 	 * @param {*} param0 
 	 =============================*/
-    read({ commit, rootGetters, getters, dispatch }) {
+    async read({ commit, rootGetters, getters, dispatch }) {
         const teamsPath = rootGetters["auth/teamPath"];
 
-        const db = rootGetters.db;
-        //TeamNameをRead&Listen
-        const doc = db.doc(teamsPath);
-        const unsnap = doc.onSnapshot(function(doc) {
-            const data = doc.data();
-            //完了
-            commit("setData", data.label);
-        });
+        const object = {
+            path: teamsPath,
+            callback: doc => {
+                const data = doc.data();
+                //完了
+                commit("setData", data.label);
+            }
+        };
+        const unsnap = await common.fb.snapDoc(object);
+
         commit("setUnsnap", unsnap);
     },
     /**

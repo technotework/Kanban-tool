@@ -1,7 +1,6 @@
-import { db, st } from "@/store/index";
+import { db, st, fn, fb } from "@/vender/firebase";
 import { TYPE, APP } from "@/containers/resorces/message";
 let unit = 10000000;
-
 const util = {
     /**==================================
    * テンプレート
@@ -109,16 +108,91 @@ const util = {
    * firebaseWrapper
    ==================================*/
     fb: {
+        login: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+
+            const { id, pass, callback } = object;
+            let result;
+            fb()
+                .auth()
+                .setPersistence(fb().auth.Auth.Persistence.SESSION);
+            await fb()
+                .auth()
+                .signInWithEmailAndPassword(id, pass)
+                .then(
+                    auth => {
+                        if (!auth.user.emailVerified) {
+                            callback();
+                            result = { type: "fail", uid: null, path: null };
+                        } else {
+                            let uid = auth.user.uid;
+                            let path = "/projects";
+                            result = { type: "succsess", uid: uid, path: path };
+                        }
+                    },
+                    error => {
+                        throw { type: "FIREBASE_AUTH", error: error.code };
+                    }
+                );
+            return result;
+        },
+        /**
+         * 新規登録
+         */
+        regist: async object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+
+            const { id, pass, callback } = object;
+            let result;
+            await fb()
+                .auth()
+                .createUserWithEmailAndPassword(id, pass)
+                .then(
+                    auth => {
+                        auth.user.sendEmailVerification();
+                        callback();
+                        result = auth.user.uid;
+                    },
+                    error => {
+                        throw { type: "FIREBASE_AUTH", error: error.code };
+                    }
+                );
+            return result;
+        },
+        /**
+         * Logout
+         */
+        logout: async () => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+            await fb()
+                .auth()
+                .signOut()
+                .then(() => {})
+                .catch(error => {
+                    throw { type: "FIREBASE_AUTH", error: error.code };
+                });
+            return true;
+        },
         /**
          * snapshot
          */
         snap: object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+
             const { path, order, callback } = object;
-            const collection = db.collection(path);
+            const collection = db().collection(path);
             const unsnap = collection
                 .orderBy(order)
-                .onSnapshot(function(querySnapshot) {
-                    callback(querySnapshot);
+                .onSnapshot(async querySnapshot => {
+                    await callback(querySnapshot);
                 });
             return unsnap;
         },
@@ -131,7 +205,7 @@ const util = {
             }
 
             const { path, content } = object;
-            const collection = db.collection(path);
+            const collection = db().collection(path);
             let result;
             await collection
                 .add(content)
@@ -155,7 +229,7 @@ const util = {
             }
 
             const { path, key } = object;
-            const collection = db.collection(path);
+            const collection = db().collection(path);
             let result;
             await collection
                 .get()
@@ -185,7 +259,7 @@ const util = {
             }
 
             let { path, content } = object;
-            let doc = db.doc(path);
+            let doc = db().doc(path);
             let result;
             await doc
                 .set(content, { merge: true })
@@ -209,7 +283,7 @@ const util = {
             }
 
             let { path, content } = object;
-            let doc = db.doc(path);
+            let doc = db().doc(path);
             let result;
             await doc
                 .update(content)
@@ -232,7 +306,7 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
             const { path } = object;
-            const doc = db.doc(path);
+            const doc = db().doc(path);
             let result;
             await doc
                 .get()
@@ -255,7 +329,7 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
             const { path } = object;
-            const doc = db.doc(path);
+            const doc = db().doc(path);
             let result;
             await doc
                 .delete()
@@ -271,6 +345,21 @@ const util = {
             return result;
         },
         /**
+         * snapshot
+         */
+        snapDoc: object => {
+            if (!navigator.onLine) {
+                throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
+            }
+
+            const { path, callback } = object;
+            const doc = db().doc(path);
+            const unsnap = doc.onSnapshot(function(doc) {
+                callback(doc);
+            });
+            return unsnap;
+        },
+        /**
          * upload
          */
         upload: async object => {
@@ -279,7 +368,9 @@ const util = {
             }
             const { path, content } = object;
             let result;
-            const strorage = st.ref().child(path);
+            const strorage = st()
+                .ref()
+                .child(path);
             //アップロード
             await strorage
                 .put(content)
@@ -303,12 +394,18 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
 
-            const ref = st.ref(id + "/icon");
+            const ref = st().ref(id + "/icon");
             const url = await ref.getDownloadURL();
             const response = await fetch(url).catch(error => {
                 throw { type: TYPE.FIREBASE_STORAGE, error: error.code };
             });
             return response;
+        },
+        /**
+         * FirebaseFunctionsに後処理をなげる
+         */
+        postProcess: object => {
+            fn().httpsCallable("postProcess")(object);
         }
     },
     /**==================================
