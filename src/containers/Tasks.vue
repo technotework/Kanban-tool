@@ -21,29 +21,29 @@
  */
 import Members from "@/containers/Members";
 import TaskList from "@/components/organisms/boards/task-list/";
-import taskModule from "@/store/modules/tasks";
+import taskModule from "@/store/modules/tasks/tasks";
 export default {
     name: "Tasks",
     props: {
-        id: String,
+        id: String
     },
-    created: function () {
+    created: function() {
         this.init();
     },
-    destroyed: function () {
+    destroyed: function() {
         this.$store.commit(this.storeModuleName + "/remove");
         this.$store.unregisterModule(this.storeModuleName);
     },
     data: () => {
         return {
             storeModuleName: "",
-            members: Members,
+            members: Members
         };
     },
     watch: {
         id(value) {
             this.storeModuleName = "task_" + value;
-        },
+        }
     },
     computed: {
         taskList: {
@@ -56,7 +56,7 @@ export default {
                     this.storeModuleName + "/setTasksData",
                     value
                 );
-            },
+            }
         },
         isOpen: {
             //投稿エディタの開閉状況管理
@@ -69,11 +69,11 @@ export default {
                     this.storeModuleName + "/setEditorOpen",
                     value
                 );
-            },
+            }
         },
         myEditorId() {
             return this.$store.getters["auth/user"].altId;
-        },
+        }
     },
     methods: {
         /**
@@ -108,8 +108,8 @@ export default {
         },
         onCompleteEdit(value) {
             this.$store.dispatch(this.storeModuleName + "/unlockTask", value);
-        },
+        }
     },
-    components: { TaskList },
+    components: { TaskList }
 };
 </script>

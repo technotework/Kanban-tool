@@ -49,22 +49,7 @@ const actions = {
                 const object = {
                     path: "users",
                     order: "nickname",
-                    callback: async querySnapshot => {
-                        const docs = querySnapshot.docs;
-                        let obj = {};
-                        for (let i = 0; i < docs.length; i++) {
-                            let result = docs[i].data();
-                            let id = result.altId;
-                            let response = await common.fb.execDownloadIcon(id);
-                            let url = response.url;
-                            obj[id] = {
-                                img: url,
-                                nickname: result.nickname
-                            };
-                        }
-                        commit("setMembersData", obj);
-                        resolve();
-                    }
+                    callback: actions.$_readMemberCallback(commit, resolve)
                 };
                 const unsnap = await common.fb.snap(object);
                 commit("setUnsnap", unsnap);
@@ -73,6 +58,39 @@ const actions = {
                 //console.log(error);
             }
         );
+    },
+    /**
+     * MemberをFirebaseが読んだ後callbackする
+     * @param {*} commit
+     * @param {*} resolve
+     */
+    $_readMemberCallback(commit, resolve) {
+        return async querySnapshot => {
+            const docs = querySnapshot.docs;
+            let obj = {};
+            for (let i = 0; i < docs.length; i++) {
+                let result = docs[i].data();
+
+                let { response, id } = await actions.$_downloadIcon(result);
+
+                let url = response.url;
+                obj[id] = {
+                    img: url,
+                    nickname: result.nickname
+                };
+            }
+            commit("setMembersData", obj);
+            resolve();
+        };
+    },
+    /**
+     * アイコンのダウンロード
+     * @param {*} result
+     */
+    async $_downloadIcon(result) {
+        let id = result.altId;
+        let response = await common.fb.execDownloadIcon(id);
+        return { response, id };
     }
 };
 

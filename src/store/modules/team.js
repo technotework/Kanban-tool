@@ -40,9 +40,9 @@ const getters = {
 //--------------
 const actions = {
     /**=============================
-	 * 読み込み
-	 * @param {*} param0 
-	 =============================*/
+     * 読み込み
+     * @param {*} param0 
+     =============================*/
     async read({ commit, rootGetters, getters, dispatch }) {
         const teamsPath = rootGetters["auth/teamPath"];
 

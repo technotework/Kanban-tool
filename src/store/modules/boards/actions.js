@@ -1,71 +1,6 @@
-/**
- * ボード関連
- */
 import store from "@/store/index";
-import taskModule from "@/store/modules/tasks";
+import taskModule from "@/store/modules/tasks/tasks";
 import common from "@/store/common";
-//--------------
-//state
-//--------------
-const state = {
-    appInfo: null,
-    boardsData: [],
-    projectId: "",
-    unsnapshots: [],
-    lastUpdateDate: null
-};
-
-//--------------
-//mutations
-//--------------
-const mutations = {
-    setAppInfo(state, payload) {
-        state.projectId = payload.projectId;
-        state.appInfo = payload;
-    },
-    setBoardsData(state, payload) {
-        state.boardsData = payload;
-    },
-    setProjectId(state, payload) {
-        state.projectId = payload;
-    },
-    setUnsnap(state, payload) {
-        state.unsnapshots.push(payload);
-    },
-    setUpdateDate(state, payload) {
-        let date = Math.floor(new Date().getTime() / 1000);
-        state.lastUpdateDate = date;
-    },
-    remove(state) {
-        for (let i = 0; i < state.unsnapshots.length; i++) {
-            state.unsnapshots[i]();
-        }
-        state.unsnapshots = [];
-        state.appInfo = null;
-        state.boardsData = [];
-        state.lastUpdateDate = null;
-        state.projectId = "";
-    }
-};
-
-//--------------
-//getters
-//--------------
-const getters = {
-    info(state) {
-        return state.appInfo;
-    },
-    boards(state) {
-        return state.boardsData;
-    },
-    projectId(state) {
-        return state.projectId;
-    },
-    updateDate(state) {
-        return state.lastUpdateDate;
-    }
-};
-
 //--------------
 //actions
 //--------------
@@ -90,13 +25,12 @@ const actions = {
         const { boardPath } = getters.info;
         const order = common.util.getOrder(null, getters.boards, "board");
         const boardTemplate = common.templates.board(order);
-
         const object = {
             path: boardPath,
             content: boardTemplate
         };
         await common.fb.add(object);
-        commit("setUpdateDate");
+        actions.$_updateDate(commit);
     },
     /**========================
 	 * 初期読み込み
@@ -108,43 +42,62 @@ const actions = {
             dispatch("projects/read", null, { root: true });
         }
 
-        //setting
         const { boardPath } = getters.info;
-
+        //ボード読み込み
+        await actions.$_readBoard(boardPath, commit);
+    },
+    /**
+     * ボードを読み込み
+     * @param {*} boardPath
+     * @param {*} commit
+     */
+    async $_readBoard(boardPath, commit) {
         const object = {
             path: boardPath,
             order: "board.order",
-            callback: querySnapshot => {
-                let array = [];
-                querySnapshot.forEach(function(doc) {
-                    const result = doc.data();
-                    result.board.id = doc.id;
-                    array.push(result);
-
-                    //boardのtask用のstore moduleを生成
-                    const storeModuleName = "task_" + doc.id;
-                    let hasModule = store.state.hasOwnProperty(storeModuleName);
-
-                    if (!hasModule) {
-                        store.registerModule(storeModuleName, taskModule);
-                        store.commit(
-                            storeModuleName + "/setParentBoardId",
-                            doc.id
-                        );
-                        store.dispatch(
-                            storeModuleName + "/setInitialData",
-                            doc.id
-                        );
-                        store.dispatch(storeModuleName + "/read", doc.id);
-                    }
-                });
-                commit("setBoardsData", array);
-            }
+            callback: actions.$_readCallback(commit)
         };
         const unsnap = await common.fb.snap(object);
         commit("setUnsnap", unsnap);
     },
-
+    /**
+     * readのfirebase通信後callbackされる関数
+     * @param {*} commit
+     */
+    $_readCallback(commit) {
+        return querySnapshot => {
+            let array = [];
+            querySnapshot.forEach(function(doc) {
+                const result = doc.data();
+                result.board.id = doc.id;
+                array.push(result);
+                //boardのtask用のstore moduleを生成
+                actions.$_registTaskModule(doc);
+            });
+            commit("setBoardsData", array);
+        };
+    },
+    /**
+     * TaskModuleがなければ登録する
+     * @param {*} doc
+     */
+    $_registTaskModule(doc) {
+        const storeModuleName = "task_" + doc.id;
+        let hasModule = actions.$_checkTaskModule(storeModuleName);
+        if (!hasModule) {
+            store.registerModule(storeModuleName, taskModule);
+            store.commit(storeModuleName + "/setParentBoardId", doc.id);
+            store.dispatch(storeModuleName + "/setInitialData", doc.id);
+            store.dispatch(storeModuleName + "/read", doc.id);
+        }
+    },
+    /**
+     * TaskModuleの有無の確認
+     * @param {*} storeModuleName
+     */
+    $_checkTaskModule(storeModuleName) {
+        return store.state.hasOwnProperty(storeModuleName);
+    },
     /**========================
 	 * ボード名更新
 	 * @param {*} param0 
@@ -160,7 +113,7 @@ const actions = {
             content: { board: { label: value.name } }
         };
         await common.fb.setDoc(object);
-        commit("setUpdateDate");
+        actions.$_updateDate(commit);
     },
     /**========================
 	 * ボード削除
@@ -174,20 +127,41 @@ const actions = {
         const boardDocPath = boardPath + boardDocId;
         const taskPath = boardDocPath + "/tasks/";
 
+        //Taskの削除
+        await actions.$_deleteTask(taskPath);
+        //Boardの削除
+        actions.$_deleteBoard(boardDocPath);
+        actions.$_updateDate(commit);
+    },
+    /**
+     * ボードの削除
+     * @param {*} boardDocPath
+     */
+    $_deleteBoard(boardDocPath) {
+        common.fb.deleteDoc({ path: boardDocPath });
+    },
+    /**
+     * タスクの削除
+     * @param {*} taskPath
+     */
+    async $_deleteTask(taskPath) {
+        let taskDataArray = await actions.$_getDeleteTask(taskPath);
+        for (let i = 0; i < taskDataArray.length; i++) {
+            let taskDocPath = taskPath + taskDataArray[i].task.id;
+            common.fb.deleteDoc({ path: taskDocPath });
+        }
+    },
+    /**
+     * 削除対象のTaskw読んで返す
+     * @param {*} taskPath
+     */
+    async $_getDeleteTask(taskPath) {
         const object = {
             path: taskPath,
             key: "task"
         };
         let taskDataArray = await common.fb.get(object);
-
-        for (let i = 0; i < taskDataArray.length; i++) {
-            let taskDocPath = taskPath + taskDataArray[i].task.id;
-
-            common.fb.deleteDoc({ path: taskDocPath });
-        }
-
-        common.fb.deleteDoc({ path: boardDocPath });
-        commit("setUpdateDate");
+        return taskDataArray;
     },
     /**
      * Backやブラウザを閉じて離脱後の後処理をFirebase Functionsに投げる
@@ -241,17 +215,15 @@ const actions = {
             content: { board: { order: order } }
         };
         await common.fb.setDoc(object);
+        actions.$_updateDate(commit);
+    },
+    /**=========================================================
+     * 日付更新commit
+     * @param {*} commit 
+    =============================*/
+    $_updateDate(commit) {
         commit("setUpdateDate");
     }
 };
 
-export { state, mutations, getters, actions };
-
-export default {
-    namespaced: true,
-    strict: true,
-    state,
-    mutations,
-    getters,
-    actions
-};
+export default actions;

@@ -1,84 +1,4 @@
-/**
- * タスク管理
- */
 import common from "@/store/common";
-import store from "@/store/index";
-//--------------
-//state
-//--------------
-function state() {
-    return {
-        appInfo: {},
-        tasksData: [],
-        isOpenEditor: false,
-        parentBoardId: "",
-        unsnapshots: []
-    };
-}
-
-//--------------
-//mutations
-//--------------
-const mutations = {
-    initializeData(state, payload) {
-        state.appInfo = payload;
-    },
-    setParentBoardId(state, payload) {
-        state.parentBoardId = payload;
-    },
-    setTasksData(state, payload) {
-        state.tasksData = payload;
-    },
-    setEditorOpen(state, payload) {
-        state.isOpenEditor = payload;
-    },
-    setUnsnap(state, payload) {
-        state.unsnapshots.push(payload);
-    },
-    remove(state) {
-        for (let i = 0; i < state.unsnapshots.length; i++) {
-            state.unsnapshots[i]();
-        }
-        state.unsnapshots = [];
-        state.appInfo = {};
-        state.tasksData = [];
-        state.isOpenEditor = false;
-        state.parentBoardId = "";
-    }
-};
-
-//--------------
-//getters
-//--------------
-const getters = {
-    info(state) {
-        return state.appInfo;
-    },
-    tasks(state) {
-        return state.tasksData;
-    },
-    isOpen(state) {
-        return state.isOpenEditor;
-    },
-    boardId(state) {
-        return state.parentBoardId;
-    },
-    editingDocPaths(state) {
-        let result = [];
-        const docs = state.tasksData;
-        const myId = store.getters["auth/user"].altId;
-        const taskPath = state.appInfo.taskPath;
-        for (let i = 0; i < docs.length; i++) {
-            if (docs[i].task.editing == myId) {
-                let path = taskPath + docs[i].task.id;
-                result.push(path);
-            }
-        }
-
-        return result;
-    }
-};
-
 //--------------
 //actions
 //--------------
@@ -158,34 +78,47 @@ const actions = {
         const object = {
             path: taskPath,
             order: "task.order",
-            callback: querySnapshot => {
-                let array = [];
-                querySnapshot.forEach(function(doc) {
-                    let result = doc.data();
-                    result.task.id = doc.id;
-
-                    //予期せずロックしっぱなしだった場合、30分たっていたらロック解除する
-                    if (result.task.editing != "") {
-                        let now = Math.floor(new Date().getTime() / 1000);
-                        if (
-                            result.task.editing_date != null &&
-                            now - result.task.editing_date > 1800
-                        ) {
-                            dispatch("unlockTask", {
-                                id: result.task.id
-                            });
-                        }
-                    }
-
-                    array.push(result);
-                });
-                commit("setTasksData", array);
-            }
+            callback: actions.$_readTasksCallback(dispatch, commit)
         };
         const unsnap = common.fb.snap(object);
         commit("setUnsnap", unsnap);
     },
-
+    /**
+     * タスクをfirebaseから読んだ後のcallback
+     * @param {*} dispatch
+     * @param {*} commit
+     */
+    $_readTasksCallback(dispatch, commit) {
+        return querySnapshot => {
+            let array = [];
+            querySnapshot.forEach(function(doc) {
+                let result = doc.data();
+                result.task.id = doc.id;
+                //予期せずロックしっぱなしだった場合、30分たっていたらロック解除する
+                actions.$_timeUnlockEditUser(result, dispatch);
+                array.push(result);
+            });
+            commit("setTasksData", array);
+        };
+    },
+    /**
+     * ロックの時限解除
+     * @param {*} result
+     * @param {*} dispatch
+     */
+    $_timeUnlockEditUser(result, dispatch) {
+        if (result.task.editing != "") {
+            let now = Math.floor(new Date().getTime() / 1000);
+            if (
+                result.task.editing_date != null &&
+                now - result.task.editing_date > 1800
+            ) {
+                dispatch("unlockTask", {
+                    id: result.task.id
+                });
+            }
+        }
+    },
     /**=============================
    * タスクをアップデート
    * @param {*} param0 
@@ -206,9 +139,8 @@ const actions = {
         commit("boards/setUpdateDate", null, { root: true });
     },
     /**==============================
- * メンバー情報のアップデート
- * 
- ==============================*/
+     * メンバー情報のアップデート
+     ==============================*/
     async updateMember({ getters, commit }, value) {
         //setting
         const { id, data } = value;
@@ -317,27 +249,26 @@ const actions = {
             projectPath + "/boards/" + originalBoardId + "/tasks/" + taskId;
 
         //オリジナルタスクのコンテンツ取得
-        const object = { path: originalTaskDocPath };
-        const taskData = await common.fb.getDoc(object);
-        const data = taskData.data();
+        const data = await actions.$_getOriginalTaskData(originalTaskDocPath);
         //オリジナルタスクの消し込み
         await dispatch(
             "task_" + originalBoardId + "/deleteTask",
             { id: taskId },
             { root: true }
         );
-
         //移動後のタスクの生成
         await dispatch("insertTask", { template: data, id: taskId });
+    },
+    /**
+     * オリジナルのタスクデータを確保
+     * @param {*} originalTaskDocPath
+     */
+    async $_getOriginalTaskData(originalTaskDocPath) {
+        const object = { path: originalTaskDocPath };
+        const taskData = await common.fb.getDoc(object);
+        const data = taskData.data();
+        return data;
     }
 };
 
-export { state, mutations, getters, actions };
-export default {
-    namespaced: true,
-    strict: true,
-    state,
-    mutations,
-    getters,
-    actions
-};
+export default actions;
