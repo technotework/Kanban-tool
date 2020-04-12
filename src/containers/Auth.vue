@@ -1,5 +1,10 @@
 <template>
-    <AuthUnit @login-event="onLogin" @regist-event="onRegist" ref="authUnit" />
+    <AuthUnit
+        @login-event="onLogin"
+        @regist-event="onRegist"
+        @agree-event="onAgreeRegist"
+        ref="authUnit"
+    />
 </template>
 
 <script>
@@ -25,14 +30,14 @@ export default {
                 data: value.id,
                 name: "メールアドレス",
                 require: true,
-                email: true,
+                email: true
             };
 
             const objPass = {
                 data: value.pass,
                 name: "パスワード",
                 require: true,
-                password: true,
+                password: true
             };
 
             validateMultiple([objMail, objPass], () => {
@@ -53,7 +58,7 @@ export default {
                 data: value.id,
                 name: "メールアドレス",
                 require: true,
-                email: true,
+                email: true
             };
 
             const objPass = {
@@ -61,13 +66,13 @@ export default {
                 name: "パスワード",
                 more: 8,
                 require: true,
-                password: true,
+                password: true
             };
 
             const objAgree = {
                 data: value.agree,
                 name: "利用規約に同意",
-                agree: true,
+                agree: true
             };
 
             validateMultiple([objMail, objPass, objAgree], () => {
@@ -86,11 +91,30 @@ export default {
             //ダイアログ表示データ取得
             const message = getConfirmMessage({
                 type: TYPE.ALERT,
-                normal: APP.SENDMAIL,
+                normal: APP.SENDMAIL
             });
             //primary button callback
             const p = () => {
                 this.$refs.authUnit.tabReset();
+                //ダイアログStoreデータリセット
+                this.resetAuthDialogue();
+            };
+            //ダイアログデータ構成
+            const object = { text: message[0].text, p: p, s: null };
+
+            this.setAuthDialogue(object);
+        },
+        /**
+         * 同意
+         */
+        onAgreeRegist() {
+            //ダイアログ表示データ取得
+            const message = getConfirmMessage({
+                type: TYPE.ALERT,
+                normal: APP.AGREE
+            });
+            //primary button callback
+            const p = () => {
                 //ダイアログStoreデータリセット
                 this.resetAuthDialogue();
             };
@@ -106,7 +130,7 @@ export default {
             //ダイアログ表示データ取得
             const message = getConfirmMessage({
                 type: TYPE.ALERT,
-                normal: APP.NO_AUTH,
+                normal: APP.NO_AUTH
             });
             //primary button callback
             const p = () => {
@@ -117,8 +141,8 @@ export default {
             const object = { text: message[0].text, p: p, s: null };
 
             this.setAuthDialogue(object);
-        },
+        }
     },
-    components: { AuthUnit },
+    components: { AuthUnit }
 };
 </script>

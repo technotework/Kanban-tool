@@ -2,7 +2,7 @@
     <div>
         <BaseModalCover>
             <Dialogue>
-                <span :class="$style.text">{{ text }}</span>
+                <div :class="$style.text">{{ text }}</div>
                 <div :class="$style.buttonContainer">
                     <template v-if="sCallback != null">
                         <SecondaryButton
@@ -65,6 +65,7 @@ export default {
 .text {
     letter-spacing: 0.15rem;
     line-height: $f24;
+    white-space: pre-line;
 }
 .buttonContainer {
     display: flex;

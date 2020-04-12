@@ -13,7 +13,9 @@
                     v-model="modelData"
                     :class="$style.agree"
                 >
-                    <a href="#" target="_blank">デモのご注意</a>に同意する
+                    <a href="#" target="_blank" @click.prevent="onAgreeClick"
+                        >デモのご注意</a
+                    >に同意する
                 </LabeledCheckbox>
                 <BaseSubmitButton
                     @click="onRegist"
@@ -65,6 +67,9 @@ export default {
                 agree: this.agree,
                 e: e
             });
+        },
+        onAgreeClick() {
+            this.$emit("agree-event");
         }
     },
     components: {

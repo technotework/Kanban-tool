@@ -12,7 +12,10 @@
                 <LoginForm @login-event="onLoginClick" />
             </template>
             <template #second>
-                <RegistForm @regist-event="onRegistClick" />
+                <RegistForm
+                    @regist-event="onRegistClick"
+                    @agree-event="onAgreeClick"
+                />
             </template>
         </TabContainer>
     </div>
@@ -38,6 +41,9 @@ export default {
         },
         onRegistClick(value) {
             this.$emit("regist-event", value);
+        },
+        onAgreeClick() {
+            this.$emit("agree-event");
         },
         tabReset() {
             this.$refs.tab.tabReset();
