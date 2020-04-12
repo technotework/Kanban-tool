@@ -42,7 +42,8 @@ export default {
             return {
                 animation: 200,
                 preventOnFilter: false,
-                ghostClass: this.$style.ghost
+                ghostClass: this.$style.ghost,
+                forceFallback: true
             };
         },
         boardList: {

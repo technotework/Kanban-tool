@@ -91,7 +91,8 @@ export default {
                 animation: 200,
                 group: "tasks",
                 preventOnFilter: false,
-                ghostClass: this.$style.ghost
+                ghostClass: this.$style.ghost,
+                forceFallback: true
             };
         },
         taskList: {
@@ -228,6 +229,7 @@ export default {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0 14px;
+    user-select: none;
 }
 .listItem {
     margin: 0 0 16px 0;

@@ -82,6 +82,7 @@ export default {
 .projectListItem {
     position: relative;
     width: 190px;
+    user-select: none;
 }
 .thumb {
     position: relative;
