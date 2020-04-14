@@ -10,6 +10,7 @@ import message from "./modules/message";
 import user from "./modules/user";
 import members from "./modules/members";
 import team from "./modules/team";
+import utils from "./modules/utils";
 
 Vue.use(Vuex);
 Firebase.init();
@@ -33,6 +34,7 @@ export default new Vuex.Store({
         message,
         user,
         members,
-        team
+        team,
+        utils
     }
 });

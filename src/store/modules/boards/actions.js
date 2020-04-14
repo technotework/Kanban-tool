@@ -8,7 +8,7 @@ const actions = {
         const info = {
             projectId: value,
             projectDocPath: rootGetters["auth/path"] + value,
-            boardPath: rootGetters["auth/path"] + value + "/boards/",
+            boardPath: rootGetters["auth/path"] + value + "/boards/"
         };
         commit("setAppInfo", info);
 
@@ -26,7 +26,7 @@ const actions = {
         const boardTemplate = common.templates.board(order);
         const object = {
             path: boardPath,
-            content: boardTemplate,
+            content: boardTemplate
         };
         await common.fb.add(object);
         actions.$_updateDate(commit);
@@ -54,7 +54,7 @@ const actions = {
         const object = {
             path: boardPath,
             order: "board.order",
-            callback: actions.$_readCallback({ commit, rootState, dispatch }),
+            callback: actions.$_readCallback({ commit, rootState, dispatch })
         };
         const unsnap = await common.fb.snap(object);
         commit("setUnsnap", unsnap);
@@ -74,7 +74,15 @@ const actions = {
                 actions.$_registTaskModule({ commit, rootState, dispatch }, doc);
             });
             commit("setBoardsData", array);
+            actions.$_completeReadCallback({ dispatch });
         };
+    },
+    /**
+     * readできましたよ
+     */
+    $_completeReadCallback({ dispatch }) {
+        //testで使っている
+        dispatch("utils/completeReceiver", null, { root: true });
     },
     /**
      * TaskModuleがなければ登録する
@@ -88,15 +96,15 @@ const actions = {
                 "app/registModule",
                 {
                     name: storeModuleName,
-                    module: taskModule,
+                    module: taskModule
                 },
                 { root: true }
             );
             commit(storeModuleName + "/setParentBoardId", doc.id, {
-                root: true,
+                root: true
             });
             dispatch(storeModuleName + "/setInitialData", doc.id, {
-                root: true,
+                root: true
             });
             dispatch(storeModuleName + "/read", doc.id, { root: true });
         }
@@ -120,7 +128,7 @@ const actions = {
 
         const object = {
             path: boardDocPath,
-            content: { board: { label: value.name } },
+            content: { board: { label: value.name } }
         };
         await common.fb.setDoc(object);
         actions.$_updateDate(commit);
@@ -168,7 +176,7 @@ const actions = {
     async $_getDeleteTask(taskPath) {
         const object = {
             path: taskPath,
-            key: "task",
+            key: "task"
         };
         let taskDataArray = await common.fb.get(object);
         return taskDataArray;
@@ -203,7 +211,7 @@ const actions = {
         common.fb.postProcess({
             taskDocPaths: pathArray,
             projectDocPath: projectDoc,
-            date: updateDate,
+            date: updateDate
         });
     },
     /**=========================================================
@@ -222,7 +230,7 @@ const actions = {
 
         const object = {
             path: boardDocPath,
-            content: { board: { order: order } },
+            content: { board: { order: order } }
         };
         await common.fb.setDoc(object);
         actions.$_updateDate(commit);
@@ -233,7 +241,7 @@ const actions = {
     =============================*/
     $_updateDate(commit) {
         commit("setUpdateDate");
-    },
+    }
 };
 
 export default actions;

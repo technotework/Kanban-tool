@@ -1,20 +1,28 @@
 import { createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import storeConfig from "./store-config";
-import dbBridge from "@/vender/dbBridge";
+import storeConfig from "../mock/store-config";
 import { cloneDeep } from "lodash";
+import _ from "lodash";
+import storeMock from "../mock/store";
+import dbBridge from "@/vender/dbBridge";
+import { actions } from "@/store/modules/utils";
 
 /**=========================================
  * mock
  =========================================*/
-const fs = require("fs");
+
 const localVue = createLocalVue();
 const firebase = require("@firebase/testing");
 const projectId = "kanbandemovuexboards";
 
+const teamPath = "workspace/contractId/teams/teamId/";
+
 localVue.use(Vuex);
+jest.mock("../mock/store");
+jest.mock("@/store/modules/utils");
 jest.mock("@/vender/dbBridge");
 jest.setTimeout(30000);
+
 /**=========================================
  * init
  =========================================*/
@@ -41,19 +49,19 @@ async function setInitialFBData() {
         .set({
             altId: "23ac86c5-8f58-44b1-b823-ca2856ba5de2",
             contracts: {
-                contractsId: ["teamId"]
+                contractId: ["teamId"]
             },
             img: true,
             nickname: "Lucas"
         });
     await db()
-        .doc("workspace/contractsId/teams/teamId")
+        .doc("workspace/contractId/teams/teamId/")
         .set({
             label: "MY TEAM"
         });
 
     await db()
-        .doc("workspace/contractsId/teams/teamId/projects/projectId1")
+        .doc("workspace/contractId/teams/teamId/projects/projectId1/")
         .set({
             project: {
                 id: "",
@@ -64,7 +72,7 @@ async function setInitialFBData() {
         });
 
     await db()
-        .doc("workspace/contractsId/teams/teamId/projects/projectId1/boards/boardId1")
+        .doc("workspace/contractId/teams/teamId/projects/projectId1/boards/boardId1/")
         .set({
             board: {
                 id: "",
@@ -74,7 +82,7 @@ async function setInitialFBData() {
         });
 
     await db()
-        .doc("workspace/contractsId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1")
+        .doc("workspace/contractId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1")
         .set({
             task: {
                 id: "",
@@ -99,8 +107,18 @@ async function setInitialFBData() {
  * Test
  =========================================*/
 describe("Board", () => {
+    /**=========================================
+    * 初期化
+    =========================================*/
+    let store;
     beforeEach(async () => {
         await setInitialFBData();
+        //Vuex初期化
+        store = new Vuex.Store(cloneDeep(storeConfig));
+        //VuexをMock
+        storeMock.mockImplementationOnce(() => {
+            return store;
+        });
     });
     /**
      * 後処理
@@ -111,22 +129,63 @@ describe("Board", () => {
             projectId: projectId
         });
     });
-
+    /**=========================================
+    * テスト
+    =========================================*/
+    /**
+     * ボード初期化
+     */
     test("initBoardData", () => {
-        const localVue = createLocalVue();
-        localVue.use(Vuex);
-        const store = new Vuex.Store(cloneDeep(storeConfig));
-        store.dispatch("initBoardData", "abc");
-
-        expect(store.getters.info.projectId).toBe("abc");
+        //実行
+        store.dispatch("boards/initBoardData", "projectId1");
+        //チェック
+        expect(store.getters["boards/info"].projectId).toBe("projectId1");
+        expect(store.getters["boards/info"].projectDocPath).toBe(teamPath + "projects/projectId1");
+        expect(store.getters["boards/info"].boardPath).toBe(
+            teamPath + "projects/projectId1/boards/"
+        );
     });
 
-    test("read", () => {
-        const localVue = createLocalVue();
-        localVue.use(Vuex);
-        const store = new Vuex.Store(cloneDeep(storeConfig));
-        store.dispatch("read");
-        console.log(store.getters.boards);
-        //expect(store.getters.info.projectId).toBe("abc");
+    /**
+     * ボード読み込み
+     */
+    test("read", done => {
+        //Readが終わった後のcallback
+        actions.completeReceiver.mockImplementationOnce(() => {
+            const data = store.getters["boards/boards"];
+            //チェック
+            expect(data[0].board.label).toBe("NewBoard");
+            actions.completeReceiver.mockClear();
+            done();
+        });
+        //前処理
+        store.dispatch("boards/initBoardData", "projectId1");
+        //実行
+        store.dispatch("boards/read");
+    });
+
+    /**
+     * ボード名変更
+     */
+    test("updateBoardName", done => {
+        //Readが終わった後のcallback
+        actions.completeReceiver.mockImplementationOnce(() => {
+            //1段目： 初期化READが終わった後、テストする処理をなげる
+            store.dispatch("boards/updateBoardName", {
+                id: "boardId1",
+                name: "UpdatedBoardName"
+            });
+            //2段目：テストする処理でDBが変更されてREADが終わってCallbackされる
+            actions.completeReceiver.mockImplementationOnce(() => {
+                const data = store.getters["boards/boards"];
+                expect(data[0].board.label).toBe("UpdatedBoardName");
+                actions.completeReceiver.mockClear();
+                done();
+            });
+        });
+        //前処理
+        store.dispatch("boards/initBoardData", "projectId1");
+        store.dispatch("boards/read");
+        console.log("0");
     });
 });

@@ -2,7 +2,7 @@ import { st, fn, fb } from "@/vender/firebase";
 import dbBridge from "@/vender/dbBridge";
 import { TYPE, APP } from "@/containers/resorces/message";
 const unit = 10000000;
-const db = dbBridge.getDb();
+
 const util = {
     /**==================================
    * テンプレート
@@ -190,6 +190,7 @@ const util = {
             }
 
             const { path, order, callback } = object;
+            const db = dbBridge.getDb();
             const collection = db().collection(path);
             const unsnap = collection.orderBy(order).onSnapshot(async querySnapshot => {
                 await callback(querySnapshot);
@@ -205,6 +206,7 @@ const util = {
             }
 
             const { path, content } = object;
+            const db = dbBridge.getDb();
             const collection = db().collection(path);
             let result;
             await collection
@@ -229,6 +231,7 @@ const util = {
             }
 
             const { path, key } = object;
+            const db = dbBridge.getDb();
             const collection = db().collection(path);
             let result;
             await collection
@@ -259,6 +262,7 @@ const util = {
             }
 
             const { path, content } = object;
+            const db = dbBridge.getDb();
             const doc = db().doc(path);
             let result;
             await doc
@@ -283,6 +287,7 @@ const util = {
             }
 
             const { path, content } = object;
+            const db = dbBridge.getDb();
             const doc = db().doc(path);
             let result;
             await doc
@@ -306,6 +311,7 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
             const { path } = object;
+            const db = dbBridge.getDb();
             const doc = db().doc(path);
             let result;
             await doc
@@ -329,6 +335,7 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
             const { path } = object;
+            const db = dbBridge.getDb();
             const doc = db().doc(path);
             let result;
             await doc
@@ -353,6 +360,7 @@ const util = {
             }
 
             const { path, callback } = object;
+            const db = dbBridge.getDb();
             const doc = db().doc(path);
             const unsnap = doc.onSnapshot(function(doc) {
                 callback(doc);
