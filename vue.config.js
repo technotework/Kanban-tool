@@ -3,15 +3,15 @@ module.exports = {
     devServer: {
         host: "0.0.0.0",
         port: "8080",
-        historyApiFallback: true,
+        historyApiFallback: true
     },
     configureWebpack: {
         devtool: "source-map",
         resolve: {
             alias: {
-                vue$: "vue/dist/vue.esm.js",
-            },
-        },
+                vue$: "vue/dist/vue.esm.js"
+            }
+        }
     },
     chainWebpack: config => {
         config.plugin("html").tap(options => {
@@ -20,7 +20,7 @@ module.exports = {
                 collapseWhitespace: false,
                 removeAttributeQuotes: false,
                 collapseBooleanAttributes: false,
-                removeScriptTypeAttributes: false,
+                removeScriptTypeAttributes: false
             };
             return options;
         });
@@ -30,15 +30,15 @@ module.exports = {
         loaderOptions: {
             css: {
                 modules: {
-                    localIdentName: "[folder]---[local]---[hash:base64:5]",
-                },
+                    localIdentName: "[folder]---[local]---[hash:base64:5]"
+                }
             },
             sass: {
                 prependData: `
           @import "~@/components/scss/_theme.scss";
         `,
-                sourceMap: true,
-            },
-        },
-    },
+                sourceMap: true
+            }
+        }
+    }
 };

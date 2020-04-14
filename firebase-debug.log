@@ -1,152 +1,357 @@
-[debug] [2020-04-11T08:44:44.388Z] ----------------------------------------------------------------------
-[debug] [2020-04-11T08:44:44.389Z] Command:       /Users/capeknote/.nvm/versions/node/v12.13.0/bin/node /Users/capeknote/develop/kanban/Kanban-tool/node_modules/.bin/firebase serve --only firestore
-[debug] [2020-04-11T08:44:44.389Z] CLI Version:   7.16.2
-[debug] [2020-04-11T08:44:44.390Z] Platform:      darwin
-[debug] [2020-04-11T08:44:44.390Z] Node Version:  v12.13.0
-[debug] [2020-04-11T08:44:44.390Z] Time:          Sat Apr 11 2020 17:44:44 GMT+0900 (GMT+09:00)
-[debug] [2020-04-11T08:44:44.391Z] ----------------------------------------------------------------------
-[debug] [2020-04-11T08:44:44.391Z] 
-[warn] ⚠  Please use firebase emulators:start to start the Realtime Database or Cloud Firestore emulators.
-[info] i  firestore: Serving ALL traffic (including WebChannel) on http://localhost:8080
-[warn] ⚠  firestore: Support for WebChannel on a separate port (8081) is DEPRECATED and will go away soon. Please use port above instead.
-[debug] [2020-04-11T08:44:44.436Z] Starting firestore emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/capeknote/.cache/firebase/emulators/cloud-firestore-emulator-v1.11.2.jar","--webchannel_port",8081,"--port",8080],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false}
-[info] i  firestore: firestore emulator logging to firestore-debug.log
-[debug] [2020-04-11T08:44:47.370Z] API endpoint: http://
-[debug] [2020-04-11T08:44:47.370Z] localhost:8080
-If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
-
-   export FIRESTORE_EMULATOR_HOST=localhost:8080
-
-Dev App Server is now running.
-
-
-[info] ✔  firestore: firestore emulator started at http://localhost:8080
-[debug] [2020-04-11T08:45:02.085Z] Apr 11, 2020 5:45:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2020-04-14T06:16:26.060Z] Apr 14, 2020 3:16:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:02.086Z] Apr 11, 2020 5:45:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2020-04-14T06:16:26.253Z] Apr 14, 2020 3:16:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:02.086Z] Apr 11, 2020 5:45:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2020-04-14T06:16:57.087Z] Apr 14, 2020 3:16:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.520Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
-
-[debug] [2020-04-11T08:45:03.520Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'create' @ L31
-
-[debug] [2020-04-11T08:45:03.538Z] Apr 11, 2020 5:45:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2020-04-14T06:20:51.036Z] Apr 14, 2020 3:20:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.541Z] Apr 11, 2020 5:45:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2020-04-14T06:20:51.218Z] Apr 14, 2020 3:20:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.579Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
-
-[debug] [2020-04-11T08:45:03.593Z] Apr 11, 2020 5:45:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2020-04-14T06:21:22.047Z] Apr 14, 2020 3:21:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.672Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T06:22:14.645Z] Apr 14, 2020 3:22:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.752Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T06:22:14.821Z] Apr 14, 2020 3:22:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.904Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L27
+[debug] [2020-04-14T06:22:58.730Z] Apr 14, 2020 3:22:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.950Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L31
+[debug] [2020-04-14T06:22:58.914Z] Apr 14, 2020 3:22:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:03.996Z] Apr 11, 2020 5:45:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L23
+[debug] [2020-04-14T06:23:38.796Z] Apr 14, 2020 3:23:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.209Z] bool_value: true
+[debug] [2020-04-14T06:23:38.984Z] Apr 14, 2020 3:23:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
+[debug] [2020-04-14T06:24:19.458Z] Apr 14, 2020 3:24:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.389Z] Apr 11, 2020 5:45:04 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T06:24:19.638Z] Apr 14, 2020 3:24:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.489Z] Apr 11, 2020 5:45:04 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T08:43:43.107Z] Apr 14, 2020 5:43:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.501Z] Apr 11, 2020 5:45:04 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'delete' @ L31
+[debug] [2020-04-14T08:43:43.292Z] Apr 14, 2020 5:43:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.553Z] bool_value: true
+[debug] [2020-04-14T08:44:41.739Z] Apr 14, 2020 5:44:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
+[debug] [2020-04-14T08:44:41.927Z] Apr 14, 2020 5:44:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.697Z] Apr 11, 2020 5:45:04 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T08:46:09.885Z] Apr 14, 2020 5:46:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:04.809Z] Apr 11, 2020 5:45:04 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T08:46:10.100Z] Apr 14, 2020 5:46:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:05.756Z] Apr 11, 2020 5:45:05 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'create' @ L31
+[debug] [2020-04-14T08:47:33.995Z] Apr 14, 2020 5:47:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:05.843Z] Apr 11, 2020 5:45:05 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'create' @ L31
+[debug] [2020-04-14T08:47:34.204Z] Apr 14, 2020 5:47:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:05.989Z] Apr 11, 2020 5:45:05 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'create' @ L18
+[debug] [2020-04-14T08:48:28.271Z] Apr 14, 2020 5:48:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.051Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L31
+[debug] [2020-04-14T08:48:28.457Z] Apr 14, 2020 5:48:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.137Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L31
+[debug] [2020-04-14T08:48:51.089Z] Apr 14, 2020 5:48:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.236Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L19
+[debug] [2020-04-14T08:49:15.851Z] Apr 14, 2020 5:49:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.510Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'delete' @ L31
+[debug] [2020-04-14T08:49:16.041Z] Apr 14, 2020 5:49:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.530Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'update' @ L19
+[debug] [2020-04-14T08:53:57.014Z] Apr 14, 2020 5:53:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.584Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: 
-false for 'delete' @ L31
+[debug] [2020-04-14T08:53:57.208Z] Apr 14, 2020 5:53:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.795Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T09:06:14.577Z] Apr 14, 2020 6:06:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:06.857Z] Apr 11, 2020 5:45:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
-INFO: operation failed: No matching allow statements
+[debug] [2020-04-14T09:06:14.766Z] Apr 14, 2020 6:06:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
-[debug] [2020-04-11T08:45:09.868Z] Apr 11, 2020 5:45:09 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
-WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
-java.net.SocketException: Connection reset
-	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
-	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:830)
+[debug] [2020-04-14T09:06:48.805Z] Apr 14, 2020 6:06:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
+[debug] [2020-04-14T09:06:48.993Z] Apr 14, 2020 6:06:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:08:33.454Z] Apr 14, 2020 6:08:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:08:33.641Z] Apr 14, 2020 6:08:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:11:11.371Z] Apr 14, 2020 6:11:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:11:11.560Z] Apr 14, 2020 6:11:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:12:13.057Z] Apr 14, 2020 6:12:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:12:13.295Z] Apr 14, 2020 6:12:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:13:13.480Z] Apr 14, 2020 6:13:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:13:13.665Z] Apr 14, 2020 6:13:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:28:28.502Z] Apr 14, 2020 6:28:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:28:28.696Z] Apr 14, 2020 6:28:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:29:12.349Z] Apr 14, 2020 6:29:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:29:12.534Z] Apr 14, 2020 6:29:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:30:25.409Z] Apr 14, 2020 6:30:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:30:25.601Z] Apr 14, 2020 6:30:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:39:06.446Z] Apr 14, 2020 6:39:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:39:06.625Z] Apr 14, 2020 6:39:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:39:51.149Z] Apr 14, 2020 6:39:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:39:51.345Z] Apr 14, 2020 6:39:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:41:03.072Z] Apr 14, 2020 6:41:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:41:03.263Z] Apr 14, 2020 6:41:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:41:04.386Z] Apr 14, 2020 6:41:04 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: java.lang.IllegalStateException: Stream is already completed, no further calls are allowed
+
+[debug] [2020-04-14T09:41:44.863Z] Apr 14, 2020 6:41:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:41:45.049Z] Apr 14, 2020 6:41:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:44:34.986Z] Apr 14, 2020 6:44:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:44:35.172Z] Apr 14, 2020 6:44:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:44:58.977Z] Apr 14, 2020 6:44:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:44:59.164Z] Apr 14, 2020 6:44:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:49:34.781Z] Apr 14, 2020 6:49:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:49:34.964Z] Apr 14, 2020 6:49:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:50:19.843Z] Apr 14, 2020 6:50:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:50:20.033Z] Apr 14, 2020 6:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:50:51.204Z] Apr 14, 2020 6:50:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:50:51.396Z] Apr 14, 2020 6:50:51 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:52:24.150Z] Apr 14, 2020 6:52:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:52:24.343Z] Apr 14, 2020 6:52:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:53:11.730Z] Apr 14, 2020 6:53:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:53:11.911Z] Apr 14, 2020 6:53:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:54:42.264Z] Apr 14, 2020 6:54:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:54:42.452Z] Apr 14, 2020 6:54:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:56:16.285Z] Apr 14, 2020 6:56:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:56:16.466Z] Apr 14, 2020 6:56:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:57:03.419Z] Apr 14, 2020 6:57:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:57:03.606Z] Apr 14, 2020 6:57:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:58:48.107Z] Apr 14, 2020 6:58:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T09:58:48.300Z] Apr 14, 2020 6:58:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:01:12.549Z] Apr 14, 2020 7:01:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:01:12.739Z] Apr 14, 2020 7:01:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:02:19.422Z] Apr 14, 2020 7:02:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:02:19.613Z] Apr 14, 2020 7:02:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:02:20.488Z] Apr 14, 2020 7:02:20 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: java.lang.IllegalStateException: Stream is already completed, no further calls are allowed
+
+[debug] [2020-04-14T10:02:45.991Z] Apr 14, 2020 7:02:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:02:46.176Z] Apr 14, 2020 7:02:46 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:11:45.934Z] Apr 14, 2020 7:11:45 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:11:46.121Z] Apr 14, 2020 7:11:46 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:12:16.302Z] Apr 14, 2020 7:12:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:12:46.664Z] Apr 14, 2020 7:12:46 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:18:34.317Z] Apr 14, 2020 7:18:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:18:34.509Z] Apr 14, 2020 7:18:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:19:08.312Z] Apr 14, 2020 7:19:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:19:08.506Z] Apr 14, 2020 7:19:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:20:37.512Z] Apr 14, 2020 7:20:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:20:37.696Z] Apr 14, 2020 7:20:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:23:01.310Z] Apr 14, 2020 7:23:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:23:01.499Z] Apr 14, 2020 7:23:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:23:03.615Z] Apr 14, 2020 7:23:03 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: java.lang.IllegalStateException: Stream is already completed, no further calls are allowed
+
+[debug] [2020-04-14T10:23:35.054Z] Apr 14, 2020 7:23:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:23:35.236Z] Apr 14, 2020 7:23:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:23:57.309Z] Apr 14, 2020 7:23:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:23:57.499Z] Apr 14, 2020 7:23:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:24:24.864Z] Apr 14, 2020 7:24:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:24:25.053Z] Apr 14, 2020 7:24:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:25:01.310Z] Apr 14, 2020 7:25:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:25:01.498Z] Apr 14, 2020 7:25:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:25:12.808Z] Apr 14, 2020 7:25:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:25:12.996Z] Apr 14, 2020 7:25:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:25:37.699Z] Apr 14, 2020 7:25:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:25:37.889Z] Apr 14, 2020 7:25:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:26:04.481Z] Apr 14, 2020 7:26:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:26:04.675Z] Apr 14, 2020 7:26:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:27:05.530Z] Apr 14, 2020 7:27:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:27:05.724Z] Apr 14, 2020 7:27:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:27:06.600Z] Apr 14, 2020 7:27:06 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: java.lang.IllegalStateException: Stream is already completed, no further calls are allowed
+
+[debug] [2020-04-14T10:27:27.506Z] Apr 14, 2020 7:27:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:27:27.707Z] Apr 14, 2020 7:27:27 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:27:58.776Z] Apr 14, 2020 7:27:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[debug] [2020-04-14T10:27:58.961Z] Apr 14, 2020 7:27:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
 
