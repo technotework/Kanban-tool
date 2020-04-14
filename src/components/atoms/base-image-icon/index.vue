@@ -1,9 +1,5 @@
 <template>
-    <div
-        :class="[$style.icon, $compose[compose]]"
-        :img="img"
-        :style="backgroundImage"
-    >
+    <div :class="[$style.icon, $compose[compose]]" :img="img" :style="backgroundImage">
         <slot />
     </div>
 </template>

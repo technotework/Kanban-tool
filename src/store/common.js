@@ -191,11 +191,9 @@ const util = {
 
             const { path, order, callback } = object;
             const collection = db().collection(path);
-            const unsnap = collection
-                .orderBy(order)
-                .onSnapshot(async querySnapshot => {
-                    await callback(querySnapshot);
-                });
+            const unsnap = collection.orderBy(order).onSnapshot(async querySnapshot => {
+                await callback(querySnapshot);
+            });
             return unsnap;
         },
         /**

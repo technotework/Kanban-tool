@@ -14,9 +14,7 @@
             </div>
             <div :class="$style.buttons">
                 <template v-if="status == 'ME'">
-                    <SecondaryMiniButton
-                        :class="$style.button"
-                        @click="onCancel"
+                    <SecondaryMiniButton :class="$style.button" @click="onCancel"
                         >キャンセル</SecondaryMiniButton
                     >
                     <PrimaryMiniButton :class="$style.button" @click="onSave"

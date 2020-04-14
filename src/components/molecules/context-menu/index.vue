@@ -48,12 +48,9 @@ export default {
             if (this.compose == "top") {
                 Vue.nextTick(() => {
                     if (this.$refs.menuElement != undefined) {
-                        let height =
-                            this.$refs.menuElement.$el.clientHeight + 23;
+                        let height = this.$refs.menuElement.$el.clientHeight + 23;
                         let className = this.$style.jContextMenuBody;
-                        let element = document.getElementsByClassName(
-                            className
-                        );
+                        let element = document.getElementsByClassName(className);
                         element[0].style.marginTop = `-${height}px`;
                     }
                 });

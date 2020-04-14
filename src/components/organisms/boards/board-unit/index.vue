@@ -41,7 +41,7 @@ export default {
         value: Array,
         userData: Object,
         title: String,
-        taskContainer: Object,
+        taskContainer: Object
     },
     computed: {
         items: {
@@ -50,8 +50,8 @@ export default {
             },
             set(value) {
                 this.$emit("input", value);
-            },
-        },
+            }
+        }
     },
     methods: {
         /**
@@ -74,13 +74,13 @@ export default {
         },
         onNavClick() {
             this.$emit("nav-event");
-        },
+        }
     },
     components: {
         ContentAreaLayout,
         BoardList,
-        AppHeader,
-    },
+        AppHeader
+    }
 };
 </script>
 <style lang="scss" module></style>

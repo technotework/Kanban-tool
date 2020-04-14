@@ -13,15 +13,10 @@
                     v-model="modelData"
                     :class="$style.agree"
                 >
-                    <a href="#" target="_blank" @click.prevent="onAgreeClick"
-                        >デモのご注意</a
+                    <a href="#" target="_blank" @click.prevent="onAgreeClick">デモのご注意</a
                     >に同意する
                 </LabeledCheckbox>
-                <BaseSubmitButton
-                    @click="onRegist"
-                    value="登録"
-                    :class="$style.button"
-                />
+                <BaseSubmitButton @click="onRegist" value="登録" :class="$style.button" />
             </div>
         </form>
     </div>
@@ -31,10 +26,7 @@
 /**
  * 登録フォームのコンポーネント
  */
-import {
-    SystemInput,
-    SystemPassword
-} from "@/components/atoms/base-input/compose";
+import { SystemInput, SystemPassword } from "@/components/atoms/base-input/compose";
 import LabeledCheckbox from "@/components/molecules/labeled-check-box/base";
 import BaseSubmitButton from "@/components/atoms/base-submit-button/";
 import base from "@/components/utils/base-mixin";

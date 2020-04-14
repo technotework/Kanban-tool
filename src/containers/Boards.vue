@@ -24,36 +24,32 @@ import { validateMultiple } from "@/containers/resorces/validator";
 import { TYPE, APP } from "@/containers/resorces/message";
 export default {
     name: "Boards",
-    created: function () {
+    created: function() {
         //ページクローズ前処理のListen
         window.addEventListener("beforeunload", this.unload);
         //ロードの表示
         this.showLoad(true);
         //初期処理とリロード処理・ログイン状態チェック
-        this.unlisten = this.$store.getters.firebase
-            .auth()
-            .onAuthStateChanged((user) => {
-                if (user) {
-                    const uid = user.uid;
-                    const path = "/projects/" + this.$route.params.id;
-                    this.$store
-                        .dispatch("auth/setUserInfo", { uid: uid, path: path })
-                        .then(() => {
-                            this.init();
-                        });
-                }
-            });
+        this.unlisten = this.$store.getters.firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                const uid = user.uid;
+                const path = "/projects/" + this.$route.params.id;
+                this.$store.dispatch("auth/setUserInfo", { uid: uid, path: path }).then(() => {
+                    this.init();
+                });
+            }
+        });
     },
     /**
      * 離脱前処理をなげる
      */
-    beforeDestroy: function () {
+    beforeDestroy: function() {
         this.$store.dispatch("boards/postProcess");
     },
     /**
      *廃棄
      */
-    destroyed: function () {
+    destroyed: function() {
         window.removeEventListener("beforeunload", this.unload);
         this.unlisten();
         this.$store.commit("boards/remove");
@@ -65,7 +61,7 @@ export default {
             projectId: "",
             task: Task,
             isShowLoad: false,
-            isEditingProjectName: false,
+            isEditingProjectName: false
         };
     },
     computed: {
@@ -77,7 +73,7 @@ export default {
             },
             set(value) {
                 this.$store.commit("boards/setBoardsData", value);
-            },
+            }
         },
         projectName: {
             get() {
@@ -98,19 +94,19 @@ export default {
                     data: value,
                     name: "プロジェクト名",
                     require: true,
-                    less: 15,
+                    less: 15
                 };
                 validateMultiple([obj], () => {
                     this.$store.dispatch("projects/updateProjectName", {
                         id: this.projectId,
-                        name: value,
+                        name: value
                     });
                 });
-            },
+            }
         },
         userData() {
             return { username: this.user.nickname, img: this.icon };
-        },
+        }
     },
     methods: {
         ...mapActions("boards", [
@@ -120,7 +116,7 @@ export default {
             "delete",
             "updateBoardName",
             "dragSortUpdate",
-            "postProcess",
+            "postProcess"
         ]),
         ...mapActions("members", ["getMembers"]),
         ...mapMutations("message", ["setBoardDialogue", "resetBoardDialogue"]),
@@ -144,7 +140,7 @@ export default {
                 data: value.name,
                 name: "ボード名",
                 require: true,
-                less: 12,
+                less: 12
             };
             validateMultiple([obj], () => {
                 this.updateBoardName(value);
@@ -181,7 +177,7 @@ export default {
             const message = getConfirmMessage({
                 type: TYPE.CONFIRM,
                 normal: APP.DELETE,
-                arg: { name: value.title },
+                arg: { name: value.title }
             });
             const object = { text: message[0].text, p: p, s: s };
 
@@ -197,10 +193,10 @@ export default {
             e.preventDefault();
             this.postProcess();
             e.returnValue = "このアプリを離れますか？";
-        },
+        }
     },
     components: {
-        BoardUnit,
-    },
+        BoardUnit
+    }
 };
 </script>

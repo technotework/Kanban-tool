@@ -2,11 +2,7 @@
     <TransparentButton :class="$style.button" @click="onDeleteMessage">
         <component
             :is="type"
-            :class="[
-                $style.float,
-                { [$style.open]: isShow },
-                { [$style.close]: !isShow }
-            ]"
+            :class="[$style.float, { [$style.open]: isShow }, { [$style.close]: !isShow }]"
         >
             {{ messageText }}
             <BaseIcon type="close" :class="$style.icon" />

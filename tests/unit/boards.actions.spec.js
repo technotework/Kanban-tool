@@ -21,8 +21,7 @@ st.mockReturnValue(jest.fn());
 fn.mockReturnValue(jest.fn());
 fb.mockReturnValue(jest.fn());
 
-const path =
-    "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/";
+const path = "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/";
 
 jest.mock("@/store/common");
 /**=========================================

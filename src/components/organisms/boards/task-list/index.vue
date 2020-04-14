@@ -1,31 +1,11 @@
 <template>
     <div :class="$style.container">
         <div>
-            <div
-                :class="[
-                    $style.postButton,
-                    { [$style.open]: open },
-                    { [$style.close]: !open }
-                ]"
-            >
-                <IconedButton
-                    type="plusmini"
-                    :class="$style.add"
-                    @click="onAddClick"
-                />
+            <div :class="[$style.postButton, { [$style.open]: open }, { [$style.close]: !open }]">
+                <IconedButton type="plusmini" :class="$style.add" @click="onAddClick" />
             </div>
-            <div
-                :class="[
-                    $style.postForm,
-                    { [$style.open]: open },
-                    { [$style.close]: !open }
-                ]"
-            >
-                <PostForm
-                    ref="postForm"
-                    @form-cancel="onCancelAddTask"
-                    @form-add="onAddTask"
-                />
+            <div :class="[$style.postForm, { [$style.open]: open }, { [$style.close]: !open }]">
+                <PostForm ref="postForm" @form-cancel="onCancelAddTask" @form-add="onAddTask" />
             </div>
         </div>
         <draggable

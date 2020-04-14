@@ -34,7 +34,7 @@ const actions = {
     },
     unregistModule({ commit }, storeModuleName) {
         store.unregisterModule(storeModuleName);
-    },
+    }
 };
 
 export { state, mutations, getters, actions };
@@ -44,5 +44,5 @@ export default {
     state,
     mutations,
     getters,
-    actions,
+    actions
 };

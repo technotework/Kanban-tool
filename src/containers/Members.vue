@@ -20,13 +20,13 @@ import MembersUnit from "@/components/organisms/members/members-unit/";
 import { mapActions } from "vuex";
 export default {
     name: "Members",
-    created: function () {},
+    created: function() {},
     props: {
         value: Array,
         id: String,
         editor: String,
         status: String,
-        parentId: String,
+        parentId: String
     },
     computed: {
         members() {
@@ -38,18 +38,18 @@ export default {
             },
             set(value) {
                 this.$emit("input", value);
-            },
-        },
+            }
+        }
     },
     methods: {
         onUpdateMember(value) {
             let module = "task_" + value.parentId;
             this.$store.dispatch(module + "/updateMember", {
                 id: value.id,
-                data: value.data,
+                data: value.data
             });
-        },
+        }
     },
-    components: { MembersUnit },
+    components: { MembersUnit }
 };
 </script>

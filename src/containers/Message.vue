@@ -18,17 +18,17 @@ export default {
     name: "Message",
     props: {
         target: String,
-        isShowLoad: Boolean,
+        isShowLoad: Boolean
     },
     created() {
         //ThrowされてきたエラーをListenする
         Vue.config.errorHandler = (err, vm, info) => {
             this.createErrorMessage(err);
         };
-        window.addEventListener("error", (event) => {
+        window.addEventListener("error", event => {
             this.createErrorMessage(event.error);
         });
-        window.addEventListener("unhandledrejection", (event) => {
+        window.addEventListener("unhandledrejection", event => {
             this.createErrorMessage(event.reason);
         });
     },
@@ -42,7 +42,7 @@ export default {
     },
     data: () => {
         return {
-            errorMessages: [],
+            errorMessages: []
         };
     },
     computed: {
@@ -50,7 +50,7 @@ export default {
             let name = this.target + "Dialogue";
             let getData = this.$store.getters["message/" + name];
             return getData;
-        },
+        }
     },
     methods: {
         /**
@@ -81,8 +81,8 @@ export default {
                 }
             }
             this.errorMessages.splice(index, 1);
-        },
+        }
     },
-    components: { MessageUnit },
+    components: { MessageUnit }
 };
 </script>

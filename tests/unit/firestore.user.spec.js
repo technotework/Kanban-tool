@@ -89,17 +89,13 @@ describe("users set", () => {
         //SET
         test("認証なし:失敗", async () => {
             const db = getFirestore();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertFails(doc.set({ nickname: "john" }));
         });
 
         test("認証あり:成功", async () => {
             const db = getFirestoreWithAuth();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertSucceeds(doc.set({ nickname: "john" }));
         });
     });
@@ -127,25 +123,19 @@ describe("users update", () => {
         //SET
         test("認証なし:失敗", async () => {
             const db = getFirestore();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertFails(doc.update({ nickname: "john" }));
         });
 
         test("認証あり:成功", async () => {
             const db = getFirestoreWithAuth();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertSucceeds(doc.update({ nickname: "john" }));
         });
 
         test("別ユーザー認証あり:成功", async () => {
             const db = getFirestoreWithOtherAuth();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertFails(doc.update({ nickname: "john" }));
         });
     });
@@ -173,17 +163,13 @@ describe("users get", () => {
         //SET
         test("認証なし:失敗", async () => {
             const db = getFirestore();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertFails(doc.get());
         });
 
         test("認証あり:成功", async () => {
             const db = getFirestoreWithAuth();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertSucceeds(doc.get());
         });
     });
@@ -211,17 +197,13 @@ describe("users delete", () => {
         //SET
         test("認証なし:失敗", async () => {
             const db = getFirestore();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertFails(doc.delete());
         });
 
         test("認証あり:成功", async () => {
             const db = getFirestoreWithAuth();
-            const doc = db
-                .collection("users")
-                .doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
+            const doc = db.collection("users").doc("cTJUncptCPOMCJj9NHWq9ubIgMW2");
             await firebase.assertFails(doc.delete());
         });
     });

@@ -1,10 +1,5 @@
 import project from "../../src/store/modules/projects/";
-import {
-    state,
-    mutations,
-    getters,
-    actions,
-} from "../../src/store/modules/projects";
+import { state, mutations, getters, actions } from "../../src/store/modules/projects";
 import Vuex from "vuex";
 import FB from "../../src/firebase";
 import { createLocalVue } from "@vue/test-utils";
@@ -32,8 +27,8 @@ beforeAll(() => {
             projectId: "kanban-c1adc",
             auth: {
                 uid: "AzjzROft7NNxQIHgD1YYTVASnnp2",
-                email: "capekhome@gmail.com",
-            },
+                email: "capekhome@gmail.com"
+            }
         });
         db = app.firestore();
     } else {
@@ -50,12 +45,11 @@ beforeAll(() => {
         "auth/user": {
             role: "manager",
             nickname: "ねこ",
-            uuid: "AzjzROft7NNxQIHgD1YYTVASnnp2",
+            uuid: "AzjzROft7NNxQIHgD1YYTVASnnp2"
         },
         "auth/contract": "C1s25ymrqZUpS0WzqqoU",
         "auth/team": "6snw7RU3yAYjYeHU4p2A",
-        "auth/path":
-            "workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/",
+        "auth/path": "workspace/C1s25ymrqZUpS0WzqqoU/teams/6snw7RU3yAYjYeHU4p2A/projects/"
     };
 });
 

@@ -18,11 +18,7 @@ export default {
     height: 100px;
     border-radius: 50%;
     background: $loader;
-    background: linear-gradient(
-        to right,
-        $loader 10%,
-        rgba(122, 122, 122, 0) 42%
-    );
+    background: linear-gradient(to right, $loader 10%, rgba(122, 122, 122, 0) 42%);
     position: relative;
     animation: loader 1.4s infinite linear;
     transform: translateZ(0);

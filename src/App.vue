@@ -9,6 +9,6 @@ export default {
     name: "App",
     computed: {},
     methods: {},
-    components: {},
+    components: {}
 };
 </script>

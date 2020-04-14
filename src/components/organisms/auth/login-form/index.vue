@@ -6,11 +6,7 @@
             <span :class="$style.label">パスワード</span>
             <SystemPassword v-model="pass" required :class="$style.item" />
             <div :class="$style.submit">
-                <BaseSubmitButton
-                    @click="onLogin"
-                    value="ログイン"
-                    :class="$style.button"
-                />
+                <BaseSubmitButton @click="onLogin" value="ログイン" :class="$style.button" />
             </div>
         </form>
     </div>
@@ -20,10 +16,7 @@
 /**
  * ログインフォームのコンポーネント
  */
-import {
-    SystemInput,
-    SystemPassword
-} from "@/components/atoms/base-input/compose";
+import { SystemInput, SystemPassword } from "@/components/atoms/base-input/compose";
 import BaseSubmitButton from "@/components/atoms/base-submit-button/";
 import base from "@/components/utils/base-mixin";
 export default {

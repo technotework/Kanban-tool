@@ -5,9 +5,9 @@ module.exports = {
         "storybook-addon-vue-info/lib/register",
         "@storybook/addon-knobs/register",
         "@storybook/addon-actions",
-        "@storybook/addon-links",
+        "@storybook/addon-links"
     ],
-    webpackFinal: (config) => {
+    webpackFinal: config => {
         config.resolve.alias["@"] = path.join(__dirname, "../src");
         config.module.rules.push({
             test: /\.scss$/,
@@ -17,24 +17,20 @@ module.exports = {
                     loader: "css-loader",
                     options: {
                         modules: {
-                            localIdentName:
-                                "[folder]---[local]---[hash:base64:5]",
-                        },
-                    },
+                            localIdentName: "[folder]---[local]---[hash:base64:5]"
+                        }
+                    }
                 },
                 "sass-loader",
                 {
                     loader: "sass-resources-loader",
                     options: {
-                        resources: path.resolve(
-                            __dirname,
-                            "../src/components/scss/global.scss"
-                        ),
-                    },
-                },
+                        resources: path.resolve(__dirname, "../src/components/scss/global.scss")
+                    }
+                }
             ],
-            include: path.resolve(__dirname, "../"),
+            include: path.resolve(__dirname, "../")
         });
         return config;
-    },
+    }
 };

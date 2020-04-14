@@ -64,9 +64,7 @@ async function setInitialFBData() {
         });
 
     await db()
-        .doc(
-            "workspace/contractsId/teams/teamId/projects/projectId1/boards/boardId1"
-        )
+        .doc("workspace/contractsId/teams/teamId/projects/projectId1/boards/boardId1")
         .set({
             board: {
                 id: "",
@@ -76,9 +74,7 @@ async function setInitialFBData() {
         });
 
     await db()
-        .doc(
-            "workspace/contractsId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1"
-        )
+        .doc("workspace/contractsId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1")
         .set({
             task: {
                 id: "",

@@ -52,10 +52,7 @@ export default {
                 return this.$store.getters[key];
             },
             set(value) {
-                this.$store.commit(
-                    this.storeModuleName + "/setTasksData",
-                    value
-                );
+                this.$store.commit(this.storeModuleName + "/setTasksData", value);
             }
         },
         isOpen: {
@@ -65,10 +62,7 @@ export default {
                 return this.$store.getters[key];
             },
             set(value) {
-                this.$store.commit(
-                    this.storeModuleName + "/setEditorOpen",
-                    value
-                );
+                this.$store.commit(this.storeModuleName + "/setEditorOpen", value);
             }
         },
         myEditorId() {
@@ -95,10 +89,7 @@ export default {
             this.$store.dispatch(this.storeModuleName + "/deleteTask", value);
         },
         onDragSortList(value) {
-            this.$store.dispatch(
-                this.storeModuleName + "/dragSortUpdate",
-                value
-            );
+            this.$store.dispatch(this.storeModuleName + "/dragSortUpdate", value);
         },
         onDragAddList(value) {
             this.$store.dispatch(this.storeModuleName + "/dragAdded", value);

@@ -5,17 +5,11 @@
                 <div :class="$style.text">{{ text }}</div>
                 <div :class="$style.buttonContainer">
                     <template v-if="sCallback != null">
-                        <SecondaryButton
-                            :class="$style.button"
-                            @click="onClickSecondary"
+                        <SecondaryButton :class="$style.button" @click="onClickSecondary"
                             >キャンセル</SecondaryButton
                         >
                     </template>
-                    <PrimaryButton
-                        :class="$style.button"
-                        @click="onClickPrimary"
-                        >OK</PrimaryButton
-                    >
+                    <PrimaryButton :class="$style.button" @click="onClickPrimary">OK</PrimaryButton>
                 </div>
             </Dialogue>
         </BaseModalCover>
@@ -30,10 +24,7 @@
  */
 import BaseModalCover from "@/components/atoms/base-modal-cover";
 import { Dialogue } from "@/components/atoms/base-modal-container/compose";
-import {
-    PrimaryButton,
-    SecondaryButton
-} from "@/components/atoms/base-no-link-button/compose";
+import { PrimaryButton, SecondaryButton } from "@/components/atoms/base-no-link-button/compose";
 
 export default {
     name: "ConfirmationDialogue",

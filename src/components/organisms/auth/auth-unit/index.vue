@@ -12,10 +12,7 @@
                 <LoginForm @login-event="onLoginClick" />
             </template>
             <template #second>
-                <RegistForm
-                    @regist-event="onRegistClick"
-                    @agree-event="onAgreeClick"
-                />
+                <RegistForm @regist-event="onRegistClick" @agree-event="onAgreeClick" />
             </template>
         </TabContainer>
     </div>

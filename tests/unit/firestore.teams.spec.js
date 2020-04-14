@@ -155,9 +155,7 @@ describe("teamIdのupdate", () => {
     describe("Update", () => {
         test("認証なし:失敗", async () => {
             const db = getFirestore();
-            const doc = db.doc(
-                "/workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq"
-            );
+            const doc = db.doc("/workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq");
             await firebase.assertFails(doc.update({ label: "MY TEAM2" }));
         });
         test("認証あり:成功", async () => {

@@ -1,8 +1,7 @@
 const fs = require("fs");
 const firebase = require("@firebase/testing");
 const projectId = "kanbandemoprojects";
-const projectPath =
-    "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/abcd";
+const projectPath = "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/abcd";
 /**=========================================
  * 初期設定
  =========================================*/
@@ -159,9 +158,7 @@ describe("projectのupdate", () => {
         test("認証あり:成功", async () => {
             const db = getFirestoreWithAuth();
             const doc = db.doc(projectPath);
-            await firebase.assertSucceeds(
-                doc.update({ update_date: 1585546913 })
-            );
+            await firebase.assertSucceeds(doc.update({ update_date: 1585546913 }));
         });
     });
 });

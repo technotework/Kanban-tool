@@ -1,33 +1,19 @@
 <template>
     <HeaderGrid>
         <template #unit1>
-            <IconedTextButton
-                type="plus"
-                compose="left"
-                :class="$style.button"
-                @click="onAddClick"
-            >
+            <IconedTextButton type="plus" compose="left" :class="$style.button" @click="onAddClick">
                 <slot />
             </IconedTextButton>
         </template>
 
         <template #unit2>
-            <ClickToEditableInput
-                is-title
-                role="header"
-                :value="title"
-                @input="onEditedTitle"
-            />
+            <ClickToEditableInput is-title role="header" :value="title" @input="onEditedTitle" />
         </template>
 
         <template #unit3>
-            <ImageIconedText
-                :class="$style.name"
-                :img="img"
-                compose="left"
-                size="M"
-                >{{ username }}</ImageIconedText
-            >
+            <ImageIconedText :class="$style.name" :img="img" compose="left" size="M">{{
+                username
+            }}</ImageIconedText>
         </template>
 
         <template #unit4>
@@ -54,7 +40,7 @@ export default {
         title: String,
         username: String,
         navname: String,
-        value: String,
+        value: String
     },
     methods: {
         /**
@@ -68,15 +54,15 @@ export default {
         },
         onEditedTitle(value) {
             this.$emit("update:title", value);
-        },
+        }
     },
     components: {
         HeaderGrid,
         NavButton,
         ClickToEditableInput,
         IconedTextButton,
-        ImageIconedText,
-    },
+        ImageIconedText
+    }
 };
 </script>
 <style lang="scss" module>

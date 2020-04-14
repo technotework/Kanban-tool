@@ -1,10 +1,7 @@
 <template>
     <div :class="$style.container">
         <template v-if="status == 'NO_ONE'">
-            <ContextMenuContainer
-                ref="container"
-                @click.stop="onMenuTriggerClick"
-            >
+            <ContextMenuContainer ref="container" @click.stop="onMenuTriggerClick">
                 <template #button>
                     <MembersIconList :members="members" v-model="myData" />
                 </template>

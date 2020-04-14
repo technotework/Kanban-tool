@@ -9,11 +9,7 @@
                 compose="top"
             />
         </div>
-        <ClickToEditableInput
-            role="label"
-            v-model.lazy="title"
-            :class="$style.input"
-        />
+        <ClickToEditableInput role="label" v-model.lazy="title" :class="$style.input" />
         <DateTimeText :date="date" :class="$style.date" />
     </div>
 </template>

@@ -3,11 +3,7 @@
         <transition mode="out-in">
             <router-view />
         </transition>
-        <a
-            href="https://github.com/technotework/Kanban-tool"
-            target="_blank"
-            :class="$style.link"
-        >
+        <a href="https://github.com/technotework/Kanban-tool" target="_blank" :class="$style.link">
             <div :class="$style.footer">
                 <span :class="$style.copy">BY TECHNOTEWORK</span>
                 <BaseIcon type="git" :class="$style.git" />

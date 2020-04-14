@@ -3,17 +3,8 @@
         <BaseModelessContainer :class="$style.menu">
             <div :class="$style.title">参加メンバー</div>
             <ul :class="$style.listContainer">
-                <li
-                    v-for="(item, key) in members"
-                    :key="key"
-                    :class="$style.list"
-                >
-                    <LabeledCheckboxVmodel
-                        :id="key"
-                        :value="key"
-                        :name="key"
-                        v-model="myData"
-                    >
+                <li v-for="(item, key) in members" :key="key" :class="$style.list">
+                    <LabeledCheckboxVmodel :id="key" :value="key" :name="key" v-model="myData">
                         <ImageIconedText
                             :img="item.img"
                             size="M"
@@ -69,12 +60,8 @@ export default {
 
             //現在のスタイルの取得
             let el = this.$refs.wrapper;
-            let currentMT = Number(
-                getComputedStyle(el, "").marginTop.replace("px", "")
-            );
-            let currentML = Number(
-                getComputedStyle(el, "").marginLeft.replace("px", "")
-            );
+            let currentMT = Number(getComputedStyle(el, "").marginTop.replace("px", ""));
+            let currentML = Number(getComputedStyle(el, "").marginLeft.replace("px", ""));
 
             //差分とゲタ分で位置調整
             if (menuW > ww) {

@@ -132,9 +132,7 @@ describe("contractIdのupdate", () => {
         });
         //contractMock
         const adminDb = getFirestoreAdmin();
-        const contractDoc = adminDb
-            .collection("workspace")
-            .doc("VlLhkwvK65svqmtJynUe");
+        const contractDoc = adminDb.collection("workspace").doc("VlLhkwvK65svqmtJynUe");
         await contractDoc.set({ name: "Company.inc" });
     });
     /**
@@ -183,9 +181,7 @@ describe("contractIdのget", () => {
         });
         //contractMock
         const adminDb = getFirestoreAdmin();
-        const contractDoc = adminDb
-            .collection("workspace")
-            .doc("VlLhkwvK65svqmtJynUe");
+        const contractDoc = adminDb.collection("workspace").doc("VlLhkwvK65svqmtJynUe");
         await contractDoc.set({ name: "Company.inc" });
     });
     /**
@@ -234,9 +230,7 @@ describe("teamIdのdelete", () => {
         });
         //contractMock
         const adminDb = getFirestoreAdmin();
-        const contractDoc = adminDb
-            .collection("workspace")
-            .doc("VlLhkwvK65svqmtJynUe");
+        const contractDoc = adminDb.collection("workspace").doc("VlLhkwvK65svqmtJynUe");
         await contractDoc.set({ name: "Company.inc" });
     });
     /**

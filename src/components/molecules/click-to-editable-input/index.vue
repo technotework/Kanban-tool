@@ -1,7 +1,5 @@
 <template>
-    <div
-        :class="[isDisable ? $style.wrapper : $style.wrapper2col, $role[role]]"
-    >
+    <div :class="[isDisable ? $style.wrapper : $style.wrapper2col, $role[role]]">
         <div @click="onClickEdit" :class="$style.editableInputContainer">
             <component
                 ref="baseInput"
@@ -32,29 +30,23 @@
 import Vue from "vue";
 import BaseIcon from "@/components/atoms/base-icon/";
 import base from "@/components/utils/base-mixin";
-import {
-    PrimaryButton,
-    MiniButton,
-} from "@/components/atoms/base-no-link-button/compose";
-import {
-    EditInput,
-    EditInputTitle,
-} from "@/components/atoms/base-input/compose";
+import { PrimaryButton, MiniButton } from "@/components/atoms/base-no-link-button/compose";
+import { EditInput, EditInputTitle } from "@/components/atoms/base-input/compose";
 export default {
     mixins: [base],
     name: "ClickToEditableInput",
     props: {
         isTitle: { type: Boolean, default: false },
         value: String,
-        role: String,
+        role: String
     },
-    data: function () {
+    data: function() {
         return {
             isDisable: true,
             status: "uneditable",
             title: EditInputTitle,
             noTitle: EditInput,
-            temp: "",
+            temp: ""
         };
     },
     computed: {
@@ -65,8 +57,8 @@ export default {
             set(value) {
                 this.temp = value;
                 this.$emit("input", value);
-            },
-        },
+            }
+        }
     },
     methods: {
         /**
@@ -86,9 +78,9 @@ export default {
             this.status = "uneditable";
 
             //this.$emit("input", this.temp);
-        },
+        }
     },
-    components: { EditInputTitle, EditInput, MiniButton, BaseIcon },
+    components: { EditInputTitle, EditInput, MiniButton, BaseIcon }
 };
 </script>
 <style lang="scss" module>

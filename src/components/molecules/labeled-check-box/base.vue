@@ -1,10 +1,6 @@
 <template>
     <BaseFormLabel :target="id" :class="$style.label">
-        <BaseCheckBox
-            v-bind="{ id, name, value }"
-            v-model="modelData"
-            :class="$style.checkbox"
-        />
+        <BaseCheckBox v-bind="{ id, name, value }" v-model="modelData" :class="$style.checkbox" />
         <slot />
     </BaseFormLabel>
 </template>

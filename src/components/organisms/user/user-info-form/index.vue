@@ -23,11 +23,7 @@
             <span :class="$style.label">アイコン</span>
             <BaseFileSelect @change="onFileSelect" :class="$style.file" />
             <div :class="$style.bottoms">
-                <BaseSubmitButton
-                    @click="onSubmit"
-                    value="登録"
-                    :class="$style.button"
-                />
+                <BaseSubmitButton @click="onSubmit" value="登録" :class="$style.button" />
             </div>
         </form>
     </div>

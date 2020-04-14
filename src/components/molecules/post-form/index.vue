@@ -11,9 +11,7 @@
             <SecondaryMiniButton :class="$style.button" @click="onCancelSubmit"
                 >キャンセル</SecondaryMiniButton
             >
-            <PrimaryMiniButton :class="$style.button" @click="onSubmit"
-                >送信</PrimaryMiniButton
-            >
+            <PrimaryMiniButton :class="$style.button" @click="onSubmit">送信</PrimaryMiniButton>
         </div>
     </div>
 </template>

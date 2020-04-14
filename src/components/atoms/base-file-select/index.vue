@@ -1,11 +1,7 @@
 <template>
     <div>
         <label :class="$style.button">
-            <input
-                type="file"
-                accept="image/png, image/jpeg"
-                @change="onFileChange"
-            />
+            <input type="file" accept="image/png, image/jpeg" @change="onFileChange" />
             ファイルを選択
         </label>
         <span :class="$style.filename">{{ imgName }}</span>

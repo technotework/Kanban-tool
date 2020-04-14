@@ -5,11 +5,7 @@
         </template>
         <template v-else>
             <ul :class="$style.wapper">
-                <li
-                    v-for="(member, index) in myData"
-                    :key="index"
-                    :data-tooltip="member.nickname"
-                >
+                <li v-for="(member, index) in myData" :key="index" :data-tooltip="member.nickname">
                     <MemberIcon size="S" :img="member.img" />
                 </li>
             </ul>

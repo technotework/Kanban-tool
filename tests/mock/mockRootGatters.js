@@ -11,10 +11,8 @@ const rootGetters = {
     },
     "auth/contract": "VlLhkwvK65svqmtJynUe",
     "auth/team": "4ZO9rAlLJTQuB2Oz0YRq",
-    "auth/path":
-        "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/",
-    "auth/teamPath":
-        "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq",
+    "auth/path": "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/",
+    "auth/teamPath": "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq",
     "auth/isLogin": true,
     "auth/icon":
         "https://firebasestorage.googleapis.com/v0/b/kanbandemo-d436e.appspot.com/o/23ac86c5-8f58-44b1-b823-ca2856ba5de2%2Ficon?alt=media&token=41d41cac-2291-412e-b772-d8517e0342b1",
@@ -49,8 +47,7 @@ const rootGetters = {
     },
     "projects/info": {
         uuid: "cTJUncptCPOMCJj9NHWq9ubIgMW2",
-        projectPath:
-            "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/"
+        projectPath: "workspace/VlLhkwvK65svqmtJynUe/teams/4ZO9rAlLJTQuB2Oz0YRq/projects/"
     },
     "projects/projects": [
         {

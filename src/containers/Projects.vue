@@ -22,31 +22,27 @@ import { TYPE, APP } from "@/containers/resorces/message";
 import { validateMultiple } from "@/containers/resorces/validator";
 export default {
     name: "Projects",
-    created: function () {
+    created: function() {
         //初期化時プロジェクトを読み込む・リロード時対応
-        this.unlisten = this.$store.getters.firebase
-            .auth()
-            .onAuthStateChanged((user) => {
-                if (user) {
-                    let uid = user.uid;
-                    let path = "/projects";
+        this.unlisten = this.$store.getters.firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                let uid = user.uid;
+                let path = "/projects";
 
-                    this.$store
-                        .dispatch("auth/setUserInfo", { uid: uid, path: path })
-                        .then(() => {
-                            this.isCreated = true;
-                            this.init();
-                        });
-                }
-            });
+                this.$store.dispatch("auth/setUserInfo", { uid: uid, path: path }).then(() => {
+                    this.isCreated = true;
+                    this.init();
+                });
+            }
+        });
     },
-    destroyed: function () {
+    destroyed: function() {
         this.unlisten();
     },
     data: () => {
         return {
             unlisten: null,
-            value: null,
+            value: null
         };
     },
     computed: {
@@ -59,7 +55,7 @@ export default {
             },
             set(value) {
                 this.$store.commit("projects/setData", value);
-            },
+            }
         },
         userData() {
             return { username: this.user.nickname, img: this.icon };
@@ -73,13 +69,13 @@ export default {
                     data: value,
                     name: "チーム名",
                     require: true,
-                    less: 15,
+                    less: 15
                 };
                 validateMultiple([obj], () => {
                     this.$store.dispatch("team/updateTeamName", value);
                 });
-            },
-        },
+            }
+        }
     },
     methods: {
         ...mapActions("projects", [
@@ -88,13 +84,10 @@ export default {
             "create",
             "delete",
             "updateProjectName",
-            "dragSortUpdate",
+            "dragSortUpdate"
         ]),
         ...mapActions("auth", ["logout"]),
-        ...mapMutations("message", [
-            "setProjectDialogue",
-            "resetProjectDialogue",
-        ]),
+        ...mapMutations("message", ["setProjectDialogue", "resetProjectDialogue"]),
         /**
          * 初期化処理
          */
@@ -119,19 +112,19 @@ export default {
                 //画面遷移
                 const path = "projects/" + value.id;
                 this.$router.push({
-                    path: path,
+                    path: path
                 });
             }
         },
         onDragSortList(value) {
             this.dragSortUpdate(value);
         },
-        onInputProjectName: function (value) {
+        onInputProjectName: function(value) {
             const obj = {
                 data: value.name,
                 name: "プロジェクト名",
                 require: true,
-                less: 15,
+                less: 15
             };
             validateMultiple([obj], () => {
                 this.updateProjectName(value);
@@ -155,7 +148,7 @@ export default {
             const message = getConfirmMessage({
                 type: TYPE.CONFIRM,
                 normal: APP.DELETE,
-                arg: { name: value.title },
+                arg: { name: value.title }
             });
             const object = { text: message[0].text, p: p, s: s };
 
@@ -166,8 +159,8 @@ export default {
          */
         onLogout() {
             this.logout();
-        },
+        }
     },
-    components: { ProjectUnit },
+    components: { ProjectUnit }
 };
 </script>
