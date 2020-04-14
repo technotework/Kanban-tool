@@ -91,6 +91,7 @@ const actions = {
     $_registTaskModule({ commit, rootState, dispatch }, doc) {
         const storeModuleName = "task_" + doc.id;
         let hasModule = actions.$_checkTaskModule({ rootState }, storeModuleName);
+
         if (!hasModule) {
             dispatch(
                 "app/registModule",
@@ -100,12 +101,10 @@ const actions = {
                 },
                 { root: true }
             );
-            commit(storeModuleName + "/setParentBoardId", doc.id, {
-                root: true
-            });
-            dispatch(storeModuleName + "/setInitialData", doc.id, {
-                root: true
-            });
+
+            commit(storeModuleName + "/setParentBoardId", doc.id, { root: true });
+            dispatch(storeModuleName + "/setInitialData", doc.id, { root: true });
+
             dispatch(storeModuleName + "/read", doc.id, { root: true });
         }
     },

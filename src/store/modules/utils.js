@@ -19,7 +19,6 @@ const getters = {};
 const actions = {
     completeReceiver({ commit }) {
         //testで使っている
-        console.log("a");
     }
 };
 

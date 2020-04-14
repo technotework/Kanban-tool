@@ -21,20 +21,12 @@ const actions = {
         const { uuid, projectPath } = getters.info;
         const date = Math.floor(new Date().getTime() / 1000);
         //Projectドキュメントをを追加します
-        const projectDoc = await actions.$_createProject(
-            projectPath,
-            date,
-            getters.projects
-        );
+        const projectDoc = await actions.$_createProject(projectPath, date, getters.projects);
         //boardsドキュメントを作ります
-        const firstBoardID = await actions.$_createBoards(
-            projectPath,
-            projectDoc
-        );
+        const firstBoardID = await actions.$_createBoards(projectPath, projectDoc);
 
         //続けてタスクを先頭のボードに追加する
-        const boardDocumentPath =
-            projectPath + projectDoc.id + "/boards/" + firstBoardID.id;
+        const boardDocumentPath = projectPath + projectDoc.id + "/boards/" + firstBoardID.id;
         await actions.$_createTasks(uuid, date, boardDocumentPath);
     },
 
@@ -86,12 +78,7 @@ const actions = {
         //テンプレ取得
         const text = "Wクリックで編集";
 
-        const initialTaskTemplate = common.templates.task(
-            uuid,
-            date,
-            null,
-            text
-        );
+        const initialTaskTemplate = common.templates.task(uuid, date, null, text);
         //作成
         const object = {
             path: boardDocumentPath + "/tasks/",
@@ -160,15 +147,9 @@ const actions = {
         //パスの設定
         const projectDocPath = projectPath + id;
         //ボード全取得
-        const { boardDataArray, boardsPath } = await actions.$_getAllBoards(
-            projectDocPath
-        );
+        const { boardDataArray, boardsPath } = await actions.$_getAllBoards(projectDocPath);
         //ボードにぶらさがっているModuleとtaskの処理
-        await actions.$_deleteBoardsAndTasks(
-            { dispatch, rootState },
-            boardDataArray,
-            boardsPath
-        );
+        await actions.$_deleteBoardsAndTasks({ dispatch, rootState }, boardDataArray, boardsPath);
         //project削除
         actions.$_deleteProject(projectDocPath);
     },
@@ -189,11 +170,7 @@ const actions = {
      * @param {*} boardDataArray
      * @param {*} boardsPath
      */
-    async $_deleteBoardsAndTasks(
-        { dispatch, rootState },
-        boardDataArray,
-        boardsPath
-    ) {
+    async $_deleteBoardsAndTasks({ dispatch, rootState }, boardDataArray, boardsPath) {
         let i = 0;
 
         for (i = 0; i < boardDataArray.length; i++) {
@@ -215,13 +192,10 @@ const actions = {
      */
     $_deleteTaskModules({ rootState, dispatch }, boardsID) {
         let storeModuleName = "task_" + boardsID;
-        let hasModule = actions.$_checkTaskModule(
-            { rootState },
-            storeModuleName
-        );
+        let hasModule = actions.$_checkTaskModule({ rootState }, storeModuleName);
 
         if (hasModule) {
-            dispatch("app/registModule", storeModuleName);
+            dispatch("app/unregistModule", storeModuleName);
         }
     },
     /**
@@ -275,11 +249,7 @@ const actions = {
         const { projectPath } = getters.info;
         const projectId = value.id;
         const projectDocPath = projectPath + projectId;
-        const order = common.util.getOrder(
-            projectId,
-            getters.projects,
-            "project"
-        );
+        const order = common.util.getOrder(projectId, getters.projects, "project");
         const object = {
             path: projectDocPath,
             content: { project: { order: order } }

@@ -7,18 +7,11 @@ const actions = {
         const info = {
             uuid: rootGetters["auth/user"].uuid,
             altid: rootGetters["auth/user"].altId,
-            projectPath:
-                rootGetters["auth/path"] + rootGetters["boards/projectId"],
+            projectPath: rootGetters["auth/path"] + rootGetters["boards/projectId"],
             boardId: value,
-            boardPath:
-                rootGetters["auth/path"] +
-                rootGetters["boards/projectId"] +
-                "/boards/",
+            boardPath: rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/",
             boardDocPath:
-                rootGetters["auth/path"] +
-                rootGetters["boards/projectId"] +
-                "/boards/" +
-                value,
+                rootGetters["auth/path"] + rootGetters["boards/projectId"] + "/boards/" + value,
             taskPath:
                 rootGetters["auth/path"] +
                 rootGetters["boards/projectId"] +
@@ -79,7 +72,7 @@ const actions = {
         const object = {
             path: taskPath,
             order: "task.order",
-            callback: actions.$_readTasksCallback(dispatch, commit)
+            callback: actions.$_readTasksCallback(dispatch, getters, commit)
         };
         const unsnap = common.fb.snap(object);
         commit("setUnsnap", unsnap);
@@ -89,7 +82,7 @@ const actions = {
      * @param {*} dispatch
      * @param {*} commit
      */
-    $_readTasksCallback(dispatch, commit) {
+    $_readTasksCallback(dispatch, getters, commit) {
         return querySnapshot => {
             let array = [];
             querySnapshot.forEach(function(doc) {
@@ -99,7 +92,10 @@ const actions = {
                 actions.$_timeUnlockEditUser(result, dispatch);
                 array.push(result);
             });
-            commit("setTasksData", array);
+            //初期化タイミングで呼ばれるのを防止する
+            if (getters.boardId != undefined) {
+                commit("setTasksData", array);
+            }
         };
     },
     /**
@@ -110,10 +106,7 @@ const actions = {
     $_timeUnlockEditUser(result, dispatch) {
         if (result.task.editing != "") {
             let now = Math.floor(new Date().getTime() / 1000);
-            if (
-                result.task.editing_date != null &&
-                now - result.task.editing_date > 1800
-            ) {
+            if (result.task.editing_date != null && now - result.task.editing_date > 1800) {
                 dispatch("unlockTask", {
                     id: result.task.id
                 });
@@ -246,17 +239,12 @@ const actions = {
         const originalBoardId = value.boardId;
         const { projectPath } = getters.info;
         //パスの設定
-        const originalTaskDocPath =
-            projectPath + "/boards/" + originalBoardId + "/tasks/" + taskId;
+        const originalTaskDocPath = projectPath + "/boards/" + originalBoardId + "/tasks/" + taskId;
 
         //オリジナルタスクのコンテンツ取得
         const data = await actions.$_getOriginalTaskData(originalTaskDocPath);
         //オリジナルタスクの消し込み
-        await dispatch(
-            "task_" + originalBoardId + "/deleteTask",
-            { id: taskId },
-            { root: true }
-        );
+        await dispatch("task_" + originalBoardId + "/deleteTask", { id: taskId }, { root: true });
         //移動後のタスクの生成
         await dispatch("insertTask", { template: data, id: taskId });
     },
