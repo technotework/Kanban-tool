@@ -1,6 +1,8 @@
-import { db, st, fn, fb } from "@/vender/firebase";
+import { st, fn, fb } from "@/vender/firebase";
+import dbBridge from "@/vender/dbBridge";
 import { TYPE, APP } from "@/containers/resorces/message";
-let unit = 10000000;
+const unit = 10000000;
+const db = dbBridge.getDb();
 const util = {
     /**==================================
    * テンプレート
@@ -258,8 +260,8 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
 
-            let { path, content } = object;
-            let doc = db().doc(path);
+            const { path, content } = object;
+            const doc = db().doc(path);
             let result;
             await doc
                 .set(content, { merge: true })
@@ -282,8 +284,8 @@ const util = {
                 throw { type: TYPE.NETWORK, error: APP.DISCONNECT };
             }
 
-            let { path, content } = object;
-            let doc = db().doc(path);
+            const { path, content } = object;
+            const doc = db().doc(path);
             let result;
             await doc
                 .update(content)

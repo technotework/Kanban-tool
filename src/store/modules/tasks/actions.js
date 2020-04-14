@@ -6,6 +6,7 @@ const actions = {
     setInitialData({ rootGetters, commit }, value) {
         const info = {
             uuid: rootGetters["auth/user"].uuid,
+            altid: rootGetters["auth/user"].altId,
             projectPath:
                 rootGetters["auth/path"] + rootGetters["boards/projectId"],
             boardId: value,

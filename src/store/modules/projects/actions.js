@@ -1,4 +1,3 @@
-import store from "@/store/index";
 import common from "@/store/common";
 //--------------
 //actions
@@ -156,7 +155,7 @@ const actions = {
      * @param {*} param0
      * @param {*} id
      *============================= */
-    async delete({ getters }, id) {
+    async delete({ getters, dispatch, rootState }, id) {
         const { projectPath } = getters.info;
         //パスの設定
         const projectDocPath = projectPath + id;
@@ -165,7 +164,11 @@ const actions = {
             projectDocPath
         );
         //ボードにぶらさがっているModuleとtaskの処理
-        await actions.$_deleteBoardsAndTasks(boardDataArray, boardsPath);
+        await actions.$_deleteBoardsAndTasks(
+            { dispatch, rootState },
+            boardDataArray,
+            boardsPath
+        );
         //project削除
         actions.$_deleteProject(projectDocPath);
     },
@@ -186,7 +189,11 @@ const actions = {
      * @param {*} boardDataArray
      * @param {*} boardsPath
      */
-    async $_deleteBoardsAndTasks(boardDataArray, boardsPath) {
+    async $_deleteBoardsAndTasks(
+        { dispatch, rootState },
+        boardDataArray,
+        boardsPath
+    ) {
         let i = 0;
 
         for (i = 0; i < boardDataArray.length; i++) {
@@ -195,7 +202,7 @@ const actions = {
             let boardDocPath = boardsPath + boardsID;
             let tasksPath = boardDocPath + "/tasks/";
             //残存タスクモジュールがあれば消す
-            actions.$_deleteTaskModules(boardsID);
+            actions.$_deleteTaskModules({ dispatch, rootState }, boardsID);
             //taskを読み込む
             await actions.$_deleteTasks(tasksPath);
             //Board削除
@@ -206,12 +213,23 @@ const actions = {
      * TaskModuleの削除
      * @param {*} boardsID
      */
-    $_deleteTaskModules(boardsID) {
+    $_deleteTaskModules({ rootState, dispatch }, boardsID) {
         let storeModuleName = "task_" + boardsID;
-        let hasModule = store.state.hasOwnProperty(storeModuleName);
+        let hasModule = actions.$_checkTaskModule(
+            { rootState },
+            storeModuleName
+        );
+
         if (hasModule) {
-            store.unregisterModule(storeModuleName);
+            dispatch("app/registModule", storeModuleName);
         }
+    },
+    /**
+     * TaskModuleの有無の確認
+     * @param {*} storeModuleName
+     */
+    $_checkTaskModule({ rootState }, storeModuleName) {
+        return rootState.hasOwnProperty(storeModuleName);
     },
     /**
      * Taskの削除

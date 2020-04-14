@@ -2,7 +2,6 @@
  * タスク管理
  */
 import actions from "./actions";
-import store from "@/store/index";
 //--------------
 //state
 //--------------
@@ -66,7 +65,7 @@ const getters = {
     editingDocPaths(state) {
         let result = [];
         const docs = state.tasksData;
-        const myId = store.getters["auth/user"].altId;
+        const myId = state.appInfo.altid;
         const taskPath = state.appInfo.taskPath;
         for (let i = 0; i < docs.length; i++) {
             if (docs[i].task.editing == myId) {

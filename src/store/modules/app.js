@@ -1,3 +1,4 @@
+import store from "@/store/index";
 //--------------
 //state
 //--------------
@@ -26,6 +27,13 @@ const actions = {
         commit("projects/remove", null, { root: true });
         commit("user/remove", null, { root: true });
         commit("team/remove", null, { root: true });
+    },
+    registModule({ commit }, object) {
+        const { name, module } = object;
+        store.registerModule(name, module);
+    },
+    unregistModule({ commit }, storeModuleName) {
+        store.unregisterModule(storeModuleName);
     },
 };
 

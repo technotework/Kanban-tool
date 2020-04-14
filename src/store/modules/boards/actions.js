@@ -1,4 +1,3 @@
-import store from "@/store/index";
 import taskModule from "@/store/modules/tasks/tasks";
 import common from "@/store/common";
 //--------------
@@ -9,7 +8,7 @@ const actions = {
         const info = {
             projectId: value,
             projectDocPath: rootGetters["auth/path"] + value,
-            boardPath: rootGetters["auth/path"] + value + "/boards/"
+            boardPath: rootGetters["auth/path"] + value + "/boards/",
         };
         commit("setAppInfo", info);
 
@@ -27,7 +26,7 @@ const actions = {
         const boardTemplate = common.templates.board(order);
         const object = {
             path: boardPath,
-            content: boardTemplate
+            content: boardTemplate,
         };
         await common.fb.add(object);
         actions.$_updateDate(commit);
@@ -36,7 +35,7 @@ const actions = {
 	 * 初期読み込み
 	 * @param {*} param0 
 	 ========================*/
-    async read({ commit, rootGetters, getters, dispatch }) {
+    async read({ commit, rootGetters, rootState, getters, dispatch }) {
         //リロード対策 projectモジュールの再読み込み
         if (rootGetters["projects/projects"].length == 0) {
             dispatch("projects/read", null, { root: true });
@@ -44,18 +43,18 @@ const actions = {
 
         const { boardPath } = getters.info;
         //ボード読み込み
-        await actions.$_readBoard(boardPath, commit);
+        await actions.$_readBoard({ commit, rootState, dispatch }, boardPath);
     },
     /**
      * ボードを読み込み
      * @param {*} boardPath
      * @param {*} commit
      */
-    async $_readBoard(boardPath, commit) {
+    async $_readBoard({ commit, rootState, dispatch }, boardPath) {
         const object = {
             path: boardPath,
             order: "board.order",
-            callback: actions.$_readCallback(commit)
+            callback: actions.$_readCallback({ commit, rootState, dispatch }),
         };
         const unsnap = await common.fb.snap(object);
         commit("setUnsnap", unsnap);
@@ -64,7 +63,7 @@ const actions = {
      * readのfirebase通信後callbackされる関数
      * @param {*} commit
      */
-    $_readCallback(commit) {
+    $_readCallback({ commit, rootState, dispatch }) {
         return querySnapshot => {
             let array = [];
             querySnapshot.forEach(function(doc) {
@@ -72,7 +71,7 @@ const actions = {
                 result.board.id = doc.id;
                 array.push(result);
                 //boardのtask用のstore moduleを生成
-                actions.$_registTaskModule(doc);
+                actions.$_registTaskModule({ commit, rootState, dispatch }, doc);
             });
             commit("setBoardsData", array);
         };
@@ -81,22 +80,33 @@ const actions = {
      * TaskModuleがなければ登録する
      * @param {*} doc
      */
-    $_registTaskModule(doc) {
+    $_registTaskModule({ commit, rootState, dispatch }, doc) {
         const storeModuleName = "task_" + doc.id;
-        let hasModule = actions.$_checkTaskModule(storeModuleName);
+        let hasModule = actions.$_checkTaskModule({ rootState }, storeModuleName);
         if (!hasModule) {
-            store.registerModule(storeModuleName, taskModule);
-            store.commit(storeModuleName + "/setParentBoardId", doc.id);
-            store.dispatch(storeModuleName + "/setInitialData", doc.id);
-            store.dispatch(storeModuleName + "/read", doc.id);
+            dispatch(
+                "app/registModule",
+                {
+                    name: storeModuleName,
+                    module: taskModule,
+                },
+                { root: true }
+            );
+            commit(storeModuleName + "/setParentBoardId", doc.id, {
+                root: true,
+            });
+            dispatch(storeModuleName + "/setInitialData", doc.id, {
+                root: true,
+            });
+            dispatch(storeModuleName + "/read", doc.id, { root: true });
         }
     },
     /**
      * TaskModuleの有無の確認
      * @param {*} storeModuleName
      */
-    $_checkTaskModule(storeModuleName) {
-        return store.state.hasOwnProperty(storeModuleName);
+    $_checkTaskModule({ rootState }, storeModuleName) {
+        return rootState.hasOwnProperty(storeModuleName);
     },
     /**========================
 	 * ボード名更新
@@ -110,7 +120,7 @@ const actions = {
 
         const object = {
             path: boardDocPath,
-            content: { board: { label: value.name } }
+            content: { board: { label: value.name } },
         };
         await common.fb.setDoc(object);
         actions.$_updateDate(commit);
@@ -158,7 +168,7 @@ const actions = {
     async $_getDeleteTask(taskPath) {
         const object = {
             path: taskPath,
-            key: "task"
+            key: "task",
         };
         let taskDataArray = await common.fb.get(object);
         return taskDataArray;
@@ -193,7 +203,7 @@ const actions = {
         common.fb.postProcess({
             taskDocPaths: pathArray,
             projectDocPath: projectDoc,
-            date: updateDate
+            date: updateDate,
         });
     },
     /**=========================================================
@@ -212,7 +222,7 @@ const actions = {
 
         const object = {
             path: boardDocPath,
-            content: { board: { order: order } }
+            content: { board: { order: order } },
         };
         await common.fb.setDoc(object);
         actions.$_updateDate(commit);
@@ -223,7 +233,7 @@ const actions = {
     =============================*/
     $_updateDate(commit) {
         commit("setUpdateDate");
-    }
+    },
 };
 
 export default actions;
