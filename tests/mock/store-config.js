@@ -8,6 +8,5 @@ import utils from "@/store/modules/utils";
 
 export default {
     namespaced: true,
-    strict: true,
     modules: { app, auth, members, user, boards, projects, utils }
 };

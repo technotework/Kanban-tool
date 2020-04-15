@@ -216,7 +216,7 @@ const actions = {
     /**=========================================================
 	 * ドラッグ&ドロップによる更新関連
 	/**=========================================================
-	 * ドラッグして追加されたので、旧リストからデータを引き継ぎ元を消す
+	 * ドラッグして入れ替えられたのでorderを更新
 	 * @param {*} param0 
 	 * @param {*} value 
 	 =============================*/
@@ -226,7 +226,6 @@ const actions = {
         const boardId = value.id;
         const boardDocPath = boardPath + boardId;
         const order = common.util.getOrder(boardId, getters.boards, "board");
-
         const object = {
             path: boardDocPath,
             content: { board: { order: order } }

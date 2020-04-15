@@ -17,7 +17,7 @@ const actions = {
 	 * 新規作成
 	 * @param {*} param0 
 	 =============================*/
-    async create({ getters, rootGetters }) {
+    async create({ getters }) {
         const { uuid, projectPath } = getters.info;
         const date = Math.floor(new Date().getTime() / 1000);
         //Projectドキュメントをを追加します
@@ -91,7 +91,7 @@ const actions = {
 	 * 読み込み
 	 * @param {*} param0 
 	 =============================*/
-    read({ commit, rootGetters, getters, dispatch }) {
+    read({ commit, getters, dispatch }) {
         if (getters.info.projectPath == undefined) {
             dispatch("initProjectData");
         }
@@ -101,7 +101,7 @@ const actions = {
         const object = {
             path: projectPath,
             order: "project.order",
-            callback: actions.$_readProjectCallback(commit)
+            callback: actions.$_readProjectCallback({ commit, dispatch })
         };
         const unsnap = common.fb.snap(object);
         commit("setUnsnap", unsnap);
@@ -110,7 +110,7 @@ const actions = {
      * プロジェクト読み込み時Firebaseからcallbackされる後処理
      * @param {*} commit
      */
-    $_readProjectCallback(commit) {
+    $_readProjectCallback({ commit, dispatch }) {
         return querySnapshot => {
             let array = [];
             //Projectデータ取得してArrayにつめこむ
@@ -121,7 +121,15 @@ const actions = {
             });
             //完了
             commit("setData", array);
+            actions.$_completeReadCallback({ dispatch });
         };
+    },
+    /**
+     * readできましたよ
+     */
+    $_completeReadCallback({ dispatch }) {
+        //testで使っている
+        dispatch("utils/completeReceiver", null, { root: true });
     },
     /**=============================
      * プロジェクト名更新

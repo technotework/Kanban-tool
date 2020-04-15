@@ -12,7 +12,7 @@ import setInitialFBData from "../mock/fbdata";
 
 const localVue = createLocalVue();
 const firebase = require("@firebase/testing");
-const projectId = "kanbandemovuexboards";
+const projectId = "kanbandemovuexproducts";
 
 const teamPath = "workspace/contractId/teams/teamId/";
 
@@ -43,10 +43,10 @@ afterAll(async () => {
 });
 
 /**=========================================
- * Test Board initialize
+ * Test Projects initialize
  =========================================*/
-describe("boards", () => {
-    describe("Board initialize", () => {
+describe("projects", () => {
+    describe("Projects initialize", () => {
         /**=========================================
         * 初期化
         =========================================*/
@@ -74,44 +74,38 @@ describe("boards", () => {
         * テスト
         =========================================*/
         /**
-         * ボード初期化
+         * プロジェクト初期化
          */
-        test("initBoardData", () => {
+        test("initProjectData", () => {
             //実行
-            store.dispatch("boards/initBoardData", "projectId1");
+            store.dispatch("projects/initProjectData");
             //チェック
-            expect(store.getters["boards/info"].projectId).toBe("projectId1");
-            expect(store.getters["boards/info"].projectDocPath).toBe(
-                teamPath + "projects/projectId1"
-            );
-            expect(store.getters["boards/info"].boardPath).toBe(
-                teamPath + "projects/projectId1/boards/"
-            );
+            expect(store.getters["projects/info"].projectPath).toBe(teamPath + "projects/");
+            expect(store.getters["projects/info"].uuid).toBe("cTJUncptCPOMCJj9NHWq9ubIgMW2");
         });
 
         /**
-         * ボード読み込み
+         * プロジェクト読み込み
          */
         test("read", done => {
             //Readが終わった後のcallback
             actions.completeReceiver.mockImplementationOnce(() => {
-                const data = store.getters["boards/boards"];
+                const data = store.getters["projects/projects"];
                 //チェック
-                expect(data[0].board.label).toBe("NewBoard1");
-                store.dispatch("app/unregistModule", "task_boardId1");
+                expect(data[0].project.label).toBe("Project1");
                 done();
             });
             //前処理
-            store.dispatch("boards/initBoardData", "projectId1");
+            store.dispatch("projects/initProjectData");
             //実行
-            store.dispatch("boards/read");
+            store.dispatch("projects/read");
         });
     });
 
     /**=========================================
-     * Test Board Functions
+     * Test Projects Functions
      =========================================*/
-    describe("Board Function", () => {
+    describe("Projects Function", () => {
         /**=========================================
         * 初期化
         =========================================*/
@@ -129,8 +123,8 @@ describe("boards", () => {
             actions.completeReceiver.mockImplementationOnce(() => {
                 done();
             });
-            store.dispatch("boards/initBoardData", "projectId1");
-            store.dispatch("boards/read");
+            store.dispatch("projects/initBoardData");
+            store.dispatch("projects/read");
         });
         /**
          * 後処理
@@ -145,75 +139,114 @@ describe("boards", () => {
         /**=========================================
          * テスト
          =========================================*/
-
         /**
-         * ボード名変更
+         * プロジェクト作成
          */
-        test("updateBoardName", async done => {
+        test("create", async done => {
             //Readが終わった後のcallback
             actions.completeReceiver.mockImplementationOnce(() => {
-                setTimeout(() => {
-                    const data = store.getters["boards/boards"];
-                    expect(data[0].board.label).toBe("UpdatedBoardName");
+                setTimeout(async () => {
+                    const data = store.getters["projects/projects"];
+                    //Projectが生成されているかどうか
+                    expect(data[0].project.label).toBe("Project");
+                    //Boardが生成されているかどうかFBに問い合わせ
+                    //設定
+                    const projectId = data[0].project.id;
+                    const boardPath = teamPath + "projects/" + projectId + "/boards";
+                    //実行
+                    let boardIDs;
+                    let boardData = await db()
+                        .collection(boardPath)
+                        .get()
+                        .then(querySnapshot => {
+                            let count = 0;
+                            querySnapshot.forEach(doc => {
+                                let name = doc.data().board.label;
+                                count += name == "Backlog" ? 1 : 0;
+                                count += name == "ToDo" ? 1 : 0;
+                                count += name == "Complete" ? 1 : 0;
+                                count += name == "Progress" ? 1 : 0;
+
+                                if (name == "Backlog") {
+                                    boardIDs = doc.id;
+                                }
+                            });
+                            expect(count).toBe(4);
+                        });
+                    //設定
+                    let taskPath =
+                        teamPath + "projects/" + projectId + "/boards/" + boardIDs + "/tasks";
+                    //実行
+                    await db()
+                        .collection(taskPath)
+                        .get()
+                        .then(querySnapshot => {
+                            querySnapshot.forEach(doc => {
+                                expect(doc.data().task.createUser).toBe(
+                                    "cTJUncptCPOMCJj9NHWq9ubIgMW2"
+                                );
+                            });
+                        });
                     done();
                 }, 500);
             });
             //実行
-            await store.dispatch("boards/updateBoardName", {
-                id: "boardId1",
-                name: "UpdatedBoardName"
-            });
+            await store.dispatch("projects/create");
         });
         /**
-         * ボード削除
+         * プロジェクト名更新
          */
-        test("delete", async done => {
+        test("updateProjectName", done => {
             //Readが終わった後のcallback
             actions.completeReceiver.mockImplementationOnce(() => {
                 setTimeout(() => {
-                    const data = store.getters["boards/boards"];
+                    const data = store.getters["projects/projects"];
+                    expect(data[0].project.label).toBe("updateProjectName");
+                    done();
+                }, 500);
+            });
+            //実行
+            store.dispatch("projects/updateProjectName", {
+                name: "updateProjectName",
+                id: "projectId1"
+            });
+        });
+        /**
+         * 削除
+         */
+        test("delete", done => {
+            //Readが終わった後のcallback
+            actions.completeReceiver.mockImplementationOnce(() => {
+                setTimeout(() => {
+                    const data = store.getters["projects/projects"];
                     expect(data.length).toBe(1);
                     done();
                 }, 500);
             });
             //実行
-            await store.dispatch("boards/delete", "boardId1");
+            store.dispatch("projects/delete", "projectId1");
         });
         /**
-         * ボード作成
-         */
-        test("create", async done => {
-            //Readが終わった後のcallback
-            actions.completeReceiver.mockImplementationOnce(() => {
-                setTimeout(() => {
-                    const data = store.getters["boards/boards"];
-                    expect(data.length).toBe(3);
-                    done();
-                }, 500);
-            });
-            //実行
-            await store.dispatch("boards/create");
-        });
-        /**
-         * ボードならびかえ
+         * ドラッグ&ドロップによる更新関連
          */
         test("dragSortUpdate", done => {
             //Readが終わった後のcallback
             actions.completeReceiver.mockImplementationOnce(() => {
                 setTimeout(() => {
-                    const data = store.getters["boards/boards"];
-                    expect(data[0].board.order).toBe(5000000);
+                    const data = store.getters["projects/projects"];
+                    expect(data[0].project.order).toBe(5000000);
                     done();
                 }, 500);
             });
             //実行
-            let array = store.state.boards.boardsData;
+            let array = store.state.projects.projectsData;
             //DragSortをシミュレーションするため配列入れ替え
             let tmp = array[0];
             array[0] = array[1];
             array[1] = tmp;
-            store.dispatch("boards/dragSortUpdate", { id: "boardId2" });
+            store.dispatch("projects/dragSortUpdate", { id: "projectId2" });
         });
+        //
     });
 
     //end
