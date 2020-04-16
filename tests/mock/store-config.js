@@ -1,3 +1,4 @@
+import tasks from "@/store/modules/tasks/tasks";
 import boards from "@/store/modules/boards/boards";
 import projects from "@/store/modules/projects/projects";
 import app from "./app";
@@ -8,5 +9,5 @@ import utils from "@/store/modules/utils";
 
 export default {
     namespaced: true,
-    modules: { app, auth, members, user, boards, projects, utils }
+    modules: { app, auth, members, user, boards, projects, tasks, utils }
 };

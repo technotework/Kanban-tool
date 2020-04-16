@@ -52,7 +52,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1_1"
+        )
         .set({
             task: {
                 id: "",
@@ -72,7 +74,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId2")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId1/boards/boardId1/tasks/taskId1_2"
+        )
         .set({
             task: {
                 id: "",
@@ -92,7 +96,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId1/boards/boardId2/tasks/taskId1")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId1/boards/boardId2/tasks/taskId2_1"
+        )
         .set({
             task: {
                 id: "",
@@ -112,7 +118,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId1/boards/boardId2/tasks/taskId2")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId1/boards/boardId2/tasks/taskId2_2"
+        )
         .set({
             task: {
                 id: "",
@@ -164,7 +172,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId2/boards/boardId1/tasks/taskId1")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId2/boards/boardId1/tasks/taskId1_1"
+        )
         .set({
             task: {
                 id: "",
@@ -184,7 +194,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId2/boards/boardId1/tasks/taskId2")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId2/boards/boardId1/tasks/taskId1_2"
+        )
         .set({
             task: {
                 id: "",
@@ -204,7 +216,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId2/boards/boardId2/tasks/taskId1")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId2/boards/boardId2/tasks/taskId2_1"
+        )
         .set({
             task: {
                 id: "",
@@ -224,7 +238,9 @@ export default async function setInitialFBData(db) {
         });
 
     await db()
-        .doc("workspace/contractId/teams/teamId/projects/projectId2/boards/boardId2/tasks/taskId2")
+        .doc(
+            "workspace/contractId/teams/teamId/projects/projectId2/boards/boardId2/tasks/taskId2_2"
+        )
         .set({
             task: {
                 id: "",

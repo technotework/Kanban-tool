@@ -42,25 +42,7 @@ const actions = {
         await common.fb.add(object);
         commit("boards/setUpdateDate", null, { root: true });
     },
-    /**==============================
-   * Taskの挿入
-   * @param {*} param0 
-   * @param {*} value 
-   ==============================*/
-    async insertTask({ getters, commit }, value) {
-        const { taskPath } = getters.info;
-        const id = value.id;
-        const template = value.template;
-        const order = common.util.getOrder(id, getters.tasks, "task");
-        template.task.order = order;
-        //作成
-        const object = {
-            path: taskPath + id,
-            content: template
-        };
-        await common.fb.setDoc(object);
-        commit("boards/setUpdateDate", null, { root: true });
-    },
+
     /**=============================
    * 初期読み込み
    * @param {*} param0 
@@ -95,8 +77,16 @@ const actions = {
             //初期化タイミングで呼ばれるのを防止する
             if (getters.boardId != undefined) {
                 commit("setTasksData", array);
+                actions.$_completeReadCallback({ dispatch });
             }
         };
+    },
+    /**
+     * readできましたよ
+     */
+    $_completeReadCallback({ dispatch }) {
+        //testで使っている
+        dispatch("utils/completeReceiver", null, { root: true });
     },
     /**
      * ロックの時限解除
@@ -234,7 +224,7 @@ const actions = {
   * @param {*} param0 
   * @param {*} value 
   =============================*/
-    async dragAdded({ rootGetters, getters, dispatch }, value) {
+    async dragAdded({ getters, dispatch }, value) {
         const taskId = value.id;
         const originalBoardId = value.boardId;
         const { projectPath } = getters.info;
@@ -246,7 +236,7 @@ const actions = {
         //オリジナルタスクの消し込み
         await dispatch("task_" + originalBoardId + "/deleteTask", { id: taskId }, { root: true });
         //移動後のタスクの生成
-        await dispatch("insertTask", { template: data, id: taskId });
+        await dispatch("$_insertTask", { template: data, id: taskId });
     },
     /**
      * オリジナルのタスクデータを確保
@@ -257,6 +247,25 @@ const actions = {
         const taskData = await common.fb.getDoc(object);
         const data = taskData.data();
         return data;
+    },
+    /**==============================
+   * Taskの挿入
+   * @param {*} param0 
+   * @param {*} value 
+   ==============================*/
+    async $_insertTask({ getters, commit }, value) {
+        const { taskPath } = getters.info;
+        const id = value.id;
+        const template = value.template;
+        const order = common.util.getOrder(id, getters.tasks, "task");
+        template.task.order = order;
+        //作成
+        const object = {
+            path: taskPath + id,
+            content: template
+        };
+        await common.fb.setDoc(object);
+        commit("boards/setUpdateDate", null, { root: true });
     }
 };
 
