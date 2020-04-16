@@ -12,7 +12,7 @@ import setInitialFBData from "../mock/fbdata";
 
 const localVue = createLocalVue();
 const firebase = require("@firebase/testing");
-const projectId = "kanbandemovuexproducts";
+const projectId = "kanbandemovuextasks";
 
 const teamPath = "workspace/contractId/teams/teamId/";
 const projectPath = "workspace/contractId/teams/teamId/projects/";
@@ -205,7 +205,7 @@ describe("Tasks", () => {
 
                     expect(data[0].task.data).toBe("updatedTask");
                     done();
-                }, 500);
+                }, 1000);
             });
             //実行
             store.dispatch("task_boardId1/updateTask", {
@@ -317,7 +317,6 @@ describe("Tasks", () => {
             let tmp = array[0];
             array[0] = array[1];
             array[1] = tmp;
-            console.log(array[0].task.order, array[1].task.order);
 
             //実行
             store.dispatch("task_boardId1/dragSortUpdate", {

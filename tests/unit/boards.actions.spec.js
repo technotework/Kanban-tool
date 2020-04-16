@@ -95,11 +95,13 @@ describe("boards", () => {
         test("read", done => {
             //Readが終わった後のcallback
             actions.completeReceiver.mockImplementationOnce(() => {
-                const data = store.getters["boards/boards"];
-                //チェック
-                expect(data[0].board.label).toBe("NewBoard1");
-                store.dispatch("app/unregistModule", "task_boardId1");
-                done();
+                setTimeout(() => {
+                    const data = store.getters["boards/boards"];
+                    //チェック
+                    expect(data[0].board.label).toBe("NewBoard1");
+                    store.dispatch("app/unregistModule", "task_boardId1");
+                    done();
+                }, 500);
             });
             //前処理
             store.dispatch("boards/initBoardData", "projectId1");
@@ -204,7 +206,7 @@ describe("boards", () => {
                     const data = store.getters["boards/boards"];
                     expect(data[0].board.order).toBe(5000000);
                     done();
-                }, 500);
+                }, 1000);
             });
             //実行
             let array = store.state.boards.boardsData;

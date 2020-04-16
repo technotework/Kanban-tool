@@ -89,11 +89,13 @@ describe("projects", () => {
          */
         test("read", done => {
             //Readが終わった後のcallback
-            actions.completeReceiver.mockImplementationOnce(() => {
-                const data = store.getters["projects/projects"];
-                //チェック
-                expect(data[0].project.label).toBe("Project1");
-                done();
+            setTimeout(() => {
+                actions.completeReceiver.mockImplementationOnce(() => {
+                    const data = store.getters["projects/projects"];
+                    //チェック
+                    expect(data[0].project.label).toBe("Project1");
+                    done();
+                }, 500);
             });
             //前処理
             store.dispatch("projects/initProjectData");
