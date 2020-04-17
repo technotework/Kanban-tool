@@ -1,4 +1,4 @@
-import { firebaseConfig } from "@/setting";
+import { firebaseConfig } from "./setting";
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
