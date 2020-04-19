@@ -2,7 +2,7 @@
  * ログイン・登録・ログアウト
  */
 import actions from "./actions";
-import { contractId, teamId } from "@/setting";
+import { contractId, teamId } from "@/vender/setting";
 //--------------
 //state
 //--------------
