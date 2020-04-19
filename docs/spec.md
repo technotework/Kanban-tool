@@ -2,7 +2,7 @@
 
 ## 対応環境
 
-* PC Windows10 IE11およびEdge、Chrome、Firefox最新
+* PC Windows10 Edge、Chrome、Firefox最新
 * Mac MacOS10.15 Chrome、Firefox、Safari最新
 * iPad iOS13 Safari
 
@@ -18,6 +18,7 @@
 * SCSS (CSS Modules)
 * node 12.13
   + npm 6.12.0
+
     - VueCLI 3.11.0
       - vuex
       - webpack
@@ -62,17 +63,19 @@
 
 ``` 
 {
+
     //Collection
     contract_type:{
         //Doc
         free | pro | enterprise:{
-            label:String,
-            board_limit:Number (0を無制限とする),
-            member_limit:Number,
-            project_limit:Number,
-            team_limit:Number
+            label: String, 
+            board_limit: Number (0を無制限とする), 
+            member_limit: Number, 
+            project_limit: Number, 
+            team_limit: Number
         }
     }
+
 }
 
 ```
@@ -84,12 +87,14 @@
 ``` 
 //Collection
 {
+
     //Doc
     labels:{
         colors:{
             色名：String (16進数)
         }
     }
+
 }
 ```
 
@@ -99,13 +104,15 @@
 
 ``` 
 {
+
     //Collection
     roles:{
         //doc
         contractor | manager | member:{
-            label:String（表示ロール名）
+            label: String（表示ロール名）
         }
     }
+
 }
 
 ```
@@ -120,22 +127,24 @@
 
 ``` 
 {
+
     //Collection
     users:{
         //Doc
         ユーザーuid:{
-            altid:String (乱数-サービスに直接ユーザーuidを出さないための措置),
-            role:String (contractor | manager | member),
+            altid: String (乱数-サービスに直接ユーザーuidを出さないための措置), 
+            role: String (contractor | manager | member), 
             contracts:{
                 //1契約内の複数チームに所属できる
                 contractId:[teamId, teamId]
-            },
-            img:Boolean (アイコン画像の有無)
-            nickname: String,
+            }, 
+            img: Boolean (アイコン画像の有無)
+            nickname: String, 
             //ユーザーが脱退しても担当タスクに名前は残すため削除フラグ
             is_deleted: Boolean
         }
     }
+
 }
 
 ```
@@ -149,6 +158,7 @@
 
 ``` 
 (c) workspace/ 
+
     (d) contractUid/  
         (c) teams/
             (d) teamUid/
@@ -158,6 +168,7 @@
                             (d) boardUid/
                                 (c) tasks/
                                     (d) taskUid
+
 ```
 
 ##### 各ドキュメントフィールド
@@ -166,14 +177,16 @@
 
 ``` 
 {
+
     //Collection
     workspace:{
         //Doc
         contractUid:{
-            contract_type:String (契約種別名)
-            limit:TimeStamp (契約期限)
+            contract_type: String (契約種別名)
+            limit: TimeStamp (契約期限)
         }
     }
+
 }
 ```
 
@@ -181,13 +194,15 @@
 
 ``` 
 {
+
     //Collection
     teams:{
         //Doc
         teamUid:{
-            label:String (チーム名)
+            label: String (チーム名)
         }
     }
+
 }
 ```
 
@@ -195,16 +210,18 @@
 
 ``` 
 {
+
     //Collection
     projects:{
         //Doc
         projectUid:{
-            id:String,
-            label:String,（プロジェクト名）
-            order:Number, (並び順)
-            update_date:Number (unix時間)
+            id: String, 
+            label: String, （プロジェクト名）
+            order: Number, (並び順)
+            update_date: Number (unix時間)
         }
     }
+
 }
 ```
 
@@ -212,15 +229,17 @@
 
 ``` 
 {
+
     //Collection
     boards:{
         //Doc
         boardsUid:{
-            id:String,
-            label:String,（ボード名）
-            order:Number, (並び順)
+            id: String, 
+            label: String, （ボード名）
+            order: Number, (並び順)
         }
     }
+
 }
 ```
 
@@ -228,23 +247,25 @@
 
 ``` 
 {
+
     //Collection
     tasks:{
         //Doc
         tasksUid:{
-            id:String,
-            data:String,（本文）
-            order:Number, (並び順)
+            id: String, 
+            data: String, （本文）
+            order: Number, (並び順)
             members:[memberAltId], (アサインメンバー)
-            editing:String, (編集ロックのための編集者id)
-            create_user:String,(作成者id)
-            start_date:Number, (unix時間)
-            end_date:Number, (unix時間)
-            editing_date:Number, (unix時間)
-            archive_date:Number, (unix時間)
-            comments:Array (コメント機能を想定)
+            editing: String, (編集ロックのための編集者id)
+            create_user: String, (作成者id)
+            start_date: Number, (unix時間)
+            end_date: Number, (unix時間)
+            editing_date: Number, (unix時間)
+            archive_date: Number, (unix時間)
+            comments: Array (コメント機能を想定)
         }
     }
+
 }
 ```
 
@@ -263,10 +284,11 @@
 1. 契約者ユーザーがアカウント情報入力
 1. 契約者を初期ユーザーとして登録
 1. FirebaseAuth側でユーザーが登録される -> user_uid発行
-1. workspace/ にドキュメントを自動IDで作成
-1. workspace/contract_uid を契約IDとする
-1. つづけて workspace/contract_uid/teams/ に自動IDでドキュメント作成
-1. workspace/contract_uid/teams/team_uid を初期チームIDとする
+
+1.workspace/ にドキュメントを自動IDで作成
+1.workspace/contract_uid を契約IDとする
+1.つづけて workspace/contract_uid/teams/ に自動IDでドキュメント作成
+1.workspace/contract_uid/teams/team_uid を初期チームIDとする
 
 #### 初期データ作成
 
@@ -274,8 +296,8 @@
 
 #### 契約者ユーザーと契約・チームの紐付け
 
-1. usersにuser_uidのドキュメントを作成する
-1. users/user_uid のフィールドにcontract_uidとteam_uidを登録
+1.usersにuser_uidのドキュメントを作成する
+1.users/user_uid のフィールドにcontract_uidとteam_uidを登録
 
 ---
 
@@ -285,16 +307,20 @@
 
 1. 契約者ユーザーは新規ユーザーを登録する
 1. FirebaseAuth側でユーザーが登録される -> user_uid発行
-1. users/user_uidをドキュメントとしてデータを追加
-1. contract_uid と team_uidを該当users/user_uidに登録
+
+1.users/user_uidをドキュメントとしてデータを追加
+1.contract_uid と team_uidを該当users/user_uidに登録
 
 ### ユーザーログインフロー
 
-1. ユーザーはログインする
+1.ユーザーはログインする
+
 1. 認証完了 -> user_uid 取得
-1. usersをuser_uidでひいて、contract_uidとteam_uid特定
-1. workspaceをcontract_uidで参照する
-1. workspace/contract_uid/teams/team_uidでprojectsリストを取得して画面を展開する
+
+1.usersをuser_uidでひいて、contract_uidとteam_uid特定
+1.workspaceをcontract_uidで参照する
+1.workspace/contract_uid/teams/team_uidでprojectsリストを取得して画面を展開する
+
   + デモバージョンではクライアント側で静的にcontract_uidとteam_uidをもつ
 
 ---
@@ -325,19 +351,21 @@ components/user-list/index.vue
 <UserListItem my-prop="" @click="this.$emit('click-on-button')" @enter="onEnter" />
 </template>
 <script>
-import UserListItem from "./user-list-item/";
+import UserListItem from "./user-list-item/"; 
 export default {
-    name:"UserList",
+
+    name:"UserList", 
     props: {
         firstName: String
         lastName: String
-    },
+    }, 
     methods:{
         changeList:function(myName){
-              let currentData = myName;
-        },
-        $_changeList:function(){},
-  },
+              let currentData = myName; 
+        }, 
+        $_changeList:function(){}, 
+
+  }, 
   components:{UserListItem}
 }
 </script>
@@ -349,9 +377,11 @@ export default {
 
 ``` 
 {
+
     "printWidth": 100,
     "tabWidth": 4,
     "jsxBracketSameLine": true
+
 }
 ```
 
