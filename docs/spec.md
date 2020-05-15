@@ -389,6 +389,7 @@ export default {
 
 ## ディレクトリ構成
 
+```
 ├── dist  
 ├── public
 ├── functions(Firebase)
@@ -412,6 +413,7 @@ export default {
 │   ├── main.js   
 │   └── store  
 │       └── modules  
+```
 
 ---
 
