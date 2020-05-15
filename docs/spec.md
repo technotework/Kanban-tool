@@ -451,7 +451,7 @@ export default {
 ## コンポーネント設計
 
 Storybook参照
-https://kanban.technote.work/story/
+https://kanban.technote.work/storybook/
 
 ## コンポーネント・コンテナ・Vuex・Firebaseの対応関係
 
